@@ -14,7 +14,24 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "rules": {
+      "react/jsx-filename-extension": [
+        "js",
+        "jsx"
+      ],
+      "jsx-a11y/href-no-hash": "off",
+      "jsx-a11y/mouse-events-have-key-events": "off",
+      "react/prop-types": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -27,5 +44,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0"
   }
 }
