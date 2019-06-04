@@ -12,10 +12,7 @@ class App extends Component {
     return (
       <div>
         <Map center={this.state.center} zoom={this.state.zoom}>
-          <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png"
-          />
+          <TileLayer url="https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png" />
           <Marker position={this.state.center}>
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
