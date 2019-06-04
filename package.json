@@ -46,6 +46,8 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-airbnb": "^17.1.0"
+    "eslint-config-airbnb": "^17.1.0",
+    "leaflet": "^1.5.1",
+    "react-leaflet": "^2.3.0"
   }
 }
