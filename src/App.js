@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import AppMap from './Components/AppMap';
 
 class App extends Component {
   state = {
-    center: [49.2580045, 4.0317044],
     zoom: 14,
+    coordonnees: [],
   };
 
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.setState({ coordonnees: [position.coords.latitude, position.coords.longitude] });
+    });
+  }
+
   render() {
+    const { coordonnees, zoom } = this.state;
     return (
       <div>
-        <Map center={this.state.center} zoom={this.state.zoom}>
-          <TileLayer url="https://maps.heigit.org/openmapsurfer/tiles/roads/webmercator/{z}/{x}/{y}.png" />
-          <Marker position={this.state.center}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        </Map>
+        {coordonnees.length && <AppMap coordonnees={coordonnees} zoom={zoom} />}
       </div>
     );
   }
