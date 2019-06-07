@@ -4,10 +4,12 @@ import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 
-const AppMap = ({ coordonnees, zoom, pins }) => (
-  <Map center={coordonnees} zoom={zoom}>
+const AppMap = ({
+  geolocCoordonnees, defaultCoordonnees, zoom, pins,
+}) => (
+  <Map center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees} zoom={zoom}>
     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-    <Marker position={coordonnees}>
+    <Marker position={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees}>
       <Popup>
         User
       </Popup>
@@ -19,7 +21,6 @@ const AppMap = ({ coordonnees, zoom, pins }) => (
         </Popup>
       </Marker>
     ))}
-
   </Map>
 );
 
