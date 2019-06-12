@@ -4,7 +4,6 @@ import './App.css';
 import AppMap from './Components/AppMap';
 import SearchBar from './Components/searchBar';
 
-
 class App extends Component {
   state = {
     zoom: 16,
@@ -12,7 +11,6 @@ class App extends Component {
     defaultCoordonnees: [49.260096, 4.030293],
     poiSampleDisplay: [],
   };
-
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -29,9 +27,8 @@ class App extends Component {
     } = this.state;
     return (
       <div>
-        <SearchBar className="searchbar" />
+        <SearchBar />
         <AppMap
-          className="map"
           pins={poiSampleDisplay}
           geolocCoordonnees={geolocCoordonnees}
           defaultCoordonnees={defaultCoordonnees}

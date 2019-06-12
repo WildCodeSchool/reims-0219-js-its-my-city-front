@@ -7,12 +7,10 @@ import { ReactComponent as Logo } from './pictos/search.svg';
 
 const SearchBar = () => (
   <div>
-    <form className="search-box">
-      <div>
-        <input className="search-text" type="text" placeholder="Rechercher" />
-        <Logo className="search-logo" />
-      </div>
-    </form>
+    <div className="search-box">
+      <input className="search-text" type="text" placeholder="Rechercher" autoComplete="off" />
+      <Logo className="search-logo" />
+    </div>
   </div>
 );
 

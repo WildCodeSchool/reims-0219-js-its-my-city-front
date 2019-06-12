@@ -2,13 +2,3 @@
   font-family: sans-serif;
   text-align: center;
 }
-
-.searchbar{
-  position: relative;
-  z-index: 2;
-}
-
-.map{
-  position: relative;
-  z-index: 1;
-}
