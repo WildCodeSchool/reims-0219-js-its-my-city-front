@@ -1,0 +1,29 @@
+.search-box{
+    position: relative;
+    z-index: 1;
+    height: 8vh;    
+    border-radius: 3vh 3vh 1vh 1vh;
+    border: solid 0.4px;
+    box-shadow: 2px 5px 8px black;  
+}
+
+.search-text{
+    outline: none;
+    background: none;
+    border: none;
+    width: 80%;
+    font-size: 20px;
+    line-height: 40px;
+    margin-top: 0.5vh;
+    margin-left: 1vh;
+}
+
+.search-logo {
+    z-index: 2;
+    float:right;
+    background: white;
+    position: relative;
+    height : 6vh;
+    margin-right: 1.5vh;
+    margin-top: 0.5vh;
+}

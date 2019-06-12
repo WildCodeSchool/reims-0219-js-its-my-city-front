@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import AppMap from './Components/AppMap';
+import SearchBar from './Components/searchBar';
+
 
 class App extends Component {
   state = {
-    zoom: 14,
+    zoom: 16,
     geolocCoordonnees: [],
     defaultCoordonnees: [49.260096, 4.030293],
     poiSampleDisplay: [],
@@ -27,7 +29,9 @@ class App extends Component {
     } = this.state;
     return (
       <div>
+        <SearchBar className="searchbar" />
         <AppMap
+          className="map"
           pins={poiSampleDisplay}
           geolocCoordonnees={geolocCoordonnees}
           defaultCoordonnees={defaultCoordonnees}
@@ -37,6 +41,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

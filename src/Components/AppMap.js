@@ -7,7 +7,7 @@ import {
 const AppMap = ({
   geolocCoordonnees, defaultCoordonnees, zoom, pins,
 }) => (
-  <Map center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees} zoom={zoom}>
+  <Map center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees} zoom={zoom} zoomControl={false}>
     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
     <Marker position={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees}>
       <Popup>
