@@ -1,31 +1,43 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
 import PoiInformation from './Components/PoiInformations';
 
+const mapStateToProps = state => ({
+  zoom: state.zoom,
+  geolocCoordonnees: state.geolocCoordonnees,
+  defaultCoordonnees: state.defaultCoordonnees,
+  poiSampleDisplay: state.poiSampleDisplay,
+  specificPoiInfos: state.specificPoiInfos,
+});
+
+
 class App extends Component {
-  state = {
-    zoom: 16,
-    geolocCoordonnees: [],
-    defaultCoordonnees: [49.260096, 4.030293],
-    poiSampleDisplay: [],
-  };
-
-
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
-      this.setState({ geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
+      this.props.dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
     axios.get('http://localhost:3001/pois/sample')
-      .then(response => this.setState({ poiSampleDisplay: response.data }))
+      .then(response => this.props.dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
+      .catch(err => console.log(err));
+  }
+
+  showPoiInfos = (id) => {
+    axios.get(`http://localhost:3001/pois/${id}`)
+      .then(response => this.props.dispatch({ type: 'GET_POI_INFOS', specificPoiInfos: response.data }))
       .catch(err => console.log(err));
   }
 
   render() {
     const {
-      geolocCoordonnees, defaultCoordonnees, zoom, poiSampleDisplay,
-    } = this.state;
+      poiSampleDisplay,
+      geolocCoordonnees,
+      defaultCoordonnees,
+      zoom,
+      specificPoiInfos,
+    } = this.props;
     return (
       <div>
         <AppMap
@@ -33,12 +45,12 @@ class App extends Component {
           geolocCoordonnees={geolocCoordonnees}
           defaultCoordonnees={defaultCoordonnees}
           zoom={zoom}
+          showPoiInfos={this.showPoiInfos}
         />
-        <PoiInformation />
+        {specificPoiInfos.length && <PoiInformation specificPoiInfos={specificPoiInfos[0]} />}
       </div>
     );
   }
 }
 
-
-export default App;
+export default connect(mapStateToProps)(App);
