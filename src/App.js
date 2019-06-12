@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import AppMap from './Components/AppMap';
 import SearchBar from './Components/searchBar';
+import FooterBar from './Components/footerBar';
 
 class App extends Component {
   state = {
@@ -34,6 +35,7 @@ class App extends Component {
           defaultCoordonnees={defaultCoordonnees}
           zoom={zoom}
         />
+        <FooterBar />
       </div>
     );
   }

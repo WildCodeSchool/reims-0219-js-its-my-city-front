@@ -12,6 +12,7 @@
 }
 
 .search-text{
+    color: #99003d;
     position: relative;
     z-index: 3;
     outline: none;
@@ -29,7 +30,7 @@
     z-index: 4;
     float:right;
     background: white;
-    height : 6vh;
+    height : 5.5vh;
     margin-right: 2vh;
-    margin-top: 0.5vh;
+    margin-top: 1vh;
 }

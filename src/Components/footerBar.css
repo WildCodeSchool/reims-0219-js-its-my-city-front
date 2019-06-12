@@ -1,0 +1,21 @@
+.footer-box{
+    width: 90%;
+    position: absolute;
+    z-index: 3;
+    height: 8vh;    
+    border-radius: 1vh 1vh 3vh 3vh;
+    border: solid 0.4px;
+    box-shadow: 2px 5px 8px black;
+    background-color: white;
+    margin-left: 2.5vh;
+    margin-top: 89vh;  
+}
+
+.footer-logo {
+    position: relative;
+    z-index: 4;
+    float: right;
+    height : 6vh;
+    margin-right: 2vh;
+    margin-top: 1vh;
+}
