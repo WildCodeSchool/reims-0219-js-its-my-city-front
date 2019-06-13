@@ -8,10 +8,19 @@
     box-shadow: 2px 5px 8px black;
     background-color: white;
     margin-left: 2.5vh;
-    margin-top: 89vh;  
+    margin-top: 88vh;  
 }
 
-.footer-logo {
+.add-logo {
+    position: relative;
+    z-index: 4;
+    float: left;
+    height : 6vh;
+    margin-left: 2vh;
+    margin-top: 1vh;
+}
+
+.profile-logo{
     position: relative;
     z-index: 4;
     float: right;
