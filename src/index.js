@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from './reducers/reducer';
+import poisReducer from './reducers/poisReducer';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(reducer,
+const store = createStore(poisReducer,
   // eslint-disable-next-line no-underscore-dangle
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

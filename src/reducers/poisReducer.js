@@ -6,7 +6,7 @@ const initialState = {
   specificPoiInfos: [],
 };
 
-const reducer = (state = initialState, action) => {
+const poisReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'GET_CURRENT_POSITION':
       return {
@@ -33,4 +33,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default poisReducer;

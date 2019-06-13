@@ -1,5 +1,5 @@
 import React from 'react';
-import './AppMap.css';
+import './ComponentsCSS/AppMap.css';
 import { connect } from 'react-redux';
 import {
   Map, TileLayer, Marker, Popup,
@@ -10,7 +10,6 @@ const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
   defaultCoordonnees: state.defaultCoordonnees,
   poiSampleDisplay: state.poiSampleDisplay,
-  specificPoiInfos: state.specificPoiInfos,
 });
 
 const AppMap = ({
@@ -19,7 +18,6 @@ const AppMap = ({
   zoom,
   poiSampleDisplay,
   showPoiInfos,
-  dispatch,
 }) => (
   <Map center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees} zoom={zoom}>
     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

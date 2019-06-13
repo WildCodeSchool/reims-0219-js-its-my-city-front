@@ -1,5 +1,10 @@
 import React from 'react';
-import './PoiInformation.css';
+import './ComponentsCSS/PoiInformation.css';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+  specificPoiInfos: state.specificPoiInfos[0],
+});
 
 const PoiInformation = ({ specificPoiInfos }) => (
   <div>
@@ -36,4 +41,4 @@ const PoiInformation = ({ specificPoiInfos }) => (
   </div>
 );
 
-export default PoiInformation;
+export default connect(mapStateToProps)(PoiInformation);
