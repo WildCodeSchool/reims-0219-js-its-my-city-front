@@ -1,0 +1,18 @@
+.informationPage {
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+.informationUser {
+    float: right;
+    margin-right: 6vh;
+}
+img {
+    width: 25vh;
+	height: 25vh;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
