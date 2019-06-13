@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import AppMap from './Components/AppMap';
 import SearchBar from './Components/searchBar';
-import FooterBar from './Components/footerBar';
+import FooterBar from './Components/filterBar';
 
 class App extends Component {
   state = {

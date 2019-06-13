@@ -1,4 +1,5 @@
 .footer-box{
+    justify-content: space-between;
     width: 90%;
     position: absolute;
     z-index: 3;
@@ -8,23 +9,30 @@
     box-shadow: 2px 5px 8px black;
     background-color: white;
     margin-left: 2.5vh;
-    margin-top: 88vh;  
+    margin-top: 88vh;
+}
+
+.filter-logo{
+    width: 30%;
+    position: relative;
+    z-index: 4;
+    height : 7vh;
+    float: left;
+    margin-top: 0.4vh;
 }
 
 .add-logo {
+    width: 16%;
     position: relative;
     z-index: 4;
-    float: left;
-    height : 6vh;
-    margin-left: 2vh;
-    margin-top: 1vh;
+    margin-left: 5.9vh;
 }
 
 .profile-logo{
+    width: 30%;
     position: relative;
+    float: none;
     z-index: 4;
     float: right;
-    height : 6vh;
-    margin-right: 2vh;
-    margin-top: 1vh;
+    height : 8vh;
 }

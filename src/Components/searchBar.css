@@ -18,7 +18,7 @@
     outline: none;
     background: none;
     border: none;
-    width: 80%;
+    width: 70%;
     font-size: 20px;
     line-height: 40px;
     margin-top: 0.7vh;
@@ -29,8 +29,8 @@
     position: relative;
     z-index: 4;
     float:right;
+    width: 14%;
     background: white;
-    height : 5.5vh;
     margin-right: 2vh;
-    margin-top: 1vh;
+    margin-top: 0.4vh;
 }
