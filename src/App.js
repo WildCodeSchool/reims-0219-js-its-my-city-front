@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import AppMap from './Components/AppMap';
+import PoiInformation from './Components/PoiInformations';
 
 class App extends Component {
   state = {
-    zoom: 14,
+    zoom: 16,
     geolocCoordonnees: [],
     defaultCoordonnees: [49.260096, 4.030293],
     poiSampleDisplay: [],
@@ -33,6 +34,7 @@ class App extends Component {
           defaultCoordonnees={defaultCoordonnees}
           zoom={zoom}
         />
+        <PoiInformation />
       </div>
     );
   }
