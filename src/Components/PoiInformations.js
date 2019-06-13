@@ -1,25 +1,44 @@
 import React from 'react';
-import './PoiInformation.css';
+import './ComponentsCSS/PoiInformation.css';
+import { connect } from 'react-redux';
 
-const PoiInformation = () => (
+const mapStateToProps = state => ({
+  specificPoiInfos: state.specificPoiInfos[0],
+});
+
+const PoiInformation = ({ specificPoiInfos }) => (
   <div>
     <div className="informationPage">
-      <h1>Table de ping pong</h1>
+      <h1>{specificPoiInfos.name}</h1>
       <hr />
       <p>Adresse</p>
       <p>code postal ville</p>
       <p>Distance</p>
-      <img src="http://www.tessier-rp.com/wp-content/uploads/2015/07/ping_pong_2.jpg" alt="table ping pong" />
+      <img src={specificPoiInfos.picture_url} alt="table ping pong" />
       <div className="informationUser">
-        <p>create by...</p>
+        <p>{specificPoiInfos.author}</p>
         <p>le ...</p>
       </div>
     </div>
     <div>
-      <h2>informations</h2>
-      <p>...</p>
+      <h2>
+        Note moyenne :
+        {specificPoiInfos.grades.average}
+      </h2>
+      <p>
+        Accessibilité :
+        {specificPoiInfos.grades.accessibility}
+      </p>
+      <p>
+        Etat :
+        {specificPoiInfos.grades.condition}
+      </p>
+      <p>
+        Fonctionnalité :
+        {specificPoiInfos.grades.functional}
+      </p>
     </div>
   </div>
 );
 
-export default PoiInformation;
+export default connect(mapStateToProps)(PoiInformation);
