@@ -6,7 +6,7 @@ import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 import L from 'leaflet';
-import Pins from './Pictos/Pins';
+import Pins from './ComponentPins/Pins';
 
 const mapStateToProps = state => ({
   zoom: state.zoom,
