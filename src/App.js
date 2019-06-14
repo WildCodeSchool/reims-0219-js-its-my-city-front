@@ -1,43 +1,45 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
+import PoiInformation from './Components/PoiInformations';
 
+const mapStateToProps = state => ({
+  geolocCoordonnees: state.geolocCoordonnees,
+  poiSampleDisplay: state.poiSampleDisplay,
+  specificPoiInfos: state.specificPoiInfos,
+});
 
 class App extends Component {
-  state = {
-    zoom: 14,
-    geolocCoordonnees: [],
-    defaultCoordonnees: [49.260096, 4.030293],
-    poiSampleDisplay: [],
-  };
-
-
   componentDidMount() {
+    const { dispatch } = this.props;
     navigator.geolocation.getCurrentPosition((position) => {
-      this.setState({ geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
+      dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
     axios.get('http://localhost:3001/pois/sample')
-      .then(response => this.setState({ poiSampleDisplay: response.data }))
+      .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
+      .catch(err => console.log(err));
+  }
+
+  showPoiInfos = (id) => {
+    const { dispatch } = this.props;
+    axios.get(`http://localhost:3001/pois/${id}`)
+      .then(response => dispatch({ type: 'GET_POI_INFOS', specificPoiInfos: response.data }))
       .catch(err => console.log(err));
   }
 
   render() {
     const {
-      geolocCoordonnees, defaultCoordonnees, zoom, poiSampleDisplay,
-    } = this.state;
+      specificPoiInfos,
+    } = this.props;
     return (
       <div>
-        <AppMap
-          pins={poiSampleDisplay}
-          geolocCoordonnees={geolocCoordonnees}
-          defaultCoordonnees={defaultCoordonnees}
-          zoom={zoom}
-        />
+        <AppMap showPoiInfos={this.showPoiInfos} />
+        {specificPoiInfos.length && <PoiInformation />}
       </div>
     );
   }
 }
 
-
-export default App;
+export default connect(mapStateToProps)(App);
