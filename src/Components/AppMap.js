@@ -19,7 +19,8 @@ const AppMap = ({
   poiSampleDisplay,
   showPoiInfos,
 }) => (
-  <Map center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees} zoom={zoom}>
+  // eslint-disable-next-line max-len
+  <Map center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees} zoom={zoom} zoomControl={false}>
     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
     <Marker position={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees}>
       <Popup>

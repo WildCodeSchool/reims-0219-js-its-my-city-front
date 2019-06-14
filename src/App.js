@@ -3,6 +3,8 @@ import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
+import SearchBar from './Components/searchBar';
+import FooterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 
 const mapStateToProps = state => ({
@@ -35,8 +37,10 @@ class App extends Component {
     } = this.props;
     return (
       <div>
+        <SearchBar />
         <AppMap showPoiInfos={this.showPoiInfos} />
         {specificPoiInfos.length && <PoiInformation />}
+        <FooterBar />
       </div>
     );
   }
