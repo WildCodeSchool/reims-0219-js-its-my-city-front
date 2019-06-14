@@ -1,9 +1,12 @@
 import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 import './ComponentsCSS/AppMap.css';
 import { connect } from 'react-redux';
 import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet';
+import L from 'leaflet';
+import Pins from './Pictos/Pins';
 
 const mapStateToProps = state => ({
   zoom: state.zoom,
@@ -11,6 +14,12 @@ const mapStateToProps = state => ({
   defaultCoordonnees: state.defaultCoordonnees,
   poiSampleDisplay: state.poiSampleDisplay,
 });
+
+const customPins = keyword => L.divIcon({
+  html: ReactDOMServer.renderToString(<Pins currentKeyword={keyword} />),
+  iconSize: [60, 75],
+});
+
 
 const AppMap = ({
   geolocCoordonnees,
@@ -27,7 +36,12 @@ const AppMap = ({
       </Popup>
     </Marker>
     {poiSampleDisplay.map(pin => (
-      <Marker key={pin.id} onClick={() => showPoiInfos(pin.id)} position={pin.localisation} />
+      <Marker
+        icon={customPins(pin.id)}
+        key={pin.id}
+        onClick={() => showPoiInfos(pin.id)}
+        position={pin.localisation}
+      />
     ))}
   </Map>
 );
