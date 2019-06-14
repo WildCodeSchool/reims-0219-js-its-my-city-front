@@ -7,8 +7,8 @@ const mapStateToProps = state => ({
 });
 
 const PoiInformation = ({ specificPoiInfos }) => (
-  <div>
-    <div className="informationPage">
+  <div className="informationPage">
+    <div>
       <h1>{specificPoiInfos.name}</h1>
       <hr />
       <p>Adresse</p>
@@ -20,7 +20,7 @@ const PoiInformation = ({ specificPoiInfos }) => (
         <p>le ...</p>
       </div>
     </div>
-    <div>
+    <div className="grades">
       <h2>
         Note moyenne :
         {specificPoiInfos.grades.average}
