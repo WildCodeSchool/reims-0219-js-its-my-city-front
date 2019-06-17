@@ -4,6 +4,7 @@ const initialState = {
   defaultCoordonnees: [49.260096, 4.030293],
   poiSampleDisplay: [],
   specificPoiInfos: [],
+  searchBarValueInput: '',
 };
 
 const poisReducer = (state = initialState, action) => {
