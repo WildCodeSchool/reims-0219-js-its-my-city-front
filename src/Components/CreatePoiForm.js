@@ -17,7 +17,7 @@ const CreatePoiForm = () => (
       </div>
 
       <div className="form-data">
-        <label htmlFor="latitude">Prénom</label>
+        <label htmlFor="latitude">Latitude</label>
         <input
           type="text"
           id="latitude"
@@ -26,7 +26,7 @@ const CreatePoiForm = () => (
       </div>
 
       <div className="form-data">
-        <label htmlFor="longitude">Prénom</label>
+        <label htmlFor="longitude">Longitude</label>
         <input
           type="text"
           id="longitude"
