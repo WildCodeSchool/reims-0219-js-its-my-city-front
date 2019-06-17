@@ -17,6 +17,13 @@
     margin-top: 9vh;
 }
 
+.closeButton{
+    border-radius: 600px;
+    width: 25px;
+    margin-top: 0px;
+    float: right;
+}
+
 img {
     width: 25vh;
 	height: 25vh;
@@ -27,3 +34,5 @@ h1{
 h2{
     text-align: center;
 }
+
+

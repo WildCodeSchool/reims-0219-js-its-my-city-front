@@ -28,6 +28,11 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
       };
+    case 'CLOSE_POI_INFOS':
+      return {
+        ...state,
+        specificPoiInfos: action.specificPoiInfos,
+      };
     default:
       return state;
   }
