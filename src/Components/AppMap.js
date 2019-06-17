@@ -26,13 +26,12 @@ const customPins = keyword => L.divIcon({
   iconSize: [40, 65],
 });
 
-
 const AppMap = ({
   geolocCoordonnees,
   defaultCoordonnees,
   zoom,
   poiSampleDisplay,
-  showPoiInfos,
+  dispatch,
 }) => (
   // eslint-disable-next-line max-len
   <Map center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees} zoom={zoom} zoomControl={false}>
@@ -49,7 +48,7 @@ const AppMap = ({
       <Marker
         icon={customPins(pin.keywordName)}
         key={pin.id}
-        onClick={() => showPoiInfos(pin.id)}
+        onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poiSampleDisplay[pin.id] })}
         position={pin.localisation}
       />
     ))}
