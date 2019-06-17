@@ -1,7 +1,57 @@
 .poi-create{
-    height: 70vh;
+    height: 50vh;
     position: relative;
     z-index: 4;
-    background-color: cadetblue;
+    background-color: white;
+    margin-top: 10vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    color: #DD476D;
+    font-weight: bold;
 }
 
+label{
+    margin: 3px;
+    width: 80%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+select{
+    margin-left: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90%;
+    border-radius: 5px;
+    border-color: #DD476D;
+    background-color: white;
+}
+
+legend, .poi-address{
+    text-align: center;
+}
+.poi-address span{
+    color: black;
+}
+.poi-name > input{
+    margin-left: 3px;
+    margin-bottom: 5px;
+    width: 89%;
+    border-radius: 5px;
+}
+.submit-button{
+    display: flex;
+    justify-content: center;
+    
+}
+.submit-button > input{
+    width: 30%;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color:#DD476D;
+    border: none;
+    padding: 3px;
+  }

@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import './ComponentsCSS/createPoiForm.css';
 import axios from 'axios';
 
-const onSubmit = () => {
+const onSubmit = (url, data) => {
   axios.post(url, data)
     .then(res => console.log(`${res} has been properly sent`))
     .catch(err => console.log(err));
@@ -14,37 +16,29 @@ const CreatePoiForm = () => (
     <form className="poi-create">
 
       <legend>Ajoutez un point d'intérêt</legend>
-      <div className="form-data">
+      <div className="poi-address">
+        <p>
+          Adresse:
+          <span> en fonction des coordonnées gps</span>
+        </p>
+      </div>
+
+
+      <div className="poi-name">
         <label htmlFor="poiName">Nom</label>
+        <br />
         <input
           type="text"
           id="poiName"
           name="poiName"
+          required
         />
       </div>
-
-      <div className="form-data">
-        <label htmlFor="latitude">Latitude</label>
-        <input
-          type="text"
-          id="latitude"
-          name="latitude"
-        />
-      </div>
-
-      <div className="form-data">
-        <label htmlFor="longitude">Longitude</label>
-        <input
-          type="text"
-          id="longitude"
-          name="longitude"
-        />
-      </div>
-      <div className="form-data">
+      <div>
         <label htmlFor="keywordOne">Catégorie:</label>
-
-        <select id="keywordOne">
-          <option value="">--Choisissez une catégorie (obligatoire)--</option>
+        <br />
+        <select id="keywordOne" required>
+          <option value="">Choisissez une catégorie (obligatoire)</option>
           <option value="nature">Nature</option>
           <option value="sport">Sport</option>
           <option value="attraction">Attraction</option>
@@ -54,16 +48,16 @@ const CreatePoiForm = () => (
         </select>
       </div>
 
-      <div className="form-data">
+      <div>
         <label htmlFor="keywordTwo">Sous-catégorie:</label>
-
+        <br />
         <select id="keywordTwo">
-          <option value="">--Choisissez une sous-catégorie (facultatif)--</option>
+          <option value="">Choisissez une sous-catégorie (facultatif)</option>
           <option value="sports_collectifs">Sports Collectifs</option>
         </select>
       </div>
-      <hr />
-      <div className="form-data">
+      <br />
+      <div className="submit-button">
         <input type="submit" value="Envoyer" />
       </div>
 
