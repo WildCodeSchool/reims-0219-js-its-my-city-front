@@ -6,6 +6,7 @@ import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
 import FooterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
+import CreatePoiForm from './Components/CreatePoiForm';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
@@ -41,6 +42,7 @@ class App extends Component {
         <AppMap showPoiInfos={this.showPoiInfos} />
         {specificPoiInfos.length && <PoiInformation />}
         <FooterBar />
+        <CreatePoiForm />
       </div>
     );
   }
