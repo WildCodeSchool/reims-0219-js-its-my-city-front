@@ -26,6 +26,7 @@ select{
     border-radius: 3vh;
     border-color: #DD476D;
     background-color: white;
+    outline: none;
 }
 legend{
     text-align: center;
@@ -43,6 +44,7 @@ legend{
     margin-bottom: 3vh;
     width: 89%;
     border-radius: 3vh;
+    outline: none;
 }
 .submit-button{
     display: flex;
