@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
 });
 
+
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
@@ -25,12 +26,6 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  showPoiInfos = (id) => {
-    const { dispatch } = this.props;
-    axios.get(`http://localhost:3001/pois/${id}`)
-      .then(response => dispatch({ type: 'GET_POI_INFOS', specificPoiInfos: response.data }))
-      .catch(err => console.log(err));
-  }
 
   render() {
     const {
@@ -39,8 +34,8 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        <AppMap showPoiInfos={this.showPoiInfos} />
-        {specificPoiInfos.length && <PoiInformation />}
+        <AppMap />
+        {Object.keys(specificPoiInfos).length && <PoiInformation />}
         <FooterBar />
         <CreatePoiForm />
       </div>

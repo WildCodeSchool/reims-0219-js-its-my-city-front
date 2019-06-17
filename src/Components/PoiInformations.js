@@ -3,7 +3,7 @@ import './ComponentsCSS/PoiInformation.css';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  specificPoiInfos: state.specificPoiInfos[0],
+  specificPoiInfos: state.specificPoiInfos,
 });
 
 const PoiInformation = ({ specificPoiInfos }) => (
@@ -17,7 +17,10 @@ const PoiInformation = ({ specificPoiInfos }) => (
       <img src={specificPoiInfos.picture_url} alt="table ping pong" />
       <div className="informationUser">
         <p>{specificPoiInfos.author}</p>
-        <p>le ...</p>
+        <p>
+          le
+          {specificPoiInfos.creation_date}
+        </p>
       </div>
     </div>
     <div className="grades">
