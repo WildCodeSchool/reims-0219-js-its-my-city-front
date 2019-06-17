@@ -23,7 +23,7 @@ const mapStateToProps = state => ({
 
 const customPins = keyword => L.divIcon({
   html: ReactDOMServer.renderToString(<Pins currentKeyword={keyword} />),
-  iconSize: [60, 75],
+  iconSize: [40, 65],
 });
 
 
@@ -47,7 +47,7 @@ const AppMap = ({
     </Marker>
     {poiSampleDisplay.map(pin => (
       <Marker
-        icon={customPins(pin.id)}
+        icon={customPins(pin.keywordName)}
         key={pin.id}
         onClick={() => showPoiInfos(pin.id)}
         position={pin.localisation}
