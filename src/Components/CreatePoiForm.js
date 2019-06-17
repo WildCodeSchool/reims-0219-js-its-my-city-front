@@ -1,5 +1,12 @@
 import React from 'react';
 import './ComponentsCSS/createPoiForm.css';
+import axios from 'axios';
+
+const onSubmit = () => {
+  axios.post(url, data)
+    .then(res => console.log(`${res} has been properly sent`))
+    .catch(err => console.log(err));
+};
 
 const CreatePoiForm = () => (
   // eslint-disable-next-line no-unused-expressions
