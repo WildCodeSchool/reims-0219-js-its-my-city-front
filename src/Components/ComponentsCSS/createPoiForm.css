@@ -1,5 +1,5 @@
 .poi-create{
-    height: 50vh;
+    max-height: 90vh;
     position: relative;
     z-index: 4;
     background-color: white;
@@ -14,31 +14,35 @@
 label{
     margin: 3px;
     width: 80%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 
 select{
     margin-left: 3px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     width: 90%;
-    border-radius: 5px;
+    border-radius: 3vh;
     border-color: #DD476D;
     background-color: white;
 }
-
-legend, .poi-address{
+legend{
     text-align: center;
+    padding-top: 20px;
+}
+.poi-address{
+    text-align: center;
+    margin-top: 20px;
 }
 .poi-address span{
     color: black;
 }
 .poi-name > input{
     margin-left: 3px;
-    margin-bottom: 5px;
+    margin-bottom: 3vh;
     width: 89%;
-    border-radius: 5px;
+    border-radius: 3vh;
 }
 .submit-button{
     display: flex;
@@ -48,8 +52,8 @@ legend, .poi-address{
 .submit-button > input{
     width: 30%;
     text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
     border-radius: 10px;
     background-color:#DD476D;
     border: none;

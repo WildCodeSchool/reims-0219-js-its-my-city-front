@@ -24,7 +24,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
       };
-    case 'SHOW_POI_CREATION_FORM':
+    case 'TOGGLE_POI_CREATION_FORM':
       return {
         ...state,
         isCreateFormDisplayed: !state.isCreateFormDisplayed,
