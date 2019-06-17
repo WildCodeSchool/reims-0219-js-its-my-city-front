@@ -1,5 +1,5 @@
 import React from 'react';
-import './ComponentsCSS/PoiInformation.css';
+import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -14,7 +14,9 @@ const PoiInformation = ({ specificPoiInfos }) => (
       <p>Adresse</p>
       <p>code postal ville</p>
       <p>Distance</p>
-      <img src={specificPoiInfos.picture_url} alt="table ping pong" />
+      <div className="informationPicture">
+        <img src={specificPoiInfos.picture_url} alt="table ping pong" />
+      </div>
       <div className="informationUser">
         <p>{specificPoiInfos.author}</p>
         <p>le ...</p>

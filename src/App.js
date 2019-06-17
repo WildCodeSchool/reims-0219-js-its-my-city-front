@@ -40,7 +40,7 @@ class App extends Component {
         <SearchBar />
         <AppMap showPoiInfos={this.showPoiInfos} />
         {specificPoiInfos.length && <PoiInformation />}
-        <FooterBar />
+        {!specificPoiInfos.length && <FooterBar />}
       </div>
     );
   }

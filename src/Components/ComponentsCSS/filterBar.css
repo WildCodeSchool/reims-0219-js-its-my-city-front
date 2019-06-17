@@ -1,15 +1,15 @@
 .footer-box{
     justify-content: space-between;
     width: 90%;
-    position: absolute;
-    z-index: 3;
+    position: relative;
+    z-index: 2;
     height: 8vh;    
     border-radius: 1vh 1vh 3vh 3vh;
     border: solid 0.4px;
     box-shadow: 2px 5px 8px #2F2F2F;
     background-color: white;
     margin-left: 2.5vh;
-    margin-top: 86vh;
+    margin-top: 87vh;
 }
 
 .filter-logo{
