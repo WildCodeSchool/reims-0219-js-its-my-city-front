@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
-import SearchBar from './Components/searchBar';
+import SearchBar from './Components/SearchBar';
 import FooterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 

@@ -1,5 +1,3 @@
-/* eslint-disable react/prefer-stateless-function */
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import './ComponentsCSS/searchBar.css';
 import { ReactComponent as Logo } from './pictos/search.svg';
