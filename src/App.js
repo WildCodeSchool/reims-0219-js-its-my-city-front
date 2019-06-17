@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
   poiSampleDisplay: state.poiSampleDisplay,
   specificPoiInfos: state.specificPoiInfos,
+  isCreateFormDisplayed: state.isCreateFormDisplayed,
 });
 
 
@@ -30,6 +31,7 @@ class App extends Component {
   render() {
     const {
       specificPoiInfos,
+      isCreateFormDisplayed,
     } = this.props;
     return (
       <div>
@@ -37,7 +39,7 @@ class App extends Component {
         <AppMap />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         <FooterBar />
-        <CreatePoiForm />
+        {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );
   }

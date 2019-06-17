@@ -4,6 +4,7 @@ const initialState = {
   defaultCoordonnees: [49.260096, 4.030293],
   poiSampleDisplay: [],
   specificPoiInfos: [],
+  isCreateFormDisplayed: false,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -22,6 +23,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
+      };
+    case 'SHOW_POI_CREATION_FORM':
+      return {
+        ...state,
+        isCreateFormDisplayed: !state.isCreateFormDisplayed,
       };
     default:
       return state;

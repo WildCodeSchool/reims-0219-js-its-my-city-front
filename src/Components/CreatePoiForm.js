@@ -13,7 +13,7 @@ const onSubmit = (url, data) => {
 const CreatePoiForm = () => (
   // eslint-disable-next-line no-unused-expressions
   <div>
-    <form className="poi-create">
+    <form className="poi-create" method="POST">
 
       <legend>Ajoutez un point d'intérêt</legend>
       <div className="poi-address">
