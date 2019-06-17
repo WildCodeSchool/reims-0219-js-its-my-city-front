@@ -1,5 +1,5 @@
 import React from 'react';
-import './ComponentsCSS/searchBar.css';
+import './ComponentsCSS/searchBar.scss';
 import { ReactComponent as Logo } from './pictos/search.svg';
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import './ComponentsCSS/PoiInformation.css';
+import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
