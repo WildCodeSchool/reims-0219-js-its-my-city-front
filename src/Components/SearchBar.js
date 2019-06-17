@@ -7,10 +7,20 @@ const mapStateToProps = state => ({
   searchBarValueInput: state.searchBarValueInput,
 });
 
-const SearchBar = ({ dispatch, searchBarValueInput }) => (
+const handleChange = (e) => {
+  const { dispatch } = this.props;
+  dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', searchBarValueInput: e.target.value });
+};
+
+const SearchBar = () => (
   <div>
     <div className="search-box">
-      <input className="search-text" type="text" placeholder="Rechercher" onChange={() => dispatch } />
+      <input
+        className="search-text"
+        type="text"
+        placeholder="Rechercher"
+        onChange={handleChange}
+      />
       <Logo className="search-logo" />
     </div>
   </div>

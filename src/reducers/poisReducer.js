@@ -29,6 +29,11 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
       };
+    case 'HANDLE_SEARCHBAR_INPUT':
+      return {
+        ...state,
+        searchBarValueInput: action.searchBarValueInput,
+      };
     default:
       return state;
   }
