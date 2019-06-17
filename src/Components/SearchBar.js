@@ -12,7 +12,10 @@ const keywords = [
   { name: 'Sport' },
 ];
 
-const filterKeywords = (keyword, userInput) => keyword.filter(el => el.name.toLowerCase().indexOf(userInput.toLowerCase()) !== -1);
+// Filter all keywords where the index is different from -1,
+// and lower case them all to be case insensitive
+const filterKeywords = (keyword, userInput) => keyword.filter(el => el.name
+  .toLowerCase().indexOf(userInput.toLowerCase()) !== -1);
 
 const SearchBar = ({ dispatch, searchBarValueInput }) => (
   <div>
