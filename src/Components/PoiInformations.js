@@ -1,5 +1,5 @@
 import React from 'react';
-import './ComponentsCSS/PoiInformation.css';
+import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -15,20 +15,20 @@ const PoiInformation = ({ dispatch, specificPoiInfos }) => (
     >
 X
     </button>
+    <h1>{specificPoiInfos.name}</h1>
+    <hr />
+    <p>Adresse</p>
+    <p>code postal ville</p>
+    <p>Distance</p>
     <div>
-      <h1>{specificPoiInfos.name}</h1>
-      <hr />
-      <p>Adresse</p>
-      <p>code postal ville</p>
-      <p>Distance</p>
       <img src={specificPoiInfos.picture_url} alt="table ping pong" />
-      <div className="informationUser">
-        <p>{specificPoiInfos.author}</p>
-        <p>
+    </div>
+    <div className="informationUser">
+      <p>{specificPoiInfos.author}</p>
+      <p>
           le
-          {specificPoiInfos.creation_date}
-        </p>
-      </div>
+        {specificPoiInfos.creation_date}
+      </p>
     </div>
     <div className="grades">
       <h2>

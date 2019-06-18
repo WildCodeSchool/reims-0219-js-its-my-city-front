@@ -4,7 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
-import FooterBar from './Components/filterBar';
+import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 
 const mapStateToProps = state => ({
@@ -33,9 +33,9 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        <AppMap />
+        <AppMap showPoiInfos={this.showPoiInfos} />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        <FooterBar />
+        {!Object.keys(specificPoiInfos).length && <FilterBar />}
       </div>
     );
   }
