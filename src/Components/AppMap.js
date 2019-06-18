@@ -14,6 +14,8 @@ const myIcon = L.icon({
   iconSize: [25, 41],
 });
 
+const map = L.map('map', { attributionControl: false });
+
 const mapStateToProps = state => ({
   zoom: state.zoom,
   geolocCoordonnees: state.geolocCoordonnees,
