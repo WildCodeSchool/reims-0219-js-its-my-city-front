@@ -30,7 +30,6 @@ class App extends Component {
     const {
       specificPoiInfos,
     } = this.props;
-    console.log(specificPoiInfos);
     return (
       <div>
         <SearchBar />
