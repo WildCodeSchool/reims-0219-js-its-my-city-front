@@ -4,7 +4,7 @@ import './App.css';
 import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
-import FooterBar from './Components/filterBar';
+import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 
 const mapStateToProps = state => ({
@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
   poiSampleDisplay: state.poiSampleDisplay,
   specificPoiInfos: state.specificPoiInfos,
 });
+
 
 class App extends Component {
   componentDidMount() {
@@ -24,12 +25,6 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  showPoiInfos = (id) => {
-    const { dispatch } = this.props;
-    axios.get(`http://localhost:3001/pois/${id}`)
-      .then(response => dispatch({ type: 'GET_POI_INFOS', specificPoiInfos: response.data }))
-      .catch(err => console.log(err));
-  }
 
   render() {
     const {
@@ -39,8 +34,8 @@ class App extends Component {
       <div>
         <SearchBar />
         <AppMap showPoiInfos={this.showPoiInfos} />
-        {specificPoiInfos.length && <PoiInformation />}
-        {!specificPoiInfos.length && <FooterBar />}
+        {Object.keys(specificPoiInfos).length && <PoiInformation />}
+        {!Object.keys(specificPoiInfos).length && <FilterBar />}
       </div>
     );
   }

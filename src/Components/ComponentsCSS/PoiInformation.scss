@@ -1,6 +1,6 @@
 .informationPage {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     top: 75vh;
     background-color: white;
     width: 100%;
@@ -11,7 +11,7 @@
 };
 .informationPage:hover {
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     top: 0vh;
     height: 100vh;
     background-color: white;
