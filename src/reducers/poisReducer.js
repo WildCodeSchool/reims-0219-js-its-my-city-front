@@ -18,12 +18,12 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         poiSampleDisplay: action.poiSampleDisplay,
       };
-    case 'GET_POI_INFOS':
+    case 'SHOW_POI_INFOS':
       return {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
       };
-    case 'SHOW_POI_INFOS':
+    case 'CLOSE_POI_INFOS':
       return {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
