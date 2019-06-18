@@ -14,8 +14,6 @@ const myIcon = L.icon({
   iconSize: [25, 41],
 });
 
-const map = L.map('map', { attributionControl: false });
-
 const mapStateToProps = state => ({
   zoom: state.zoom,
   geolocCoordonnees: state.geolocCoordonnees,
@@ -27,6 +25,7 @@ const customPins = keyword => L.divIcon({
   html: ReactDOMServer.renderToString(<Pins currentKeyword={keyword} />),
   iconSize: [40, 65],
 });
+
 
 const AppMap = ({
   geolocCoordonnees,
@@ -46,12 +45,12 @@ const AppMap = ({
         User
       </Popup>
     </Marker>
-    {poiSampleDisplay.map(pin => (
+    {poiSampleDisplay.map(poi => (
       <Marker
-        icon={customPins(pin.keywordName)}
-        key={pin.id}
-        onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poiSampleDisplay[pin.id] })}
-        position={pin.localisation}
+        icon={customPins(poi.keywordName)}
+        key={poi.id}
+        onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
+        position={poi.localisation}
       />
     ))}
   </Map>
