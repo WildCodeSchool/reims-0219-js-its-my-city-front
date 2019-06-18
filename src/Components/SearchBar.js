@@ -7,12 +7,8 @@ import { ReactComponent as Logo } from './pictos/search.svg';
 const mapStateToProps = state => ({
   searchBarValueInput: state.searchBarValueInput,
   filteredPoiByKeyword: state.filteredPoiByKeyword,
+  poiKeywordsDisplay: state.poiKeywordsDisplay,
 });
-
-const keywords = [
-  { name: 'Nature' },
-  { name: 'Sport' },
-];
 
 
 // Filter all keywords where the index is different from -1,
@@ -20,7 +16,7 @@ const keywords = [
 const filterKeywords = (keyword, userInput) => keyword.filter(el => el.name
   .toLowerCase().indexOf(userInput.toLowerCase()) !== -1);
 
-const SearchBar = ({ dispatch, searchBarValueInput }) => (
+const SearchBar = ({ dispatch, searchBarValueInput, poiKeywordsDisplay }) => (
   <div>
     <div className="search-box">
       <form onSubmit={(e) => {
@@ -40,7 +36,7 @@ const SearchBar = ({ dispatch, searchBarValueInput }) => (
         {searchBarValueInput
       && (
       <datalist id="keywords">
-        {filterKeywords(keywords, searchBarValueInput).map(word => <option value={word.name} />)}
+        {filterKeywords(poiKeywordsDisplay, searchBarValueInput).map(word => <option value={word.name} />)}
       </datalist>
       )}
       </form>
