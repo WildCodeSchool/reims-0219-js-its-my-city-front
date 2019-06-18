@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.watchPosition((position) => {
       dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
     axios.get('http://localhost:3001/pois/sample')
@@ -30,6 +30,7 @@ class App extends Component {
     const {
       specificPoiInfos,
     } = this.props;
+    console.log(specificPoiInfos);
     return (
       <div>
         <SearchBar />
