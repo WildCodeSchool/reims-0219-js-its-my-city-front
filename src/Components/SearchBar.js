@@ -25,12 +25,13 @@ const SearchBar = ({ dispatch, searchBarValueInput }) => (
         type="text"
         placeholder="Rechercher"
         onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', searchBarValueInput: e.target.value })}
+        list="keywords"
       />
       {searchBarValueInput
       && (
-      <ul>
-        {filterKeywords(keywords, searchBarValueInput).map(word => <li>{word.name}</li>)}
-      </ul>
+      <datalist id="keywords">
+        {filterKeywords(keywords, searchBarValueInput).map(word => <option value={word.name} />)}
+      </datalist>
       )}
       <Logo className="search-logo" />
     </div>
