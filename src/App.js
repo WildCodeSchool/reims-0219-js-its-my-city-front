@@ -1,42 +1,44 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
+import './App.scss';
+import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
+import SearchBar from './Components/SearchBar';
+import FilterBar from './Components/filterBar';
+import PoiInformation from './Components/PoiInformations';
+
+const mapStateToProps = state => ({
+  geolocCoordonnees: state.geolocCoordonnees,
+  poiSampleDisplay: state.poiSampleDisplay,
+  specificPoiInfos: state.specificPoiInfos,
+});
+
 
 class App extends Component {
-  state = {
-    zoom: 14,
-    geolocCoordonnees: [],
-    defaultCoordonnees: [49.260096, 4.030293],
-    poiSampleDisplay: [],
-  };
-
-
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.setState({ geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
+    const { dispatch } = this.props;
+    navigator.geolocation.watchPosition((position) => {
+      dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
     axios.get('http://localhost:3001/pois/sample')
-      .then(response => this.setState({ poiSampleDisplay: response.data }))
+      .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
       .catch(err => console.log(err));
   }
 
+
   render() {
     const {
-      geolocCoordonnees, defaultCoordonnees, zoom, poiSampleDisplay,
-    } = this.state;
+      specificPoiInfos,
+    } = this.props;
     return (
       <div>
-        <AppMap
-          pins={poiSampleDisplay}
-          geolocCoordonnees={geolocCoordonnees}
-          defaultCoordonnees={defaultCoordonnees}
-          zoom={zoom}
-        />
+        <SearchBar />
+        <AppMap showPoiInfos={this.showPoiInfos} />
+        {Object.keys(specificPoiInfos).length && <PoiInformation />}
+        {!Object.keys(specificPoiInfos).length && <FilterBar />}
       </div>
     );
   }
 }
 
-
-export default App;
+export default connect(mapStateToProps)(App);
