@@ -26,6 +26,7 @@ const customPins = keyword => L.divIcon({
   iconSize: [40, 65],
 });
 
+
 const AppMap = ({
   geolocCoordonnees,
   defaultCoordonnees,
@@ -44,12 +45,12 @@ const AppMap = ({
         User
       </Popup>
     </Marker>
-    {poiSampleDisplay.map(pin => (
+    {poiSampleDisplay.map(poi => (
       <Marker
-        icon={customPins(pin.keywordName)}
-        key={pin.id}
-        onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poiSampleDisplay[pin.id] })}
-        position={pin.localisation}
+        icon={customPins(poi.keywordName)}
+        key={poi.id}
+        onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
+        position={poi.localisation}
       />
     ))}
   </Map>
