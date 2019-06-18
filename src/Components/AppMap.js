@@ -19,6 +19,7 @@ const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
   defaultCoordonnees: state.defaultCoordonnees,
   poiSampleDisplay: state.poiSampleDisplay,
+  filteredPoiByKeyword: state.filteredPoiByKeyword,
 });
 
 const customPins = keyword => L.divIcon({
@@ -32,6 +33,7 @@ const AppMap = ({
   defaultCoordonnees,
   zoom,
   poiSampleDisplay,
+  filteredPoiByKeyword,
   dispatch,
 }) => (
   // eslint-disable-next-line max-len
@@ -45,14 +47,23 @@ const AppMap = ({
         User
       </Popup>
     </Marker>
-    {poiSampleDisplay.map(poi => (
-      <Marker
-        icon={customPins(poi.keywordName)}
-        key={poi.id}
-        onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
-        position={poi.localisation}
-      />
-    ))}
+    {!filteredPoiByKeyword.length
+      ? poiSampleDisplay.map(poi => (
+        <Marker
+          icon={customPins(poi.keywordName)}
+          key={poi.id}
+          onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
+          position={poi.localisation}
+        />
+      ))
+      : filteredPoiByKeyword.map(poi => (
+        <Marker
+          icon={customPins(poi.keywordName)}
+          key={poi.id}
+          onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
+          position={poi.localisation}
+        />
+      ))}
   </Map>
 );
 

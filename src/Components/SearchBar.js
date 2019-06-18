@@ -14,6 +14,7 @@ const keywords = [
   { name: 'Sport' },
 ];
 
+
 // Filter all keywords where the index is different from -1,
 // and lower case them all to be case insensitive
 const filterKeywords = (keyword, userInput) => keyword.filter(el => el.name
@@ -22,21 +23,27 @@ const filterKeywords = (keyword, userInput) => keyword.filter(el => el.name
 const SearchBar = ({ dispatch, searchBarValueInput }) => (
   <div>
     <div className="search-box">
-      <input
-        className="search-text"
-        type="text"
-        placeholder="Rechercher"
-        onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', searchBarValueInput: e.target.value })}
-        /* onSubmit={axios.get(`http://localhost:3001/pois/filter/${searchBarValueInput}`)
-.then(res => dispatch({ type: 'HANDLE_SUBMIT_SEARCHBAR', filteredPoiByKeyword: res.data }))} */
-        list="keywords"
-      />
-      {searchBarValueInput
+      <form onSubmit={(e) => {
+        axios.get(`http://localhost:3001/pois/filter/${searchBarValueInput}`)
+          .then(res => dispatch({ type: 'HANDLE_SUBMIT_SEARCHBAR', filteredPoiByKeyword: res.data }));
+        e.preventDefault();
+      }
+      }
+      >
+        <input
+          className="search-text"
+          type="text"
+          placeholder="Rechercher"
+          onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', searchBarValueInput: e.target.value })}
+          list="keywords"
+        />
+        {searchBarValueInput
       && (
       <datalist id="keywords">
         {filterKeywords(keywords, searchBarValueInput).map(word => <option value={word.name} />)}
       </datalist>
       )}
+      </form>
       <Logo className="search-logo" />
     </div>
   </div>
