@@ -4,14 +4,24 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
+  InformationPoiInfos: state.InformationPoiInfos,
 });
 
-const PoiInformation = ({ dispatch, specificPoiInfos }) => (
-  <div className="informationPage">
+const PoiInformation = ({ dispatch, specificPoiInfos, InformationPoiInfos }) => (
+  <div
+    className={InformationPoiInfos ? 'informationPage' : 'informationPages'}
+    onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
+    onKeyPress={this.handleKeyPress}
+    role="button"
+    tabIndex={0}
+  >
     <button
       className="closeButton"
       type="button"
-      onClick={() => dispatch({ type: 'CLOSE_POI_INFOS', specificPoiInfos: [] })}
+      onClick={() => {
+        dispatch({ type: 'CLOSE_POI_INFOS', specificPoiInfos: [] });
+        dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: true });
+      }}
     >
 X
     </button>
@@ -31,10 +41,12 @@ X
       </p>
     </div>
     <div className="grades">
-      <h2>
+      <hr />
+      <h2>Informations complémentaires</h2>
+      <p>
         Note moyenne :
         {specificPoiInfos.grades.average}
-      </h2>
+      </p>
       <p>
         Accessibilité :
         {specificPoiInfos.grades.accessibility}

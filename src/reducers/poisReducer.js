@@ -4,6 +4,7 @@ const initialState = {
   defaultCoordonnees: [49.260096, 4.030293],
   poiSampleDisplay: [],
   specificPoiInfos: [],
+  InformationPoiInfos: true,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -27,6 +28,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
+      };
+    case 'TRANSITION_POI_INFOS':
+      return {
+        ...state,
+        InformationPoiInfos: action.InformationPoiInfos,
       };
     default:
       return state;

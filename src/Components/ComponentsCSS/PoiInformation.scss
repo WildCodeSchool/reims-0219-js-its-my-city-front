@@ -9,7 +9,7 @@
     -o-transition: all 0.5s linear;
     transition: all 0.5s linear;
 };
-.informationPage:hover {
+.informationPages {
     position: absolute;
     z-index: 4;
     top: 0vh;
@@ -29,6 +29,7 @@ h1{
     text-align: center;
 }
 h2{
+    font-size: 1rem;
     text-align: center;
 }
 .grades{
