@@ -14,16 +14,16 @@
 label{
     margin: 3px;
     width: 80%;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
 }
 
 select{
     margin-left: 3px;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
     width: 90%;
-    border-radius: 3vh;
+    border-radius: 2.5vh;
     border-color: #DD476D;
     background-color: white;
     outline: none;
@@ -41,9 +41,9 @@ legend{
 }
 .poi-name > input{
     margin-left: 3px;
-    margin-bottom: 3vh;
+    margin-bottom: 2.5vh;
     width: 89%;
-    border-radius: 3vh;
+    border-radius: 2.5vh;
     outline: none;
 }
 .submit-button{
@@ -54,10 +54,17 @@ legend{
 .submit-button > input{
     width: 30%;
     text-align: center;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
+    margin-top: 2.5vh;
+    margin-bottom: 2.5vh;
     border-radius: 10px;
     background-color:#DD476D;
     border: none;
     padding: 3px;
+  }
+
+  .poi-pic > input{
+    margin-left: 3px;
+    margin-top: 2.5vh;
+    background-color: none;
+    outline: none;
   }

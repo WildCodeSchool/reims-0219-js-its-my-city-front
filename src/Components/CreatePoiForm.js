@@ -13,7 +13,7 @@ const onSubmit = (url, data) => {
 const CreatePoiForm = () => (
   // eslint-disable-next-line no-unused-expressions
   <div>
-    <form className="poi-create" method="POST">
+    <form className="poi-create" method="POST" encType="multipart/form-data">
 
       <legend>Ajoutez un point d'intérêt</legend>
       <div className="poi-address">
@@ -57,6 +57,11 @@ const CreatePoiForm = () => (
         </select>
       </div>
       <br />
+      <div className="poi-pic">
+        <label htmlFor="poiPic">Ajouter une photo</label>
+        <br />
+        <input id="poiPic" type="file" name="poiPic" />
+      </div>
       <div className="submit-button">
         <input type="submit" value="Envoyer" />
       </div>
