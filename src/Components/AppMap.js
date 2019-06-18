@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import './ComponentsCSS/AppMap.css';
+import './ComponentsCSS/AppMap.scss';
 import { connect } from 'react-redux';
 import {
   Map, TileLayer, Marker, Popup,
@@ -32,7 +32,7 @@ const AppMap = ({
   defaultCoordonnees,
   zoom,
   poiSampleDisplay,
-  showPoiInfos,
+  dispatch,
 }) => (
   // eslint-disable-next-line max-len
   <Map center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees} zoom={zoom} zoomControl={false}>
@@ -45,12 +45,12 @@ const AppMap = ({
         User
       </Popup>
     </Marker>
-    {poiSampleDisplay.map(pin => (
+    {poiSampleDisplay.map(poi => (
       <Marker
-        icon={customPins(pin.keywordName)}
-        key={pin.id}
-        onClick={() => showPoiInfos(pin.id)}
-        position={pin.localisation}
+        icon={customPins(poi.keywordName)}
+        key={poi.id}
+        onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
+        position={poi.localisation}
       />
     ))}
   </Map>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
+import './App.scss';
 import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
-import FooterBar from './Components/filterBar';
+import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 
 const mapStateToProps = state => ({
@@ -13,10 +13,11 @@ const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
 });
 
+
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.watchPosition((position) => {
       dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
     axios.get('http://localhost:3001/pois/sample')
@@ -24,12 +25,6 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  showPoiInfos = (id) => {
-    const { dispatch } = this.props;
-    axios.get(`http://localhost:3001/pois/${id}`)
-      .then(response => dispatch({ type: 'GET_POI_INFOS', specificPoiInfos: response.data }))
-      .catch(err => console.log(err));
-  }
 
   render() {
     const {
@@ -39,8 +34,8 @@ class App extends Component {
       <div>
         <SearchBar />
         <AppMap showPoiInfos={this.showPoiInfos} />
-        {specificPoiInfos.length && <PoiInformation />}
-        <FooterBar />
+        {Object.keys(specificPoiInfos).length && <PoiInformation />}
+        {!Object.keys(specificPoiInfos).length && <FilterBar />}
       </div>
     );
   }

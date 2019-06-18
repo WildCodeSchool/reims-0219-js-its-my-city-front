@@ -1,3 +1,5 @@
+@import '../../App.scss';
+
 .search-box{
     width: 90%;
     position: absolute;
@@ -8,11 +10,11 @@
     box-shadow: 2px 5px 8px #2F2F2F;
     background-color: white;
     margin-left: 2.5vh; 
-    margin-top: 2.5vh;  
+    margin-top: 1.5vh;  
 }
 
 .search-text{
-    color: #99003d;
+    color: $mainColor;
     position: relative;
     z-index: 3;
     outline: none;
