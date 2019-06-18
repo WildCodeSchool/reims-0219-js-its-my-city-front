@@ -5,6 +5,7 @@ const initialState = {
   poiSampleDisplay: [],
   specificPoiInfos: [],
   searchBarValueInput: '',
+  filteredPoiByKeyword: [],
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -33,6 +34,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         searchBarValueInput: action.searchBarValueInput,
+      };
+    case 'HANDLE_SUBMIT_SEARCHBAR':
+      return {
+        ...state,
+        filteredPoiByKeyword: action.filteredPoiByKeyword,
       };
     default:
       return state;

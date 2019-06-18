@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './ComponentsCSS/searchBar.css';
+import axios from 'axios';
 import { ReactComponent as Logo } from './pictos/search.svg';
 
 const mapStateToProps = state => ({
   searchBarValueInput: state.searchBarValueInput,
+  filteredPoiByKeyword: state.filteredPoiByKeyword,
 });
 
 const keywords = [
@@ -25,6 +27,8 @@ const SearchBar = ({ dispatch, searchBarValueInput }) => (
         type="text"
         placeholder="Rechercher"
         onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', searchBarValueInput: e.target.value })}
+        /*onSubmit={axios.get(`http://localhost:3001/pois/filter/${searchBarValueInput}`)
+.then(res => dispatch({ type: 'HANDLE_SUBMIT_SEARCHBAR', filteredPoiByKeyword: res.data }))} */
         list="keywords"
       />
       {searchBarValueInput
