@@ -1,43 +1,29 @@
 .informationPage {
+    margin: none;
     position: absolute;
-    z-index: 4;
-    top: 75vh;
+    z-index: 6;
     background-color: white;
-    width: 100%;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-};
-.informationPage:hover {
-    position: absolute;
-    z-index: 4;
-    top: 0vh;
     height: 100vh;
-    background-color: white;
     width: 100%;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-};
+}
+.informationUser {
+    float: right;
+    margin-right: 6vh;
+    background-color: white;
+    position: absolute;
+    z-index: 6;
+}
+.grades{
+    margin-top: 9vh;
+}
+
 img {
-    max-width: 25vh;
-    max-height: 25vh;    
+    width: 25vh;
+	height: 25vh;
 }
 h1{
     text-align: center;
 }
 h2{
     text-align: center;
-}
-.grades{
-    margin-top: 9vh;
-}
-.informationUser {
-    float: right;
-    margin-right: 6vh;
-    background-color: white;
-    position: relative;
-    z-index: 6;
 }

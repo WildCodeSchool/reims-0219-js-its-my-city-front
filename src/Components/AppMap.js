@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import './ComponentsCSS/AppMap.css';
+import './ComponentsCSS/AppMap.scss';
 import { connect } from 'react-redux';
 import {
   Map, TileLayer, Marker, Popup,

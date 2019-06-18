@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
+import './App.scss';
 import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
