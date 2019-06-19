@@ -25,7 +25,6 @@ class App extends Component {
   componentDidUpdate(prevProps) {
     const { dispatch, geolocCoordonnees } = this.props;
     if (geolocCoordonnees !== prevProps.geolocCoordonnees) {
-      console.log(geolocCoordonnees);
       axios.get(`http://localhost:3001/pois/sample/${geolocCoordonnees[0]}/${geolocCoordonnees[1]}`)
         .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
         .catch(err => console.log(err));
