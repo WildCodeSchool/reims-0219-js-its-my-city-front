@@ -12,21 +12,30 @@ const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
 });
 
-const poiCreationDate = `${new Date().getFullYear()}-
-${new Date().getMonth()}-
-${new Date().getDay()}
-${new Date().getHours()}:
-${new Date().getMinutes()}:
-${new Date().getSeconds()}`;
+// get date and time to fill creation_date field in database
+const poiCreationDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-// axios.post(url, data)
-//   .then(res => console.log(`${res} has been properly sent`))
-//   .catch(err => console.log(err));
-
-const CreatePoiForm = ({ dispatch, name }) => (
+const CreatePoiForm = ({ dispatch, name, geolocCoordonnees }) => (
   // eslint-disable-next-line no-unused-expressions
   <div>
-    <form className="poi-create" method="POST" encType="multipart/form-data">
+    <form
+      className="poi-create"
+      method="POST"
+      encType="multipart/form-data"
+      onSubmit={(e) => {
+        axios.post('http://localhost:3001/pois', {
+          name,
+          latitude: geolocCoordonnees[0],
+          longitude: geolocCoordonnees[1],
+          creation_date: poiCreationDate,
+          author_id: 1,
+        })
+          .then(res => console.log(`${res} has been properly sent`))
+          .catch(err => console.log(err));
+        e.preventDefault();
+      }
+    }
+    >
 
       <legend>Ajoutez un point d'intérêt</legend>
       <div className="poi-address">
