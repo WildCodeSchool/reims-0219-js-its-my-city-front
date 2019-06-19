@@ -4,19 +4,17 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
+  poiKeywordsDisplay: state.poiKeywordsDisplay,
 });
 
-const FilterComponent = ({ dispatch }) => (
+const FilterComponent = ({ poiKeywordsDisplay }) => (
   <div className="filterComponent">
-    <div>
-      <h1>catégorie</h1>
-      <button type="button">Points d'intérêts</button>
-      <button type="button">évenement</button>
-    </div>
-    <div>
-      <h1>Thème</h1>
-      <button type="button" />
-    </div>
+    <h1>catégorie</h1>
+    <button type="button">Points d'intérêts</button>
+    <button type="button">évenement</button>
+    <h1>Thème</h1>
+    {poiKeywordsDisplay.map(keyword => (
+      <button type="button" key={keyword.name}>{keyword.name}</button>))}
   </div>
 );
 

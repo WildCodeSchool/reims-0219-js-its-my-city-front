@@ -5,6 +5,8 @@ const initialState = {
   poiSampleDisplay: [],
   specificPoiInfos: [],
   filterKeywordPageDisplay: false, // displays the page that allows to filter the keywords
+  InformationPoiInfos: true,
+  poiKeywordsDisplay: [],
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -18,6 +20,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         poiSampleDisplay: action.poiSampleDisplay,
+      };
+    case 'GET_POIS_KEYWORDS':
+      return {
+        ...state,
+        poiKeywordsDisplay: action.poiKeywordsDisplay,
       };
     case 'SHOW_POI_INFOS':
       return {
