@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
+import './App.scss';
 import { connect } from 'react-redux';
 import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
-import FooterBar from './Components/filterBar';
+import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 import CreatePoiForm from './Components/CreatePoiForm';
 
@@ -43,9 +43,9 @@ class App extends Component {
     return (
       <div>
         <SearchBar />
-        <AppMap />
+        <AppMap showPoiInfos={this.showPoiInfos} />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        <FooterBar />
+        <FilterBar />
         {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );

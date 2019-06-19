@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import './ComponentsCSS/AppMap.css';
+import './ComponentsCSS/AppMap.scss';
 import { connect } from 'react-redux';
 import {
   Map, TileLayer, Marker, Popup,
@@ -19,6 +19,7 @@ const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
   defaultCoordonnees: state.defaultCoordonnees,
   poiSampleDisplay: state.poiSampleDisplay,
+  filteredPoiByKeyword: state.filteredPoiByKeyword,
 });
 
 const customPins = keyword => L.divIcon({
@@ -26,11 +27,13 @@ const customPins = keyword => L.divIcon({
   iconSize: [40, 65],
 });
 
+
 const AppMap = ({
   geolocCoordonnees,
   defaultCoordonnees,
   zoom,
   poiSampleDisplay,
+  filteredPoiByKeyword,
   dispatch,
 }) => (
   // eslint-disable-next-line max-len
@@ -44,14 +47,23 @@ const AppMap = ({
         User
       </Popup>
     </Marker>
-    {poiSampleDisplay.map(pin => (
-      <Marker
-        icon={customPins(pin.keywordName)}
-        key={pin.id}
-        onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poiSampleDisplay[pin.id] })}
-        position={pin.localisation}
-      />
-    ))}
+    {!filteredPoiByKeyword.length
+      ? poiSampleDisplay.map(poi => (
+        <Marker
+          icon={customPins(poi.keywordName)}
+          key={poi.id}
+          onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
+          position={poi.localisation}
+        />
+      ))
+      : filteredPoiByKeyword.map(poi => (
+        <Marker
+          icon={customPins(poi.keywordName)}
+          key={poi.id}
+          onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
+          position={poi.localisation}
+        />
+      ))}
   </Map>
 );
 
