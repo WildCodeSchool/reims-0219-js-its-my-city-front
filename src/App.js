@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.watchPosition((position) => {
       dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
   }
