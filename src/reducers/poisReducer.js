@@ -4,6 +4,10 @@ const initialState = {
   defaultCoordonnees: [49.260096, 4.030293],
   poiSampleDisplay: [],
   specificPoiInfos: [],
+  searchBarValueInput: '',
+  filteredPoiByKeyword: [],
+  InformationPoiInfos: true,
+  poiKeywordsDisplay: [],
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -18,6 +22,11 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         poiSampleDisplay: action.poiSampleDisplay,
       };
+    case 'GET_POIS_KEYWORDS':
+      return {
+        ...state,
+        poiKeywordsDisplay: action.poiKeywordsDisplay,
+      };
     case 'SHOW_POI_INFOS':
       return {
         ...state,
@@ -27,6 +36,16 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
+      };
+    case 'HANDLE_SEARCHBAR_INPUT':
+      return {
+        ...state,
+        searchBarValueInput: action.searchBarValueInput,
+      };
+    case 'HANDLE_SUBMIT_SEARCHBAR':
+      return {
+        ...state,
+        filteredPoiByKeyword: action.filteredPoiByKeyword,
       };
     default:
       return state;
