@@ -10,12 +10,15 @@ const mapStateToProps = state => ({
   keywordOne: state.keywordOne,
   keywordTwo: state.keywordTwo,
   geolocCoordonnees: state.geolocCoordonnees,
+  poiKeywordsDisplay: state.poiKeywordsDisplay,
 });
 
 // get date and time to fill creation_date field in database
 const poiCreationDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-const CreatePoiForm = ({ dispatch, name, geolocCoordonnees }) => (
+const CreatePoiForm = ({
+  dispatch, name, geolocCoordonnees, poiKeywordsDisplay,
+}) => (
   // eslint-disable-next-line no-unused-expressions
   <div>
     <form
@@ -61,22 +64,25 @@ const CreatePoiForm = ({ dispatch, name, geolocCoordonnees }) => (
         <label htmlFor="keywordOne">Catégorie:</label>
         <br />
         <select id="keywordOne" name="keywordOne" onChange={e => dispatch({ type: 'HANDLE_FORM_K1_CHANGE', keywordOne: e.target.value })} required>
-          <option value="">Choisissez une catégorie (obligatoire)</option>
-          <option value="nature">Nature</option>
-          <option value="sport">Sport</option>
-          <option value="attraction">Attraction</option>
-          <option value="monument">Monument</option>
-          <option value="utilitaire">Utilitaire</option>
-          <option value="hygiène">Hygiène</option>
+          {poiKeywordsDisplay.filter(keyword => keyword.importance === 1)
+            .map(keyword => (
+              <option key={keyword.name} id={keyword.name} value={keyword.name}>
+                {(keyword.name)}
+              </option>
+            ))}
         </select>
       </div>
 
       <div>
-        <label htmlFor="keywordTwo">Sous-catégorie:</label>
+        <label htmlFor="keywordTwo">Sous-catégorie (facultatif):</label>
         <br />
         <select id="keywordTwo" name="keywordTwo" onChange={e => dispatch({ type: 'HANDLE_FORM_K2_CHANGE', keywordTwo: e.target.value })}>
-          <option value="">Choisissez une sous-catégorie (facultatif)</option>
-          <option value="sports_collectifs">Sports Collectifs</option>
+          {poiKeywordsDisplay.filter(keyword => keyword.importance === 2)
+            .map(keyword => (
+              <option key={keyword.name} id={keyword.name} value={keyword.name}>
+                {keyword.name.replace('_', ' ')}
+              </option>
+            ))}
         </select>
       </div>
       <br />
