@@ -6,11 +6,13 @@ import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
 import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
+import FilterComponent from './Components/FilterComponent';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
   poiSampleDisplay: state.poiSampleDisplay,
   specificPoiInfos: state.specificPoiInfos,
+  filterKeywordPageDisplay: state.filterKeywordPageDisplay,
 });
 
 
@@ -29,6 +31,7 @@ class App extends Component {
   render() {
     const {
       specificPoiInfos,
+      filterKeywordPageDisplay,
     } = this.props;
     return (
       <div>
@@ -36,6 +39,7 @@ class App extends Component {
         <AppMap showPoiInfos={this.showPoiInfos} />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && <FilterBar />}
+        {filterKeywordPageDisplay && <FilterComponent />}
       </div>
     );
   }

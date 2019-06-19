@@ -4,6 +4,7 @@ const initialState = {
   defaultCoordonnees: [49.260096, 4.030293],
   poiSampleDisplay: [],
   specificPoiInfos: [],
+  filterKeywordPageDisplay: false, // displays the page that allows to filter the keywords
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -27,6 +28,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
+      };
+    case 'DISPLAY_FILTER_PAGE':
+      return {
+        ...state,
+        filterKeywordPageDisplay: action.filterKeywordPageDisplay,
       };
     default:
       return state;
