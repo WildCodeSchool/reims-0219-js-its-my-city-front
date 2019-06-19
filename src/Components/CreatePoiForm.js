@@ -12,8 +12,12 @@ const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
 });
 
-const poiCreationDate = `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDay()} ${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
-console.log(poiCreationDate);
+const poiCreationDate = `${new Date().getFullYear()}-
+${new Date().getMonth()}-
+${new Date().getDay()}
+${new Date().getHours()}:
+${new Date().getMinutes()}:
+${new Date().getSeconds()}`;
 
 // axios.post(url, data)
 //   .then(res => console.log(`${res} has been properly sent`))
