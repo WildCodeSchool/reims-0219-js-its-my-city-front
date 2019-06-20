@@ -16,8 +16,25 @@ const mapStateToProps = state => ({
 // get date and time to fill creation_date field in database
 const poiCreationDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
+const getFirstKeywordId = (keyword) => {
+  switch (keyword) {
+    case 'Sport & Loisirs':
+      return 1;
+    case 'Nature & Développement Durable':
+      return 2;
+    case 'Services Publics':
+      return 3;
+    case 'Vie Quotidienne':
+      return 4;
+    case 'Transports & Mobilité':
+      return 5;
+    default:
+      return keyword;
+  }
+};
+
 const CreatePoiForm = ({
-  dispatch, name, geolocCoordonnees, poiKeywordsDisplay,
+  dispatch, name, geolocCoordonnees, poiKeywordsDisplay, keywordOne,
 }) => (
   // eslint-disable-next-line no-unused-expressions
   <div>
@@ -63,7 +80,19 @@ const CreatePoiForm = ({
       <div>
         <label htmlFor="keywordOne">Catégorie:</label>
         <br />
-        <select id="keywordOne" name="keywordOne" onChange={e => dispatch({ type: 'HANDLE_FORM_K1_CHANGE', keywordOne: e.target.value })} required>
+        <select
+          id="keywordOne"
+          name="keywordOne"
+          onChange={
+          e => dispatch({
+            type: 'HANDLE_FORM_K1_CHANGE',
+            keywordOne: e.target.value,
+          })}
+          required
+        >
+          <option>
+            Choissisez une catégorie
+          </option>
           {poiKeywordsDisplay.filter(keyword => keyword.importance === 1)
             .map(keyword => (
               <option key={keyword.name} id={keyword.name} value={keyword.name}>
@@ -76,8 +105,21 @@ const CreatePoiForm = ({
       <div>
         <label htmlFor="keywordTwo">Sous-catégorie (facultatif):</label>
         <br />
-        <select id="keywordTwo" name="keywordTwo" onChange={e => dispatch({ type: 'HANDLE_FORM_K2_CHANGE', keywordTwo: e.target.value })}>
-          {poiKeywordsDisplay.filter(keyword => keyword.importance === 2)
+        <select
+          id="keywordTwo"
+          name="keywordTwo"
+          onChange={
+          e => dispatch({
+            type: 'HANDLE_FORM_K2_CHANGE',
+            keywordTwo: e.target.value,
+          })
+        }
+        >
+          <option>
+            Choissisez une sous-catégorie
+          </option>
+          {poiKeywordsDisplay.filter(keyword => keyword.importance === 2
+          && getFirstKeywordId(keywordOne) === keyword.parent_id)
             .map(keyword => (
               <option key={keyword.name} id={keyword.name} value={keyword.name}>
                 {keyword.name.replace('_', ' ')}
