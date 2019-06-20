@@ -29,7 +29,7 @@ X
       <p>code postal ville</p>
       <p>Distance</p>
       <div>
-        <img src={specificPoiInfos.picture_url} className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'} alt="table ping pong" />
+        <img src={specificPoiInfos.picture_url} className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'} alt={specificPoiInfos.name} />
       </div>
       <div className={InformationPoiInfos ? 'informationUser' : 'informationUser-Bottom'}>
         <p>{specificPoiInfos.author}</p>
