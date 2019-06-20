@@ -46,6 +46,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
+        poiSampleDisplay: action.poiSampleDisplay,
       };
     default:
       return state;
