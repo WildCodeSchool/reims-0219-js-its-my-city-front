@@ -1,5 +1,5 @@
 import React from 'react';
-import './ComponentsCSS/filterBar.css';
+import './ComponentsCSS/filterBar.scss';
 import { ReactComponent as LogoProfile } from './pictos/profile.svg';
 import { ReactComponent as LogoFilter } from './pictos/filter.svg';
 import { ReactComponent as LogoAdd } from './pictos/plus-full.svg';

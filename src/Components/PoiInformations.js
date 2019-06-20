@@ -10,15 +10,18 @@ const mapStateToProps = state => ({
 const PoiInformation = ({ dispatch, specificPoiInfos, InformationPoiInfos }) => (
   <div>
     <button
-      className="closeButtonInformationPage"
+      className={InformationPoiInfos ? 'closeButtonInformationPageTop' : 'closeButtonInformationPageBottom'}
       type="button"
       onClick={() => dispatch({ type: 'CLOSE_POI_INFOS', specificPoiInfos: [] })}
     >
 X
     </button>
+    {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
     <div
-      className={InformationPoiInfos ? 'informationPages' : 'informationPage'}
+      className={InformationPoiInfos ? 'informationPageTop' : 'informationPageBottom'}
       onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
+      role="button"
+      tabIndex="0"
     >
       <h1>{specificPoiInfos.name}</h1>
       <hr />

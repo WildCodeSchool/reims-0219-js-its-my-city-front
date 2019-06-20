@@ -1,7 +1,8 @@
-.informationPage {
+.informationPageBottom {
+    margin: none;
     position: absolute;
-    z-index: 4;
-    top: 75vh;
+    z-index: 6;
+    top: 80vh;
     background-color: white;
     width: 100%;
     -webkit-transition: all 0.5s linear;
@@ -9,21 +10,50 @@
     -o-transition: all 0.5s linear;
     transition: all 0.5s linear;
 };
-.informationPages {
+.informationPageTop {
     position: absolute;
-    z-index: 4;
+    z-index: 6;
     top: 0vh;
     height: 100vh;
-    background-color: white;
     width: 100%;
+    background-color: white;
     -webkit-transition: all 0.5s linear;
     -moz-transition: all 0.5s linear;
     -o-transition: all 0.5s linear;
     transition: all 0.5s linear;
-};
+}
+.closeButtonInformationPageTop {
+    position: absolute;
+    z-index: 7;
+    top: 0vh;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+.closeButtonInformationPageBottom {
+    position: absolute;
+    z-index: 7;
+    top: 80vh;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+.informationUser {
+    float: right;
+    margin-right: 6vh;
+    background-color: white;
+    position: absolute;
+    z-index: 6;
+}
+.grades{
+    margin-top: 9vh;
+}
+
 img {
-    max-width: 25vh;
-    max-height: 25vh;    
+    width: 25vh;
+	height: 25vh;
 }
 h1{
     text-align: center;
@@ -31,14 +61,4 @@ h1{
 h2{
     font-size: 1rem;
     text-align: center;
-}
-.grades{
-    margin-top: 9vh;
-}
-.informationUser {
-    float: right;
-    margin-right: 6vh;
-    background-color: white;
-    position: relative;
-    z-index: 6;
 }
