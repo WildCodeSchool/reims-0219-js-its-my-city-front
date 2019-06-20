@@ -23,12 +23,18 @@ class App extends Component {
     navigator.geolocation.watchPosition((position) => {
       dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
-    axios.get('http://localhost:3001/pois/sample')
-      .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
-      .catch(err => console.log(err));
     axios.get('http://localhost:3001/pois/keywords')
       .then(response => dispatch({ type: 'GET_POIS_KEYWORDS', poiKeywordsDisplay: response.data }))
       .catch(err => console.log(err));
+  }
+
+  componentDidUpdate(prevProps) {
+    const { dispatch, geolocCoordonnees } = this.props;
+    if (geolocCoordonnees !== prevProps.geolocCoordonnees) {
+      axios.get(`http://localhost:3001/pois/sample/${geolocCoordonnees[0]}/${geolocCoordonnees[1]}`)
+        .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
+        .catch(err => console.log(err));
+    }
   }
 
 

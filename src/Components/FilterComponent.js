@@ -1,20 +1,34 @@
 import React from 'react';
 import './ComponentsCSS/FilterComponent.scss';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
   poiKeywordsDisplay: state.poiKeywordsDisplay,
+  filterKeywordPageDisplay: state.filterKeywordPageDisplay,
 });
 
-const FilterComponent = ({ poiKeywordsDisplay }) => (
+const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
   <div className="filterComponent">
-    <h1>catégorie</h1>
+    <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT', filterKeywordPageDisplay: false })} type="button">X</button>
+    <h1>Catégories</h1>
     <button type="button">Points d'intérêts</button>
-    <button type="button">évenement</button>
-    <h1>Thème</h1>
+    <button type="button">évenements</button>
+    <h1>Thèmes</h1>
     {poiKeywordsDisplay.map(keyword => (
-      <button type="button" key={keyword.name}>{keyword.name}</button>))}
+      <button
+        type="button"
+        key={keyword.name}
+        onClick={() => axios.get(`http://localhost:3001/pois/filter/${keyword.name}`)
+          .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
+            dispatch({ type: 'CLOSE_FILTER_COMPONENT', filterKeywordPageDisplay: false }))
+      }
+      >
+        {keyword.name}
+
+      </button>
+    ))}
   </div>
 );
 
