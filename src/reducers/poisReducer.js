@@ -5,9 +5,9 @@ const initialState = {
   poiSampleDisplay: [],
   specificPoiInfos: [],
   isCreateFormDisplayed: false,
+  InformationPoiInfos: false,
   searchBarValueInput: '',
   filteredPoiByKeyword: [],
-  InformationPoiInfos: true,
   poiKeywordsDisplay: [],
   name: '',
   keywordOne: '',
@@ -42,9 +42,21 @@ const poisReducer = (state = initialState, action) => {
         isCreateFormDisplayed: !state.isCreateFormDisplayed,
       };
     case 'CLOSE_POI_INFOS':
+      if (state.InformationPoiInfos === true) {
+        return {
+          ...state,
+          specificPoiInfos: action.specificPoiInfos,
+          InformationPoiInfos: false,
+        };
+      }
       return {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
+      };
+    case 'TRANSITION_POI_INFOS':
+      return {
+        ...state,
+        InformationPoiInfos: action.InformationPoiInfos,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
