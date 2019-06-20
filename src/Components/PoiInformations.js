@@ -29,16 +29,16 @@ X
       <p>code postal ville</p>
       <p>Distance</p>
       <div>
-        <img src={specificPoiInfos.picture_url} alt="table ping pong" />
+        <img src={specificPoiInfos.picture_url} className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'} alt="table ping pong" />
       </div>
-      <div className="informationUser">
+      <div className={InformationPoiInfos ? 'informationUser' : 'informationUser-Bottom'}>
         <p>{specificPoiInfos.author}</p>
         <p>
           le
           {specificPoiInfos.creation_date}
         </p>
       </div>
-      <div className="grades">
+      <div className={InformationPoiInfos ? 'grades' : 'grades-Bottom'}>
         <hr />
         <h2>Informations complémentaires</h2>
         <p>

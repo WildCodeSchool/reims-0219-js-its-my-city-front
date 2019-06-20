@@ -1,59 +1,62 @@
+$mainColor: white;
+
+@mixin position-transition {
+    position: absolute;
+    -webkit-transition: height 1s linear;
+    -moz-transition: height 1s linear;
+    -o-transition: height 1s linear;
+    transition: height 1s linear;
+}
 .informationPageBottom {
     margin: none;
-    position: absolute;
     z-index: 6;
-    top: 80vh;
-    background-color: white;
+    bottom: 0vh;
+    background-color: $mainColor;
     width: 100%;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
+    @include position-transition;
 };
 .informationPageTop {
-    position: absolute;
     z-index: 6;
-    top: 0vh;
     height: 100vh;
     width: 100%;
-    background-color: white;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
-}
-.closeButtonInformationPageTop {
-    position: absolute;
-    z-index: 7;
-    top: 0vh;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
+    background-color: $mainColor;
+    @include position-transition;
 }
 .closeButtonInformationPageBottom {
-    position: absolute;
     z-index: 7;
     top: 80vh;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
+    @include position-transition;
+}
+.closeButtonInformationPageTop {
+    z-index: 7;
+    top: 0vh;
+    @include position-transition;
 }
 .informationUser {
     float: right;
     margin-right: 6vh;
-    background-color: white;
+    background-color: $mainColor;
     position: absolute;
     z-index: 6;
+}
+.informationUser-Bottom {
+    @extend .informationUser;
+    display: none;
 }
 .grades{
     margin-top: 9vh;
 }
-
-img {
+.grades-Bottom {
+    @extend .grades;
+    display: none;
+}
+.informationPicture {
     width: 25vh;
 	height: 25vh;
+}
+.informationPicture-Bottom {
+    @extend .grades;
+    display:none;
 }
 h1{
     text-align: center;
