@@ -1,29 +1,67 @@
-.informationPage {
-    margin: none;
+$mainColor: white;
+
+@mixin position-transition {
     position: absolute;
+    -webkit-transition: height 1s linear;
+    -moz-transition: height 1s linear;
+    -o-transition: height 1s linear;
+    transition: height 1s linear;
+}
+.informationPageBottom {
+    margin: none;
     z-index: 6;
-    background-color: white;
+    bottom: 0vh;
+    background-color: $mainColor;
+    width: 100%;
+    @include position-transition;
+};
+.informationPageTop {
+    z-index: 6;
     height: 100vh;
     width: 100%;
+    background-color: $mainColor;
+    @include position-transition;
+}
+.closeButtonInformationPageBottom {
+    z-index: 7;
+    top: 80vh;
+    @include position-transition;
+}
+.closeButtonInformationPageTop {
+    z-index: 7;
+    top: 0vh;
+    @include position-transition;
 }
 .informationUser {
     float: right;
     margin-right: 6vh;
-    background-color: white;
+    background-color: $mainColor;
     position: absolute;
     z-index: 6;
+}
+.informationUser-Bottom {
+    @extend .informationUser;
+    display: none;
 }
 .grades{
     margin-top: 9vh;
 }
-
-img {
+.grades-Bottom {
+    @extend .grades;
+    display: none;
+}
+.informationPicture {
     width: 25vh;
 	height: 25vh;
+}
+.informationPicture-Bottom {
+    @extend .grades;
+    display:none;
 }
 h1{
     text-align: center;
 }
 h2{
+    font-size: 1rem;
     text-align: center;
 }

@@ -36,7 +36,9 @@ const SearchBar = ({ dispatch, searchBarValueInput, poiKeywordsDisplay }) => (
         {searchBarValueInput
       && (
       <datalist id="keywords">
-        {filterKeywords(poiKeywordsDisplay, searchBarValueInput).map(word => <option value={word.name} />)}
+        {filterKeywords(poiKeywordsDisplay, searchBarValueInput).map(word => (
+          <option value={word.name} />
+        ))}
       </datalist>
       )}
       </form>
