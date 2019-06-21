@@ -116,7 +116,7 @@ const CreatePoiForm = ({
         }
         >
           <option>
-            Choissisez une sous-catégorie
+            Choisissez une sous-catégorie
           </option>
           {poiKeywordsDisplay.filter(keyword => keyword.importance === 2
           && getFirstKeywordId(keywordOne) === keyword.parent_id)
