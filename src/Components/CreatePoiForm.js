@@ -8,6 +8,7 @@ import axios from 'axios';
 const mapStateToProps = state => ({
   name: state.name,
   keywordOne: state.keywordOne,
+  keywordOneId: state.keywordOneId,
   keywordTwo: state.keywordTwo,
   geolocCoordonnees: state.geolocCoordonnees,
   poiKeywordsDisplay: state.poiKeywordsDisplay,
@@ -16,25 +17,19 @@ const mapStateToProps = state => ({
 // get date and time to fill creation_date field in database
 const poiCreationDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-const getFirstKeywordId = (keyword) => {
-  switch (keyword) {
-    case 'Sport & Loisirs':
-      return 1;
-    case 'Nature & Développement Durable':
-      return 2;
-    case 'Services Publics':
-      return 3;
-    case 'Vie Quotidienne':
-      return 4;
-    case 'Transports & Mobilité':
-      return 5;
-    default:
-      return keyword;
-  }
-};
 
+// get first level keyword Id to filter second level keywords in form
+const getFirstKeywordId = (input, poiKeywordsDisplay) => {
+  let idLevelOne;
+  for (let i = 0; i < poiKeywordsDisplay.length; i += 1) {
+    if (poiKeywordsDisplay[i].name === input) {
+      idLevelOne = poiKeywordsDisplay[i].id;
+    }
+  }
+  return idLevelOne;
+};
 const CreatePoiForm = ({
-  dispatch, name, geolocCoordonnees, poiKeywordsDisplay, keywordOne,
+  dispatch, name, geolocCoordonnees, poiKeywordsDisplay, keywordOneId,
 }) => (
   // eslint-disable-next-line no-unused-expressions
   <div>
@@ -87,6 +82,7 @@ const CreatePoiForm = ({
           e => dispatch({
             type: 'HANDLE_FORM_K1_CHANGE',
             keywordOne: e.target.value,
+            keywordOneId: getFirstKeywordId(e.target.value, poiKeywordsDisplay),
           })}
           required
         >
@@ -119,7 +115,7 @@ const CreatePoiForm = ({
             Choisissez une sous-catégorie
           </option>
           {poiKeywordsDisplay.filter(keyword => keyword.importance === 2
-          && getFirstKeywordId(keywordOne) === keyword.parent_id)
+          && keywordOneId === keyword.parent_id)
             .map(keyword => (
               <option key={keyword.name} id={keyword.name} value={keyword.name}>
                 {keyword.name.replace('_', ' ')}
