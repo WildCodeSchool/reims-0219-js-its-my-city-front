@@ -7,6 +7,7 @@ import SearchBar from './Components/SearchBar';
 import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 import FilterComponent from './Components/FilterComponent';
+import CreatePoiForm from './Components/CreatePoiForm';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
@@ -14,6 +15,8 @@ const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
   filterKeywordPageDisplay: state.filterKeywordPageDisplay,
   poiKeywordsDisplay: state.poiKeywordsDisplay,
+  isCreateFormDisplayed: state.isCreateFormDisplayed,
+  defaultCoordonnees: state.defaultCoordonnees,
 });
 
 
@@ -37,11 +40,11 @@ class App extends Component {
     }
   }
 
-
   render() {
     const {
       specificPoiInfos,
       filterKeywordPageDisplay,
+      isCreateFormDisplayed,
     } = this.props;
     return (
       <div>
@@ -50,6 +53,8 @@ class App extends Component {
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
+        <FilterBar />
+        {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );
   }
