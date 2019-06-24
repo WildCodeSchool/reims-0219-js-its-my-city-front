@@ -14,22 +14,28 @@ const onlyKeywordsFirstImportance = keywords => keywords.filter(keyword => keywo
 const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
   <div className="filterComponent">
     <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
-    <h1>Catégories</h1>
-    <button type="button">Points d'intérêts</button>
-    <h1>Thèmes</h1>
-    {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
-      <button
-        type="button"
-        key={keyword.name}
-        onClick={() => axios.get(`http://localhost:3001/pois/filter/${keyword.name}`)
-          .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
-            dispatch({ type: 'CLOSE_FILTER_COMPONENT' }))
+    <h1 className="categories">Catégories</h1>
+    <div className="buttonContainer">
+      <button className="filterButton1 buttonStyle" type="button">Points d'intérêts</button>
+      <button className="filterButton2 buttonStyle" type="button">Événements</button>
+    </div>
+    <h1 className="themes">Thèmes</h1>
+    <div className="themeContainer">
+      {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
+        <button
+          type="button"
+          className="buttonStyle"
+          key={keyword.name}
+          onClick={() => axios.get(`http://localhost:3001/pois/filter/${keyword.name}`)
+            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
+              dispatch({ type: 'CLOSE_FILTER_COMPONENT' }))
       }
-      >
-        {keyword.name}
+        >
+          {keyword.name}
 
-      </button>
-    ))}
+        </button>
+      ))}
+    </div>
   </div>
 );
 
