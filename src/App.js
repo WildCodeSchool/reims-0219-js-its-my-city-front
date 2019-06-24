@@ -6,11 +6,14 @@ import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
 import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
+import CreatePoiForm from './Components/CreatePoiForm';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.geolocCoordonnees,
   poiSampleDisplay: state.poiSampleDisplay,
   specificPoiInfos: state.specificPoiInfos,
+  isCreateFormDisplayed: state.isCreateFormDisplayed,
+  defaultCoordonnees: state.defaultCoordonnees,
 });
 
 
@@ -20,6 +23,9 @@ class App extends Component {
     navigator.geolocation.watchPosition((position) => {
       dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
+    axios.get('http://localhost:3001/pois/keywords')
+      .then(response => dispatch({ type: 'GET_POIS_KEYWORDS', poiKeywordsDisplay: response.data }))
+      .catch(err => console.log(err));
   }
 
   componentDidUpdate(prevProps) {
@@ -31,17 +37,18 @@ class App extends Component {
     }
   }
 
-
   render() {
     const {
       specificPoiInfos,
+      isCreateFormDisplayed,
     } = this.props;
     return (
       <div>
         <SearchBar />
         <AppMap showPoiInfos={this.showPoiInfos} />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        {!Object.keys(specificPoiInfos).length && <FilterBar />}
+        <FilterBar />
+        {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );
   }

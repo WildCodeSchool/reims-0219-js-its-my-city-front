@@ -4,10 +4,15 @@ const initialState = {
   defaultCoordonnees: [49.260096, 4.030293],
   poiSampleDisplay: [],
   specificPoiInfos: [],
+  isCreateFormDisplayed: false,
   InformationPoiInfos: false,
   searchBarValueInput: '',
   filteredPoiByKeyword: [],
   poiKeywordsDisplay: [],
+  name: '',
+  keywordOne: '',
+  keywordOneId: '',
+  keywordTwo: '',
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -31,6 +36,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
+      };
+    case 'TOGGLE_POI_CREATION_FORM':
+      return {
+        ...state,
+        isCreateFormDisplayed: !state.isCreateFormDisplayed,
       };
     case 'CLOSE_POI_INFOS':
       if (state.InformationPoiInfos === true) {
@@ -58,6 +68,22 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
+      };
+    case 'HANDLE_FORM_NAME_CHANGE':
+      return {
+        ...state,
+        name: action.name,
+      };
+    case 'HANDLE_FORM_K1_CHANGE':
+      return {
+        ...state,
+        keywordOne: action.keywordOne,
+        keywordOneId: action.keywordOneId,
+      };
+    case 'HANDLE_FORM_K2_CHANGE':
+      return {
+        ...state,
+        keywordTwo: action.keywordTwo,
       };
     default:
       return state;
