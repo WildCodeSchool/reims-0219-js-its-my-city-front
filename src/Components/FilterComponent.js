@@ -16,7 +16,6 @@ const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
     <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
     <h1>Catégories</h1>
     <button type="button">Points d'intérêts</button>
-    <button type="button">évenements</button>
     <h1>Thèmes</h1>
     {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
       <button
