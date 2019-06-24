@@ -22,11 +22,12 @@ const mapStateToProps = state => ({
 
 class App extends Component {
   componentDidMount() {
+    console.log(process.env.REACT_APP_API_URL);
     const { dispatch } = this.props;
     navigator.geolocation.watchPosition((position) => {
       dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
     });
-    axios.get('http://localhost:3001/pois/keywords')
+    axios.get(`${process.env.REACT_APP_API_URL}/pois/keywords`)
       .then(response => dispatch({ type: 'GET_POIS_KEYWORDS', poiKeywordsDisplay: response.data }))
       .catch(err => console.log(err));
   }
