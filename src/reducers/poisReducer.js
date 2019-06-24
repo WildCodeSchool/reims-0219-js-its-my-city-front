@@ -4,6 +4,7 @@ const initialState = {
   defaultCoordonnees: [49.260096, 4.030293],
   poiSampleDisplay: [],
   specificPoiInfos: [],
+  filterKeywordPageDisplay: false, // displays the page that allows to filter the keywords
   isCreateFormDisplayed: false,
   InformationPoiInfos: false,
   searchBarValueInput: '',
@@ -54,6 +55,11 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
       };
+    case 'DISPLAY_FILTER_PAGE':
+      return {
+        ...state,
+        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+      };
     case 'TRANSITION_POI_INFOS':
       return {
         ...state,
@@ -64,7 +70,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         searchBarValueInput: action.searchBarValueInput,
       };
-    case 'HANDLE_SUBMIT_SEARCHBAR':
+    case 'HANDLE_KEYWORD_FILTERING':
       return {
         ...state,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
@@ -85,6 +91,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         keywordTwo: action.keywordTwo,
+      };
+    case 'CLOSE_FILTER_COMPONENT':
+      return {
+        ...state,
+        filterKeywordPageDisplay: false,
       };
     default:
       return state;
