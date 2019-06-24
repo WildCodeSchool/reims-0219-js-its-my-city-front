@@ -63,7 +63,7 @@ const CreatePoiForm = ({
 
       <div className="poi-name">
         <label htmlFor="name">Nom</label>
-        <br />
+
         <input
           type="text"
           id="name"
@@ -74,7 +74,7 @@ const CreatePoiForm = ({
       </div>
       <div>
         <label htmlFor="keywordOne">Catégorie:</label>
-        <br />
+
         <select
           id="keywordOne"
           name="keywordOne"
@@ -100,7 +100,7 @@ const CreatePoiForm = ({
 
       <div>
         <label htmlFor="keywordTwo">Sous-catégorie (facultatif):</label>
-        <br />
+
         <select
           id="keywordTwo"
           name="keywordTwo"
@@ -123,10 +123,10 @@ const CreatePoiForm = ({
             ))}
         </select>
       </div>
-      <br />
+
       <div className="poi-pic">
         <label htmlFor="poiPic">Ajouter une photo</label>
-        <br />
+
         <input id="poiPic" type="file" name="poiPic" />
       </div>
       <div className="submit-button">
