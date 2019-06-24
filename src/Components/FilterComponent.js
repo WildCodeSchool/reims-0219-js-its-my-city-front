@@ -9,6 +9,8 @@ const mapStateToProps = state => ({
   filterKeywordPageDisplay: state.filterKeywordPageDisplay,
 });
 
+const onlyKeywordsFirstImportance = keywords => keywords.filter(keyword => keyword.importance === 1);
+
 const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
   <div className="filterComponent">
     <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT', filterKeywordPageDisplay: false })} type="button">X</button>
@@ -16,7 +18,7 @@ const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
     <button type="button">Points d'intérêts</button>
     <button type="button">évenements</button>
     <h1>Thèmes</h1>
-    {poiKeywordsDisplay.map(keyword => (
+    {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
       <button
         type="button"
         key={keyword.name}
