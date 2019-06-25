@@ -23,20 +23,19 @@ X
       role="button"
       tabIndex="0"
     >
-      <h1>{specificPoiInfos.name}</h1>
+      <p className="poiName">{specificPoiInfos.name}</p>
       <hr />
-      <p>Adresse</p>
-      <p>code postal ville</p>
-      <p>Distance</p>
-      <div>
+      <div className="generalInfosContainer">
+        <p className="adress">Adresse</p>
+        <p className="distance">Distance</p>
         <img src={specificPoiInfos.picture_url} className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'} alt={specificPoiInfos.name} />
-      </div>
-      <div className={InformationPoiInfos ? 'informationUser' : 'informationUser-Bottom'}>
-        <p>{specificPoiInfos.author}</p>
-        <p>
+        <div className={InformationPoiInfos ? 'informationUser' : 'informationUser-Bottom'}>
+          <p>{specificPoiInfos.author}</p>
+          <p>
           le
-          {specificPoiInfos.creation_date}
-        </p>
+            {specificPoiInfos.creation_date}
+          </p>
+        </div>
       </div>
       <div className={InformationPoiInfos ? 'grades' : 'grades-Bottom'}>
         <hr />

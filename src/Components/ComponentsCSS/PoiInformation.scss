@@ -1,4 +1,5 @@
-$mainColor: white;
+@import '../../App.scss';
+$secondColor: white;
 
 @mixin position-transition {
     position: absolute;
@@ -11,7 +12,7 @@ $mainColor: white;
     margin: none;
     z-index: 6;
     bottom: 0vh;
-    background-color: $mainColor;
+    background-color: $secondColor;
     width: 100%;
     @include position-transition;
 };
@@ -19,7 +20,7 @@ $mainColor: white;
     z-index: 6;
     height: 100vh;
     width: 100%;
-    background-color: $mainColor;
+    background-color: $secondColor;
     @include position-transition;
 }
 .closeButtonInformationPageBottom {
@@ -35,9 +36,12 @@ $mainColor: white;
 .informationUser {
     float: right;
     margin-right: 6vh;
-    background-color: $mainColor;
-    position: absolute;
+    background-color: $secondColor;
     z-index: 6;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    justify-self: center;
+    align-self: center;
 }
 .informationUser-Bottom {
     @extend .informationUser;
@@ -52,16 +56,41 @@ $mainColor: white;
 }
 .informationPicture {
     width: 25vh;
-	height: 25vh;
+    height: 25vh;
+    grid-column: 1/2;
+    grid-row: 3/4;
+    justify-self: center;
+    align-self: center;
 }
 .informationPicture-Bottom {
     @extend .grades;
     display:none;
 }
-h1{
-    text-align: center;
+
+.generalInfosContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 25px 25px auto;
+    height: 45%;
 }
-h2{
-    font-size: 1rem;
-    text-align: center;
+
+.poiName{
+    font-size: 1.5rem;
+    margin-left: 1.75rem;
+    margin-top: 1.75rem;
+}
+
+.adress{
+    grid-column: 1/2 ;
+    grid-row: 1/2;
+    height: 25px;
+    margin: 0;
+}
+
+.distance{
+    grid-column: 1/2 ;
+    grid-row: 2/3;
+    height: 25px;
+    margin: 0;
+    color: $mainColor;
 }
