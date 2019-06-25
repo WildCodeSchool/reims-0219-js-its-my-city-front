@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
   isKeywordOneChoose: state.isKeywordOneChoose,
   specificSecondKeyword: state.specificSecondKeyword,
   isSelectThemeDisplayed: state.isSelectThemeDisplayed,
+  isSelectSecondThemeDisplayed: state.isSelectSecondThemeDisplayed,
 });
 
 const onlyKeywordsFirstImportance = keywords => keywords.filter(
@@ -20,7 +21,8 @@ const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiK
 
 
 const FilterComponent = ({
-  dispatch, poiKeywordsDisplay, isKeywordOneChoose, specificSecondKeyword, isSelectThemeDisplayed,
+  dispatch, poiKeywordsDisplay, isKeywordOneChoose, specificSecondKeyword,
+  isSelectThemeDisplayed, isSelectSecondThemeDisplayed,
 }) => (
   <div className="filterComponent">
     <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
@@ -47,6 +49,11 @@ const FilterComponent = ({
         </button>
       ))}
     </div>
+
+    <div>
+      {isSelectSecondThemeDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
+    </div>
+
     <div className="keywordsOfSecondImportance">
       {isKeywordOneChoose === true && specificSecondKeyword.map(keyword => (
         <button
