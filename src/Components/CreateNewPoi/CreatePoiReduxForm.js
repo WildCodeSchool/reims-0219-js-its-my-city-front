@@ -16,11 +16,13 @@ class CreatePoiForm extends Component {
   }
 
   nextPage() {
-    this.setState({ page: this.state.page + 1 });
+    const { page } = this.state;
+    this.setState({ page: page + 1 });
   }
 
   previousPage() {
-    this.setState({ page: this.state.page - 1 });
+    const { page } = this.state;
+    this.setState({ page: page - 1 });
   }
 
   render() {

@@ -4,13 +4,16 @@ import validate from './validate';
 import poiSecondPagesFields from './PoiSecondPageFields';
 
 const CreatePoiSecondPage = (props) => {
-  const { handleSubmit } = props;
+  const { handleSubmit, previousPage } = props;
   return (
     <form onSubmit={handleSubmit}>
       <Field
         component={poiSecondPagesFields}
       />
       <div>
+        <button type="button" className="previous" onClick={previousPage}>
+          Previous
+        </button>
         <button type="submit" className="next">Next</button>
       </div>
     </form>
