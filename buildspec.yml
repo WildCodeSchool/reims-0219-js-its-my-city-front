@@ -14,11 +14,16 @@ phases:
       - npm run build
   post_build:
     commands:
-      # - mkdir ./dist/server/.ebextensions/
-      # - cp ./infrastructure/proxy.config ./dist/server/.ebextensions/proxy.config
+      - echo clean S3 diag app...
+      - aws s3 rm s3://wild.itsmycity.fr --recursive
+      - echo Copy diag app to S3...
+      - aws s3 cp --recursive --acl public-read ./build s3://wild.itsmycity.fr/
+      - echo set the cache-control headers for index.html to prevent browser caching
+      - aws s3 cp --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" ./build/index.html s3://wild.itsmycity.fr
+      - echo invalidate cloudfront
+      - aws cloudfront create-invalidation --distribution-id E3JJIC4NXCLEAZ --paths '/*'
 artifacts:
-  secondary-artifacts:
-    artifact1:
-      base-directory: ./dist
-      files:
-        - '**/*'
+  name: FrontBuildArtifact
+  base-directory: ./build
+  files:
+    - '**/*'

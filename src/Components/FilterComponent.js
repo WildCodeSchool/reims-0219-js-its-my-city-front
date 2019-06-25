@@ -18,7 +18,9 @@ const onlyKeywordsFirstImportance = keywords => keywords.filter(
 const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiKeywordsDisplay.filter(keyword => keyword.parent_id === specificKeyword.id);
 
 
-const FilterComponent = ({ dispatch, poiKeywordsDisplay, isKeywordOneChoose, specificSecondKeyword }) => (
+const FilterComponent = ({
+  dispatch, poiKeywordsDisplay, isKeywordOneChoose, specificSecondKeyword,
+}) => (
   <div className="filterComponent">
     <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
     <h1 className="categories">Catégories</h1>
@@ -49,7 +51,7 @@ const FilterComponent = ({ dispatch, poiKeywordsDisplay, isKeywordOneChoose, spe
           type="button"
           className="buttonStyle"
           key={keyword.name}
-          onClick={() => axios.get(`http://localhost:3001/pois/filter/${keyword.name}`)
+          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${keyword.name}`)
             .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
               dispatch({ type: 'CLOSE_FILTER_COMPONENT' }))
       }
