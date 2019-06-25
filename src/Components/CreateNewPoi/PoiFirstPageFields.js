@@ -26,7 +26,7 @@ const poiFirstPageFields = ({ dispatch, poiKeywordsDisplay }) => (
           })}
       required
     >
-      <option>
+      <option value="" disabled selected>
             Choisissez une catégorie
       </option>
       {poiKeywordsDisplay.filter(keyword => keyword.importance === 2)
