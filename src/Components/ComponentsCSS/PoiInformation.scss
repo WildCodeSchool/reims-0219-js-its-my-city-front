@@ -22,6 +22,7 @@ $secondColor: white;
     width: 100%;
     background-color: $secondColor;
     @include position-transition;
+    overflow: hidden;
 }
 .closeButtonInformationPageBottom {
     z-index: 7;
@@ -118,5 +119,5 @@ $secondColor: white;
 .infos::after{
     left: 75%;
     top: 69%;
-    margin-left: 57px;
+    margin-left: 45px;
 }
