@@ -5,9 +5,9 @@ import axios from 'axios';
 import { ReactComponent as Logo } from './pictos/search.svg';
 
 const mapStateToProps = state => ({
-  searchBarValueInput: state.searchBarValueInput,
-  filteredPoiByKeyword: state.filteredPoiByKeyword,
-  poiKeywordsDisplay: state.poiKeywordsDisplay,
+  searchBarValueInput: state.pois.searchBarValueInput,
+  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
+  poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
 });
 
 

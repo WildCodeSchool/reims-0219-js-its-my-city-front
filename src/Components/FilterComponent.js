@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 const mapStateToProps = state => ({
-  specificPoiInfos: state.specificPoiInfos,
-  poiKeywordsDisplay: state.poiKeywordsDisplay,
-  filterKeywordPageDisplay: state.filterKeywordPageDisplay,
+  specificPoiInfos: state.pois.specificPoiInfos,
+  poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
 });
 
 const onlyKeywordsFirstImportance = keywords => keywords.filter(keyword => keyword.importance === 1);

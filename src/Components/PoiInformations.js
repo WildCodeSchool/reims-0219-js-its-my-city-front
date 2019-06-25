@@ -3,8 +3,8 @@ import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  specificPoiInfos: state.specificPoiInfos,
-  InformationPoiInfos: state.InformationPoiInfos,
+  specificPoiInfos: state.pois.specificPoiInfos,
+  InformationPoiInfos: state.pois.InformationPoiInfos,
 });
 
 const PoiInformation = ({ dispatch, specificPoiInfos, InformationPoiInfos }) => (

@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import { Provider } from 'react-redux';
 import poisReducer from './reducers/poisReducer';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const store = createStore(poisReducer,
+const initialStore = {};
+const rootReducer = combineReducers({
+  pois: poisReducer,
+  form: formReducer,
+});
+
+const store = createStore(rootReducer, initialStore,
   // eslint-disable-next-line no-underscore-dangle
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 

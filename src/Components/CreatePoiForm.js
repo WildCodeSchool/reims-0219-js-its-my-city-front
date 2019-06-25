@@ -6,12 +6,12 @@ import './ComponentsCSS/createPoiForm.css';
 import axios from 'axios';
 
 const mapStateToProps = state => ({
-  name: state.name,
-  keywordOne: state.keywordOne,
-  keywordOneId: state.keywordOneId,
-  keywordTwo: state.keywordTwo,
-  geolocCoordonnees: state.geolocCoordonnees,
-  poiKeywordsDisplay: state.poiKeywordsDisplay,
+  name: state.pois.name,
+  keywordOne: state.pois.keywordOne,
+  keywordOneId: state.pois.keywordOneId,
+  keywordTwo: state.pois.keywordTwo,
+  geolocCoordonnees: state.pois.geolocCoordonnees,
+  poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
 });
 
 // get date and time to fill creation_date field in database
