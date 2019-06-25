@@ -33,42 +33,44 @@ const FilterComponent = ({
     </div>
     <h1 className="themes">Thèmes</h1>
     {isSelectThemeDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
-    <div className="keywordsOfFirstImportance">
-      {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
-        <button
-          type="button"
-          className="buttonStyle"
-          key={keyword.name}
-          onClick={() => dispatch({
-            type: 'SHOW_SECOND_IMPORTANCE_KEYWORD',
-            specificSecondKeyword: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
-          })}
-        >
-          {keyword.name}
+    <div className="allKeywords">
+      <div className="keywordsOfFirstImportance">
+        {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
+          <button
+            type="button"
+            className="buttonStyle"
+            key={keyword.name}
+            onClick={() => dispatch({
+              type: 'SHOW_SECOND_IMPORTANCE_KEYWORD',
+              specificSecondKeyword: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
+            })}
+          >
+            {keyword.name}
 
-        </button>
-      ))}
-    </div>
+          </button>
+        ))}
+      </div>
 
-    <div>
-      {isSelectSecondThemeDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
-    </div>
+      <div>
+        {isSelectSecondThemeDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
+      </div>
 
-    <div className="keywordsOfSecondImportance">
-      {isKeywordOneChoose === true && specificSecondKeyword.map(keyword => (
-        <button
-          type="button"
-          className="buttonStyle"
-          key={keyword.name}
-          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${keyword.name}`)
-            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
-              dispatch({ type: 'CLOSE_FILTER_COMPONENT' }))
-        }
-        >
-          {keyword.name}
+      <div className="keywordsOfSecondImportance">
+        {isKeywordOneChoose === true && specificSecondKeyword.map(keyword => (
+          <button
+            type="button"
+            className="buttonStyle"
+            key={keyword.name}
+            onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${keyword.name}`)
+              .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
+                dispatch({ type: 'CLOSE_FILTER_COMPONENT' }))
+          }
+          >
+            {keyword.name}
 
-        </button>
-      ))}
+          </button>
+        ))}
+      </div>
     </div>
   </div>
 );
