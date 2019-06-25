@@ -16,7 +16,7 @@ const renderColorSelector = ({ input, meta: { touched, error } }) => (
 
 const WizardFormThirdPage = (props) => {
   const {
- handleSubmit, pristine, previousPage, submitting 
+ handleSubmit, previousPage,
 } = props;
   return (
     <form onSubmit={handleSubmit}>
@@ -45,7 +45,7 @@ const WizardFormThirdPage = (props) => {
         <button type="button" className="previous" onClick={previousPage}>
           Previous
         </button>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
+        <button type="submit" className="next">Next</button>
       </div>
     </form>
   );

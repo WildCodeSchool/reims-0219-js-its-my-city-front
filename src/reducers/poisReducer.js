@@ -12,6 +12,7 @@ const initialState = {
   poiKeywordsDisplay: [],
   name: '',
   keywordTwo: '',
+  file: [],
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -89,6 +90,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filterKeywordPageDisplay: false,
+      };
+    case 'INSERT_PICTURE':
+      return {
+        ...state,
+        file: action.file,
       };
     default:
       return state;
