@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './ComponentsCSS/createPoiForm.css';
 import axios from 'axios';
+import sliceDate from '../Functions/FunctionSliceDate';
 
 const mapStateToProps = state => ({
   name: state.name,
@@ -15,7 +16,6 @@ const mapStateToProps = state => ({
 });
 
 // get date and time to fill creation_date field in database
-const poiCreationDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
 
 // get first level keyword Id to filter second level keywords in form
@@ -42,7 +42,7 @@ const CreatePoiForm = ({
           name,
           latitude: geolocCoordonnees[0],
           longitude: geolocCoordonnees[1],
-          creation_date: poiCreationDate,
+          creation_date: sliceDate(new Date()),
           author_id: 1,
         })
           .then(res => console.log(`${res} has been properly sent`))

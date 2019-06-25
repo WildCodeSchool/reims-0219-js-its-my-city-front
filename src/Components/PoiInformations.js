@@ -1,6 +1,7 @@
 import React from 'react';
 import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
+import sliceDate from '../Functions/FunctionSliceDate';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
@@ -33,7 +34,7 @@ X
           <p>{specificPoiInfos.author}</p>
           <p>
           le
-            {specificPoiInfos.creation_date}
+            {sliceDate(specificPoiInfos.creation_date)}
           </p>
         </div>
       </div>
