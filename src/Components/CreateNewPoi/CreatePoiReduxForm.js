@@ -30,7 +30,7 @@ class CreatePoiForm extends Component {
     const { page } = this.state;
     return (
       <div className="poi-create">
-        {page === 1 && <CreatePoiFirstPage onSubmit={this.nextPage} />}
+        {page === 1 && <CreatePoiFirstPage name="category" onSubmit={this.nextPage} />}
         {page === 2
           && (
           <CreatePoiSecondPage

@@ -12,9 +12,7 @@ const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
 });
 
-const poiFirstPageFields = ({
-  dispatch, poiKeywordsDisplay,
-}) => (
+const poiFirstPageFields = ({ dispatch, poiKeywordsDisplay }) => (
   <div className="poi-create">
     <label htmlFor="keywordTwo">Catégorie:</label>
 
@@ -29,11 +27,11 @@ const poiFirstPageFields = ({
       required
     >
       <option>
-            Choissisez une catégorie
+            Choisissez une catégorie
       </option>
       {poiKeywordsDisplay.filter(keyword => keyword.importance === 2)
         .map(keyword => (
-          <option key={keyword.name} id={keyword.name} value={keyword.name}>
+          <option key={keyword.name} id={keyword.name} value={keyword.name} required>
             {(keyword.name)}
           </option>
         ))}
