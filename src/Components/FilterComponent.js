@@ -9,7 +9,13 @@ const mapStateToProps = state => ({
   filterKeywordPageDisplay: state.filterKeywordPageDisplay,
 });
 
-const onlyKeywordsFirstImportance = keywords => keywords.filter(keyword => keyword.importance === 1);
+const onlyKeywordsFirstImportance = keywords => keywords.filter(
+  keyword => keyword.importance === 1,
+);
+
+const onlyKeywordsSecondImportance = keywords => keywords.filter(
+  keyword => keyword.importance === 2,
+);
 
 const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
   <div className="filterComponent">
@@ -22,6 +28,21 @@ const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
     <h1 className="themes">Thèmes</h1>
     <div className="themeContainer">
       {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
+        <button
+          type="button"
+          className="buttonStyle"
+          key={keyword.name}
+          onClick={() => axios.get(`http://localhost:3001/pois/filter/${keyword.name}`)
+            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }))
+      }
+        >
+          {keyword.name}
+
+        </button>
+      ))}
+
+
+      {onlyKeywordsSecondImportance(poiKeywordsDisplay).map(keyword => (
         <button
           type="button"
           className="buttonStyle"
