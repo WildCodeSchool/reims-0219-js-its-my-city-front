@@ -16,6 +16,7 @@ const initialState = {
   keywordTwo: '',
   isKeywordOneChoose: false,
   specificSecondKeyword: [],
+  isSelectThemeDisplayed: true,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -104,6 +105,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         isKeywordOneChoose: true,
         specificSecondKeyword: action.specificSecondKeyword,
+        isSelectThemeDisplayed: false,
       };
     default:
       return state;
