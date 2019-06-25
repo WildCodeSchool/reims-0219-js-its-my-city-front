@@ -29,7 +29,7 @@
     justify-self: center;
 }
 
-.themeContainer{
+.keywordsOfFirstImportance{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 60px 60px;
@@ -37,6 +37,17 @@
     grid-row-gap: 10px;
     margin-right: 15px;
     margin-left: 15px;
+}
+
+.keywordsOfSecondImportance{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 60px 60px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 13px;
 }
 
 .categories{
