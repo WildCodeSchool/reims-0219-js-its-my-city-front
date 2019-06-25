@@ -11,8 +11,6 @@ const initialState = {
   filteredPoiByKeyword: [],
   poiKeywordsDisplay: [],
   name: '',
-  keywordOne: '',
-  keywordOneId: '',
   keywordTwo: '',
 };
 
@@ -81,16 +79,11 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         name: action.name,
       };
-    case 'HANDLE_FORM_K1_CHANGE':
-      return {
-        ...state,
-        keywordOne: action.keywordOne,
-        keywordOneId: action.keywordOneId,
-      };
     case 'HANDLE_FORM_K2_CHANGE':
       return {
         ...state,
         keywordTwo: action.keywordTwo,
+        keywordOneId: action.keywordOneId,
       };
     case 'CLOSE_FILTER_COMPONENT':
       return {
