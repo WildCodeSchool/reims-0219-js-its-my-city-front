@@ -60,7 +60,7 @@ const FilterComponent = ({
           type="button"
           className="buttonStyle"
           key={keyword.name}
-          onClick={() => axios.get(`http://localhost:3001/pois/filter/${keyword.name}`)
+          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${keyword.name}`)
             .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
               dispatch({ type: 'CLOSE_FILTER_COMPONENT' }))
         }

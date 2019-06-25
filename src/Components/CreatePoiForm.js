@@ -38,7 +38,7 @@ const CreatePoiForm = ({
       method="POST"
       encType="multipart/form-data"
       onSubmit={(e) => {
-        axios.post('http://localhost:3001/pois', {
+        axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
           name,
           latitude: geolocCoordonnees[0],
           longitude: geolocCoordonnees[1],
