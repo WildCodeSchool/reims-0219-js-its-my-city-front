@@ -14,6 +14,8 @@ const initialState = {
   keywordOne: '',
   keywordOneId: '',
   keywordTwo: '',
+  isKeywordOneChoose: false,
+  specificSecondKeyword: [],
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -96,6 +98,12 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filterKeywordPageDisplay: false,
+      };
+    case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
+      return {
+        ...state,
+        isKeywordOneChoose: true,
+        specificSecondKeyword: action.specificSecondKeyword,
       };
     default:
       return state;

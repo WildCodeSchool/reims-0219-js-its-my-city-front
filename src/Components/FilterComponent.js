@@ -7,17 +7,18 @@ const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
   poiKeywordsDisplay: state.poiKeywordsDisplay,
   filterKeywordPageDisplay: state.filterKeywordPageDisplay,
+  isKeywordOneChoose: state.isKeywordOneChoose,
+  specificSecondKeyword: state.specificSecondKeyword,
 });
 
 const onlyKeywordsFirstImportance = keywords => keywords.filter(
   keyword => keyword.importance === 1,
 );
 
-const onlyKeywordsSecondImportance = keywords => keywords.filter(
-  keyword => keyword.importance === 2,
-);
+const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiKeywordsDisplay.filter(keyword => keyword.parent_id === specificKeyword.id);
 
-const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
+
+const FilterComponent = ({ dispatch, poiKeywordsDisplay, isKeywordOneChoose, specificSecondKeyword }) => (
   <div className="filterComponent">
     <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
     <h1 className="categories">Catégories</h1>
@@ -32,9 +33,10 @@ const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
           type="button"
           className="buttonStyle"
           key={keyword.name}
-          onClick={() => axios.get(`http://localhost:3001/pois/filter/${keyword.name}`)
-            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }))
-      }
+          onClick={() => dispatch({
+            type: 'SHOW_SECOND_IMPORTANCE_KEYWORD',
+            specificSecondKeyword: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
+          })}
         >
           {keyword.name}
 
@@ -42,7 +44,7 @@ const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
       ))}
 
 
-      {onlyKeywordsSecondImportance(poiKeywordsDisplay).map(keyword => (
+      {isKeywordOneChoose === true && specificSecondKeyword.map(keyword => (
         <button
           type="button"
           className="buttonStyle"
