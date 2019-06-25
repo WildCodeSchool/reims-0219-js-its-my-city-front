@@ -17,11 +17,13 @@ class CreatePoiForm extends Component {
   }
 
   nextPage() {
-    this.setState({ page: this.state.page + 1 });
+    const { page } = this.state;
+    this.setState({ page: page + 1 });
   }
 
   previousPage() {
-    this.setState({ page: this.state.page - 1 });
+    const { page } = this.state;
+    this.setState({ page: page - 1 });
   }
 
   render() {
@@ -29,7 +31,7 @@ class CreatePoiForm extends Component {
     const { page } = this.state;
     return (
       <div className="poi-create">
-        {page === 1 && <CreatePoiFirstPage onSubmit={this.nextPage} />}
+        {page === 1 && <CreatePoiFirstPage name="category" onSubmit={this.nextPage} />}
         {page === 2
           && (
           <CreatePoiSecondPage
