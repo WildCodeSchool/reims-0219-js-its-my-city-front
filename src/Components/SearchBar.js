@@ -3,45 +3,36 @@ import { connect } from 'react-redux';
 import './ComponentsCSS/searchBar.scss';
 import axios from 'axios';
 import { ReactComponent as Logo } from './pictos/search.svg';
+import Autocomplete from '../../node_modules/react-autocomplete';
 
 const mapStateToProps = state => ({
   searchBarValueInput: state.searchBarValueInput,
   filteredPoiByKeyword: state.filteredPoiByKeyword,
   poiKeywordsDisplay: state.poiKeywordsDisplay,
+  value: state.value,
 });
 
-
-// Filter all keywords where the index is different from -1,
-// and lower case them all to be case insensitive
-const filterKeywords = (keyword, userInput) => keyword.filter(el => el.name
-  .toLowerCase().indexOf(userInput.toLowerCase()) !== -1);
-
-const SearchBar = ({ dispatch, searchBarValueInput, poiKeywordsDisplay }) => (
+const SearchBar = ({
+  dispatch, searchBarValueInput, poiKeywordsDisplay, value,
+}) => (
   <div>
     <div className="search-box">
-      <form onSubmit={(e) => {
-        axios.get(`http://localhost:3001/pois/filter/${searchBarValueInput}`)
-          .then(res => dispatch({ type: 'HANDLE_SUBMIT_SEARCHBAR', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }));
-        e.preventDefault();
-      }
-      }
-      >
-        <input
-          className="search-text"
-          type="text"
-          placeholder="Rechercher"
-          onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', searchBarValueInput: e.target.value })}
-          list="keywords"
-        />
-        {searchBarValueInput
-      && (
-      <datalist id="keywords">
-        {filterKeywords(poiKeywordsDisplay, searchBarValueInput).map(word => (
-          <option value={word.name} />
-        ))}
-      </datalist>
-      )}
-      </form>
+      <Autocomplete
+        items={poiKeywordsDisplay}
+        shouldItemRender={(item, value2) => item.label.toLowerCase().indexOf(value2.toLowerCase()) > -1}
+        getItemValue={item => item.label}
+        renderItem={(item, highlighted) => (
+          <div
+            key={item.id}
+            style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
+          >
+            {item.label}
+          </div>
+        )}
+        value={value}
+        onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR', value: e.target.value })}
+        onSelect={value3 => dispatch({ type: 'HANDLE_SELECT', value3 })}
+      />
       <Logo className="search-logo" />
     </div>
   </div>
