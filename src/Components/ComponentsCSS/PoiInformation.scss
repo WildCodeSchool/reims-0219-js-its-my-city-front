@@ -94,3 +94,29 @@ $secondColor: white;
     margin: 0;
     color: $mainColor;
 }
+
+.infos{
+    font-size: 1.3rem;
+    margin-left: 1.75rem;
+    color: $mainColor;
+}
+
+.infos::before, .infos::after{
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid $mainColor;
+    top: 0;
+    width: 600px;
+}
+.infos::before{
+    right: 75%;
+    top: 69%;
+    margin-right: 70px;
+}
+
+.infos::after{
+    left: 75%;
+    top: 69%;
+    margin-left: 57px;
+}

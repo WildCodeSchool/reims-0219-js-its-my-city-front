@@ -38,8 +38,7 @@ X
         </div>
       </div>
       <div className={InformationPoiInfos ? 'grades' : 'grades-Bottom'}>
-        <hr />
-        <h2>Informations complémentaires</h2>
+        <p className="infos">Informations complémentaires</p>
         <p>
         Note moyenne :
           {specificPoiInfos.grades.average}
