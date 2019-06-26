@@ -2,13 +2,15 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import poiSecondPagesFields from './PoiSecondPageFields';
 
+
 const CreatePoiSecondPage = (props) => {
   const { handleSubmit, previousPage } = props;
   return (
     <form onSubmit={handleSubmit}>
       <Field
-        name="category"
+        name="poiDesc"
         component={poiSecondPagesFields}
+        label="Indiquez un nom ou une courte description..."
       />
       <div>
         <button type="button" className="previous" onClick={previousPage}>

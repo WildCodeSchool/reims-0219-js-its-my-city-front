@@ -1,7 +1,10 @@
 const validate = (values) => {
   const errors = {};
-  if (!values.category) {
-    errors.category = 'Required';
+  if (!values.categoryKeyword) {
+    errors.categoryKeyword = 'Veuillez choisir une catégorie :)';
+  }
+  if (!values.poiDesc) {
+    errors.poiDesc = 'Veuillez entrer un nom ou une description :)';
   }
   return errors;
 };

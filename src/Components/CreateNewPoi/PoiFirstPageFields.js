@@ -4,29 +4,23 @@ import '../ComponentsCSS/createPoiForm.css';
 
 
 const mapStateToProps = state => ({
-  name: state.pois.name,
-  keywordOne: state.pois.keywordOne,
-  keywordOneId: state.pois.keywordOneId,
-  keywordTwo: state.pois.keywordTwo,
-  geolocCoordonnees: state.pois.geolocCoordonnees,
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
 });
 
-const poiFirstPageFields = ({ dispatch, poiKeywordsDisplay }) => (
-  <div className="poi-create">
-    <label htmlFor="keywordTwo">Catégorie:</label>
+const poiFirstPageFields = ({
+  input,
+  label,
+  meta: { touched, error },
+  poiKeywordsDisplay,
+}) => (
+  <div>
+    <label>{label}</label>
 
     <select
-      id="keywordTwo"
-      name="keywordTwo"
-      onChange={
-          e => dispatch({
-            type: 'HANDLE_FORM_K2_CHANGE',
-            keywordTwo: e.target.value,
-          })}
-      required
+      {...input}
+      
     >
-      <option value="" disabled selected>
+      <option value="">
             Choisissez une catégorie
       </option>
       {poiKeywordsDisplay.filter(keyword => keyword.importance === 2)
@@ -36,6 +30,7 @@ const poiFirstPageFields = ({ dispatch, poiKeywordsDisplay }) => (
           </option>
         ))}
     </select>
+    {touched && error && <span>{error}</span>}
   </div>
 );
 
