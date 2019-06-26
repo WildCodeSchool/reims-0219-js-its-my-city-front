@@ -8,7 +8,7 @@ import Autocomplete from '../../node_modules/react-autocomplete';
 const mapStateToProps = state => ({
   filteredPoiByKeyword: state.filteredPoiByKeyword,
   poiKeywordsDisplay: state.poiKeywordsDisplay,
-  userInput: state.userInput,
+  userInputSearchBar: state.userInputSearchBar,
 });
 
 const dropdownMenuStyle = {
