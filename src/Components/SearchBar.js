@@ -51,7 +51,8 @@ const SearchBar = ({
         onSelect={value3 => axios.get(`
         ${process.env.REACT_APP_API_URL}/pois/${filter(poiKeywordsDisplay, value3).length
           ? 'filterKeyword1/'
-          : 'filter/'}${value3}`)
+          : 'filter/'}
+          ${value3}`)
           .then(res => dispatch({ type: 'HANDLE_SELECT', userInputSearchBar: value3, filteredPoiByKeyword: res.data }))}
       />
       <Logo onClick={() => console.log((filter(poiKeywordsDisplay)))} className="search-logo" />
