@@ -8,7 +8,7 @@ import Autocomplete from '../../node_modules/react-autocomplete';
 const mapStateToProps = state => ({
   filteredPoiByKeyword: state.filteredPoiByKeyword,
   poiKeywordsDisplay: state.poiKeywordsDisplay,
-  value: state.value,
+  userInput: state.userInput,
 });
 
 const dropdownMenuStyle = {
@@ -25,7 +25,7 @@ const dropdownMenuStyle = {
 };
 
 const SearchBar = ({
-  dispatch, poiKeywordsDisplay, value,
+  dispatch, poiKeywordsDisplay, userInput,
 }) => (
   <div>
     <div className="search-box">
@@ -42,10 +42,10 @@ const SearchBar = ({
             {item.name}
           </div>
         )}
-        value={value}
-        onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', value: e.target.value })}
+        value={userInput}
+        onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInput: e.target.value })}
         onSelect={value3 => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${value3}`)
-          .then(res => dispatch({ type: 'HANDLE_SELECT', value: value3, filteredPoiByKeyword: res.data }))}
+          .then(res => dispatch({ type: 'HANDLE_SELECT', userInput: value3, filteredPoiByKeyword: res.data }))}
       />
       <Logo className="search-logo" />
     </div>

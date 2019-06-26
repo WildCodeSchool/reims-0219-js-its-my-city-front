@@ -9,7 +9,7 @@ const initialState = {
   InformationPoiInfos: false,
   filteredPoiByKeyword: [],
   poiKeywordsDisplay: [],
-  value: '',
+  userInput: '',
   name: '',
   keywordOne: '',
   keywordOneId: '',
@@ -74,12 +74,12 @@ const poisReducer = (state = initialState, action) => {
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
         ...state,
-        value: action.value,
+        userInput: action.userInput,
       };
     case 'HANDLE_SELECT':
       return {
         ...state,
-        value: action.value,
+        userInput: action.userInput,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
       };
     case 'HANDLE_FORM_NAME_CHANGE':
