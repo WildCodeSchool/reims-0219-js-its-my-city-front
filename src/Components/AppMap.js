@@ -6,12 +6,12 @@ import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 import L from 'leaflet';
-import userLocationUrl from '../pictoUser/pinnnUser.svg';
+import userLocationUrl from './pictos/PinUser.svg';
 import Pins from './ComponentPins/Pins';
 
 const myIcon = L.icon({
   iconUrl: userLocationUrl,
-  iconSize: [25, 41],
+  iconSize: [80, 80],
 });
 
 const mapStateToProps = state => ({
