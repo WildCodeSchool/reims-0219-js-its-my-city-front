@@ -25,7 +25,7 @@ const dropdownMenuStyle = {
 };
 
 const SearchBar = ({
-  dispatch, poiKeywordsDisplay, userInput,
+  dispatch, poiKeywordsDisplay, userInputSearchBar,
 }) => (
   <div>
     <div className="search-box">
@@ -42,10 +42,10 @@ const SearchBar = ({
             {item.name}
           </div>
         )}
-        value={userInput}
-        onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInput: e.target.value })}
+        value={userInputSearchBar}
+        onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: e.target.value })}
         onSelect={value3 => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${value3}`)
-          .then(res => dispatch({ type: 'HANDLE_SELECT', userInput: value3, filteredPoiByKeyword: res.data }))}
+          .then(res => dispatch({ type: 'HANDLE_SELECT', userInputSearchBar: value3, filteredPoiByKeyword: res.data }))}
       />
       <Logo className="search-logo" />
     </div>
