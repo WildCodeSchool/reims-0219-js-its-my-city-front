@@ -18,6 +18,8 @@ const initialState = {
   specificSecondKeyword: [],
   isSelectThemeDisplayed: true,
   isSelectSecondThemeDisplayed: false,
+  registerSecondKeywordSelection: '',
+  isKeywordTwoChoosen: false,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -108,6 +110,12 @@ const poisReducer = (state = initialState, action) => {
         specificSecondKeyword: action.specificSecondKeyword,
         isSelectThemeDisplayed: false,
         isSelectSecondThemeDisplayed: true,
+      };
+    case 'APPLY_BUTTON':
+      return {
+        ...state,
+        isKeywordTwoChoosen: true,
+        registerSecondKeywordSelection: action.registerSecondKeywordSelection,
       };
     default:
       return state;

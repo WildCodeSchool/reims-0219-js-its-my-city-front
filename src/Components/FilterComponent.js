@@ -11,6 +11,8 @@ const mapStateToProps = state => ({
   specificSecondKeyword: state.specificSecondKeyword,
   isSelectThemeDisplayed: state.isSelectThemeDisplayed,
   isSelectSecondThemeDisplayed: state.isSelectSecondThemeDisplayed,
+  isKeywordTwoChoosen: state.isKeywordTwoChoosen,
+  registerSecondKeywordSelection: state.registerSecondKeywordSelection,
 });
 
 const onlyKeywordsFirstImportance = keywords => keywords.filter(
@@ -22,7 +24,8 @@ const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiK
 
 const FilterComponent = ({
   dispatch, poiKeywordsDisplay, isKeywordOneChoose, specificSecondKeyword,
-  isSelectThemeDisplayed, isSelectSecondThemeDisplayed,
+  isSelectThemeDisplayed, isSelectSecondThemeDisplayed, isKeywordTwoChoosen,
+  registerSecondKeywordSelection,
 }) => (
   <div className="filterComponent">
     <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
@@ -33,6 +36,7 @@ const FilterComponent = ({
     </div>
     <h1 className="themes">Thèmes</h1>
     {isSelectThemeDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
+
     <div className="allKeywords">
       <div className="keywordsOfFirstImportance">
         {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
@@ -51,6 +55,7 @@ const FilterComponent = ({
         ))}
       </div>
 
+
       <div>
         {isSelectSecondThemeDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
       </div>
@@ -61,9 +66,7 @@ const FilterComponent = ({
             type="button"
             className="buttonStyle"
             key={keyword.name}
-            onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${keyword.name}`)
-              .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
-                dispatch({ type: 'CLOSE_FILTER_COMPONENT' }))
+            onClick={() => dispatch({ type: 'APPLY_BUTTON', registerSecondKeywordSelection: keyword.name })
           }
           >
             {keyword.name}
@@ -72,6 +75,23 @@ const FilterComponent = ({
         ))}
       </div>
     </div>
+
+    <div className="applyButton">
+      {isKeywordTwoChoosen === true && (
+        <button
+          type="button"
+          className="buttonStyle"
+          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${registerSecondKeywordSelection}`)
+            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
+      }
+        >
+Appliquer
+        </button>
+      )
+        }
+    </div>
+
+
   </div>
 );
 
