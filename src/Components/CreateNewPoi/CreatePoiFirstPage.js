@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import poiFirstPageFields from './PoiFirstPageFields';
 import validate from './validate';
+import '../ComponentsCSS/createPoiForm.scss';
 
 const CreatePoiFirstPage = (props) => {
   const { handleSubmit } = props;
