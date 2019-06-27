@@ -1,14 +1,16 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import validate from './validate';
 import poiFirstPageFields from './PoiFirstPageFields';
+import validate from './validate';
 
 const CreatePoiFirstPage = (props) => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
       <Field
+        name="categoryKeyword"
         component={poiFirstPageFields}
+        label="Sélectionnez une catégorie..."
       />
       <div>
         <button type="submit" className="next">Next</button>

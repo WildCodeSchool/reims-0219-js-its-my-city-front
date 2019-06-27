@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import CreatePoiFirstPage from './CreatePoiFirstPage';
 import CreatePoiSecondPage from './CreatePoiSecondPage';
 import CreatePoiThirdPage from './CreatePoiThirdPage';
+import CreatePoiFourthPage from './CreatePoiFourthPage';
 import '../ComponentsCSS/createPoiForm.scss';
 
 class CreatePoiForm extends Component {
@@ -16,11 +17,13 @@ class CreatePoiForm extends Component {
   }
 
   nextPage() {
-    this.setState({ page: this.state.page + 1 });
+    const { page } = this.state;
+    this.setState({ page: page + 1 });
   }
 
   previousPage() {
-    this.setState({ page: this.state.page - 1 });
+    const { page } = this.state;
+    this.setState({ page: page - 1 });
   }
 
   render() {
@@ -39,6 +42,13 @@ class CreatePoiForm extends Component {
         {page === 3
           && (
           <CreatePoiThirdPage
+            previousPage={this.previousPage}
+            onSubmit={this.nextPage}
+          />
+          )}
+        {page === 4
+          && (
+          <CreatePoiFourthPage
             previousPage={this.previousPage}
             onSubmit={onSubmit}
           />

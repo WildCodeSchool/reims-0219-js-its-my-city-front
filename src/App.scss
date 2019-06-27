@@ -5,3 +5,19 @@
 
 
 $mainColor : #DD476D;
+
+.filePreview {
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  width : 30vh;
+  height: 30vh;
+}
+
+.validButton {
+  background-color: white;
+  border: 2px solid #DD476D;
+  border-radius: 10px;
+  height: 5vh;
+  width: 15vh;
+  font-weight: bold;
+}
