@@ -14,6 +14,12 @@ const initialState = {
   keywordOne: '',
   keywordOneId: '',
   keywordTwo: '',
+  isKeywordOneChoosen: false,
+  isKeywordTwoChoosen: false,
+  specificSecondKeywords: [],
+  firstIndicationIsDisplayed: true,
+  secondIndicationIsdisplayed: false,
+  secondKeyword: '',
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -70,6 +76,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         poiSampleDisplay: action.poiSampleDisplay,
+        filterKeywordPageDisplay: false,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
@@ -98,10 +105,19 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         keywordTwo: action.keywordTwo,
       };
-    case 'CLOSE_FILTER_COMPONENT':
+    case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
       return {
         ...state,
-        filterKeywordPageDisplay: false,
+        isKeywordOneChoosen: true,
+        specificSecondKeywords: action.specificSecondKeywords,
+        firstIndicationIsDisplayed: false,
+        secondIndicationIsDisplayed: true,
+      };
+    case 'APPLY_BUTTON':
+      return {
+        ...state,
+        isKeywordTwoChoosen: true,
+        secondKeyword: action.secondKeyword,
       };
     default:
       return state;
