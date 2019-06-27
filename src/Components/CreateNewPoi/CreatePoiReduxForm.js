@@ -26,6 +26,7 @@ class CreatePoiForm extends Component {
     this.setState({ page: page - 1 });
   }
 
+
   render() {
     const { onSubmit } = this.props;
     const { page } = this.state;
@@ -50,7 +51,7 @@ class CreatePoiForm extends Component {
           && (
           <CreatePoiFourthPage
             previousPage={this.previousPage}
-            onSubmit={onSubmit}
+            handleSubmit={onSubmit}
           />
           )}
       </div>

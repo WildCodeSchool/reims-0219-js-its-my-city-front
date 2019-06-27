@@ -10,6 +10,7 @@ const CreatePoiFourthPage = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <Field
+        name="uploadPicture"
         component={poiFourthPagesFields}
       />
       <div>

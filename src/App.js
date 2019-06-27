@@ -17,6 +17,8 @@ const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
   isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
   defaultCoordonnees: state.pois.defaultCoordonnees,
+  poiNameFromForm: state.wizard.values.poiDesc,
+  poiKeywordFromForm: state.wizard.values.categoryKeyword,
 });
 
 
@@ -40,6 +42,19 @@ class App extends Component {
     }
   }
 
+  onSubmit(e) {
+    const { poiNameFromForm, geolocCoordonnees, poiKeywordFromForm } = this.props;
+    axios.post('http://localhost:3001/pois', {
+      name: poiNameFromForm,
+      latitude: geolocCoordonnees[0],
+      longitude: geolocCoordonnees[1],
+      keyword: poiKeywordFromForm,
+      author_id: 'Wilder',
+    });
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
   render() {
     const {
       specificPoiInfos,
@@ -54,7 +69,7 @@ class App extends Component {
         {!Object.keys(specificPoiInfos).length && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
         <FilterBar />
-        {isCreateFormDisplayed && <CreatePoiForm />}
+        {isCreateFormDisplayed && <CreatePoiForm onSubmit={this.onSubmit} />}
       </div>
     );
   }

@@ -12,6 +12,7 @@ const CreatePoiThirdPage = (props) => {
     <form onSubmit={handleSubmit}>
       <div>
         <Field
+          name="ratingPoi"
           component={PoiThirdPageFields}
         />
       </div>
