@@ -14,12 +14,12 @@ const initialState = {
   keywordOne: '',
   keywordOneId: '',
   keywordTwo: '',
-  isKeywordOneChoose: false,
-  specificSecondKeyword: [],
-  isSelectThemeDisplayed: true,
-  isSelectSecondThemeDisplayed: false,
-  registerSecondKeywordSelection: '',
+  isKeywordOneChoosen: false,
   isKeywordTwoChoosen: false,
+  specificSecondKeyword: [],
+  isSelectFirstFilterSentenceDisplayed: true,
+  isSelectSecondFilterSentenceDisplayed: false,
+  registerSecondKeywordSelection: '',
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -112,10 +112,10 @@ const poisReducer = (state = initialState, action) => {
     case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
       return {
         ...state,
-        isKeywordOneChoose: true,
+        isKeywordOneChoosen: true,
         specificSecondKeyword: action.specificSecondKeyword,
-        isSelectThemeDisplayed: false,
-        isSelectSecondThemeDisplayed: true,
+        isSelectFirstFilterSentenceDisplayed: false,
+        isSelectSecondFilterSentenceDisplayed: true,
       };
     case 'APPLY_BUTTON':
       return {

@@ -7,10 +7,10 @@ const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
   poiKeywordsDisplay: state.poiKeywordsDisplay,
   filterKeywordPageDisplay: state.filterKeywordPageDisplay,
-  isKeywordOneChoose: state.isKeywordOneChoose,
+  isKeywordOneChoosen: state.isKeywordOneChoosen,
   specificSecondKeyword: state.specificSecondKeyword,
-  isSelectThemeDisplayed: state.isSelectThemeDisplayed,
-  isSelectSecondThemeDisplayed: state.isSelectSecondThemeDisplayed,
+  isSelectFirstFilterSentenceDisplayed: state.isSelectFirstFilterSentenceDisplayed,
+  isSelectSecondFilterSentenceDisplayed: state.isSelectSecondFilterSentenceDisplayed,
   isKeywordTwoChoosen: state.isKeywordTwoChoosen,
   registerSecondKeywordSelection: state.registerSecondKeywordSelection,
 });
@@ -23,8 +23,8 @@ const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiK
 
 
 const FilterComponent = ({
-  dispatch, poiKeywordsDisplay, isKeywordOneChoose, specificSecondKeyword,
-  isSelectThemeDisplayed, isSelectSecondThemeDisplayed, isKeywordTwoChoosen,
+  dispatch, poiKeywordsDisplay, isKeywordOneChoosen, specificSecondKeyword,
+  isSelectFirstFilterSentenceDisplayed, isSelectSecondFilterSentenceDisplayed, isKeywordTwoChoosen,
   registerSecondKeywordSelection,
 }) => (
   <div className="filterComponent">
@@ -35,7 +35,7 @@ const FilterComponent = ({
       <button className="filterButton2 buttonStyle" type="button">Événements</button>
     </div>
     <h1 className="themes">Thèmes</h1>
-    {isSelectThemeDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
+    {isSelectFirstFilterSentenceDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
 
     <div className="allKeywords">
       <div className="keywordsOfFirstImportance">
@@ -57,11 +57,11 @@ const FilterComponent = ({
 
 
       <div>
-        {isSelectSecondThemeDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
+        {isSelectSecondFilterSentenceDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
       </div>
 
       <div className="keywordsOfSecondImportance">
-        {isKeywordOneChoose === true && specificSecondKeyword.map(keyword => (
+        {isKeywordOneChoosen === true && specificSecondKeyword.map(keyword => (
           <button
             type="button"
             className="buttonStyle"
