@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../ComponentsCSS/createPoiForm.css';
+import '../ComponentsCSS/createPoiForm.scss';
 
 
 const mapStateToProps = state => ({

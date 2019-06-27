@@ -90,6 +90,21 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         filterKeywordPageDisplay: false,
       };
+    case 'RATING_CONDITION_CHANGE':
+      return {
+        ...state,
+        conditionRating: action.conditionRating,
+      };
+    case 'RATING_OPERATION_CHANGE':
+      return {
+        ...state,
+        operationRating: action.operationRating,
+      };
+    case 'RATING_ACCESSIBILITY_CHANGE':
+      return {
+        ...state,
+        accessibilityRating: action.accessibilityRating,
+      };
     default:
       return state;
   }

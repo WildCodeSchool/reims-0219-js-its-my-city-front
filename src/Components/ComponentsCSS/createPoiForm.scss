@@ -7,8 +7,24 @@
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 10px;
-    color: #DD476D;
     font-weight: bold;
+}
+.conditionRating{
+    display: flex;
+    justify-content: space-evenly;
+}
+.operationRating{
+    display: flex;
+    justify-content: space-evenly;
+}
+.accessibilityRating{
+    display: flex;
+    justify-content: space-evenly;
+}
+.rating{
+    border:solid 1px black;
+    width: 5%;
+    height: 5%;  
 }
 
 label{
@@ -68,3 +84,4 @@ legend{
     background-color: none;
     outline: none;
   }
+  

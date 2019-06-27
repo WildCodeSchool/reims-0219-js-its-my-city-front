@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CreatePoiFirstPage from './CreatePoiFirstPage';
 import CreatePoiSecondPage from './CreatePoiSecondPage';
 import CreatePoiThirdPage from './CreatePoiThirdPage';
-import '../ComponentsCSS/createPoiForm.css';
+import '../ComponentsCSS/createPoiForm.scss';
 
 class CreatePoiForm extends Component {
   constructor(props) {
