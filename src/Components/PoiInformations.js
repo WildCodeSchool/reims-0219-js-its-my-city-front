@@ -2,13 +2,17 @@ import React from 'react';
 import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
 import sliceDate from '../Functions/FunctionSliceDate';
+import calculateDistance from '../Functions/CalculateDistance';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.specificPoiInfos,
   InformationPoiInfos: state.InformationPoiInfos,
+  geolocCoordonnees: state.geolocCoordonnees,
 });
 
-const PoiInformation = ({ dispatch, specificPoiInfos, InformationPoiInfos }) => (
+const PoiInformation = ({
+  dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees,
+}) => (
   <div>
     <button
       className={InformationPoiInfos ? 'closeButtonInformationPageTop' : 'closeButtonInformationPageBottom'}
@@ -28,7 +32,10 @@ X
       <hr />
       <div className="generalInfosContainer">
         <p className="adress">Adresse</p>
-        <p className="distance">Distance</p>
+        <p className="distance">
+          {calculateDistance(geolocCoordonnees[0], geolocCoordonnees[1], specificPoiInfos.localisation[0], specificPoiInfos.localisation[1])}
+km
+        </p>
         <img src={specificPoiInfos.picture_url} className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'} alt={specificPoiInfos.name} />
         <div className={InformationPoiInfos ? 'informationUser' : 'informationUser-Bottom'}>
           <p>{specificPoiInfos.author}</p>
