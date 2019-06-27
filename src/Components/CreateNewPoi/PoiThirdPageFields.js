@@ -3,16 +3,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/createPoiForm.scss';
+import { ReactComponent as Starcolor } from '../pictos/Starcolor.svg';
+import { ReactComponent as StarUncolor } from '../pictos/StarUncolor.svg';
 
 const scoreRating = [1, 2, 3, 4, 5];
 
 const mapStateToProps = state => ({
   conditionRating: state.pois.conditionRating,
   operationRating: state.pois.operationRating,
+  accessibilityRating: state.pois.accessibilityRating,
 });
 
 const PoiThirdPageFields = ({
-  dispatch,
+  dispatch, conditionRating, operationRating, accessibilityRating,
 }) => (
   <div className="poi-create">
     <label>Note d'état:</label>
@@ -25,7 +28,7 @@ const PoiThirdPageFields = ({
             conditionRating: rating,
           })}
         >
-          {rating}
+          {rating <= conditionRating ? <Starcolor /> : <StarUncolor />}
         </div>
       ))}
     </div>
@@ -39,7 +42,7 @@ const PoiThirdPageFields = ({
             operationRating: rating,
           })}
         >
-          {rating}
+          {rating <= operationRating ? <Starcolor /> : <StarUncolor />}
         </div>
       ))}
     </div>
@@ -53,7 +56,7 @@ const PoiThirdPageFields = ({
             accessibilityRating: rating,
           })}
         >
-          {rating}
+          {rating <= accessibilityRating ? <Starcolor /> : <StarUncolor />}
         </div>
       ))}
     </div>
