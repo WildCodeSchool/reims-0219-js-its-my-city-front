@@ -9,10 +9,10 @@ const mapStateToProps = state => ({
   filterKeywordPageDisplay: state.filterKeywordPageDisplay,
   isKeywordOneChoosen: state.isKeywordOneChoosen,
   specificSecondKeyword: state.specificSecondKeyword,
-  isSelectFirstFilterSentenceDisplayed: state.isSelectFirstFilterSentenceDisplayed,
-  isSelectSecondFilterSentenceDisplayed: state.isSelectSecondFilterSentenceDisplayed,
+  isDisplayedFirstIndication: state.isDisplayedFirstIndication,
+  isDisplayedSecondIndication: state.isDisplayedSecondIndication,
   isKeywordTwoChoosen: state.isKeywordTwoChoosen,
-  registerSecondKeywordSelection: state.registerSecondKeywordSelection,
+  secondKeyword: state.secondKeyword,
 });
 
 const onlyKeywordsFirstImportance = keywords => keywords.filter(
@@ -24,8 +24,8 @@ const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiK
 
 const FilterComponent = ({
   dispatch, poiKeywordsDisplay, isKeywordOneChoosen, specificSecondKeyword,
-  isSelectFirstFilterSentenceDisplayed, isSelectSecondFilterSentenceDisplayed, isKeywordTwoChoosen,
-  registerSecondKeywordSelection,
+  isDisplayedFirstIndication, isDisplayedSecondIndication, isKeywordTwoChoosen,
+  secondKeyword,
 }) => (
   <div className="filterComponent">
     <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
@@ -35,7 +35,7 @@ const FilterComponent = ({
       <button className="filterButton2 buttonStyle" type="button">Événements</button>
     </div>
     <h1 className="themes">Thèmes</h1>
-    {isSelectFirstFilterSentenceDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
+    {isDisplayedFirstIndication === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
 
     <div className="allKeywords">
       <div className="keywordsOfFirstImportance">
@@ -57,7 +57,7 @@ const FilterComponent = ({
 
 
       <div>
-        {isSelectSecondFilterSentenceDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
+        {isDisplayedSecondIndication === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
       </div>
 
       <div className="keywordsOfSecondImportance">
@@ -66,7 +66,7 @@ const FilterComponent = ({
             type="button"
             className="buttonStyle"
             key={keyword.name}
-            onClick={() => dispatch({ type: 'APPLY_BUTTON', registerSecondKeywordSelection: keyword.name })
+            onClick={() => dispatch({ type: 'APPLY_BUTTON', secondKeyword: keyword.name })
           }
           >
             {keyword.name}
@@ -81,7 +81,7 @@ const FilterComponent = ({
         <button
           type="button"
           className="buttonStyle"
-          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${registerSecondKeywordSelection}`)
+          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
             .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
       }
         >

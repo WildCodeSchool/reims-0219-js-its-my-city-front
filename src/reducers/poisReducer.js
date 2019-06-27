@@ -17,9 +17,9 @@ const initialState = {
   isKeywordOneChoosen: false,
   isKeywordTwoChoosen: false,
   specificSecondKeyword: [],
-  isSelectFirstFilterSentenceDisplayed: true,
-  isSelectSecondFilterSentenceDisplayed: false,
-  registerSecondKeywordSelection: '',
+  isDisplayedFirstIndication: true,
+  iiDisplayedSecondIndicationsDisplayedSecondIndication: false,
+  secondKeyword: '',
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -110,14 +110,14 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         isKeywordOneChoosen: true,
         specificSecondKeyword: action.specificSecondKeyword,
-        isSelectFirstFilterSentenceDisplayed: false,
-        isSelectSecondFilterSentenceDisplayed: true,
+        isDisplayedFirstIndication: false,
+        isDisplayedSecondIndication: true,
       };
     case 'APPLY_BUTTON':
       return {
         ...state,
         isKeywordTwoChoosen: true,
-        registerSecondKeywordSelection: action.registerSecondKeywordSelection,
+        secondKeyword: action.secondKeyword,
       };
     default:
       return state;
