@@ -76,6 +76,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         poiSampleDisplay: action.poiSampleDisplay,
+        filterKeywordPageDisplay: false,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
@@ -103,11 +104,6 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         keywordTwo: action.keywordTwo,
-      };
-    case 'CLOSE_FILTER_COMPONENT':
-      return {
-        ...state,
-        filterKeywordPageDisplay: false,
       };
     case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
       return {
