@@ -52,7 +52,7 @@ const AppMap = ({
     {!filteredPoiByKeyword.length
       ? poiSampleDisplay.map(poi => (
         <Marker
-          icon={customPins(poi.keywordName)}
+          icon={customPins(poi.firstImportanceKeyword)}
           key={poi.id}
           onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
           position={poi.localisation}
@@ -60,7 +60,7 @@ const AppMap = ({
       ))
       : filteredPoiByKeyword.map(poi => (
         <Marker
-          icon={customPins(poi.keywordName)}
+          icon={customPins(poi.firstImportanceKeyword)}
           key={poi.id}
           onClick={() => dispatch({ type: 'SHOW_POI_INFOS', specificPoiInfos: poi })}
           position={poi.localisation}
