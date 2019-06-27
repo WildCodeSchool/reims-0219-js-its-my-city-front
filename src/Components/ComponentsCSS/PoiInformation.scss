@@ -1,5 +1,13 @@
 @import '../../App.scss';
-$secondColor: white;
+
+.closePoiInformation{
+    position: absolute;
+    right: 0px;
+    margin: 0.75rem;
+    width: 40px;
+    height: 40px;
+    color:$mainColor;
+}
 
 @mixin position-transition {
     position: absolute;
@@ -24,21 +32,7 @@ $secondColor: white;
     @include position-transition;
     overflow: hidden;
 }
-.closeButtonInformationPageBottom {
-    z-index: 7;
-    top: 80vh;
-    @include position-transition;
-}
-.closeButtonInformationPageTop {
-    z-index: 7;
-    top: 0vh;
-    @include position-transition;
-}
 .informationUser {
-    float: right;
-    margin-right: 6vh;
-    background-color: $secondColor;
-    z-index: 6;
     grid-column: 2/3;
     grid-row: 3/4;
     justify-self: center;
@@ -49,7 +43,7 @@ $secondColor: white;
     display: none;
 }
 .grades{
-    margin-top: 9vh;
+    margin: 9vh 0 0 15px;
 }
 .grades-Bottom {
     @extend .grades;
@@ -85,20 +79,21 @@ $secondColor: white;
     grid-column: 1/2 ;
     grid-row: 1/2;
     height: 25px;
-    margin: 0;
+    margin: 0 0 0 15px;
 }
 
 .distance{
     grid-column: 1/2 ;
     grid-row: 2/3;
     height: 25px;
-    margin: 0;
+    margin: 0 0 0 15px;
     color: $mainColor;
 }
 
 .infos{
     font-size: 1.3rem;
-    margin-left: 1.75rem;
+    display: flex;
+    justify-content: center;
     color: $mainColor;
 }
 
@@ -113,11 +108,11 @@ $secondColor: white;
 .infos::before{
     right: 75%;
     top: 69%;
-    margin-right: 70px;
+    margin-right: 56px;
 }
 
 .infos::after{
     left: 75%;
-    top: 69%;
-    margin-left: 45px;
+    top: 69.2%;
+    margin-left: 71px;
 }
