@@ -8,9 +8,9 @@ const mapStateToProps = state => ({
   poiKeywordsDisplay: state.poiKeywordsDisplay,
   filterKeywordPageDisplay: state.filterKeywordPageDisplay,
   isKeywordOneChoosen: state.isKeywordOneChoosen,
-  specificSecondKeyword: state.specificSecondKeyword,
-  isDisplayedFirstIndication: state.isDisplayedFirstIndication,
-  isDisplayedSecondIndication: state.isDisplayedSecondIndication,
+  specificSecondKeywords: state.specificSecondKeywords,
+  firstIndicationIsDisplayed: state.firstIndicationIsDisplayed,
+  secondIndicationIsDisplayed: state.secondIndicationIsDisplayed,
   isKeywordTwoChoosen: state.isKeywordTwoChoosen,
   secondKeyword: state.secondKeyword,
 });
@@ -23,19 +23,19 @@ const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiK
 
 
 const FilterComponent = ({
-  dispatch, poiKeywordsDisplay, isKeywordOneChoosen, specificSecondKeyword,
-  isDisplayedFirstIndication, isDisplayedSecondIndication, isKeywordTwoChoosen,
+  dispatch, poiKeywordsDisplay, isKeywordOneChoosen, specificSecondKeywords,
+  firstIndicationIsDisplayed, secondIndicationIsDisplayed, isKeywordTwoChoosen,
   secondKeyword,
 }) => (
   <div className="filterComponent">
-    <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
+    <button className="closeButton" onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
     <h1 className="categories">Catégories</h1>
     <div className="buttonContainer">
       <button className="filterButton1 buttonStyle" type="button">Points d'intérêts</button>
       <button className="filterButton2 buttonStyle" type="button">Événements</button>
     </div>
     <h1 className="themes">Thèmes</h1>
-    {isDisplayedFirstIndication === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
+    {firstIndicationIsDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
 
     <div className="allKeywords">
       <div className="keywordsOfFirstImportance">
@@ -46,7 +46,7 @@ const FilterComponent = ({
             key={keyword.name}
             onClick={() => dispatch({
               type: 'SHOW_SECOND_IMPORTANCE_KEYWORD',
-              specificSecondKeyword: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
+              specificSecondKeywords: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
             })}
           >
             {keyword.name}
@@ -57,11 +57,11 @@ const FilterComponent = ({
 
 
       <div>
-        {isDisplayedSecondIndication === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
+        {secondIndicationIsDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
       </div>
 
       <div className="keywordsOfSecondImportance">
-        {isKeywordOneChoosen === true && specificSecondKeyword.map(keyword => (
+        {isKeywordOneChoosen === true && specificSecondKeywords.map(keyword => (
           <button
             type="button"
             className="buttonStyle"
