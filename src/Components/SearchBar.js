@@ -32,7 +32,9 @@ const SearchBar = ({
     <div className="search-box">
       <Autocomplete
         items={poiKeywordsDisplay}
-        shouldItemRender={(item, value2) => item.name.toLowerCase().indexOf(value2.toLowerCase()) > -1}
+        shouldItemRender={
+          (item, value2) => item.name.toLowerCase().indexOf(value2.toLowerCase()) > -1
+        }
         getItemValue={item => item.name}
         menuStyle={dropdownMenuStyle}
         renderItem={(item, highlighted) => (
