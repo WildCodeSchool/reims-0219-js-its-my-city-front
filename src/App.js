@@ -17,8 +17,7 @@ const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
   isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
   defaultCoordonnees: state.pois.defaultCoordonnees,
-  poiNameFromForm: state.wizard.values.poiDesc,
-  poiKeywordFromForm: state.wizard.values.categoryKeyword,
+  createPoiFormInfos: state.form,
 });
 
 
@@ -42,17 +41,17 @@ class App extends Component {
     }
   }
 
-  onSubmit(e) {
-    const { poiNameFromForm, geolocCoordonnees, poiKeywordFromForm } = this.props;
-    axios.post('http://localhost:3001/pois', {
-      name: poiNameFromForm,
-      latitude: geolocCoordonnees[0],
-      longitude: geolocCoordonnees[1],
-      keyword: poiKeywordFromForm,
-      author_id: 'Wilder',
-    });
+  onSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    const { createPoiFormInfos, geolocCoordonnees } = this.props;
+    axios.post('http://localhost:3001/pois', {
+      name: createPoiFormInfos.wizard.values.poiDesc,
+      latitude: geolocCoordonnees[0],
+      longitude: geolocCoordonnees[1],
+      keyword: createPoiFormInfos.wizard.values.categoryKeyword,
+      author_id: 'Wilder',
+    });
   }
 
   render() {
