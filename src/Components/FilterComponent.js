@@ -80,7 +80,7 @@ const FilterComponent = ({
       {isKeywordTwoChoosen === true && (
         <button
           type="button"
-          className="buttonStyle"
+          className="applyButtonStyle"
           onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
             .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
       }
