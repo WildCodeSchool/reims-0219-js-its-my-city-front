@@ -22,7 +22,6 @@ const mapStateToProps = state => ({
 
 class App extends Component {
   componentDidMount() {
-    console.log(process.env.REACT_APP_API_URL);
     const { dispatch } = this.props;
     navigator.geolocation.watchPosition((position) => {
       dispatch({ type: 'GET_CURRENT_POSITION', geolocCoordonnees: [position.coords.latitude, position.coords.longitude] });
@@ -35,7 +34,7 @@ class App extends Component {
   componentDidUpdate(prevProps) {
     const { dispatch, geolocCoordonnees } = this.props;
     if (geolocCoordonnees !== prevProps.geolocCoordonnees) {
-      axios.get(`http://localhost:3001/pois/sample/${geolocCoordonnees[0]}/${geolocCoordonnees[1]}`)
+      axios.get(`${process.env.REACT_APP_API_URL}/pois/sample/${geolocCoordonnees[0]}/${geolocCoordonnees[1]}`)
         .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
         .catch(err => console.log(err));
     }
