@@ -119,6 +119,11 @@ const poisReducer = (state = initialState, action) => {
         isKeywordTwoChoosen: true,
         secondKeyword: action.secondKeyword,
       };
+    case 'CLOSE_FILTER_COMPONENT':
+      return {
+        ...state,
+        filterKeywordPageDisplay: false,
+      };
     default:
       return state;
   }

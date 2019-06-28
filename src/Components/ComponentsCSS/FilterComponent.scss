@@ -84,6 +84,8 @@
     color: $mainColor;
     position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .categories::before, .categories::after{
@@ -110,6 +112,8 @@
     color:$mainColor;
     position: relative;
     overflow: scroll;
+    display: flex;
+    justify-content: center;
 }
 .themes::before, .themes::after{
     content: "";
