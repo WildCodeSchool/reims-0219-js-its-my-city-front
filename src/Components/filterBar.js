@@ -12,9 +12,7 @@ const mapStateToProps = state => ({
 
 const FilterBar = ({ dispatch }) => (
   <div className="footer-box">
-    <div className="footer-bar">
-      <LogoFooterBar />
-    </div>
+    <LogoFooterBar className="footer-bar" />
     <div className="footer-box-button">
       <LogoFilter className="filter-logo" onClick={() => dispatch({ type: 'DISPLAY_FILTER_PAGE' })} />
       <LogoAdd className="add-logo" onClick={() => dispatch({ type: 'TOGGLE_POI_CREATION_FORM' })} />

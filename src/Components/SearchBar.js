@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './ComponentsCSS/searchBar.scss';
 import axios from 'axios';
-import { ReactComponent as Logo } from './pictos/search.svg';
+import { ReactComponent as SearchBarLogo } from './pictos/SearchBar.svg';
+import { ReactComponent as SearchButton } from './pictos/SearchButton.svg';
 
 const mapStateToProps = state => ({
   searchBarValueInput: state.searchBarValueInput,
@@ -19,21 +20,25 @@ const filterKeywords = (keyword, userInput) => keyword.filter(el => el.name
 const SearchBar = ({ dispatch, searchBarValueInput, poiKeywordsDisplay }) => (
   <div>
     <div className="search-box">
-      <form onSubmit={(e) => {
-        axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${searchBarValueInput}`)
-          .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }));
-        e.preventDefault();
+      <SearchBarLogo className="search-bar-back" />
+      <div className="search-bar-front">
+        <form
+          className="search-form"
+          onSubmit={(e) => {
+            axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${searchBarValueInput}`)
+              .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }));
+            e.preventDefault();
+          }
       }
-      }
-      >
-        <input
-          className="search-text"
-          type="text"
-          placeholder="Rechercher"
-          onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', searchBarValueInput: e.target.value })}
-          list="keywords"
-        />
-        {searchBarValueInput
+        >
+          <input
+            className="search-text"
+            type="text"
+            placeholder="Rechercher"
+            onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', searchBarValueInput: e.target.value })}
+            list="keywords"
+          />
+          {searchBarValueInput
       && (
       <datalist id="keywords">
         {filterKeywords(poiKeywordsDisplay, searchBarValueInput).map(word => (
@@ -41,8 +46,11 @@ const SearchBar = ({ dispatch, searchBarValueInput, poiKeywordsDisplay }) => (
         ))}
       </datalist>
       )}
-      </form>
-      <Logo className="search-logo" />
+        </form>
+        <div className="search-button">
+          <SearchButton />
+        </div>
+      </div>
     </div>
   </div>
 );
