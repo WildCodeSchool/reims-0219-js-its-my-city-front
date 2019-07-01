@@ -4,15 +4,16 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 const mapStateToProps = state => ({
-  specificPoiInfos: state.specificPoiInfos,
-  poiKeywordsDisplay: state.poiKeywordsDisplay,
-  filterKeywordPageDisplay: state.filterKeywordPageDisplay,
-  isKeywordOneChoosen: state.isKeywordOneChoosen,
-  specificSecondKeywords: state.specificSecondKeywords,
-  firstIndicationIsDisplayed: state.firstIndicationIsDisplayed,
-  secondIndicationIsDisplayed: state.secondIndicationIsDisplayed,
-  isKeywordTwoChoosen: state.isKeywordTwoChoosen,
-  secondKeyword: state.secondKeyword,
+  specificPoiInfos: state.pois.specificPoiInfos,
+  poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
+  isKeywordOneChoosen: state.pois.isKeywordOneChoosen,
+  specificSecondKeywords: state.pois.specificSecondKeywords,
+  firstIndicationIsDisplayed: state.pois.firstIndicationIsDisplayed,
+  secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
+  isKeywordTwoChoosen: state.pois.isKeywordTwoChoosen,
+  secondKeyword: state.pois.secondKeyword,
+
 });
 
 const onlyKeywordsFirstImportance = keywords => keywords.filter(
