@@ -1,4 +1,13 @@
-$mainColor: white;
+@import '../../App.scss';
+
+.closePoiInformation{
+    position: absolute;
+    right: 0px;
+    margin: 0.75rem;
+    width: 40px;
+    height: 40px;
+    color:$mainColor;
+}
 
 @mixin position-transition {
     position: absolute;
@@ -11,7 +20,7 @@ $mainColor: white;
     margin: none;
     z-index: 6;
     bottom: 0vh;
-    background-color: $mainColor;
+    background-color: $secondColor;
     width: 100%;
     @include position-transition;
 };
@@ -19,32 +28,22 @@ $mainColor: white;
     z-index: 6;
     height: 100vh;
     width: 100%;
-    background-color: $mainColor;
+    background-color: $secondColor;
     @include position-transition;
-}
-.closeButtonInformationPageBottom {
-    z-index: 7;
-    top: 80vh;
-    @include position-transition;
-}
-.closeButtonInformationPageTop {
-    z-index: 7;
-    top: 0vh;
-    @include position-transition;
+    overflow: hidden;
 }
 .informationUser {
-    float: right;
-    margin-right: 6vh;
-    background-color: $mainColor;
-    position: absolute;
-    z-index: 6;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    justify-self: center;
+    align-self: center;
 }
 .informationUser-Bottom {
     @extend .informationUser;
     display: none;
 }
 .grades{
-    margin-top: 9vh;
+    margin: 9vh 0 0 15px;
 }
 .grades-Bottom {
     @extend .grades;
@@ -52,16 +51,68 @@ $mainColor: white;
 }
 .informationPicture {
     width: 25vh;
-	height: 25vh;
+    height: 25vh;
+    grid-column: 1/2;
+    grid-row: 3/4;
+    justify-self: center;
+    align-self: center;
 }
 .informationPicture-Bottom {
     @extend .grades;
     display:none;
 }
-h1{
-    text-align: center;
+
+.generalInfosContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 25px 25px auto;
+    height: 45%;
 }
-h2{
-    font-size: 1rem;
-    text-align: center;
+
+.poiName{
+    font-size: 1.5rem;
+    margin-left: 1.75rem;
+    margin-top: 1.75rem;
+}
+
+.adress{
+    grid-column: 1/2 ;
+    grid-row: 1/2;
+    height: 25px;
+    margin: 0 0 0 15px;
+}
+
+.distance{
+    grid-column: 1/2 ;
+    grid-row: 2/3;
+    height: 25px;
+    margin: 0 0 0 15px;
+    color: $mainColor;
+}
+
+.infos{
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    color: $mainColor;
+}
+
+.infos::before, .infos::after{
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-bottom: 1px solid $mainColor;
+    top: 0;
+    width: 600px;
+}
+.infos::before{
+    right: 75%;
+    top: 69%;
+    margin-right: 56px;
+}
+
+.infos::after{
+    left: 75%;
+    top: 69.2%;
+    margin-left: 71px;
 }
