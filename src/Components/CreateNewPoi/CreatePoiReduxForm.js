@@ -1,66 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CreatePoiFirstPage from './CreatePoiFirstPage';
 import CreatePoiSecondPage from './CreatePoiSecondPage';
 import CreatePoiThirdPage from './CreatePoiThirdPage';
 import CreatePoiFourthPage from './CreatePoiFourthPage';
 import '../ComponentsCSS/createPoiForm.scss';
+import PlaceYourNewPoi from './PlaceYourNewPoi';
 
-class CreatePoiForm extends Component {
-  constructor(props) {
-    super(props);
-    this.nextPage = this.nextPage.bind(this);
-    this.previousPage = this.previousPage.bind(this);
-    this.state = {
-      page: 1,
-    };
-  }
-
-  nextPage() {
-    const { page } = this.state;
-    this.setState({ page: page + 1 });
-  }
-
-  previousPage() {
-    const { page } = this.state;
-    this.setState({ page: page - 1 });
-  }
+const mapStateToProps = state => ({
+  page: state.pois.formPage,
+});
 
 
-  render() {
-    const { onSubmit } = this.props;
-    const { page } = this.state;
-    return (
-      <div className="poi-create">
-        {page === 1 && <CreatePoiFirstPage onSubmit={this.nextPage} />}
-        {page === 2
+const CreatePoiForm = ({ page, onSubmit }) => (
+  <div className="poi-create">
+    {page === 1 && <PlaceYourNewPoi /> }
+    {page === 2 && <CreatePoiFirstPage />}
+    {page === 3
           && (
-          <CreatePoiSecondPage
-            previousPage={this.previousPage}
-            onSubmit={this.nextPage}
-          />
+          <CreatePoiSecondPage />
           )}
-        {page === 3
+    {page === 4
           && (
-          <CreatePoiThirdPage
-            previousPage={this.previousPage}
-            onSubmit={this.nextPage}
-          />
+          <CreatePoiThirdPage />
           )}
-        {page === 4
+    {page === 5
           && (
           <CreatePoiFourthPage
-            previousPage={this.previousPage}
             handleSubmit={onSubmit}
           />
           )}
-      </div>
-    );
-  }
-}
+  </div>
+);
 
 CreatePoiForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default CreatePoiForm;
+export default connect(mapStateToProps)(CreatePoiForm);

@@ -1,28 +1,36 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import poiFourthPagesFields from './PoiFourthPageFields';
 
-const CreatePoiFourthPage = (props) => {
+const mapStateToProps = state => ({
+  page: state.pois.formPage,
+});
+
+let CreatePoiFourthPage = (
+  props, onSubmit, page, dispatch,
+) => {
   const {
-    handleSubmit, pristine, submitting, previousPage,
+    pristine, submitting,
   } = props;
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={onSubmit}>
       <Field
         name="uploadPicture"
         component={poiFourthPagesFields}
       />
       <div>
-        <button type="button" className="previous" onClick={previousPage}>
-          Previous
-        </button>
+        <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="next">Previous</button>
         <button type="submit" disabled={pristine || submitting}>Submit</button>
       </div>
     </form>
   );
 };
 
+CreatePoiFourthPage = connect(
+  mapStateToProps,
+)(CreatePoiFourthPage);
 
 export default reduxForm({
   form: 'wizard', //                 <------ same form name
