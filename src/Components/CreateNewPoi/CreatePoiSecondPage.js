@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import poiSecondPagesFields from './PoiSecondPageFields';
-import validate from './validate';
+import InputFieldChecked from './validate';
 
 
 const CreatePoiSecondPage = ({
@@ -27,5 +27,5 @@ export default reduxForm({
   form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate,
+  InputFieldChecked,
 })(CreatePoiSecondPage);

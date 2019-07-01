@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import validate from './validate';
+import InputFieldChecked from './validate';
 import PoiThirdPageFields from './PoiThirdPageFields';
 
 
@@ -32,5 +32,5 @@ export default reduxForm({
   form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate,
+  InputFieldChecked,
 })(CreatePoiThirdPage);
