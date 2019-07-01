@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import CreatePoiFirstPage from './CreatePoiFirstPage';
 import CreatePoiSecondPage from './CreatePoiSecondPage';
 import CreatePoiThirdPage from './CreatePoiThirdPage';
-import CreatePoiFourthPage from './CreatePoiFourthPage';
 import '../ComponentsCSS/createPoiForm.scss';
 import SelectNewPicture from './SelectNewPicture';
 

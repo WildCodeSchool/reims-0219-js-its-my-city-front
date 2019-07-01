@@ -10,9 +10,14 @@ const mapStateToProps = state => ({
   file: state.pois.file,
 });
 
-const uploadFileHandler = (e) => {
+const storeNewPictureData = (e) => {
   const formData = new FormData();
   formData.append('file', e.target.files[0]);
+  return formData;
+};
+const uploadFileHandler = (e, formData) => {
+  e.preventDefault();
+  e.stopPropagation();
   axios.post('http://localhost:3001/pois/picture', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
@@ -20,14 +25,16 @@ const uploadFileHandler = (e) => {
   });
 };
 
-const SelectedNewPicture = () => (
+const SelectedNewPicture = ({
+  dispatch, file,
+}) => (
   <div className="poi-create">
     <div className="poi-name">
-      <form action="/upload" encType="multipart/form-data" method="post">
+      <form encType="multipart/form-data" method="post" onSubmit={e => uploadFileHandler(e, file)}>
         <input
           type="file"
           name="upload"
-          onChange={e => uploadFileHandler(e)}
+          onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
           required
         />
         <button type="submit" value="upload">Envoyer</button>

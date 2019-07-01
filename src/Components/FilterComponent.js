@@ -7,30 +7,92 @@ const mapStateToProps = state => ({
   specificPoiInfos: state.pois.specificPoiInfos,
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
   filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
+  isKeywordOneChoosen: state.pois.isKeywordOneChoosen,
+  specificSecondKeywords: state.pois.specificSecondKeywords,
+  firstIndicationIsDisplayed: state.pois.firstIndicationIsDisplayed,
+  secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
+  isKeywordTwoChoosen: state.pois.isKeywordTwoChoosen,
+  secondKeyword: state.pois.secondKeyword,
+
 });
 
-const onlyKeywordsFirstImportance = keywords => keywords.filter(keyword => keyword.importance === 1);
+const onlyKeywordsFirstImportance = keywords => keywords.filter(
+  keyword => keyword.importance === 1,
+);
 
-const FilterComponent = ({ dispatch, poiKeywordsDisplay }) => (
+const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiKeywordsDisplay.filter(keyword => keyword.parent_id === specificKeyword.id);
+
+
+const FilterComponent = ({
+  dispatch, poiKeywordsDisplay, isKeywordOneChoosen, specificSecondKeywords,
+  firstIndicationIsDisplayed, secondIndicationIsDisplayed, isKeywordTwoChoosen,
+  secondKeyword,
+}) => (
   <div className="filterComponent">
-    <button onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
-    <h1>Catégories</h1>
-    <button type="button">Points d'intérêts</button>
-    <button type="button">évenements</button>
-    <h1>Thèmes</h1>
-    {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
-      <button
-        type="button"
-        key={keyword.name}
-        onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${keyword.name}`)
-          .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }),
-            dispatch({ type: 'CLOSE_FILTER_COMPONENT' }))
-      }
-      >
-        {keyword.name}
+    <button className="closeButton" onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
+    <h1 className="categories">Catégories</h1>
+    <div className="buttonContainer">
+      <button className="filterButton1 buttonStyle" type="button">Points d'intérêts</button>
+      <button className="filterButton2 buttonStyle" type="button">Événements</button>
+    </div>
+    <h1 className="themes">Thèmes</h1>
+    {firstIndicationIsDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
 
-      </button>
-    ))}
+    <div className="allKeywords">
+      <div className="keywordsOfFirstImportance">
+        {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
+          <button
+            type="button"
+            className="buttonStyle"
+            key={keyword.name}
+            onClick={() => dispatch({
+              type: 'SHOW_SECOND_IMPORTANCE_KEYWORD',
+              specificSecondKeywords: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
+            })}
+          >
+            {keyword.name}
+
+          </button>
+        ))}
+      </div>
+
+
+      <div>
+        {secondIndicationIsDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
+      </div>
+
+      <div className="keywordsOfSecondImportance">
+        {isKeywordOneChoosen === true && specificSecondKeywords.map(keyword => (
+          <button
+            type="button"
+            className="buttonStyle"
+            key={keyword.name}
+            onClick={() => dispatch({ type: 'APPLY_BUTTON', secondKeyword: keyword.name })
+          }
+          >
+            {keyword.name}
+
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div className="applyButton">
+      {isKeywordTwoChoosen === true && (
+        <button
+          type="button"
+          className="buttonStyle"
+          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
+            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
+      }
+        >
+Appliquer
+        </button>
+      )
+        }
+    </div>
+
+
   </div>
 );
 

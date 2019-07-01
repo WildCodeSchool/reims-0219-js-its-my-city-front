@@ -6,12 +6,12 @@ import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 import L from 'leaflet';
-import userLocationUrl from '../pictoUser/pinnnUser.svg';
+import userLocationUrl from './pictos/PinUser.svg';
 import Pins from './ComponentPins/Pins';
 
 const myIcon = L.icon({
   iconUrl: userLocationUrl,
-  iconSize: [25, 41],
+  iconSize: [80, 80],
 });
 
 const mapStateToProps = state => ({
@@ -47,8 +47,8 @@ const AppMap = ({
         User
       </Popup>
     </Marker>
-    {/* Poi sample at first render, if there's a filter applied, only show those pois, then none if no
-    corresponding keywords from the research */}
+    {/* Poi sample at first render, if there's a filter applied, only show those pois, 
+    then none if no corresponding keywords from the research */}
     {!filteredPoiByKeyword.length
       ? poiSampleDisplay.map(poi => (
         <Marker
