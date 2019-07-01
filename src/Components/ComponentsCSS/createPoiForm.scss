@@ -7,8 +7,23 @@
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 10px;
-    color: #DD476D;
     font-weight: bold;
+}
+.conditionRating{
+    display: flex;
+    justify-content: space-evenly;
+}
+.operationRating{
+    display: flex;
+    justify-content: space-evenly;
+}
+.accessibilityRating{
+    display: flex;
+    justify-content: space-evenly;
+}
+.rating{
+    width: 5%;
+    height: 5%;
 }
 
 label{
@@ -39,7 +54,7 @@ legend{
 .poi-address span{
     color: black;
 }
-.poi-name > input{
+.poi-name > input {
     margin-left: 3px;
     margin-bottom: 2.5vh;
     width: 89%;
@@ -68,3 +83,4 @@ legend{
     background-color: none;
     outline: none;
   }
+  

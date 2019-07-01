@@ -1,21 +1,20 @@
 import React from 'react';
 import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
+import sliceDate from '../Functions/FunctionSliceDate';
+import calculateDistance from '../Functions/CalculateDistance';
+import { ReactComponent as Close } from './pictos/CancelButton.svg';
 
 const mapStateToProps = state => ({
-  specificPoiInfos: state.specificPoiInfos,
-  InformationPoiInfos: state.InformationPoiInfos,
+  specificPoiInfos: state.pois.specificPoiInfos,
+  InformationPoiInfos: state.pois.InformationPoiInfos,
+  geolocCoordonnees: state.pois.geolocCoordonnees,
 });
 
-const PoiInformation = ({ dispatch, specificPoiInfos, InformationPoiInfos }) => (
+const PoiInformation = ({
+  dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees,
+}) => (
   <div>
-    <button
-      className={InformationPoiInfos ? 'closeButtonInformationPageTop' : 'closeButtonInformationPageBottom'}
-      type="button"
-      onClick={() => dispatch({ type: 'CLOSE_POI_INFOS', specificPoiInfos: [] })}
-    >
-X
-    </button>
     {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
     <div
       className={InformationPoiInfos ? 'informationPageTop' : 'informationPageBottom'}
@@ -23,24 +22,37 @@ X
       role="button"
       tabIndex="0"
     >
-      <h1>{specificPoiInfos.name}</h1>
+      <Close
+        className="closePoiInformation"
+        type="button"
+        onClick={() => dispatch({ type: 'CLOSE_POI_INFOS', specificPoiInfos: [] })}
+      />
+
+      <p className="poiName">{specificPoiInfos.name}</p>
       <hr />
-      <p>Adresse</p>
-      <p>code postal ville</p>
-      <p>Distance</p>
-      <div>
-        <img src={specificPoiInfos.picture_url} className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'} alt={specificPoiInfos.name} />
-      </div>
-      <div className={InformationPoiInfos ? 'informationUser' : 'informationUser-Bottom'}>
-        <p>{specificPoiInfos.author}</p>
-        <p>
-          le
-          {specificPoiInfos.creation_date}
+      <div className="generalInfosContainer">
+        <p className="adress">Adresse</p>
+        <p className="distance">
+          {calculateDistance(geolocCoordonnees[0], geolocCoordonnees[1], specificPoiInfos.localisation[0], specificPoiInfos.localisation[1])}
+          {' '}
+km
         </p>
+        <img src={specificPoiInfos.picture_url} className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'} alt={specificPoiInfos.name} />
+        <div className={InformationPoiInfos ? 'informationUser' : 'informationUser-Bottom'}>
+          <p>
+Découvert par
+            {' '}
+            {specificPoiInfos.author}
+          </p>
+          <p>
+          le
+            {' '}
+            {sliceDate(specificPoiInfos.creation_date)}
+          </p>
+        </div>
       </div>
       <div className={InformationPoiInfos ? 'grades' : 'grades-Bottom'}>
-        <hr />
-        <h2>Informations complémentaires</h2>
+        <p className="infos">Informations complémentaires</p>
         <p>
         Note moyenne :
           {specificPoiInfos.grades.average}

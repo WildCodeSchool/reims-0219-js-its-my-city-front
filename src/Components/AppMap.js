@@ -6,20 +6,20 @@ import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 import L from 'leaflet';
-import userLocationUrl from '../pictoUser/pinnnUser.svg';
+import userLocationUrl from './pictos/PinUser.svg';
 import Pins from './ComponentPins/Pins';
 
 const myIcon = L.icon({
   iconUrl: userLocationUrl,
-  iconSize: [25, 41],
+  iconSize: [80, 80],
 });
 
 const mapStateToProps = state => ({
-  zoom: state.zoom,
-  geolocCoordonnees: state.geolocCoordonnees,
-  defaultCoordonnees: state.defaultCoordonnees,
-  poiSampleDisplay: state.poiSampleDisplay,
-  filteredPoiByKeyword: state.filteredPoiByKeyword,
+  zoom: state.pois.zoom,
+  geolocCoordonnees: state.pois.geolocCoordonnees,
+  defaultCoordonnees: state.pois.defaultCoordonnees,
+  poiSampleDisplay: state.pois.poiSampleDisplay,
+  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
 });
 
 const customPins = keyword => L.divIcon({
