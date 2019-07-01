@@ -5,6 +5,7 @@ import CreatePoiSecondPage from './CreatePoiSecondPage';
 import CreatePoiThirdPage from './CreatePoiThirdPage';
 import CreatePoiFourthPage from './CreatePoiFourthPage';
 import '../ComponentsCSS/createPoiForm.scss';
+import SelectNewPicture from './SelectNewPicture';
 
 class CreatePoiForm extends Component {
   constructor(props) {
@@ -49,7 +50,7 @@ class CreatePoiForm extends Component {
           )}
         {page === 4
           && (
-          <CreatePoiFourthPage
+          <SelectNewPicture
             previousPage={this.previousPage}
             handleSubmit={onSubmit}
           />
