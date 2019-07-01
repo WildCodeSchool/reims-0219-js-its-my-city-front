@@ -11,7 +11,6 @@ const mapStateToProps = state => ({
   page: state.pois.formPage,
 });
 
-
 const CreatePoiForm = ({ page }) => (
   <div className="poi-create">
     {page === 1 && <PlaceYourNewPoi />}

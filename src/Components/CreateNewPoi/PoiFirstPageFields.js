@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/createPoiForm.scss';
@@ -18,7 +20,6 @@ const poiFirstPageFields = ({
 
     <select
       {...input}
-      
     >
       <option value="">
             Choisissez une catégorie
