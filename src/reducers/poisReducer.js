@@ -21,6 +21,9 @@ const initialState = {
   secondKeyword: '',
   formPage: 1,
   file: [],
+  conditionRating: 1,
+  operationRating: 1,
+  accessibilityRating: 1,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -123,7 +126,7 @@ const poisReducer = (state = initialState, action) => {
     case 'RATING_OPERATION_CHANGE':
       return {
         ...state,
-        operationRating: action.operationRating,
+        operationRating: action.conditionRating,
       };
     case 'RATING_ACCESSIBILITY_CHANGE':
       return {

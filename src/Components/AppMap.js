@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 import './ComponentsCSS/AppMap.scss';
 import { connect } from 'react-redux';
 import {
-  Map, TileLayer, Marker, Popup,
+  Map, TileLayer, Marker,
 } from 'react-leaflet';
 import L from 'leaflet';
 import userLocationUrl from './pictos/PinUser.svg';
