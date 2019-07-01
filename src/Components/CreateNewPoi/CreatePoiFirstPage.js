@@ -5,9 +5,12 @@ import InputFieldChecked from './validate';
 import '../ComponentsCSS/createPoiForm.scss';
 
 const CreatePoiFirstPage = ({
-  handleSubmit,
+  handleSubmit, isCreateFormDisplayed,
 }) => (
   <form onSubmit={handleSubmit}>
+    <div>
+      {<button type="button" className="closeButton">X</button>}
+    </div>
     <Field
       name="categoryKeyword"
       component={poiFirstPageFields}
