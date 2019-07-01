@@ -17,6 +17,7 @@ const mapStateToProps = state => ({
   poiKeywordsDisplay: state.poiKeywordsDisplay,
   isCreateFormDisplayed: state.isCreateFormDisplayed,
   defaultCoordonnees: state.defaultCoordonnees,
+  barsAreDisplayed: state.barsAreDisplayed,
 });
 
 
@@ -45,15 +46,15 @@ class App extends Component {
       specificPoiInfos,
       filterKeywordPageDisplay,
       isCreateFormDisplayed,
+      barsAreDisplayed,
     } = this.props;
     return (
       <div>
-        <SearchBar />
+        {barsAreDisplayed === true && <SearchBar />}
         <AppMap showPoiInfos={this.showPoiInfos} />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        {!Object.keys(specificPoiInfos).length && <FilterBar />}
+        {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
-        <FilterBar />
         {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );

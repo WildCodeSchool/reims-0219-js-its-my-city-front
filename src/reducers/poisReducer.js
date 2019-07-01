@@ -20,6 +20,7 @@ const initialState = {
   firstIndicationIsDisplayed: true,
   secondIndicationIsdisplayed: false,
   secondKeyword: '',
+  barsAreDisplayed: true,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -48,6 +49,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isCreateFormDisplayed: !state.isCreateFormDisplayed,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'CLOSE_POI_INFOS':
       if (state.InformationPoiInfos === true) {
@@ -65,6 +67,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'TRANSITION_POI_INFOS':
       return {
