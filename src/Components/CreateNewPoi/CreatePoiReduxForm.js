@@ -4,8 +4,8 @@ import PickCategory from './PickCategory';
 import DescribeNewPoi from './DescribeNewPoi';
 import RateNewPoi from './RateNewPoi';
 import TakeAPicture from './TakeAPicture';
-import '../ComponentsCSS/createPoiForm.scss';
 import PlaceYourNewPoi from './PlaceYourNewPoi';
+import '../ComponentsCSS/createPoiForm.scss';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
