@@ -18,6 +18,7 @@ const initialState = {
   firstIndicationIsDisplayed: true,
   secondIndicationIsdisplayed: false,
   secondKeyword: '',
+  barsAreDisplayed: true,
   file: [],
 };
 
@@ -47,6 +48,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isCreateFormDisplayed: !state.isCreateFormDisplayed,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'CLOSE_POI_INFOS':
       if (state.InformationPoiInfos === true) {
@@ -64,6 +66,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'TRANSITION_POI_INFOS':
       return {
@@ -76,6 +79,7 @@ const poisReducer = (state = initialState, action) => {
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         poiSampleDisplay: action.poiSampleDisplay,
         filterKeywordPageDisplay: false,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
