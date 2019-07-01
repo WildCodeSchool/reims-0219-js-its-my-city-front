@@ -126,7 +126,7 @@ const poisReducer = (state = initialState, action) => {
     case 'RATING_OPERATION_CHANGE':
       return {
         ...state,
-        operationRating: action.conditionRating,
+        operationRating: action.operationRating,
       };
     case 'RATING_ACCESSIBILITY_CHANGE':
       return {

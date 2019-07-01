@@ -25,7 +25,7 @@ const PoiThirdPageFields = ({
       {scoreRating.map(rating => (
         <div
           key={rating}
-          className="rating"
+          className={`star${rating}`}
           onClick={() => dispatch({
             type: 'RATING_CONDITION_CHANGE',
             conditionRating: rating,
@@ -40,7 +40,7 @@ const PoiThirdPageFields = ({
       {scoreRating.map(rating => (
         <div
           key={rating}
-          className="rating"
+          className={`star${rating}`}
           onClick={() => dispatch({
             type: 'RATING_OPERATION_CHANGE',
             operationRating: rating,
@@ -55,7 +55,7 @@ const PoiThirdPageFields = ({
       {scoreRating.map(rating => (
         <div
           key={rating}
-          className="rating"
+          className={`star${rating}`}
           onClick={() => dispatch({
             type: 'RATING_ACCESSIBILITY_CHANGE',
             accessibilityRating: rating,

@@ -1,3 +1,4 @@
+
 .poi-create{
     max-height: 90vh;
     position: relative;
@@ -9,21 +10,42 @@
     border-radius: 10px;
     font-weight: bold;
 }
-.conditionRating{
+
+@mixin stars-position{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.conditionRating{
+    @include stars-position;
 }
 .operationRating{
-    display: flex;
-    justify-content: space-evenly;
+    @include stars-position;
 }
 .accessibilityRating{
-    display: flex;
-    justify-content: space-evenly;
+    @include stars-position;
 }
-.rating{
-    width: 5%;
-    height: 5%;
+.star1{
+    width: 7%;
+    height: 7%;
+}
+.star2{
+    width: 8%;
+    height: 8%;
+}
+.star3{
+    width: 9%;
+    height: 9%;
+}
+.star4{
+    width: 10%;
+    height: 10%;
+}
+.star5{
+    width: 11%;
+    height: 11%;
 }
 
 label{
