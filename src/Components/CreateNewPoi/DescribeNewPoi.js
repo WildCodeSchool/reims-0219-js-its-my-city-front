@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
   page: state.pois.formPage,
 });
 
-let CreatePoiSecondPage = ({ page, dispatch }) => (
+let DescribeNewPoi = ({ page, dispatch }) => (
   <form>
     <Field
       name="poiDesc"
@@ -16,19 +16,19 @@ let CreatePoiSecondPage = ({ page, dispatch }) => (
       label="Indiquez un nom ou une courte description..."
     />
     <div>
-      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="next">Previous</button>
-      <button onClick={() => dispatch({ type: 'NEXT_PAGE', page: page + 1 })} type="submit" className="next">Next</button>
+      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">Précédent</button>
+      <button onClick={() => dispatch({ type: 'NEXT_PAGE', page: page + 1 })} type="submit" className="next">Suivant</button>
     </div>
   </form>
 );
 
-CreatePoiSecondPage = connect(
+DescribeNewPoi = connect(
   mapStateToProps,
-)(CreatePoiSecondPage);
+)(DescribeNewPoi);
 
 export default reduxForm({
   form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
-})(CreatePoiSecondPage);
+})(DescribeNewPoi);

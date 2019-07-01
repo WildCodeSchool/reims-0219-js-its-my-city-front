@@ -22,6 +22,7 @@ const mapStateToProps = state => ({
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
   customCoordonnes: state.pois.customCoordonnes,
   isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
+  page: state.pois.formPage,
 });
 
 const customPins = keyword => L.divIcon({
@@ -37,6 +38,7 @@ const AppMap = ({
   filteredPoiByKeyword,
   customCoordonnes,
   isCreateFormDisplayed,
+  page,
   dispatch,
 }) => (
   // eslint-disable-next-line max-len
@@ -45,7 +47,7 @@ const AppMap = ({
     zoom={zoom}
     zoomControl={false}
     onClick={(e) => {
-      if (isCreateFormDisplayed) {
+      if (isCreateFormDisplayed && page === 1) {
         dispatch({ type: 'ADD_CUSTOM_MARKER', customCoordonnes: [e.latlng.lat, e.latlng.lng] });
       }
     }}
@@ -54,22 +56,14 @@ const AppMap = ({
     {isCreateFormDisplayed && (
     <Marker
       position={customCoordonnes.length ? customCoordonnes : defaultCoordonnees}
-      draggable
-    >
-      <Popup>
-        Custom
-      </Popup>
-    </Marker>
+      draggable={page === 1}
+    />
     )}
 
     <Marker
       position={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees}
       icon={myIcon}
-    >
-      <Popup>
-        User
-      </Popup>
-    </Marker>
+    />
     {/* Poi sample at first render, if there's a filter applied, only show those pois,
     then none if no corresponding keywords from the research */}
     {!filteredPoiByKeyword.length

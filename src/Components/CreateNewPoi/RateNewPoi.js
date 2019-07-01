@@ -15,7 +15,7 @@ const mapStateToProps = state => ({
   customCoordonnes: state.pois.customCoordonnes,
 });
 
-let CreatePoiThirdPage = ({
+let RateNewPoi = ({
   page,
   dispatch,
   createPoiFormInfos,
@@ -50,20 +50,20 @@ let CreatePoiThirdPage = ({
       >
 Soumettre la création de votre point d'intérets.
       </button>
-
-      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="next">Previous</button>
-      <button onClick={() => dispatch({ type: 'NEXT_PAGE', page: page + 1 })} type="submit" className="next">Next</button>
+      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">
+        Précédent
+      </button>
     </div>
   </form>
 );
 
-CreatePoiThirdPage = connect(
+RateNewPoi = connect(
   mapStateToProps,
-)(CreatePoiThirdPage);
+)(RateNewPoi);
 
 export default reduxForm({
   form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
-})(CreatePoiThirdPage);
+})(RateNewPoi);

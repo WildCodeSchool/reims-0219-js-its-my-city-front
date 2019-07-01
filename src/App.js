@@ -44,30 +44,6 @@ class App extends Component {
     }
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const {
-      createPoiFormInfos,
-      geolocCoordonnees,
-      accessibilityRating,
-      conditionRating,
-      operationRating,
-    } = this.props;
-    axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
-      name: createPoiFormInfos.wizard.values.poiDesc,
-      latitude: geolocCoordonnees[0],
-      longitude: geolocCoordonnees[1],
-      keyword: createPoiFormInfos.wizard.values.categoryKeyword,
-      author_id: 'Wilder',
-      global_grade: 4,
-      accessibility: accessibilityRating,
-      condition: conditionRating,
-      functional: operationRating,
-
-    });
-  }
-
   render() {
     const {
       specificPoiInfos,
@@ -82,7 +58,7 @@ class App extends Component {
         {!Object.keys(specificPoiInfos).length && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
         <FilterBar />
-        {isCreateFormDisplayed && <CreatePoiForm onSubmit={this.onSubmit} />}
+        {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );
   }

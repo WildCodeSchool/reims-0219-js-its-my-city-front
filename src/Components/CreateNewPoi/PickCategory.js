@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
   page: state.pois.formPage,
 });
 
-let CreatePoiFirstPage = ({ page, dispatch }) => (
+let PickCategory = ({ page, dispatch }) => (
   <form>
     <Field
       name="categoryKeyword"
@@ -17,19 +17,19 @@ let CreatePoiFirstPage = ({ page, dispatch }) => (
       label="Sélectionnez une catégorie..."
     />
     <div>
-      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="next">Previous</button>
-      <button onClick={() => dispatch({ type: 'NEXT_PAGE', page: page + 1 })} type="submit" className="next">Next</button>
+      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">Précédent</button>
+      <button onClick={() => dispatch({ type: 'NEXT_PAGE', page: page + 1 })} type="submit" className="next">Suivant</button>
     </div>
   </form>
 );
 
-CreatePoiFirstPage = connect(
+PickCategory = connect(
   mapStateToProps,
-)(CreatePoiFirstPage);
+)(PickCategory);
 
 export default reduxForm({
   form: 'wizard', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
-})(CreatePoiFirstPage);
+})(PickCategory);

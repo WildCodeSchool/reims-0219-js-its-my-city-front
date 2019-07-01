@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import CreatePoiFirstPage from './CreatePoiFirstPage';
-import CreatePoiSecondPage from './CreatePoiSecondPage';
-import CreatePoiThirdPage from './CreatePoiThirdPage';
-import CreatePoiFourthPage from './CreatePoiFourthPage';
+import PickCategory from './PickCategory';
+import DescribeNewPoi from './DescribeNewPoi';
+import RateNewPoi from './RateNewPoi';
+import TakeAPicture from './TakeAPicture';
 import '../ComponentsCSS/createPoiForm.scss';
 import PlaceYourNewPoi from './PlaceYourNewPoi';
 
@@ -13,29 +12,14 @@ const mapStateToProps = state => ({
 });
 
 
-const CreatePoiForm = ({ page, onSubmit }) => (
+const CreatePoiForm = ({ page }) => (
   <div className="poi-create">
-    {page === 1 && <PlaceYourNewPoi /> }
-    {page === 2 && <CreatePoiFirstPage />}
-    {page === 3
-          && (
-          <CreatePoiSecondPage />
-          )}
-    {page === 4
-          && (
-          <CreatePoiThirdPage />
-          )}
-    {page === 5
-          && (
-          <CreatePoiFourthPage
-            handleSubmit={onSubmit}
-          />
-          )}
+    {page === 1 && <PlaceYourNewPoi />}
+    {page === 2 && <TakeAPicture />}
+    {page === 3 && <PickCategory />}
+    {page === 4 && <DescribeNewPoi />}
+    {page === 5 && <RateNewPoi />}
   </div>
 );
-
-CreatePoiForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
 
 export default connect(mapStateToProps)(CreatePoiForm);
