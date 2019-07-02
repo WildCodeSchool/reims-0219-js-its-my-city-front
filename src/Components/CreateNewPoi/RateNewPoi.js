@@ -30,30 +30,34 @@ let RateNewPoi = ({
         name="ratingPoi"
         component={PoiThirdPageFields}
       />
-    </div>
-
-    <div>
-      <button
-        onClick={() => axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
-          name: createPoiFormInfos.wizard.values.poiDesc,
-          latitude: customCoordonnes[0],
-          longitude: customCoordonnes[1],
-          keyword: createPoiFormInfos.wizard.values.categoryKeyword,
-          author_id: 'Wilder',
-          global_grade: 4,
-          accessibility: accessibilityRating,
-          condition: conditionRating,
-          functional: operationRating,
-
-        })}
-        type="button"
-      >
+      <div>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
+              name: createPoiFormInfos.wizard.values.poiDesc,
+              latitude: customCoordonnes[0],
+              longitude: customCoordonnes[1],
+              keyword: createPoiFormInfos.wizard.values.categoryKeyword,
+              author_id: 'Wilder',
+              global_grade: 4,
+              accessibility: accessibilityRating,
+              condition: conditionRating,
+              functional: operationRating,
+            });
+          }}
+          type="submit"
+        >
 Soumettre la création de votre point d'intérets.
-      </button>
-      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">
+        </button>
+        <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">
         Précédent
-      </button>
+        </button>
+      </div>
     </div>
+
+
   </form>
 );
 
