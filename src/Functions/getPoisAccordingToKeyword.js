@@ -4,7 +4,7 @@ const getPoisAccordingToKeyword = (keywordChoosen, dispatch, allKeywords = undef
   // If the third argument is not passed, get all poi with the keyword choosen ..
   if (allKeywords === undefined) {
     axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${keywordChoosen}`)
-      .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }));
+      .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data }));
   } else {
     /* ... else filter all keywords to check if the keywordChoosen importance is one or two,
          and pick an api way accordingly as the queries behind are differents. */
