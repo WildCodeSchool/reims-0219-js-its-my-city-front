@@ -32,10 +32,10 @@ let RateNewPoi = ({
       />
       <div>
         <button
-          onClick={(e) => {
+          onClick={async (e) => {
             e.preventDefault();
             e.stopPropagation();
-            axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
+            await axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
               name: createPoiFormInfos.wizard.values.poiDesc,
               latitude: customCoordonnes[0],
               longitude: customCoordonnes[1],
@@ -46,6 +46,8 @@ let RateNewPoi = ({
               condition: conditionRating,
               functional: operationRating,
             });
+            await axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${createPoiFormInfos.wizard.values.categoryKeyword}`)
+              .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }));
           }}
           type="submit"
         >
