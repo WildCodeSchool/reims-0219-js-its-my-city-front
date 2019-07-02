@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import PoiThirdPageFields from './PoiThirdPageFields';
+import getPoiAccordingToKeyword from '../../Functions/getPoiAccordingToKeyword';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
@@ -46,8 +47,7 @@ let RateNewPoi = ({
               condition: conditionRating,
               functional: operationRating,
             });
-            await axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${createPoiFormInfos.wizard.values.categoryKeyword}`)
-              .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }));
+            await getPoiAccordingToKeyword(createPoiFormInfos.wizard.values.categoryKeyword, dispatch);
           }}
           type="submit"
         >
