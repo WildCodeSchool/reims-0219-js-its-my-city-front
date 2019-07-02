@@ -15,29 +15,29 @@ $secondColor: white;
 }
 
 .validButton {
-  background-color: white;
-  border: 2px solid #DD476D;
+  background-color: $secondColor;
+  border: 2px solid $mainColor;
   border-radius: 10px;
   height: 5vh;
   width: 15vh;
   font-weight: bold;
 }
 
+@keyframes rotate { to {  transform: rotate(1turn) }};
+
 .loadingPage {
 margin-top: 45vh;
 text-align: center;
 font-weight: bold;
 font-size : 3vh;
-}
-
-.loader {
-  margin: 20px auto;
-  width: 15px;
-  height: 15px;
-  border: 5px solid rgba(189,189,189 ,0.25);
-  border-left-color: rgba(3,155,229 ,1);
-  border-top-color: rgba(3,155,229 ,1);
-  border-radius: 50%;
-  @keyframes rotate { to {  transform: rotate(1turn) }};
-  animation: rotate 800ms infinite linear;
+  .loader {
+    margin: 20px auto;
+    width: 15px;
+    height: 15px;
+    border: 5px solid rgba(189,189,189 ,0.25);
+    border-left-color: $mainColor;
+    border-top-color: $mainColor;
+    border-radius: 50%;
+    animation: rotate 800ms infinite linear;
+  }
 }

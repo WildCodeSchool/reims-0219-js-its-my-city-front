@@ -82,7 +82,13 @@ class App extends Component {
       <div>
         {!poiSampleDisplay.length ? (
           <div className="loadingPage">
-            Un peu de patience...
+            <p>
+Attention mesdames et messieurs,
+              <br />
+          dans un instant,
+              <br />
+          ça va s'afficher...
+            </p>
             <div className="loader" />
           </div>
         )
