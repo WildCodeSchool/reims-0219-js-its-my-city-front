@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const getPoiAccordingToKeyword = (keywordChoosen, dispatch, allKeywords = undefined) => {
+const getPoisAccordingToKeyword = (keywordChoosen, dispatch, allKeywords = undefined) => {
   // If the third argument is not passed, get all poi with the keyword choosen ..
   if (allKeywords === undefined) {
     axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${keywordChoosen}`)
@@ -21,4 +21,4 @@ const getPoiAccordingToKeyword = (keywordChoosen, dispatch, allKeywords = undefi
   }
 };
 
-export default getPoiAccordingToKeyword;
+export default getPoisAccordingToKeyword;

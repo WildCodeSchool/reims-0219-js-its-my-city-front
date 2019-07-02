@@ -1,8 +1,7 @@
 import React from 'react';
 import './ComponentsCSS/FilterComponent.scss';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import getPoiAccordingToKeyword from '../Functions/getPoiAccordingToKeyword';
+import getPoisAccordingToKeyword from '../Functions/getPoisAccordingToKeyword';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.pois.specificPoiInfos,
@@ -83,7 +82,7 @@ const FilterComponent = ({
         <button
           type="button"
           className="buttonStyle"
-          onClick={() => getPoiAccordingToKeyword(secondKeyword, dispatch)}
+          onClick={() => getPoisAccordingToKeyword(secondKeyword, dispatch)}
         >
 Appliquer
         </button>
