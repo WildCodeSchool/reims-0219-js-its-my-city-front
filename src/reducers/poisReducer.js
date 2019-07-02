@@ -81,6 +81,7 @@ const poisReducer = (state = initialState, action) => {
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         poiSampleDisplay: action.poiSampleDisplay,
         filterKeywordPageDisplay: false,
+        isCreateFormDisplayed: false,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
