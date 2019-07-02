@@ -83,6 +83,13 @@ const poisReducer = (state = initialState, action) => {
         isCreateFormDisplayed: false,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
+      if (action.filteredPoiByKeyword) {
+        return {
+          ...state,
+          userInputSearchBar: action.userInputSearchBar,
+          filteredPoiByKeyword: action.filteredPoiByKeyword,
+        };
+      }
       return {
         ...state,
         userInputSearchBar: action.userInputSearchBar,
