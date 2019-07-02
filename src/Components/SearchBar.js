@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './ComponentsCSS/searchBar.scss';
-import { ReactComponent as Logo } from './pictos/search.svg';
+import { ReactComponent as SearchBarSVG } from './pictos/SearchBar.svg';
 import Autocomplete from '../../node_modules/react-autocomplete';
 import getPoisByKeyword from '../Functions/GetPoisByKeyword';
 
@@ -28,8 +28,9 @@ const dropdownMenuStyle = {
 const SearchBar = ({
   dispatch, poiKeywordsDisplay, userInputSearchBar,
 }) => (
-  <div>
-    <div className="search-box">
+  <div className="search-box">
+    <SearchBarSVG />
+    <div>
       <Autocomplete
         items={poiKeywordsDisplay}
         shouldItemRender={
@@ -49,7 +50,6 @@ const SearchBar = ({
         onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: e.target.value })}
         onSelect={value3 => getPoisByKeyword(poiKeywordsDisplay, value3, dispatch)}
       />
-      <Logo className="search-logo" />
     </div>
   </div>
 );
