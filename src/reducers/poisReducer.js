@@ -2,6 +2,7 @@ const initialState = {
   zoom: 16,
   geolocCoordonnees: [],
   defaultCoordonnees: [49.260096, 4.030293],
+  customCoordonnes: [0, 0],
   poiSampleDisplay: [],
   specificPoiInfos: [],
   filterKeywordPageDisplay: false, // displays the page that allows to filter the keywords
@@ -19,7 +20,11 @@ const initialState = {
   secondIndicationIsdisplayed: false,
   secondKeyword: '',
   barsAreDisplayed: true,
+  formPage: 1,
   file: [],
+  conditionRating: 1,
+  operationRating: 1,
+  accessibilityRating: 1,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -136,6 +141,21 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         file: action.file,
+      };
+    case 'NEXT_PAGE':
+      return {
+        ...state,
+        formPage: action.page,
+      };
+    case 'PREVIOUS_PAGE':
+      return {
+        ...state,
+        formPage: action.page,
+      };
+    case 'ADD_CUSTOM_MARKER':
+      return {
+        ...state,
+        customCoordonnes: action.customCoordonnes,
       };
     default:
       return state;
