@@ -39,6 +39,16 @@ const SelectedNewPicture = ({
         />
         <button type="submit" value="upload">Envoyer</button>
       </form>
+      <div>
+        <button
+          type="button"
+          className="closeButton"
+          value="close"
+          onClick={() => dispatch({ type: 'TOGGLE_POI_CREATION_FORM' })}
+        >
+          X
+        </button>
+      </div>
     </div>
   </div>
 );

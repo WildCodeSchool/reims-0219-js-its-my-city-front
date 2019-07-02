@@ -18,8 +18,9 @@
 }
 
 .closeButton{
-    float: right;
-    margin-right: 15px;
+    position: absolute;
+    right: 0px;
+    z-index: 5;
 }
 
 .buttonStyle{

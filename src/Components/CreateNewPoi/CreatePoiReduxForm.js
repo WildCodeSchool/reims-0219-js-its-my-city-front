@@ -11,8 +11,15 @@ const mapStateToProps = state => ({
   page: state.pois.formPage,
 });
 
-const CreatePoiForm = ({ page }) => (
+const CreatePoiForm = ({ page, dispatch }) => (
   <div className="poi-create">
+    {<button
+      type="button"
+      className="closeButton"
+      onClick={() => dispatch({ type: 'TOGGLE_POI_CREATION_FORM' })}
+    >
+        X
+    </button>}
     {page === 1 && <PlaceYourNewPoi />}
     {page === 2 && <TakeAPicture />}
     {page === 3 && <PickCategory />}
