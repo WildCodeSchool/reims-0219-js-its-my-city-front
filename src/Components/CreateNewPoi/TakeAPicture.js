@@ -52,7 +52,7 @@ TakeAPicture = connect(
 )(TakeAPicture);
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,

@@ -36,10 +36,10 @@ let RateNewPoi = ({
             e.preventDefault();
             e.stopPropagation();
             axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
-              name: createPoiFormInfos.wizard.values.poiDesc,
+              name: createPoiFormInfos.poiCreation.values.poiDesc,
               latitude: customCoordonnes[0],
               longitude: customCoordonnes[1],
-              keyword: createPoiFormInfos.wizard.values.categoryKeyword,
+              keyword: createPoiFormInfos.poiCreation.values.categoryKeyword,
               author_id: 1,
               global_grade: 4,
               accessibility: accessibilityRating,
@@ -66,7 +66,7 @@ RateNewPoi = connect(
 )(RateNewPoi);
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
