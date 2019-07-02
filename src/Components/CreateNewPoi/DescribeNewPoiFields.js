@@ -4,7 +4,7 @@ import React from 'react';
 import '../ComponentsCSS/createPoiForm.scss';
 
 
-const poiSecondPageFields = ({
+const DescribeNewPoiFields = ({
   input,
   label,
   type,
@@ -23,4 +23,4 @@ const poiSecondPageFields = ({
   </div>
 );
 
-export default poiSecondPageFields;
+export default DescribeNewPoiFields;

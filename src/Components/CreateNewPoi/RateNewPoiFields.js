@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
   accessibilityRating: state.pois.accessibilityRating,
 });
 
-const PoiThirdPageFields = ({
+const RateNewPoiFields = ({
   dispatch, conditionRating, operationRating, accessibilityRating,
 }) => (
   <div className="poi-create">
@@ -68,4 +68,4 @@ const PoiThirdPageFields = ({
   </div>
 );
 
-export default connect(mapStateToProps)(PoiThirdPageFields);
+export default connect(mapStateToProps)(RateNewPoiFields);

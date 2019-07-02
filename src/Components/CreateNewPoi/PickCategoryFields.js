@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
 });
 
-const poiFirstPageFields = ({
+const PickCategoryFiedls = ({
   input,
   label,
   meta: { touched, error },
@@ -35,4 +35,4 @@ const poiFirstPageFields = ({
   </div>
 );
 
-export default connect(mapStateToProps)(poiFirstPageFields);
+export default connect(mapStateToProps)(PickCategoryFiedls);

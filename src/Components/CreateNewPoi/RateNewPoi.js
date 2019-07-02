@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
-import PoiThirdPageFields from './PoiThirdPageFields';
+import RateNewPoiFields from './RateNewPoiFields';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
@@ -28,7 +28,7 @@ let RateNewPoi = ({
     <div>
       <Field
         name="ratingPoi"
-        component={PoiThirdPageFields}
+        component={RateNewPoiFields}
       />
       <div>
         <button

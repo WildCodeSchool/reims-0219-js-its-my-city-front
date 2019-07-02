@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import poiFirstPageFields from './PoiFirstPageFields';
+import PickCategoryFields from './PickCategoryFields';
 import validate from './validate';
 import '../ComponentsCSS/createPoiForm.scss';
 
@@ -13,7 +13,7 @@ let PickCategory = ({ page, dispatch }) => (
   <form>
     <Field
       name="categoryKeyword"
-      component={poiFirstPageFields}
+      component={PickCategoryFields}
       label="Sélectionnez une catégorie..."
     />
     <div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import poiSecondPagesFields from './PoiSecondPageFields';
+import DescribeNewPoiFields from './DescribeNewPoiFields';
 import validate from './validate';
 
 const mapStateToProps = state => ({
@@ -12,7 +12,7 @@ let DescribeNewPoi = ({ page, dispatch }) => (
   <form>
     <Field
       name="poiDesc"
-      component={poiSecondPagesFields}
+      component={DescribeNewPoiFields}
       label="Indiquez un nom ou une courte description..."
     />
     <div>
