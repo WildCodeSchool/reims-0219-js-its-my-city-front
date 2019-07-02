@@ -40,7 +40,7 @@ let RateNewPoi = ({
               latitude: customCoordonnes[0],
               longitude: customCoordonnes[1],
               keyword: createPoiFormInfos.wizard.values.categoryKeyword,
-              author_id: 'Wilder',
+              author_id: 1,
               global_grade: 4,
               accessibility: accessibilityRating,
               condition: conditionRating,
