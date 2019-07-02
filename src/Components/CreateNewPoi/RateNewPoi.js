@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import RateNewPoiFields from './RateNewPoiFields';
+import PreviousPageButton from './PreviousPageButton';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
@@ -16,8 +17,6 @@ const mapStateToProps = state => ({
 });
 
 let RateNewPoi = ({
-  page,
-  dispatch,
   createPoiFormInfos,
   customCoordonnes,
   accessibilityRating,
@@ -51,9 +50,7 @@ let RateNewPoi = ({
         >
 Soumettre la création de votre point d'intérets.
         </button>
-        <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">
-        Précédent
-        </button>
+        <PreviousPageButton />
       </div>
     </div>
 
