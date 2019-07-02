@@ -18,9 +18,6 @@ const PoiInformation = ({
     {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
     <div
       className={InformationPoiInfos ? 'informationPageTop' : 'informationPageBottom'}
-      onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
-      role="button"
-      tabIndex="0"
     >
       <Close
         className="closePoiInformation"
@@ -28,7 +25,17 @@ const PoiInformation = ({
         onClick={() => dispatch({ type: 'CLOSE_POI_INFOS', specificPoiInfos: [] })}
       />
 
-      <p className="poiName">{specificPoiInfos.name}</p>
+
+      <div
+        className="poiName"
+        onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
+        onKeyPress={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
+        role="button"
+        tabIndex="0"
+      >
+        {specificPoiInfos.name}
+
+      </div>
       <hr />
       <div className="generalInfosContainer">
         <p className="adress">Adresse</p>
