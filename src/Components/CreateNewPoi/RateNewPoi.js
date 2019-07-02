@@ -47,7 +47,7 @@ let RateNewPoi = ({
               condition: conditionRating,
               functional: operationRating,
             });
-            await getPoisAccordingToKeyword(createPoiFormInfos.wizard.values.categoryKeyword, dispatch);
+            getPoisAccordingToKeyword(createPoiFormInfos.wizard.values.categoryKeyword, dispatch);
           }}
           type="submit"
         >
