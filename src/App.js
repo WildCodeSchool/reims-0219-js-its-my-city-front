@@ -76,16 +76,26 @@ class App extends Component {
       filterKeywordPageDisplay,
       isCreateFormDisplayed,
       barsAreDisplayed,
+      poiSampleDisplay,
     } = this.props;
     return (
       <div>
-        {barsAreDisplayed === true && <SearchBar />}
-        <AppMap />
-        {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
-        {filterKeywordPageDisplay && <FilterComponent />}
-        <FilterBar />
-        {isCreateFormDisplayed && <CreatePoiForm />}
+        {!poiSampleDisplay.length && (
+        <div>
+          Please wait while your map is loading...
+        </div>
+        )}
+        {poiSampleDisplay.length && (
+        <div>
+          {barsAreDisplayed && <SearchBar />}
+          <AppMap />
+          {Object.keys(specificPoiInfos).length && <PoiInformation />}
+          {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
+          {filterKeywordPageDisplay && <FilterComponent />}
+          <FilterBar />
+          {isCreateFormDisplayed && <CreatePoiForm />}
+        </div>
+        )}
       </div>
     );
   }
