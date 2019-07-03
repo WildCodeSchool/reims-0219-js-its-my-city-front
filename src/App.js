@@ -6,7 +6,7 @@ import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
 import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
-import FilterComponent from './Components/FilterComponent';
+import SelectCategorie from './Components/FilterComponents/SelectCategorie';
 import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
 
 const mapStateToProps = state => ({
@@ -83,7 +83,7 @@ class App extends Component {
         <AppMap />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
-        {filterKeywordPageDisplay && <FilterComponent />}
+        {filterKeywordPageDisplay && <SelectCategorie />}
         {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );

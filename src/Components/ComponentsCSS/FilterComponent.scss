@@ -135,3 +135,25 @@
     margin-left: 15px;
 }
 
+.selectionButtons{
+    position: absolute;
+    display: flex;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 17.5%;
+}
+
+.previousButton{
+    color:$mainColor;
+    border-radius: 7px;
+    width: 110px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.nextButton{
+    color:$mainColor;
+    border-radius: 7px;
+    width: 110px;
+    height: 30px;
+}

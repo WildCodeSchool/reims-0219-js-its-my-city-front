@@ -12,14 +12,15 @@ const initialState = {
   userInputSearchBar: '',
   name: '',
   keywordTwo: '',
-  isKeywordOneChoosen: false,
-  isKeywordTwoChoosen: false,
   specificSecondKeywords: [],
   firstIndicationIsDisplayed: true,
   secondIndicationIsdisplayed: false,
   secondKeyword: '',
   barsAreDisplayed: true,
   file: [],
+  displayFirstImportancePoiPage: false,
+  isKeywordOneChoosen: false,
+  isKeywordTwoChoosen: false,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -102,6 +103,12 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         keywordTwo: action.keywordTwo,
         keywordOneId: action.keywordOneId,
+      };
+    case 'SHOW_FIRST_IMPORTANCE_KEYWORDS':
+      return {
+        ...state,
+        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+        displayFirstImportancePoiPage: true,
       };
     case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
       return {
