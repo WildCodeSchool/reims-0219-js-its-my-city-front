@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import axios from 'axios';
 import validate from './validate';
+import PreviousPageButton from './PreviousPageButton';
+import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
@@ -26,7 +28,7 @@ const uploadFileHandler = (e, formData) => {
 };
 
 let TakeAPicture = ({
-  page, file, dispatch,
+  file, dispatch,
 }) => (
   <div className="poi-create">
     <div className="poi-name">
@@ -41,8 +43,8 @@ let TakeAPicture = ({
       </form>
     </div>
     <div>
-      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="button" className="next">Précédent</button>
-      <button onClick={() => dispatch({ type: 'NEXT_PAGE', page: page + 1 })} type="submit" className="next">Suivant</button>
+      <PreviousPageButton />
+      <NextPageButton />
     </div>
   </div>
 );
@@ -52,7 +54,7 @@ TakeAPicture = connect(
 )(TakeAPicture);
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,

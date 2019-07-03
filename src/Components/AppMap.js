@@ -41,7 +41,6 @@ const AppMap = ({
   page,
   dispatch,
 }) => (
-  // eslint-disable-next-line max-len
   <Map
     center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees}
     zoom={zoom}

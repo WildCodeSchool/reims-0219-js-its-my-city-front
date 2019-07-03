@@ -125,17 +125,17 @@ const poisReducer = (state = initialState, action) => {
     case 'RATING_CONDITION_CHANGE':
       return {
         ...state,
-        conditionRating: action.conditionRating,
+        conditionRating: action.rating,
       };
     case 'RATING_OPERATION_CHANGE':
       return {
         ...state,
-        operationRating: action.operationRating,
+        operationRating: action.rating,
       };
     case 'RATING_ACCESSIBILITY_CHANGE':
       return {
         ...state,
-        accessibilityRating: action.accessibilityRating,
+        accessibilityRating: action.rating,
       };
     case 'INSERT_PICTURE':
       return {

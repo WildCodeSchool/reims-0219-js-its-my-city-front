@@ -9,6 +9,7 @@
     margin-right: 10px;
     border-radius: 10px;
     font-weight: bold;
+    font-size: 3vh;
 }
 
 @mixin stars-position{
@@ -65,6 +66,7 @@ select{
     background-color: white;
     outline: none;
 }
+
 legend{
     text-align: center;
     padding-top: 20px;
