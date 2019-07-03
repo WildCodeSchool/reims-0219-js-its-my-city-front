@@ -15,11 +15,11 @@ const myIcon = L.icon({
 });
 
 const mapStateToProps = state => ({
-  zoom: state.zoom,
-  geolocCoordonnees: state.geolocCoordonnees,
-  defaultCoordonnees: state.defaultCoordonnees,
-  poiSampleDisplay: state.poiSampleDisplay,
-  filteredPoiByKeyword: state.filteredPoiByKeyword,
+  zoom: state.pois.zoom,
+  geolocCoordonnees: state.pois.geolocCoordonnees,
+  defaultCoordonnees: state.pois.defaultCoordonnees,
+  poiSampleDisplay: state.pois.poiSampleDisplay,
+  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
 });
 
 const customPins = keyword => L.divIcon({

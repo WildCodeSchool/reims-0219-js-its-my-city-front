@@ -6,9 +6,9 @@ import calculateDistance from '../Functions/CalculateDistance';
 import { ReactComponent as Close } from './pictos/CancelButton.svg';
 
 const mapStateToProps = state => ({
-  specificPoiInfos: state.specificPoiInfos,
-  InformationPoiInfos: state.InformationPoiInfos,
-  geolocCoordonnees: state.geolocCoordonnees,
+  specificPoiInfos: state.pois.specificPoiInfos,
+  InformationPoiInfos: state.pois.InformationPoiInfos,
+  geolocCoordonnees: state.pois.geolocCoordonnees,
 });
 
 const PoiInformation = ({

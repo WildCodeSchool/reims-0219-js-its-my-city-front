@@ -7,16 +7,21 @@ import SearchBar from './Components/SearchBar';
 import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 import FilterComponent from './Components/FilterComponent';
-import CreatePoiForm from './Components/CreatePoiForm';
+import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
 
 const mapStateToProps = state => ({
-  geolocCoordonnees: state.geolocCoordonnees,
-  poiSampleDisplay: state.poiSampleDisplay,
-  specificPoiInfos: state.specificPoiInfos,
-  filterKeywordPageDisplay: state.filterKeywordPageDisplay,
-  poiKeywordsDisplay: state.poiKeywordsDisplay,
-  isCreateFormDisplayed: state.isCreateFormDisplayed,
-  defaultCoordonnees: state.defaultCoordonnees,
+  geolocCoordonnees: state.pois.geolocCoordonnees,
+  poiSampleDisplay: state.pois.poiSampleDisplay,
+  specificPoiInfos: state.pois.specificPoiInfos,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
+  poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
+  isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
+  defaultCoordonnees: state.pois.defaultCoordonnees,
+  createPoiFormInfos: state.form,
+  conditionRating: state.pois.conditionRating,
+  accessibilityRating: state.pois.accessibilityRating,
+  operationRating: state.pois.operationRating,
+  barsAreDisplayed: state.pois.barsAreDisplayed,
 });
 
 
@@ -40,20 +45,45 @@ class App extends Component {
     }
   }
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const {
+      createPoiFormInfos,
+      geolocCoordonnees,
+      accessibilityRating,
+      conditionRating,
+      operationRating,
+    } = this.props;
+    axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
+      name: createPoiFormInfos.wizard.values.poiDesc,
+      latitude: geolocCoordonnees[0],
+      longitude: geolocCoordonnees[1],
+      keyword: createPoiFormInfos.wizard.values.categoryKeyword,
+      author_id: 'Wilder',
+      global_grade: 4,
+      accessibility: accessibilityRating,
+      condition: conditionRating,
+      functional: operationRating,
+
+    });
+  }
+
+
   render() {
     const {
       specificPoiInfos,
       filterKeywordPageDisplay,
       isCreateFormDisplayed,
+      barsAreDisplayed,
     } = this.props;
     return (
       <div>
-        <SearchBar />
-        <AppMap showPoiInfos={this.showPoiInfos} />
+        {barsAreDisplayed === true && <SearchBar />}
+        <AppMap />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        {!Object.keys(specificPoiInfos).length && <FilterBar />}
+        {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
-        <FilterBar />
         {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );

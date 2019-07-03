@@ -11,8 +11,6 @@ const initialState = {
   poiKeywordsDisplay: [],
   userInputSearchBar: '',
   name: '',
-  keywordOne: '',
-  keywordOneId: '',
   keywordTwo: '',
   isKeywordOneChoosen: false,
   isKeywordTwoChoosen: false,
@@ -20,6 +18,8 @@ const initialState = {
   firstIndicationIsDisplayed: true,
   secondIndicationIsdisplayed: false,
   secondKeyword: '',
+  barsAreDisplayed: true,
+  file: [],
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -48,6 +48,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isCreateFormDisplayed: !state.isCreateFormDisplayed,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'CLOSE_POI_INFOS':
       if (state.InformationPoiInfos === true) {
@@ -65,6 +66,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'TRANSITION_POI_INFOS':
       return {
@@ -77,6 +79,7 @@ const poisReducer = (state = initialState, action) => {
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         poiSampleDisplay: action.poiSampleDisplay,
         filterKeywordPageDisplay: false,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
@@ -94,16 +97,11 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         name: action.name,
       };
-    case 'HANDLE_FORM_K1_CHANGE':
-      return {
-        ...state,
-        keywordOne: action.keywordOne,
-        keywordOneId: action.keywordOneId,
-      };
     case 'HANDLE_FORM_K2_CHANGE':
       return {
         ...state,
         keywordTwo: action.keywordTwo,
+        keywordOneId: action.keywordOneId,
       };
     case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
       return {
@@ -118,6 +116,26 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         isKeywordTwoChoosen: true,
         secondKeyword: action.secondKeyword,
+      };
+    case 'RATING_CONDITION_CHANGE':
+      return {
+        ...state,
+        conditionRating: action.conditionRating,
+      };
+    case 'RATING_OPERATION_CHANGE':
+      return {
+        ...state,
+        operationRating: action.operationRating,
+      };
+    case 'RATING_ACCESSIBILITY_CHANGE':
+      return {
+        ...state,
+        accessibilityRating: action.accessibilityRating,
+      };
+    case 'INSERT_PICTURE':
+      return {
+        ...state,
+        file: action.file,
       };
     default:
       return state;

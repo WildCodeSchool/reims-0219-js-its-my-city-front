@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './ComponentsCSS/searchBar.scss';
-import { ReactComponent as SearchBarLogo } from './pictos/SearchBar.svg';
-import { ReactComponent as SearchButton } from './pictos/SearchButton.svg';
+import SearchBarSvg from './ComponentPins/SearchBarSvg';
 import Autocomplete from '../../node_modules/react-autocomplete';
 import getPoisByKeyword from '../Functions/GetPoisByKeyword';
 
 const mapStateToProps = state => ({
-  filteredPoiByKeyword: state.filteredPoiByKeyword,
-  poiKeywordsDisplay: state.poiKeywordsDisplay,
-  userInputSearchBar: state.userInputSearchBar,
+  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
+  poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
+  userInputSearchBar: state.pois.userInputSearchBar,
 });
 
 const dropdownMenuStyle = {
@@ -29,32 +28,28 @@ const dropdownMenuStyle = {
 const SearchBar = ({
   dispatch, poiKeywordsDisplay, userInputSearchBar,
 }) => (
-  <div>
-    <div className="search-box">
-      <SearchBarLogo className="search-bar-back" />
-      <div className="search-bar-front">
-        <Autocomplete
-          className="search-form"
-          items={poiKeywordsDisplay}
-          shouldItemRender={(item, value2) => item.name.toLowerCase().indexOf(value2.toLowerCase()) > -1}
-          getItemValue={item => item.name}
-          menuStyle={dropdownMenuStyle}
-          renderItem={(item, highlighted) => (
-            <div
-              key={item.id}
-              style={{ backgroundColor: highlighted ? '#eee' : 'transparent', height: '50px', textAlign: 'center' }}
-            >
-              {item.name}
-            </div>
-          )}
-          value={userInputSearchBar}
-          onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: e.target.value })}
-          onSelect={value3 => getPoisByKeyword(poiKeywordsDisplay, value3, dispatch)}
-        />
-        <div className="search-button">
-          <SearchButton />
-        </div>
-      </div>
+  <div className="search-box">
+    <SearchBarSvg />
+    <div>
+      <Autocomplete
+        items={poiKeywordsDisplay}
+        shouldItemRender={
+          (item, value2) => item.name.toLowerCase().indexOf(value2.toLowerCase()) > -1
+        }
+        getItemValue={item => item.name}
+        menuStyle={dropdownMenuStyle}
+        renderItem={(item, highlighted) => (
+          <div
+            key={item.id}
+            style={{ backgroundColor: highlighted ? '#eee' : 'transparent', height: '50px', textAlign: 'center' }}
+          >
+            {item.name}
+          </div>
+        )}
+        value={userInputSearchBar}
+        onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: e.target.value })}
+        onSelect={value3 => getPoisByKeyword(poiKeywordsDisplay, value3, dispatch)}
+      />
     </div>
   </div>
 );

@@ -6,15 +6,16 @@ import { ReactComponent as PageTopSvg } from './pictos/PageTop.svg';
 import { ReactComponent as PageBottomSvg } from './pictos/PageBottom.svg';
 
 const mapStateToProps = state => ({
-  specificPoiInfos: state.specificPoiInfos,
-  poiKeywordsDisplay: state.poiKeywordsDisplay,
-  filterKeywordPageDisplay: state.filterKeywordPageDisplay,
-  isKeywordOneChoosen: state.isKeywordOneChoosen,
-  specificSecondKeywords: state.specificSecondKeywords,
-  firstIndicationIsDisplayed: state.firstIndicationIsDisplayed,
-  secondIndicationIsDisplayed: state.secondIndicationIsDisplayed,
-  isKeywordTwoChoosen: state.isKeywordTwoChoosen,
-  secondKeyword: state.secondKeyword,
+  specificPoiInfos: state.pois.specificPoiInfos,
+  poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
+  isKeywordOneChoosen: state.pois.isKeywordOneChoosen,
+  specificSecondKeywords: state.pois.specificSecondKeywords,
+  firstIndicationIsDisplayed: state.pois.firstIndicationIsDisplayed,
+  secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
+  isKeywordTwoChoosen: state.pois.isKeywordTwoChoosen,
+  secondKeyword: state.pois.secondKeyword,
+
 });
 
 const onlyKeywordsFirstImportance = keywords => keywords.filter(
@@ -30,13 +31,36 @@ const FilterComponent = ({
   secondKeyword,
 }) => (
   <div className="filterComponent">
-    <PageTopSvg className="page-top" />
-    <div>
-      <button className="closeButton" onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
-      <h1 className="categories">Catégories</h1>
-      <div className="buttonContainer">
-        <button className="filterButton1 buttonStyle" type="button">Points d'intérêts</button>
-        <button className="filterButton2 buttonStyle" type="button">Événements</button>
+    <button className="closeButton" onClick={() => dispatch({ type: 'DISPLAY_FILTER_PAGE' })} type="button">X</button>
+    <h1 className="categories">Catégories</h1>
+    <div className="buttonContainer">
+      <button className="filterButton1 buttonStyle" type="button">Points d'intérêts</button>
+      <button className="filterButton2 buttonStyle" type="button">Événements</button>
+    </div>
+    <h1 className="themes">Thèmes</h1>
+    {firstIndicationIsDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
+
+    <div className="allKeywords">
+      <div className="keywordsOfFirstImportance">
+        {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
+          <button
+            type="button"
+            className="buttonStyle"
+            key={keyword.name}
+            onClick={() => dispatch({
+              type: 'SHOW_SECOND_IMPORTANCE_KEYWORD',
+              specificSecondKeywords: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
+            })}
+          >
+            {keyword.name}
+
+          </button>
+        ))}
+      </div>
+
+
+      <div>
+        {secondIndicationIsDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
       </div>
       <h1 className="themes">Thèmes</h1>
       {firstIndicationIsDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
@@ -84,7 +108,7 @@ const FilterComponent = ({
         {isKeywordTwoChoosen === true && (
         <button
           type="button"
-          className="buttonStyle"
+          className="applyButtonStyle"
           onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
             .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
       }

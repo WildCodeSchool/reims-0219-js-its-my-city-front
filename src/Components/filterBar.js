@@ -7,7 +7,7 @@ import { ReactComponent as LogoFilter } from './pictos/filter.svg';
 import { ReactComponent as LogoAdd } from './pictos/plus-full.svg';
 
 const mapStateToProps = state => ({
-  filterKeywordPageDisplay: state.filterKeywordPageDisplay,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
 });
 
 const FilterBar = ({ dispatch }) => (
