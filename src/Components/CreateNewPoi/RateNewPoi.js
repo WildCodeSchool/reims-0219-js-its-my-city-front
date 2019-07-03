@@ -33,10 +33,10 @@ let RateNewPoi = ({
       />
       <div>
         <button
-          onClick={async (e) => {
+          onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            await axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
+            axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
               name: createPoiFormInfos.wizard.values.poiDesc,
               latitude: customCoordonnes[0],
               longitude: customCoordonnes[1],
@@ -46,8 +46,8 @@ let RateNewPoi = ({
               accessibility: accessibilityRating,
               condition: conditionRating,
               functional: operationRating,
-            });
-            getPoisAccordingToKeyword(createPoiFormInfos.wizard.values.categoryKeyword, dispatch);
+            })
+              .then(res => dispatch({ type: 'SAVE_NEW_POI_COORDINATES', filteredPoiByKeyword: res.data, newPoiCoordinates: res.data[0].localisation }));
           }}
           type="submit"
         >
