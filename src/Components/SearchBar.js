@@ -17,7 +17,7 @@ const dropdownMenuStyle = {
   boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
   background: 'rgba(255, 255, 255, 0.9)',
   padding: '2px 0',
-  fontSize: '1.5rem',
+  fontSize: '1.2rem',
   position: 'fixed',
   overflow: 'auto',
   maxHeight: '40%',
@@ -42,7 +42,7 @@ const SearchBar = ({
         renderItem={(item, highlighted) => (
           <div
             key={item.id}
-            style={{ backgroundColor: highlighted ? '#eee' : 'transparent', height: '50px', textAlign: 'center' }}
+            style={{ backgroundColor: highlighted ? '#eee' : 'transparent', height: '60px', textAlign: 'center' }}
           >
             {item.name}
           </div>
