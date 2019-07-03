@@ -1,23 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import poiSecondPagesFields from './PoiSecondPageFields';
+import DescribeNewPoiFields from './DescribeNewPoiFields';
 import validate from './validate';
+import PreviousPageButton from './PreviousPageButton';
+import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
 });
 
-let DescribeNewPoi = ({ page, dispatch }) => (
+let DescribeNewPoi = () => (
   <form>
     <Field
       name="poiDesc"
-      component={poiSecondPagesFields}
+      component={DescribeNewPoiFields}
       label="Indiquez un nom ou une courte description..."
     />
     <div>
-      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">Précédent</button>
-      <button onClick={() => dispatch({ type: 'NEXT_PAGE', page: page + 1 })} type="submit" className="next">Suivant</button>
+      <PreviousPageButton />
+      <NextPageButton />
     </div>
   </form>
 );
@@ -27,7 +29,7 @@ DescribeNewPoi = connect(
 )(DescribeNewPoi);
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,

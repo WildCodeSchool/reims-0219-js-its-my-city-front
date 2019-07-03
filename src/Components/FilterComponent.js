@@ -29,7 +29,7 @@ const FilterComponent = ({
   secondKeyword,
 }) => (
   <div className="filterComponent">
-    <button className="closeButton" onClick={() => dispatch({ type: 'CLOSE_FILTER_COMPONENT' })} type="button">X</button>
+    <button className="closeButton" onClick={() => dispatch({ type: 'DISPLAY_FILTER_PAGE' })} type="button">X</button>
     <h1 className="categories">Catégories</h1>
     <div className="buttonContainer">
       <button className="filterButton1 buttonStyle" type="button">Points d'intérêts</button>
@@ -81,10 +81,10 @@ const FilterComponent = ({
       {isKeywordTwoChoosen === true && (
         <button
           type="button"
-          className="buttonStyle"
+          className="applyButtonStyle"
           onClick={() => getPoisAccordingToKeyword(secondKeyword, dispatch)}
         >
-Appliquer
+        Appliquer
         </button>
       )
         }

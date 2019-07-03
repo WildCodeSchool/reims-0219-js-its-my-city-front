@@ -1,24 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import poiFirstPageFields from './PoiFirstPageFields';
+import PickCategoryFields from './PickCategoryFields';
 import validate from './validate';
 import '../ComponentsCSS/createPoiForm.scss';
+import PreviousPageButton from './PreviousPageButton';
+import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
 });
 
-let PickCategory = ({ page, dispatch }) => (
+let PickCategory = () => (
   <form>
     <Field
       name="categoryKeyword"
-      component={poiFirstPageFields}
+      component={PickCategoryFields}
       label="Sélectionnez une catégorie..."
     />
     <div>
-      <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">Précédent</button>
-      <button onClick={() => dispatch({ type: 'NEXT_PAGE', page: page + 1 })} type="submit" className="next">Suivant</button>
+      <PreviousPageButton />
+      <NextPageButton />
     </div>
   </form>
 );
@@ -28,7 +30,7 @@ PickCategory = connect(
 )(PickCategory);
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
