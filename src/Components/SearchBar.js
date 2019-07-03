@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './ComponentsCSS/searchBar.scss';
-import { ReactComponent as SearchBarSVG } from './pictos/SearchBar.svg';
+import SearchBarSvg from './ComponentPins/SearchBarSvg';
 import Autocomplete from '../../node_modules/react-autocomplete';
 import getPoisByKeyword from '../Functions/GetPoisByKeyword';
 
@@ -29,7 +29,7 @@ const SearchBar = ({
   dispatch, poiKeywordsDisplay, userInputSearchBar,
 }) => (
   <div className="search-box">
-    <SearchBarSVG />
+    <SearchBarSvg />
     <div>
       <Autocomplete
         items={poiKeywordsDisplay}
