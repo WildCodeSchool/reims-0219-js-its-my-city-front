@@ -3,7 +3,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
-import PoiThirdPageFields from './PoiThirdPageFields';
+import RateNewPoiFields from './RateNewPoiFields';
+import PreviousPageButton from './PreviousPageButton';
 import getPoisAccordingToKeyword from '../../Functions/getPoisAccordingToKeyword';
 
 const mapStateToProps = state => ({
@@ -17,45 +18,42 @@ const mapStateToProps = state => ({
 });
 
 let RateNewPoi = ({
-  page,
-  dispatch,
   createPoiFormInfos,
   customCoordonnes,
   accessibilityRating,
   conditionRating,
   operationRating,
+  dispatch,
 }) => (
   <form>
     <div>
       <Field
         name="ratingPoi"
-        component={PoiThirdPageFields}
+        component={RateNewPoiFields}
       />
       <div>
         <button
           onClick={async (e) => {
             e.preventDefault();
             e.stopPropagation();
-            await axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
-              name: createPoiFormInfos.wizard.values.poiDesc,
+            axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
+              name: createPoiFormInfos.poiCreation.values.poiDesc,
               latitude: customCoordonnes[0],
               longitude: customCoordonnes[1],
-              keyword: createPoiFormInfos.wizard.values.categoryKeyword,
-              author_id: 'Wilder',
+              keyword: createPoiFormInfos.poiCreation.values.categoryKeyword,
+              author_id: 1,
               global_grade: 4,
               accessibility: accessibilityRating,
               condition: conditionRating,
               functional: operationRating,
             });
-            getPoisAccordingToKeyword(createPoiFormInfos.wizard.values.categoryKeyword, dispatch);
+            getPoisAccordingToKeyword(createPoiFormInfos.poiCreation.values.categoryKeyword, dispatch);
           }}
           type="submit"
         >
-Soumettre la création de votre point d'intérets.
+        Soumettre la création de votre point d'intérets.
         </button>
-        <button onClick={() => dispatch({ type: 'PREVIOUS_PAGE', page: page - 1 })} type="submit" className="previous">
-        Précédent
-        </button>
+        <PreviousPageButton />
       </div>
     </div>
 
@@ -68,7 +66,7 @@ RateNewPoi = connect(
 )(RateNewPoi);
 
 export default reduxForm({
-  form: 'wizard', //                 <------ same form name
+  form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,

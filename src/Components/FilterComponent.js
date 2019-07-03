@@ -110,7 +110,7 @@ const FilterComponent = ({
           className="buttonStyle"
           onClick={() => getPoisAccordingToKeyword(secondKeyword, dispatch)}
         >
-Appliquer
+        Appliquer
         </button>
         )
         }
