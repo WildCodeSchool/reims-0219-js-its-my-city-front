@@ -10,7 +10,7 @@ const DescribeNewPoiFields = ({
 }) => (
   <div>
     <div className="poi-name">
-      <h1>{label}</h1>
+      <span>{label}</span>
       <input
         {...input}
         placeholder={label}

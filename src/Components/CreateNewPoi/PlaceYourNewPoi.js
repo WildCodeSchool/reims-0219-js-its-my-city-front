@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const PlaceYourNewPoi = ({ customCoordonnes }) => (
   <div>
-    <h1>Veuillez placer votre nouveau point d'intéret.</h1>
+    <span>Veuillez placer votre nouveau point d'intéret.</span>
     {customCoordonnes[0] !== 0 && customCoordonnes[1] !== 0
     && <NextPageButton />}
   </div>

@@ -11,7 +11,7 @@ const PoiRating = ({
   rating,
 }) => (
   <div>
-    <h1>{title}</h1>
+    <span>{title}</span>
     <div className="accessibilityRating">
       {scoreRating.map(rate => (
         <div
