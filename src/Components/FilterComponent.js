@@ -2,7 +2,6 @@ import React from 'react';
 import './ComponentsCSS/FilterComponent.scss';
 import { connect } from 'react-redux';
 import getPoisAccordingToKeyword from '../Functions/getPoisAccordingToKeyword';
-import { ReactComponent as PageTopSvg } from './pictos/PageTop.svg';
 import { ReactComponent as PageBottomSvg } from './pictos/PageBottom.svg';
 
 const mapStateToProps = state => ({
