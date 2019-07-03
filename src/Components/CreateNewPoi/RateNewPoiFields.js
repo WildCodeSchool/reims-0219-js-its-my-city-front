@@ -14,13 +14,25 @@ const mapStateToProps = state => ({
 });
 
 const RateNewPoiFields = ({
-  conditionRating, operationRating, accessibilityRating,
-}) => (
-  <div className="poi-create">
-    <PoiRating label="Note d'état:" type="RATING_CONDITION_CHANGE" rating={conditionRating} />
-    <PoiRating label="Note de fonctionnement" type="RATING_OPERATION_CHANGE" rating={operationRating} />
-    <PoiRating label="note d'accessibilité" type="RATING_ACCESSIBILITY_CHANGE" rating={accessibilityRating} />
-  </div>
-);
+  conditionRating, operationRating, accessibilityRating, dispatch,
+}) => {
+  const PoiEvaluations = [
+    { label: 'Note d\'état:', type: 'RATING_CONDITION_CHANGE', rating: conditionRating },
+    { label: 'Note de fonctionnement', type: 'RATING_OPERATION_CHANGE', rating: operationRating },
+    { label: 'Note d\'accessibilité', type: 'RATING_ACCESSIBILITY_CHANGE', rating: accessibilityRating },
+  ];
+  return (
+    <div className="poi-create">
+      {PoiEvaluations.map(PoiEvaluation => (
+        <PoiRating
+          label={PoiEvaluation.label}
+          type={PoiEvaluation.type}
+          rating={PoiEvaluation.rating}
+          dispatch={dispatch}
+        />
+      )) }
+    </div>
+  );
+};
 
 export default connect(mapStateToProps)(RateNewPoiFields);

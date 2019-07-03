@@ -48,7 +48,7 @@ let RateNewPoi = ({
           }}
           type="submit"
         >
-Soumettre la création de votre point d'intérets.
+        Soumettre la création de votre point d'intérets.
         </button>
         <PreviousPageButton />
       </div>
