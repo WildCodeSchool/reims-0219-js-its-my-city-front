@@ -28,7 +28,7 @@ const uploadFileHandler = (e, formData) => {
 };
 
 let TakeAPicture = ({
-  page, file, dispatch,
+  file, dispatch,
 }) => (
   <div className="poi-create">
     <div className="poi-name">

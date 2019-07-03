@@ -15,7 +15,7 @@ const NextPageButton = ({ dispatch, page }) => (
       type="submit"
       className="next"
     >
-                     Suivant
+    Suivant
     </button>
   </div>
 );

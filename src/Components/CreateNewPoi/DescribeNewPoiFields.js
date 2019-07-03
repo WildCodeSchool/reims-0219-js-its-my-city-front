@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import '../ComponentsCSS/createPoiForm.scss';
 
@@ -12,7 +10,7 @@ const DescribeNewPoiFields = ({
 }) => (
   <div>
     <div className="poi-name">
-      <label>{label}</label>
+      <h1>{label}</h1>
       <input
         {...input}
         placeholder={label}
