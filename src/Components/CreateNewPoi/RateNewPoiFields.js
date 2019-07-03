@@ -5,10 +5,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/createPoiForm.scss';
-import { ReactComponent as Starcolor } from '../pictos/Starcolor.svg';
-import { ReactComponent as StarUncolor } from '../pictos/StarUncolor.svg';
-
-const scoreRating = [1, 2, 3, 4, 5];
+import PoiRating from './PoiRating';
 
 const mapStateToProps = state => ({
   conditionRating: state.pois.conditionRating,
@@ -17,54 +14,12 @@ const mapStateToProps = state => ({
 });
 
 const RateNewPoiFields = ({
-  dispatch, conditionRating, operationRating, accessibilityRating,
+  conditionRating, operationRating, accessibilityRating,
 }) => (
   <div className="poi-create">
-    <label>Note d'état:</label>
-    <div className="conditionRating">
-      {scoreRating.map(rating => (
-        <div
-          key={rating}
-          className={`star${rating}`}
-          onClick={() => dispatch({
-            type: 'RATING_CONDITION_CHANGE',
-            conditionRating: rating,
-          })}
-        >
-          {rating <= conditionRating ? <Starcolor /> : <StarUncolor />}
-        </div>
-      ))}
-    </div>
-    <label>Note de fonctionnement:</label>
-    <div className="operationRating">
-      {scoreRating.map(rating => (
-        <div
-          key={rating}
-          className={`star${rating}`}
-          onClick={() => dispatch({
-            type: 'RATING_OPERATION_CHANGE',
-            operationRating: rating,
-          })}
-        >
-          {rating <= operationRating ? <Starcolor /> : <StarUncolor />}
-        </div>
-      ))}
-    </div>
-    <label>Note de accessibilité:</label>
-    <div className="accessibilityRating">
-      {scoreRating.map(rating => (
-        <div
-          key={rating}
-          className={`star${rating}`}
-          onClick={() => dispatch({
-            type: 'RATING_ACCESSIBILITY_CHANGE',
-            accessibilityRating: rating,
-          })}
-        >
-          {rating <= accessibilityRating ? <Starcolor /> : <StarUncolor />}
-        </div>
-      ))}
-    </div>
+    <PoiRating label="Note d'état:" type="RATING_CONDITION_CHANGE" rating={conditionRating} />
+    <PoiRating label="Note de fonctionnement" type="RATING_OPERATION_CHANGE" rating={operationRating} />
+    <PoiRating label="note d'accessibilité" type="RATING_ACCESSIBILITY_CHANGE" rating={accessibilityRating} />
   </div>
 );
 
