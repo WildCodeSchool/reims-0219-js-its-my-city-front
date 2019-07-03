@@ -24,6 +24,7 @@ const mapStateToProps = state => ({
   operationRating: state.pois.operationRating,
   isFirstResearchDone: state.pois.isFirstResearchDone,
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
+  barsAreDisplayed: state.pois.barsAreDisplayed,
 });
 
 
@@ -54,16 +55,17 @@ class App extends Component {
       isCreateFormDisplayed,
       isFirstResearchDone,
       filteredPoiByKeyword,
+      barsAreDisplayed,
     } = this.props;
     return (
       <div>
-        <SearchBar />
+        {barsAreDisplayed === true && <SearchBar />}
         { isFirstResearchDone
         && !filteredPoiByKeyword.length
         && <Alert /> }
         <AppMap />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        {!Object.keys(specificPoiInfos).length && <FilterBar />}
+        {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
         <FilterBar />
         {isCreateFormDisplayed && <CreatePoiForm />}

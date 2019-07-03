@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './ComponentsCSS/searchBar.scss';
-import { ReactComponent as Logo } from './pictos/search.svg';
-import { ReactComponent as CancelSearch } from './pictos/CancelButton.svg';
+import SearchBarSvg from './ComponentPins/SearchBarSvg';
 import Autocomplete from '../../node_modules/react-autocomplete';
 import getPoisAccordingToKeyword from '../Functions/getPoisAccordingToKeyword';
+import SearchBarCloseSvg from './ComponentPins/SearchBarCloseSvg';
 
 const mapStateToProps = state => ({
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
@@ -29,8 +29,9 @@ const dropdownMenuStyle = {
 const SearchBar = ({
   dispatch, poiKeywordsDisplay, userInputSearchBar,
 }) => (
-  <div>
-    <div className="search-box">
+  <div className="search-box">
+    {userInputSearchBar.length === 0 ? <SearchBarSvg /> : <SearchBarCloseSvg />}
+    <div>
       <Autocomplete
         items={poiKeywordsDisplay}
         shouldItemRender={
@@ -50,7 +51,7 @@ const SearchBar = ({
         onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: e.target.value })}
         onSelect={value3 => getPoisAccordingToKeyword(value3, dispatch, poiKeywordsDisplay)}
       />
-      {userInputSearchBar.length === 0
+      {/* userInputSearchBar.length === 0
         ? (
           <Logo
             className="search-logo"
@@ -62,7 +63,7 @@ const SearchBar = ({
             onClick={() => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: '', filteredPoiByKeyword: [] })}
           />
         )
-      }
+        */}
     </div>
   </div>
 );

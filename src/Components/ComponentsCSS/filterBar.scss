@@ -1,40 +1,47 @@
 .footer-box{
-    justify-content: space-between;
-    width: 90%;
+    width: 100%;
     position: absolute;
-    bottom: 0;
     z-index: 4;
     height: 8vh;    
-    border-radius: 1vh 1vh 3vh 3vh;
-    border: solid 0.4px;
-    box-shadow: 2px 5px 8px #2F2F2F;
-    background-color: white;
-    margin-left: 2.5vh;
-    margin-top: 87.5vh;
-}
-
-.filter-logo{
-    width: 30%;
-    position: relative;
-    z-index: 4;
-    height : 7vh;
-    float: left;
-    margin-top: 0.4vh;
-}
-
-.add-logo {
-    height: 7vh;
-    width: 16%;
-    position: relative;
-    z-index: 4;
-    margin-left: 5.9vh;
-}
-
-.profile-logo{
-    width: 30%;
-    position: relative;
-    float: none;
-    z-index: 4;
-    float: right;
-    height : 8vh;
+    margin-top: 84vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    .footer-bar{
+        grid-area: 1 / col1-start / row1-end / 1;
+    }
+    .footer-box-button{
+        grid-area: 1 / col1-start / row1-end / 1;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr;
+        .filter-logo{
+            position: relative;
+            z-index: 4;
+            height : 7vh;
+            grid-column: 1/3;
+            grid-row: 1/1;
+            justify-self: center;
+            margin-top: 11%;
+        }
+        .add-logo {
+            width: 30%;
+            position: relative;
+            z-index: 4;
+            grid-column: 3/6;
+            grid-row: 1/1;
+            bottom: 8%;
+            margin-left: 0.5%;
+        }
+        .profile-logo{
+            position: relative;
+            z-index: 4;
+            height : 8vh;
+            grid-column: 4/6;
+            grid-row: 1/1;
+            justify-self: center;
+            margin-top: 10%;
+        }
+        
+    }
 }
