@@ -20,7 +20,7 @@ const SelectCategorie = ({ dispatch }) => (
       onClick={() => dispatch({ type: 'DISPLAY_FILTER_PAGE' })}
     >
     X
-     </button>}
+    </button>}
 
     <h1 className="categories">Catégories</h1>
 
@@ -36,6 +36,7 @@ const SelectCategorie = ({ dispatch }) => (
       <button className="filterButton2 buttonStyle" type="button">Événements</button>
 
     </div>
+
     <div className="selectionButtons">
       <button
         className="nextButton"

@@ -108,7 +108,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
-        displayFirstImportancePoiPage: true,
+        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
       };
     case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
       return {
