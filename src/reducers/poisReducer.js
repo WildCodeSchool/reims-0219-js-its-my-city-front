@@ -11,6 +11,7 @@ const initialState = {
   filteredPoiByKeyword: [],
   poiKeywordsDisplay: [],
   userInputSearchBar: '',
+  isFirstResearchDone: false,
   name: '',
   keywordTwo: '',
   isKeywordOneChoosen: false,
@@ -88,6 +89,7 @@ const poisReducer = (state = initialState, action) => {
           ...state,
           userInputSearchBar: action.userInputSearchBar,
           filteredPoiByKeyword: action.filteredPoiByKeyword,
+          isFirstResearchDone: false,
         };
       }
       return {
@@ -99,6 +101,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         userInputSearchBar: action.userInputSearchBar,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
+        isFirstResearchDone: true,
       };
     case 'HANDLE_FORM_NAME_CHANGE':
       return {
@@ -159,6 +162,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         customCoordonnes: action.customCoordonnes,
+      };
+    case 'HIDE_ALERT':
+      return {
+        ...state,
+        isFirstResearchDone: false,
       };
     default:
       return state;

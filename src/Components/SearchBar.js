@@ -27,7 +27,7 @@ const dropdownMenuStyle = {
 
 
 const SearchBar = ({
-  dispatch, poiKeywordsDisplay, userInputSearchBar, filteredPoiByKeyword,
+  dispatch, poiKeywordsDisplay, userInputSearchBar,
 }) => (
   <div>
     <div className="search-box">
@@ -50,7 +50,7 @@ const SearchBar = ({
         onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: e.target.value })}
         onSelect={value3 => getPoisAccordingToKeyword(value3, dispatch, poiKeywordsDisplay)}
       />
-      {filteredPoiByKeyword.length === 0
+      {userInputSearchBar.length === 0
         ? (
           <Logo
             className="search-logo"
