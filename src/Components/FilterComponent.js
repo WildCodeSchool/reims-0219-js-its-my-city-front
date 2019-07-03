@@ -86,7 +86,7 @@ const FilterComponent = ({
             .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
       }
         >
-Appliquer
+        Appliquer
         </button>
       )
         }

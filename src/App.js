@@ -56,10 +56,10 @@ class App extends Component {
       operationRating,
     } = this.props;
     axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
-      name: createPoiFormInfos.wizard.values.poiDesc,
+      name: createPoiFormInfos.poiCreation.values.poiDesc,
       latitude: geolocCoordonnees[0],
       longitude: geolocCoordonnees[1],
-      keyword: createPoiFormInfos.wizard.values.categoryKeyword,
+      keyword: createPoiFormInfos.poiCreation.values.categoryKeyword,
       author_id: 'Wilder',
       global_grade: 4,
       accessibility: accessibilityRating,
@@ -84,6 +84,7 @@ class App extends Component {
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
+        <FilterBar />
         {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );

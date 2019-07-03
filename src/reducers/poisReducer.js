@@ -2,6 +2,7 @@ const initialState = {
   zoom: 16,
   geolocCoordonnees: [],
   defaultCoordonnees: [49.260096, 4.030293],
+  customCoordonnes: [0, 0],
   poiSampleDisplay: [],
   specificPoiInfos: [],
   filterKeywordPageDisplay: false, // displays the page that allows to filter the keywords
@@ -18,8 +19,12 @@ const initialState = {
   firstIndicationIsDisplayed: true,
   secondIndicationIsdisplayed: false,
   secondKeyword: '',
+  formPage: 1,
   barsAreDisplayed: true,
   file: [],
+  conditionRating: 1,
+  operationRating: 1,
+  accessibilityRating: 1,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -120,22 +125,37 @@ const poisReducer = (state = initialState, action) => {
     case 'RATING_CONDITION_CHANGE':
       return {
         ...state,
-        conditionRating: action.conditionRating,
+        conditionRating: action.rating,
       };
     case 'RATING_OPERATION_CHANGE':
       return {
         ...state,
-        operationRating: action.operationRating,
+        operationRating: action.rating,
       };
     case 'RATING_ACCESSIBILITY_CHANGE':
       return {
         ...state,
-        accessibilityRating: action.accessibilityRating,
+        accessibilityRating: action.rating,
       };
     case 'INSERT_PICTURE':
       return {
         ...state,
         file: action.file,
+      };
+    case 'NEXT_PAGE':
+      return {
+        ...state,
+        formPage: action.page,
+      };
+    case 'PREVIOUS_PAGE':
+      return {
+        ...state,
+        formPage: action.page,
+      };
+    case 'ADD_CUSTOM_MARKER':
+      return {
+        ...state,
+        customCoordonnes: action.customCoordonnes,
       };
     default:
       return state;
