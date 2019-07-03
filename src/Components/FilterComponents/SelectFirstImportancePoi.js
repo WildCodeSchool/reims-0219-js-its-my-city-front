@@ -37,7 +37,13 @@ const SelectFirstImportancePoi = ({ dispatch, poiKeywordsDisplay, firstIndicatio
       ))}
     </div>
     <div>
-      <button className="previousButton" type="button">Précédent</button>
+      <button
+        className="previousButton"
+        type="button"
+        onClick={() => dispatch({ type: 'SHOW_FIRST_IMPORTANCE_KEYWORDS' })}
+      >
+      Précédent
+      </button>
       <button className="nextButton" type="button">Suivant</button>
     </div>
   </div>
