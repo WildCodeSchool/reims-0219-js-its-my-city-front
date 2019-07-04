@@ -24,7 +24,7 @@ let RateNewPoi = ({
   operationRating,
   dispatch,
 }) => (
-  <form>
+  <form className="formContainer">
     <div>
       <Field
         name="ratingPoi"

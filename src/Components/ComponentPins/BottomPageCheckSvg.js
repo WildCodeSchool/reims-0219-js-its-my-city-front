@@ -14,7 +14,7 @@ const PageBottomCheckSvg = ({ page, dispatch }) => (
     xmlSpace="preserve"
     style={{
       position: 'absolute',
-      top: '76vh',
+      top: '73vh',
     }}
   >
     <g>

@@ -13,7 +13,7 @@ const PreviousPageButton = ({ dispatch, page }) => (
         page: page - 1,
       })}
       type="submit"
-      className="previous"
+      className="buttonForm"
     >
     Précédent
     </button>

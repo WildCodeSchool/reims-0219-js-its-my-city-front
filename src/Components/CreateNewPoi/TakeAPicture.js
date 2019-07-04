@@ -31,17 +31,24 @@ let TakeAPicture = ({
 }) => (
   <div className="formContainer">
     <article>
-      <div>
-        <form encType="multipart/form-data" method="post" onSubmit={e => uploadFileHandler(e, file)}>
-          <input
-            type="file"
-            name="upload"
-            onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
-            required
-          />
-          <button type="submit" value="upload">Envoyer</button>
-        </form>
-      </div>
+      <form
+        encType="multipart/form-data"
+        method="post"
+        onSubmit={e => uploadFileHandler(e, file)}
+        style={{
+          display: 'grid',
+          gap: '10vh',
+        }}
+      >
+        <input
+          type="file"
+          name="upload"
+          onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
+          style={{ justifySelf: 'center' }}
+          required
+        />
+        <button type="submit" value="upload" style={{ placeSelf: 'center' }}>Envoyer</button>
+      </form>
       <div>
         <PreviousPageButton />
       </div>

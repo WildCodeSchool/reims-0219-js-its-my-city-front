@@ -111,7 +111,22 @@ legend{
     background-color: white;
     position: absolute;
     z-index: 10;
-    height: 78vh;
+    height: 75vh;
     width: 89.5vw;
     margin: 0px 0px 0 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .buttonForm{
+    border: 1px solid #D12F5B;
+    color: #D12F5B;
+    background: white;
+    border-radius: 8px;
+    width: 56vw;
+    position: absolute;
+    bottom: 4vh;
+    left: 15vw;
+    font-size: 1.35rem;
   }
