@@ -8,7 +8,6 @@ import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 import SelectCategorie from './Components/FilterComponents/SelectCategorie';
 import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
-import SelectFirstImportancePoi from './Components/FilterComponents/SelectFirstImportancePoi';
 import SelectSecondImportancePoi from './Components/FilterComponents/SelectSecondImportancePoi';
 
 const mapStateToProps = state => ({

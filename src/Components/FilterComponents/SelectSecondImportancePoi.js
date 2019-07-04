@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
   secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
   secondKeyword: state.pois.secondKeyword,
+
 });
 
 const SelectSecondImportancePoi = ({
@@ -35,7 +36,7 @@ const SelectSecondImportancePoi = ({
       {isKeywordOneChoosen && specificSecondKeywords.map(keyword => (
         <button
           type="button"
-          className="buttonStyle"
+          className="secondFilterButton"
           key={keyword.name}
           onClick={() => dispatch({ type: 'APPLY_BUTTON', secondKeyword: keyword.name })
       }

@@ -17,7 +17,7 @@ const onlyKeywordsFirstImportance = keywords => keywords.filter(
 
 
 const SelectFirstImportancePoi = ({
-  dispatch, poiKeywordsDisplay, firstIndicationIsDisplayed, filterKeywordPageDisplay,
+  dispatch, poiKeywordsDisplay, firstIndicationIsDisplayed,
 }) => (
 
   <div className="filterComponent">
@@ -30,7 +30,7 @@ const SelectFirstImportancePoi = ({
           className="buttonStyle"
           key={keyword.name}
           onClick={() => dispatch({
-            type: 'SHOW_SECOND_IMPORTANCE_KEYWORD',
+            type: 'SHOW_SECOND_IMPORTANCE_KEYWORDS',
             specificSecondKeywords: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
           })}
         >
@@ -38,17 +38,6 @@ const SelectFirstImportancePoi = ({
 
         </button>
       ))}
-    </div>
-    <div>
-      {!filterKeywordPageDisplay && (
-      <button
-        className="previousButton"
-        type="button"
-        onClick={() => dispatch({ type: 'SHOW_FIRST_IMPORTANCE_KEYWORDS' })}
-      >
-      Précédent
-      </button>
-      )}
     </div>
   </div>
 );

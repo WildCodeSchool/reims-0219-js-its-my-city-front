@@ -112,13 +112,14 @@ const poisReducer = (state = initialState, action) => {
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
       };
-    case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
+    case 'SHOW_SECOND_IMPORTANCE_KEYWORDS':
       return {
         ...state,
         isKeywordOneChoosen: true,
         specificSecondKeywords: action.specificSecondKeywords,
         firstIndicationIsDisplayed: false,
         secondIndicationIsDisplayed: true,
+        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };
@@ -137,6 +138,7 @@ const poisReducer = (state = initialState, action) => {
     case 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS':
       return {
         ...state,
+        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };
