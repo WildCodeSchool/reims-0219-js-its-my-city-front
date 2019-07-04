@@ -29,15 +29,18 @@ const SelectCategorie = ({ dispatch }) => (
       {<button
         className="filterButton1 buttonStyle"
         type="button"
+        onClick={() => dispatch({ type: 'SHOW_FIRST_IMPORTANCE_KEYWORDS'})}
       >
       Points d'intérêts
-      </button>}
+       </button>}
 
       <button className="filterButton2 buttonStyle" type="button">Événements</button>
-
     </div>
 
-    <div className="selectionButtons">
+    <div><p className="eventTeasing">Bientôt Disponible</p></div>
+
+
+    {/* <div className="selectionButtons">
       <button
         className="nextButton"
         type="button"
@@ -45,7 +48,7 @@ const SelectCategorie = ({ dispatch }) => (
       >
         Suivant
       </button>
-    </div>
+    </div> */}
 
   </div>
 );

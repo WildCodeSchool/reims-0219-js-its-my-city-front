@@ -134,7 +134,7 @@ const poisReducer = (state = initialState, action) => {
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
         barsAreDisplayed: !state.barsAreDisplayed,
       };
-    case 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORD':
+    case 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS':
       return {
         ...state,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,

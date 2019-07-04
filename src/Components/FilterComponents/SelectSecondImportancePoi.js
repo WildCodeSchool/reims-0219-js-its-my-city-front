@@ -17,7 +17,7 @@ const SelectSecondImportancePoi = ({
   dispatch, isKeywordOneChoosen, secondIndicationIsDisplayed, specificSecondKeywords,
   isKeywordTwoChoosen, secondKeyword,
 }) => (
-  <div className="filterComponent">
+  <div className="secondFilterPage">
 
     <button
       type="button"
@@ -31,7 +31,7 @@ const SelectSecondImportancePoi = ({
       {secondIndicationIsDisplayed && <p>Affinez votre recherche</p>}
     </div>
 
-    <div>
+    <div className="keywordsOfSecondImportance">
       {isKeywordOneChoosen && specificSecondKeywords.map(keyword => (
         <button
           type="button"
@@ -50,14 +50,12 @@ const SelectSecondImportancePoi = ({
       <button
         className="previousButton"
         type="button"
-        onClick={() => dispatch({ type: 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORD' })}
+        onClick={() => dispatch({ type: 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS' })}
       >
       Précédent
       </button>
-    </div>
-
-    <div className="applyButton">
-      {isKeywordTwoChoosen === true && (
+      <div className="applyButton">
+        {isKeywordTwoChoosen === true && (
         <button
           type="button"
           className="applyButtonStyle"
@@ -65,10 +63,11 @@ const SelectSecondImportancePoi = ({
             .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
       }
         >
-Appliquer
+        Appliquer
         </button>
-      )
+        )
         }
+      </div>
     </div>
   </div>
 );
