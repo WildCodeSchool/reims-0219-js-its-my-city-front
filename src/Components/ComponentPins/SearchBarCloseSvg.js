@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/SearchBarCloseSvg.scss';
 
-const mapStateToProps = state => ({
-});
 
 const SearchBarCloseSvg = ({ dispatch }) => (
   <svg
@@ -191,4 +189,4 @@ c1.3-1.3,2.7-2.7,4-4L201.3,429.4z"
 
 );
 
-export default connect(mapStateToProps)(SearchBarCloseSvg);
+export default connect()(SearchBarCloseSvg);
