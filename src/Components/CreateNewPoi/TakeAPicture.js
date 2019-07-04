@@ -30,22 +30,24 @@ const uploadFileHandler = (e, formData) => {
 let TakeAPicture = ({
   file, dispatch,
 }) => (
-  <div className="poi-create">
-    <div className="poi-name">
-      <form encType="multipart/form-data" method="post" onSubmit={e => uploadFileHandler(e, file)}>
-        <input
-          type="file"
-          name="upload"
-          onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
-          required
-        />
-        <button type="submit" value="upload">Envoyer</button>
-      </form>
-    </div>
-    <div>
-      <PreviousPageButton />
-      <NextPageButton />
-    </div>
+  <div>
+    <article>
+      <div>
+        <form encType="multipart/form-data" method="post" onSubmit={e => uploadFileHandler(e, file)}>
+          <input
+            type="file"
+            name="upload"
+            onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
+            required
+          />
+          <button type="submit" value="upload">Envoyer</button>
+        </form>
+      </div>
+      <div>
+        <PreviousPageButton />
+        <NextPageButton />
+      </div>
+    </article>
   </div>
 );
 

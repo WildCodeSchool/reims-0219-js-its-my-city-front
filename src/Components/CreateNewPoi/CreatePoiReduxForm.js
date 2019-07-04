@@ -6,6 +6,7 @@ import RateNewPoi from './RateNewPoi';
 import TakeAPicture from './TakeAPicture';
 import PlaceYourNewPoi from './PlaceYourNewPoi';
 import '../ComponentsCSS/createPoiForm.scss';
+import PageBottomCheckSvg from '../ComponentPins/PageBottomCheckSvg';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
@@ -18,6 +19,7 @@ const CreatePoiForm = ({ page }) => (
     {page === 3 && <PickCategory />}
     {page === 4 && <DescribeNewPoi />}
     {page === 5 && <RateNewPoi />}
+    <PageBottomCheckSvg style={{ position: 'absolute', top: '77vh' }} />
   </div>
 );
 
