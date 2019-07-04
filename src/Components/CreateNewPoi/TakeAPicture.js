@@ -4,7 +4,6 @@ import { reduxForm } from 'redux-form';
 import axios from 'axios';
 import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
-import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
@@ -30,7 +29,7 @@ const uploadFileHandler = (e, formData) => {
 let TakeAPicture = ({
   file, dispatch,
 }) => (
-  <div>
+  <div className="formContainer">
     <article>
       <div>
         <form encType="multipart/form-data" method="post" onSubmit={e => uploadFileHandler(e, file)}>
@@ -45,7 +44,6 @@ let TakeAPicture = ({
       </div>
       <div>
         <PreviousPageButton />
-        <NextPageButton />
       </div>
     </article>
   </div>

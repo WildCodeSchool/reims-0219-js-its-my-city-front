@@ -1,16 +1,27 @@
 import React from 'react';
 import '../ComponentsCSS/ColorSvg.scss';
+import { connect } from 'react-redux';
 
-const TopPageSvg = () => (
+const mapStateToProps = state => ({
+  page: state.pois.formPage,
+});
+
+const TopPageSvg = ({ dispatch }) => (
 
   <svg
     x="0px"
     y="0px"
     viewBox="0 0 375 62"
     xmlSpace="preserve"
+    style={{
+      position: 'absolute',
+      top: '-7vh',
+      marginLeft: '1.4px',
+      marginRight: '-1px',
+    }}
   >
     <g>
-      <g>
+      <g onClick={() => dispatch({ type: 'TOGGLE_POI_CREATION_FORM' })}>
         <defs>
           <rect id="SVGID_1_" x="298" width="58" height="58" />
         </defs>
@@ -195,4 +206,5 @@ const TopPageSvg = () => (
 
 );
 
-export default TopPageSvg;
+
+export default connect(mapStateToProps)(TopPageSvg);

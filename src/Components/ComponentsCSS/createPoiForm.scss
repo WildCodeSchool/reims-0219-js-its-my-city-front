@@ -107,3 +107,11 @@ legend{
     outline: none;
   }
   
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 78vh;
+    width: 89.5vw;
+    margin: 0px 0px 0 9px;
+  }
