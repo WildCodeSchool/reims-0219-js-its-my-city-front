@@ -18,6 +18,15 @@ const onlyKeywordsFirstImportance = keywords => keywords.filter(
 const SelectFirstImportancePoi = ({ dispatch, poiKeywordsDisplay, firstIndicationIsDisplayed }) => (
 
   <div className="filterComponent">
+
+    <button
+      type="button"
+      className="closeButton"
+      onClick={() => dispatch({ type: 'HIDE_FIRST_IMPORTANCE_KEYWORDS' })}
+    >
+      X
+    </button>
+
     <h1 className="themes">Thèmes</h1>
     { firstIndicationIsDisplayed && <p className="selectTheme">Veuillez selectionner un thème</p> }
 
