@@ -1,7 +1,8 @@
 import React from 'react';
 import './ComponentsCSS/FilterComponent.scss';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import getPoisAccordingToKeyword from '../Functions/getPoisAccordingToKeyword';
+import { ReactComponent as PageBottomSvg } from './pictos/PageBottom.svg';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.pois.specificPoiInfos,
@@ -60,39 +61,62 @@ const FilterComponent = ({
       <div>
         {secondIndicationIsDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
       </div>
+      <h1 className="themes">Thèmes</h1>
+      {firstIndicationIsDisplayed === true && <p className="selectTheme">Veuillez selectionner un thème</p>}
 
-      <div className="keywordsOfSecondImportance">
-        {isKeywordOneChoosen === true && specificSecondKeywords.map(keyword => (
-          <button
-            type="button"
-            className="buttonStyle"
-            key={keyword.name}
-            onClick={() => dispatch({ type: 'APPLY_BUTTON', secondKeyword: keyword.name })
+      <div className="allKeywords">
+        <div className="keywordsOfFirstImportance">
+          {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
+            <button
+              type="button"
+              className="buttonStyle"
+              key={keyword.name}
+              onClick={() => dispatch({
+                type: 'SHOW_SECOND_IMPORTANCE_KEYWORD',
+                specificSecondKeywords: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
+              })}
+            >
+              {keyword.name}
+
+            </button>
+          ))}
+        </div>
+
+
+        <div>
+          {secondIndicationIsDisplayed === true && <p className="selectSecondTheme">Affinez votre recherche</p>}
+        </div>
+
+        <div className="keywordsOfSecondImportance">
+          {isKeywordOneChoosen === true && specificSecondKeywords.map(keyword => (
+            <button
+              type="button"
+              className="buttonStyle"
+              key={keyword.name}
+              onClick={() => dispatch({ type: 'APPLY_BUTTON', secondKeyword: keyword.name })
           }
-          >
-            {keyword.name}
+            >
+              {keyword.name}
 
-          </button>
-        ))}
+            </button>
+          ))}
+        </div>
       </div>
-    </div>
 
-    <div className="applyButton">
-      {isKeywordTwoChoosen === true && (
+      <div className="applyButton">
+        {isKeywordTwoChoosen === true && (
         <button
           type="button"
-          className="applyButtonStyle"
-          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
-            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
-      }
+          className="buttonStyle"
+          onClick={() => getPoisAccordingToKeyword(secondKeyword, dispatch)}
         >
         Appliquer
         </button>
-      )
+        )
         }
+      </div>
     </div>
-
-
+    <PageBottomSvg className="page-bottom" />
   </div>
 );
 

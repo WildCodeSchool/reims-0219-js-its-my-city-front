@@ -5,6 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import validate from './validate';
 import RateNewPoiFields from './RateNewPoiFields';
 import PreviousPageButton from './PreviousPageButton';
+import getPoisAccordingToKeyword from '../../Functions/getPoisAccordingToKeyword';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
@@ -22,6 +23,7 @@ let RateNewPoi = ({
   accessibilityRating,
   conditionRating,
   operationRating,
+  dispatch,
 }) => (
   <form>
     <div>
@@ -45,6 +47,7 @@ let RateNewPoi = ({
               condition: conditionRating,
               functional: operationRating,
             });
+            getPoisAccordingToKeyword(createPoiFormInfos.poiCreation.values.categoryKeyword, dispatch);
           }}
           type="submit"
         >
