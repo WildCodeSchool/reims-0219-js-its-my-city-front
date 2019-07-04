@@ -19,6 +19,7 @@ const initialState = {
   barsAreDisplayed: true,
   file: [],
   displayFirstImportancePoiPage: false,
+  displaySecondImportancePoiPage: false,
   isKeywordOneChoosen: false,
   isKeywordTwoChoosen: false,
 };
@@ -117,6 +118,7 @@ const poisReducer = (state = initialState, action) => {
         specificSecondKeywords: action.specificSecondKeywords,
         firstIndicationIsDisplayed: false,
         secondIndicationIsDisplayed: true,
+        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };
     case 'APPLY_BUTTON':
       return {

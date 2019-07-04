@@ -14,13 +14,13 @@ const SelectCategorie = ({ dispatch }) => (
 
   <div className="filterComponent">
 
-    {<button
+    <button
       type="button"
       className="closeButton"
       onClick={() => dispatch({ type: 'DISPLAY_FILTER_PAGE' })}
     >
     X
-    </button>}
+    </button>
 
     <h1 className="categories">Catégories</h1>
 

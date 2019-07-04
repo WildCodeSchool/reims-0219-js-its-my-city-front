@@ -5,18 +5,24 @@ import axios from 'axios';
 
 
 const mapStateToProps = state => ({
+  isKeywordOneChoosen: state.pois.poiKeywordsDisplay,
+  specificSecondKeywords: state.pois.specificSecondKeywords,
+  isKeywordTwoChoosen: state.pois.isKeywordTwoChoosen,
+  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
+  secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
+  secondKeyword: state.pois.secondKeyword,
 });
 
 const SelectSecondImportancePoi = ({
   dispatch, isKeywordOneChoosen, secondIndicationIsDisplayed, specificSecondKeywords,
   isKeywordTwoChoosen, secondKeyword,
 }) => (
-  <div>
-    <div>
-      {secondIndicationIsDisplayed && <p className="selectSecondTheme">Affinez votre recherche</p>}
+  <div className="filterComponent">
+    <div className="selectSecondTheme">
+      {secondIndicationIsDisplayed && <p>Affinez votre recherche</p>}
     </div>
 
-    <div className="keywordsOfSecondImportance">
+    <div>
       {isKeywordOneChoosen && specificSecondKeywords.map(keyword => (
         <button
           type="button"

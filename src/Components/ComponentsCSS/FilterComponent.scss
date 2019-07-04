@@ -2,7 +2,7 @@
 
 .filterComponent {
     position: absolute;
-    z-index: 4;
+    z-index: 5;
     background-color: white;
     width: 96%;
     height: 94vh;
@@ -73,6 +73,8 @@
 .selectTheme{
     color:$mainColor;
     margin-left: 5px;
+    position: relative;
+    z-index: 4;
 }
 
 .selectSecondTheme{

@@ -4,6 +4,8 @@ import '../ComponentsCSS/FilterComponent.scss';
 
 const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
+  displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
+  firstIndicationIsDisplayed: state.pois.firstIndicationIsDisplayed,
 });
 
 const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiKeywordsDisplay.filter(keyword => keyword.parent_id === specificKeyword.id);
@@ -17,7 +19,6 @@ const SelectFirstImportancePoi = ({ dispatch, poiKeywordsDisplay, firstIndicatio
 
   <div className="filterComponent">
     <h1 className="themes">Thèmes</h1>
-;
     { firstIndicationIsDisplayed && <p className="selectTheme">Veuillez selectionner un thème</p> }
 
     <div className="keywordsOfFirstImportance">
@@ -44,7 +45,6 @@ const SelectFirstImportancePoi = ({ dispatch, poiKeywordsDisplay, firstIndicatio
       >
       Précédent
       </button>
-      <button className="nextButton" type="button">Suivant</button>
     </div>
   </div>
 );

@@ -9,6 +9,7 @@ import PoiInformation from './Components/PoiInformations';
 import SelectCategorie from './Components/FilterComponents/SelectCategorie';
 import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
 import SelectFirstImportancePoi from './Components/FilterComponents/SelectFirstImportancePoi';
+import SelectSecondImportancePoi from './Components/FilterComponents/SelectSecondImportancePoi';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
@@ -24,6 +25,7 @@ const mapStateToProps = state => ({
   operationRating: state.pois.operationRating,
   barsAreDisplayed: state.pois.barsAreDisplayed,
   displayFirstImportancePoiPage: state.pois.displayFirstImportancePoiPage,
+  displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
 });
 
 
@@ -79,6 +81,7 @@ class App extends Component {
       isCreateFormDisplayed,
       barsAreDisplayed,
       displayFirstImportancePoiPage,
+      displaySecondImportancePoiPage,
     } = this.props;
     return (
       <div>
@@ -86,9 +89,10 @@ class App extends Component {
         <AppMap />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
-        {filterKeywordPageDisplay && <SelectCategorie />}
         {isCreateFormDisplayed && <CreatePoiForm />}
+        {filterKeywordPageDisplay && <SelectCategorie />}
         {displayFirstImportancePoiPage && <SelectFirstImportancePoi />}
+        {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
       </div>
     );
   }
