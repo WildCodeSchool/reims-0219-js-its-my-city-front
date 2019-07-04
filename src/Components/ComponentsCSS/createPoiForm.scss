@@ -116,7 +116,6 @@ legend{
     margin: 0px 0px 0 9px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 
   .buttonForm{
@@ -127,6 +126,18 @@ legend{
     width: 56vw;
     position: absolute;
     bottom: 4vh;
+    left: 15vw;
+    font-size: 1.35rem;
+  }
+
+  .buttonFormNext{
+    border: 1px solid #D12F5B;
+    color: white;
+    background: #D12F5B;
+    border-radius: 8px;
+    width: 56vw;
+    position: absolute;
+    top: 61vh;
     left: 15vw;
     font-size: 1.35rem;
   }

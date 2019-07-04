@@ -13,7 +13,7 @@ const NextPageButton = ({ dispatch, page }) => (
         page: page + 1,
       })}
       type="submit"
-      className="next"
+      className="buttonFormNext"
     >
     Suivant
     </button>
