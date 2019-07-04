@@ -80,7 +80,6 @@ class App extends Component {
       filterKeywordPageDisplay,
       isCreateFormDisplayed,
       barsAreDisplayed,
-      displayFirstImportancePoiPage,
       displaySecondImportancePoiPage,
     } = this.props;
     return (
@@ -91,7 +90,6 @@ class App extends Component {
         {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
         {isCreateFormDisplayed && <CreatePoiForm />}
         {filterKeywordPageDisplay && <SelectCategorie />}
-        {displayFirstImportancePoiPage && <SelectFirstImportancePoi />}
         {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
       </div>
     );

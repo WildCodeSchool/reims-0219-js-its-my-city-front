@@ -6,6 +6,7 @@ const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
   displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
   firstIndicationIsDisplayed: state.pois.firstIndicationIsDisplayed,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
 });
 
 const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiKeywordsDisplay.filter(keyword => keyword.parent_id === specificKeyword.id);
@@ -15,19 +16,11 @@ const onlyKeywordsFirstImportance = keywords => keywords.filter(
 );
 
 
-const SelectFirstImportancePoi = ({ dispatch, poiKeywordsDisplay, firstIndicationIsDisplayed }) => (
+const SelectFirstImportancePoi = ({
+  dispatch, poiKeywordsDisplay, firstIndicationIsDisplayed, filterKeywordPageDisplay,
+}) => (
 
   <div className="filterComponent">
-
-    <button
-      type="button"
-      className="closeButton"
-      onClick={() => dispatch({ type: 'CLOSE_FIRST_IMPORTANCE_KEYWORDS' })}
-    >
-      X
-    </button>
-
-    <h1 className="themes">Thèmes</h1>
     { firstIndicationIsDisplayed && <p className="selectTheme">Veuillez selectionner un thème</p> }
 
     <div className="keywordsOfFirstImportance">
@@ -47,6 +40,7 @@ const SelectFirstImportancePoi = ({ dispatch, poiKeywordsDisplay, firstIndicatio
       ))}
     </div>
     <div>
+      {!filterKeywordPageDisplay && (
       <button
         className="previousButton"
         type="button"
@@ -54,6 +48,7 @@ const SelectFirstImportancePoi = ({ dispatch, poiKeywordsDisplay, firstIndicatio
       >
       Précédent
       </button>
+      )}
     </div>
   </div>
 );

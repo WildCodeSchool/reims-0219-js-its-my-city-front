@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/FilterComponent.scss';
+import SelectFirstImportancePoi from './SelectFirstImportancePoi';
 
 
 const mapStateToProps = state => ({
@@ -12,7 +13,7 @@ const mapStateToProps = state => ({
 
 const SelectCategorie = ({ dispatch }) => (
 
-  <div className="filterComponent">
+  <div className="filterComponent" style={{ overflow: 'hidden' }}>
 
     <button
       type="button"
@@ -26,29 +27,19 @@ const SelectCategorie = ({ dispatch }) => (
 
     <div className="buttonContainer">
 
-      {<button
+      <button
         className="filterButton1 buttonStyle"
         type="button"
-        onClick={() => dispatch({ type: 'SHOW_FIRST_IMPORTANCE_KEYWORDS'})}
       >
       Points d'intérêts
-       </button>}
+      </button>
 
       <button className="filterButton2 buttonStyle" type="button">Événements</button>
     </div>
 
     <div><p className="eventTeasing">Bientôt Disponible</p></div>
 
-
-    {/* <div className="selectionButtons">
-      <button
-        className="nextButton"
-        type="button"
-        onClick={() => dispatch({ type: 'SHOW_FIRST_IMPORTANCE_KEYWORDS' })}
-      >
-        Suivant
-      </button>
-    </div> */}
+    <SelectFirstImportancePoi />
 
   </div>
 );
