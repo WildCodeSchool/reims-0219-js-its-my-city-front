@@ -22,7 +22,7 @@ const SelectFirstImportancePoi = ({ dispatch, poiKeywordsDisplay, firstIndicatio
     <button
       type="button"
       className="closeButton"
-      onClick={() => dispatch({ type: 'HIDE_FIRST_IMPORTANCE_KEYWORDS' })}
+      onClick={() => dispatch({ type: 'CLOSE_FIRST_IMPORTANCE_KEYWORDS' })}
     >
       X
     </button>

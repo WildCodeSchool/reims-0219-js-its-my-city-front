@@ -18,6 +18,15 @@ const SelectSecondImportancePoi = ({
   isKeywordTwoChoosen, secondKeyword,
 }) => (
   <div className="filterComponent">
+
+    <button
+      type="button"
+      className="closeButton"
+      onClick={() => dispatch({ type: 'CLOSE_SECOND_IMPORTANCE_KEYWORDS' })}
+    >
+        X
+    </button>
+
     <div className="selectSecondTheme">
       {secondIndicationIsDisplayed && <p>Affinez votre recherche</p>}
     </div>
@@ -41,7 +50,7 @@ const SelectSecondImportancePoi = ({
       <button
         className="previousButton"
         type="button"
-        onClick={() => dispatch({ type: 'HIDE_SECOND_IMPORTANCE_KEYWORD' })}
+        onClick={() => dispatch({ type: 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORD' })}
       >
       Précédent
       </button>

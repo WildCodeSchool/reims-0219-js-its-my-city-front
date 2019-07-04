@@ -122,14 +122,19 @@ const poisReducer = (state = initialState, action) => {
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };
-    case 'HIDE_FIRST_IMPORTANCE_KEYWORDS':
+    case 'CLOSE_FIRST_IMPORTANCE_KEYWORDS':
       return {
         ...state,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         barsAreDisplayed: !state.barsAreDisplayed,
       };
-
-    case 'HIDE_SECOND_IMPORTANCE_KEYWORD':
+    case 'CLOSE_SECOND_IMPORTANCE_KEYWORDS':
+      return {
+        ...state,
+        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+        barsAreDisplayed: !state.barsAreDisplayed,
+      };
+    case 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORD':
       return {
         ...state,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
