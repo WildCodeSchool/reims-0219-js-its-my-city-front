@@ -82,6 +82,7 @@ const poisReducer = (state = initialState, action) => {
         poiSampleDisplay: action.poiSampleDisplay,
         filterKeywordPageDisplay: false,
         barsAreDisplayed: !state.barsAreDisplayed,
+        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
@@ -118,6 +119,13 @@ const poisReducer = (state = initialState, action) => {
         specificSecondKeywords: action.specificSecondKeywords,
         firstIndicationIsDisplayed: false,
         secondIndicationIsDisplayed: true,
+        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
+        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+      };
+    case 'HIDE_SECOND_IMPORTANCE_KEYWORD':
+      return {
+        ...state,
+        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };
     case 'APPLY_BUTTON':

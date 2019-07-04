@@ -37,19 +37,29 @@ const SelectSecondImportancePoi = ({
       ))}
     </div>
 
-    <div className="applyButton">
-      {isKeywordTwoChoosen && (
+    <div>
       <button
+        className="previousButton"
         type="button"
-        className="applyButtonStyle"
-        onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
-          .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
-        }
+        onClick={() => dispatch({ type: 'HIDE_SECOND_IMPORTANCE_KEYWORD' })}
       >
-      Appliquer
+      Précédent
       </button>
+    </div>
+
+    <div className="applyButton">
+      {isKeywordTwoChoosen === true && (
+        <button
+          type="button"
+          className="applyButtonStyle"
+          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
+            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
+      }
+        >
+Appliquer
+        </button>
       )
-          }
+        }
     </div>
   </div>
 );
