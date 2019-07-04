@@ -1,19 +1,36 @@
 import React from 'react';
 import '../ComponentsCSS/PageBottomCheckSvg.scss';
+import { connect } from 'react-redux';
 
-const PageBottomCheckSvg = () => (
+const mapStateToProps = state => ({
+  page: state.pois.formPage,
+});
+
+const PageBottomCheckSvg = ({ page, dispatch }) => (
   <svg
     x="0px"
     y="0px"
     viewBox="0 0 375 98"
     xmlSpace="preserve"
+    style={{
+      position: 'absolute',
+      top: '77vh',
+    }}
   >
     <g>
       <g>
         <defs>
           <rect id="SVGID_1_" x="155" y="15" width="76" height="76" />
         </defs>
-        <clipPath id="SVGID_2_">
+        <clipPath
+          id="SVGID_2_"
+          onClick={() => dispatch({
+            type: 'NEXT_PAGE',
+            page: page + 1,
+          })}
+          type="submit"
+          className="next"
+        >
           <use xlinkHref="#SVGID_1_" style={{ overflow: 'visible' }} />
         </clipPath>
         <g style={{ clipPath: 'url(#SVGID_2_)' }}>
@@ -147,4 +164,4 @@ const PageBottomCheckSvg = () => (
 
 );
 
-export default PageBottomCheckSvg;
+export default connect(mapStateToProps)(PageBottomCheckSvg);

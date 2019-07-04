@@ -19,7 +19,7 @@ const CreatePoiForm = ({ page }) => (
     {page === 3 && <PickCategory />}
     {page === 4 && <DescribeNewPoi />}
     {page === 5 && <RateNewPoi />}
-    <PageBottomCheckSvg style={{ position: 'absolute', top: '77vh' }} />
+    <PageBottomCheckSvg />
   </div>
 );
 
