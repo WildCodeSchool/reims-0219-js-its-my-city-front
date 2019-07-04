@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './ComponentsCSS/searchBar.scss';
 import { ReactComponent as Logo } from './pictos/search.svg';
 import Autocomplete from '../../node_modules/react-autocomplete';
-import getPoisByKeyword from '../Functions/GetPoisByKeyword';
+import getPoisAccordingToKeyword from '../Functions/getPoisAccordingToKeyword';
 
 const mapStateToProps = state => ({
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
@@ -47,7 +47,7 @@ const SearchBar = ({
         )}
         value={userInputSearchBar}
         onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: e.target.value })}
-        onSelect={value3 => getPoisByKeyword(poiKeywordsDisplay, value3, dispatch)}
+        onSelect={value3 => getPoisAccordingToKeyword(value3, dispatch, poiKeywordsDisplay)}
       />
       <Logo className="search-logo" />
     </div>

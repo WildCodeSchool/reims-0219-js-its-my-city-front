@@ -22,6 +22,7 @@ let RateNewPoi = ({
   accessibilityRating,
   conditionRating,
   operationRating,
+  dispatch,
 }) => (
   <form>
     <div>
@@ -44,7 +45,8 @@ let RateNewPoi = ({
               accessibility: accessibilityRating,
               condition: conditionRating,
               functional: operationRating,
-            });
+            })
+              .then(res => dispatch({ type: 'SAVE_NEW_POI_COORDINATES', filteredPoiByKeyword: res.data, newPoiCoordinates: res.data[0].localisation }));
           }}
           type="submit"
         >
@@ -64,7 +66,7 @@ RateNewPoi = connect(
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
-  destroyOnUnmount: false, //        <------ preserve form data
+  destroyOnUnmount: true, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
 })(RateNewPoi);

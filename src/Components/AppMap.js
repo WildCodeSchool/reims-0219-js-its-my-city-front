@@ -8,6 +8,7 @@ import {
 import L from 'leaflet';
 import userLocationUrl from './pictos/PinUser.svg';
 import Pins from './ComponentPins/Pins';
+import MapZoom from '../Functions/MapZoom';
 
 const myIcon = L.icon({
   iconUrl: userLocationUrl,
@@ -23,6 +24,7 @@ const mapStateToProps = state => ({
   customCoordonnes: state.pois.customCoordonnes,
   isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
   page: state.pois.formPage,
+  newPoiCoordinates: state.pois.newPoiCoordinates,
 });
 
 const customPins = keyword => L.divIcon({
@@ -39,10 +41,15 @@ const AppMap = ({
   customCoordonnes,
   isCreateFormDisplayed,
   page,
+  newPoiCoordinates,
   dispatch,
 }) => (
   <Map
-    center={geolocCoordonnees.length ? geolocCoordonnees : defaultCoordonnees}
+    center={
+      MapZoom(geolocCoordonnees, defaultCoordonnees, newPoiCoordinates).length
+        ? MapZoom(geolocCoordonnees, defaultCoordonnees, newPoiCoordinates)
+        : defaultCoordonnees
+    }
     zoom={zoom}
     zoomControl={false}
     onClick={(e) => {
