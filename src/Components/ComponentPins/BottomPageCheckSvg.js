@@ -1,5 +1,5 @@
 import React from 'react';
-import '../ComponentsCSS/PageBottomCheckSvg.scss';
+import '../ComponentsCSS/ColorSvg.scss';
 
 const PageBottomCheckSvg = () => (
   <svg
@@ -16,7 +16,7 @@ const PageBottomCheckSvg = () => (
         <clipPath id="SVGID_2_">
           <use xlinkHref="#SVGID_1_" style={{ overflow: 'visible' }} />
         </clipPath>
-        <g style={{ clipPath: 'url(#SVGID_2_)' }}>
+        <g style={{ clipPath: 'url(#D02F5A)' }}>
 
           <image
             style={{ overflow: 'visible' }}
@@ -134,15 +134,15 @@ const PageBottomCheckSvg = () => (
       <g>
         <g>
           <path
-            className="st0"
+            className="st9"
             d="M9.1,8.8v40.6c0,6.2,5.1,11.3,11.3,11.3h124c9.7-1.3,8.5-8.3,8.5-12.2c0-18.8,15.3-34.1,34.1-34.1
                     c18.8,0,34.1,15.3,34.1,34.1c0,4-1.3,10.9,8.4,12.2h125.1c6.2,0,11.3-5.1,11.3-11.3V8.8H9.1z"
           />
         </g>
       </g>
     </g>
-    <polyline className="st1" points="180.2,47.4 185.6,52.6 194.4,39.3 " />
-    <polyline className="st1" points="180.2,47 185.6,52.2 194.4,38.9 " />
+    <polyline className="st10" points="180.2,47.4 185.6,52.6 194.4,39.3 " />
+    <polyline className="st10" points="180.2,47 185.6,52.2 194.4,38.9 " />
   </svg>
 
 );
