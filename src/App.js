@@ -84,7 +84,6 @@ class App extends Component {
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
-        {barsAreDisplayed && <FilterBar />}
         {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );
