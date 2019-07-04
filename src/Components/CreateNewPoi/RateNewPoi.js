@@ -33,7 +33,7 @@ let RateNewPoi = ({
       />
       <div>
         <button
-          onClick={async (e) => {
+          onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
             axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
