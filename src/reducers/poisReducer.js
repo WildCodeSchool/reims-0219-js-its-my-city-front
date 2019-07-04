@@ -164,6 +164,7 @@ const poisReducer = (state = initialState, action) => {
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         filterKeywordPageDisplay: false,
         isCreateFormDisplayed: false,
+        barsAreDisplayed: true,
         newPoiCoordinates: action.newPoiCoordinates,
       };
     default:
