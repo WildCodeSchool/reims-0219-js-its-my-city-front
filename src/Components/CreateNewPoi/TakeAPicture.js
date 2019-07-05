@@ -4,6 +4,7 @@ import { reduxForm } from 'redux-form';
 import axios from 'axios';
 import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
+import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
@@ -30,27 +31,33 @@ let TakeAPicture = ({
   file, dispatch,
 }) => (
   <div className="formContainer">
-    <article>
-      <form
-        encType="multipart/form-data"
-        method="post"
-        onSubmit={e => uploadFileHandler(e, file)}
-        style={{
-          display: 'grid',
-          gap: '10vh',
-        }}
-      >
-        <input
-          type="file"
-          name="upload"
-          onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
-          style={{ justifySelf: 'center' }}
-          required
-        />
-        <button type="submit" value="upload" style={{ placeSelf: 'center' }}>Envoyer</button>
-      </form>
+    <article style={{ display: 'grid', gap: '27vh' }}>
+      <div style={{ textAlign: 'center' }}>
+      Afin d'embellir votre expérience, veuillez fournir une photo.
+      </div>
       <div>
-        <PreviousPageButton />
+        <form
+          encType="multipart/form-data"
+          method="post"
+          onSubmit={e => uploadFileHandler(e, file)}
+          style={{
+            display: 'grid',
+            gap: '10vh',
+          }}
+        >
+          <input
+            type="file"
+            name="upload"
+            onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
+            style={{ justifySelf: 'center' }}
+            required
+          />
+          <button type="submit" value="upload" style={{ placeSelf: 'center' }}>Envoyer</button>
+        </form>
+        <div>
+          <NextPageButton />
+          <PreviousPageButton />
+        </div>
       </div>
     </article>
   </div>
