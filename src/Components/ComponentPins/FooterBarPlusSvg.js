@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/ColorSvg.scss';
 
-const PageBottomCheckSvg = ({ dispatch }) => (
+const FooterBarPlusSvg = ({ dispatch }) => (
   <svg
     x="0px"
     y="0px"
@@ -269,4 +269,4 @@ const PageBottomCheckSvg = ({ dispatch }) => (
 
 
 );
-export default connect()(PageBottomCheckSvg);
+export default connect()(FooterBarPlusSvg);

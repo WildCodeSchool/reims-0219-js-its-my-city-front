@@ -81,8 +81,10 @@ legend{
     margin-left: 3px;
     margin-bottom: 2.5vh;
     width: 89%;
-    border-radius: 2.5vh;
+    height: 6vh;
     outline: none;
+    border: none;
+    border-bottom: 2px solid #DD476D;
 }
 .submit-button{
     display: flex;
