@@ -7,7 +7,6 @@ const mapStateToProps = state => ({
 });
 
 const DescribeNewPoiFields = ({
-  selectedCategoryKeywordTwoName,
   input,
   label,
   type,
@@ -19,9 +18,8 @@ const DescribeNewPoiFields = ({
       <input
         {...input}
         type={type}
-        value={`${selectedCategoryKeywordTwoName}`}
       />
-      {touched && error && <span>{error}</span>}
+      {touched && error && <span style={{ textAlign: 'center' }}>{error}</span>}
     </div>
   </div>
 );
