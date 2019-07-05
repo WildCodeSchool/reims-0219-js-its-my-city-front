@@ -77,7 +77,7 @@ legend{
 .poi-address span{
     color: black;
 }
-.poi-name > input {
+.categoryContainer > input {
     margin-left: 3px;
     margin-bottom: 2.5vh;
     width: 89%;
@@ -159,6 +159,9 @@ legend{
     position: relative;
     overflow: hidden;
     display: inline-block;
+    display: grid;
+    width: 50vw;
+    justify-self: center;
   }
 
   .pictureUploadWrapper input[type=file] {

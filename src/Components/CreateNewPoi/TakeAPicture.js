@@ -5,6 +5,7 @@ import axios from 'axios';
 import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
+import Picture from '../ComponentPins/Picture';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
@@ -31,7 +32,7 @@ let TakeAPicture = ({
   file, dispatch,
 }) => (
   <div className="formContainer">
-    <article style={{ display: 'grid', gap: '27vh' }}>
+    <article style={{ display: 'grid', gap: '7vh' }}>
       <div style={{ textAlign: 'center' }}>
       Afin d'embellir votre expérience, veuillez fournir une photo.
       </div>
@@ -52,7 +53,7 @@ let TakeAPicture = ({
               onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
               required
             />
-            <button style={{ justifySelf: 'center' }} type="button">Choisir une photo</button>
+            <Picture />
           </div>
           <button type="submit" value="upload" style={{ placeSelf: 'center' }}>Envoyer</button>
         </form>
