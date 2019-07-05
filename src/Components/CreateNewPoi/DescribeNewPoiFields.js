@@ -9,8 +9,8 @@ const DescribeNewPoiFields = ({
   meta: { touched, error },
 }) => (
   <div>
-    <div className="poi-name">
-      <span>{label}</span>
+    <div className="categoryContainer">
+      <span style={{ textAlign: 'center' }}>{label}</span>
       <input
         {...input}
         placeholder={label}

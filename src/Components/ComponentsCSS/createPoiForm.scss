@@ -141,3 +141,35 @@ legend{
     left: 15vw;
     font-size: 1.35rem;
   }
+
+  .placePoiContainer{
+    background-color: white;
+    margin: 0vh 2.6vw;
+    height: 12vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+  .pictureUploadWrapper{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .pictureUploadWrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .categoryContainer{
+    display: grid;
+    justify-items: center;
+    height: 49vh;
+    align-items: center;
+}

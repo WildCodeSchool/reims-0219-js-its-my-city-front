@@ -45,13 +45,15 @@ let TakeAPicture = ({
             gap: '10vh',
           }}
         >
-          <input
-            type="file"
-            name="upload"
-            onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
-            style={{ justifySelf: 'center' }}
-            required
-          />
+          <div style={{ display: 'grid' }} className="pictureUploadWrapper">
+            <input
+              type="file"
+              name="upload"
+              onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
+              required
+            />
+            <button style={{ justifySelf: 'center' }} type="button">Choisir une photo</button>
+          </div>
           <button type="submit" value="upload" style={{ placeSelf: 'center' }}>Envoyer</button>
         </form>
         <div>
