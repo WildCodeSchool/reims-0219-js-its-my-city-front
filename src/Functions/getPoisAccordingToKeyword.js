@@ -17,7 +17,11 @@ const getPoisAccordingToKeyword = (keywordChoosen, dispatch, allKeywords = undef
         type: 'HANDLE_SELECT',
         userInputSearchBar: keywordChoosen,
         filteredPoiByKeyword: res.data,
-      }));
+      }))
+    // If the research lead to nothing, an alert show, and is hidden 3 secs later
+      .then(setTimeout(() => {
+        dispatch({ type: 'HIDE_ALERT' });
+      }, 3000));
   }
 };
 
