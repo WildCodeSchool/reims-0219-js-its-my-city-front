@@ -1,3 +1,7 @@
+function deg2rad(deg) {
+  return deg * (Math.PI / 180);
+}
+
 function calculateDistance(lat1, lon1, lat2, lon2) {
   const R = 6371; // Radius of the earth in km
   const dLat = deg2rad(lat2 - lat1); // deg2rad below
@@ -8,10 +12,6 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   const d = R * c; // Distance in km
   return d.toFixed(1);
-}
-
-function deg2rad(deg) {
-  return deg * (Math.PI / 180);
 }
 
 export default calculateDistance;
