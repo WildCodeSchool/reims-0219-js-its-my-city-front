@@ -6,8 +6,9 @@ import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
 import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
-import FilterComponent from './Components/FilterComponent';
+import SelectCategorie from './Components/FilterComponents/SelectCategorie';
 import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
+import SelectSecondImportancePoi from './Components/FilterComponents/SelectSecondImportancePoi';
 import Alert from './Components/Alert';
 
 const mapStateToProps = state => ({
@@ -25,6 +26,8 @@ const mapStateToProps = state => ({
   isFirstResearchDone: state.pois.isFirstResearchDone,
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
   barsAreDisplayed: state.pois.barsAreDisplayed,
+  displayFirstImportancePoiPage: state.pois.displayFirstImportancePoiPage,
+  displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
 });
 
 
@@ -56,6 +59,7 @@ class App extends Component {
       isFirstResearchDone,
       filteredPoiByKeyword,
       barsAreDisplayed,
+      displaySecondImportancePoiPage,
     } = this.props;
     return (
       <div>
@@ -63,11 +67,13 @@ class App extends Component {
         { isFirstResearchDone
         && !filteredPoiByKeyword.length
         && <Alert /> }
+
         <AppMap />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
-        {filterKeywordPageDisplay && <FilterComponent />}
         {isCreateFormDisplayed && <CreatePoiForm />}
+        {filterKeywordPageDisplay && <SelectCategorie />}
+        {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
       </div>
     );
   }

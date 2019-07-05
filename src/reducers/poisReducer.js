@@ -14,8 +14,6 @@ const initialState = {
   isFirstResearchDone: false,
   name: '',
   keywordTwo: '',
-  isKeywordOneChoosen: false,
-  isKeywordTwoChoosen: false,
   specificSecondKeywords: [],
   firstIndicationIsDisplayed: true,
   secondIndicationIsdisplayed: false,
@@ -23,6 +21,10 @@ const initialState = {
   formPage: 1,
   barsAreDisplayed: true,
   file: [],
+  displayFirstImportancePoiPage: false,
+  displaySecondImportancePoiPage: false,
+  isKeywordOneChoosen: false,
+  isKeywordTwoChoosen: false,
   conditionRating: 1,
   operationRating: 1,
   accessibilityRating: 1,
@@ -87,6 +89,7 @@ const poisReducer = (state = initialState, action) => {
         filterKeywordPageDisplay: false,
         isCreateFormDisplayed: false,
         barsAreDisplayed: !state.barsAreDisplayed,
+        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       if (action.filteredPoiByKeyword) {
@@ -119,13 +122,41 @@ const poisReducer = (state = initialState, action) => {
         keywordTwo: action.keywordTwo,
         keywordOneId: action.keywordOneId,
       };
-    case 'SHOW_SECOND_IMPORTANCE_KEYWORD':
+    case 'SHOW_FIRST_IMPORTANCE_KEYWORDS':
+      return {
+        ...state,
+        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
+      };
+    case 'SHOW_SECOND_IMPORTANCE_KEYWORDS':
       return {
         ...state,
         isKeywordOneChoosen: true,
         specificSecondKeywords: action.specificSecondKeywords,
         firstIndicationIsDisplayed: false,
         secondIndicationIsDisplayed: true,
+        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
+        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+      };
+    case 'CLOSE_FIRST_IMPORTANCE_KEYWORDS':
+      return {
+        ...state,
+        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
+        barsAreDisplayed: !state.barsAreDisplayed,
+      };
+    case 'CLOSE_SECOND_IMPORTANCE_KEYWORDS':
+      return {
+        ...state,
+        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+        barsAreDisplayed: !state.barsAreDisplayed,
+      };
+    case 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS':
+      return {
+        ...state,
+        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
+        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };
     case 'APPLY_BUTTON':
       return {
