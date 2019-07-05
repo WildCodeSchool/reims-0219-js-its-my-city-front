@@ -9,6 +9,7 @@ import PoiInformation from './Components/PoiInformations';
 import SelectCategorie from './Components/FilterComponents/SelectCategorie';
 import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
 import SelectSecondImportancePoi from './Components/FilterComponents/SelectSecondImportancePoi';
+import Alert from './Components/Alert';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
@@ -22,6 +23,8 @@ const mapStateToProps = state => ({
   conditionRating: state.pois.conditionRating,
   accessibilityRating: state.pois.accessibilityRating,
   operationRating: state.pois.operationRating,
+  isFirstResearchDone: state.pois.isFirstResearchDone,
+  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
   barsAreDisplayed: state.pois.barsAreDisplayed,
   displayFirstImportancePoiPage: state.pois.displayFirstImportancePoiPage,
   displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
@@ -48,42 +51,23 @@ class App extends Component {
     }
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const {
-      createPoiFormInfos,
-      geolocCoordonnees,
-      accessibilityRating,
-      conditionRating,
-      operationRating,
-    } = this.props;
-    axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
-      name: createPoiFormInfos.wizard.values.poiDesc,
-      latitude: geolocCoordonnees[0],
-      longitude: geolocCoordonnees[1],
-      keyword: createPoiFormInfos.wizard.values.categoryKeyword,
-      author_id: 'Wilder',
-      global_grade: 4,
-      accessibility: accessibilityRating,
-      condition: conditionRating,
-      functional: operationRating,
-
-    });
-  }
-
-
   render() {
     const {
       specificPoiInfos,
       filterKeywordPageDisplay,
       isCreateFormDisplayed,
+      isFirstResearchDone,
+      filteredPoiByKeyword,
       barsAreDisplayed,
       displaySecondImportancePoiPage,
     } = this.props;
     return (
       <div>
-        {barsAreDisplayed === true && <SearchBar />}
+        {barsAreDisplayed && <SearchBar />}
+        { isFirstResearchDone
+        && !filteredPoiByKeyword.length
+        && <Alert /> }
+
         <AppMap />
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}

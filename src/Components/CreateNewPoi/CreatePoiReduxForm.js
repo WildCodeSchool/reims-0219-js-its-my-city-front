@@ -1,58 +1,24 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import CreatePoiFirstPage from './CreatePoiFirstPage';
-import CreatePoiSecondPage from './CreatePoiSecondPage';
-import CreatePoiThirdPage from './CreatePoiThirdPage';
+import React from 'react';
+import { connect } from 'react-redux';
+import PickCategory from './PickCategory';
+import DescribeNewPoi from './DescribeNewPoi';
+import RateNewPoi from './RateNewPoi';
+import TakeAPicture from './TakeAPicture';
+import PlaceYourNewPoi from './PlaceYourNewPoi';
 import '../ComponentsCSS/createPoiForm.scss';
 
-class CreatePoiForm extends Component {
-  constructor(props) {
-    super(props);
-    this.nextPage = this.nextPage.bind(this);
-    this.previousPage = this.previousPage.bind(this);
-    this.state = {
-      page: 1,
-    };
-  }
+const mapStateToProps = state => ({
+  page: state.pois.formPage,
+});
 
-  nextPage() {
-    const { page } = this.state;
-    this.setState({ page: page + 1 });
-  }
+const CreatePoiForm = ({ page }) => (
+  <div className="poi-create">
+    {page === 1 && <PlaceYourNewPoi />}
+    {page === 2 && <TakeAPicture />}
+    {page === 3 && <PickCategory />}
+    {page === 4 && <DescribeNewPoi />}
+    {page === 5 && <RateNewPoi />}
+  </div>
+);
 
-  previousPage() {
-    const { page } = this.state;
-    this.setState({ page: page - 1 });
-  }
-
-
-  render() {
-    const { onSubmit } = this.props;
-    const { page } = this.state;
-    return (
-      <div className="poi-create">
-        {page === 1 && <CreatePoiFirstPage onSubmit={this.nextPage} />}
-        {page === 2
-          && (
-          <CreatePoiSecondPage
-            previousPage={this.previousPage}
-            onSubmit={this.nextPage}
-          />
-          )}
-        {page === 3
-          && (
-          <CreatePoiThirdPage
-            previousPage={this.previousPage}
-            handleSubmit={onSubmit}
-          />
-          )}
-      </div>
-    );
-  }
-}
-
-CreatePoiForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
-
-export default CreatePoiForm;
+export default connect(mapStateToProps)(CreatePoiForm);
