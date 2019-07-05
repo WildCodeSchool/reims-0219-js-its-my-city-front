@@ -59,7 +59,7 @@ class App extends Component {
     } = this.props;
     return (
       <div>
-        {barsAreDisplayed === true && <SearchBar />}
+        {barsAreDisplayed && <SearchBar />}
         { isFirstResearchDone
         && !filteredPoiByKeyword.length
         && <Alert /> }
@@ -67,7 +67,6 @@ class App extends Component {
         {Object.keys(specificPoiInfos).length && <PoiInformation />}
         {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
         {filterKeywordPageDisplay && <FilterComponent />}
-        <FilterBar />
         {isCreateFormDisplayed && <CreatePoiForm />}
       </div>
     );

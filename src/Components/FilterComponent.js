@@ -107,7 +107,7 @@ const FilterComponent = ({
         {isKeywordTwoChoosen === true && (
         <button
           type="button"
-          className="buttonStyle"
+          className="applyButtonStyle"
           onClick={() => getPoisAccordingToKeyword(secondKeyword, dispatch)}
         >
         Appliquer

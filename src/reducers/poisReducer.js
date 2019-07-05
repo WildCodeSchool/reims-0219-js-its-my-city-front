@@ -26,6 +26,7 @@ const initialState = {
   conditionRating: 1,
   operationRating: 1,
   accessibilityRating: 1,
+  newPoiCoordinates: [],
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -166,6 +167,19 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         customCoordonnes: action.customCoordonnes,
+      };
+    case 'SAVE_NEW_POI_COORDINATES':
+      return {
+        ...state,
+        filteredPoiByKeyword: action.filteredPoiByKeyword,
+        filterKeywordPageDisplay: false,
+        isCreateFormDisplayed: false,
+        barsAreDisplayed: true,
+        formPage: 1,
+        conditionRating: 1,
+        operationRating: 1,
+        accessibilityRating: 1,
+        newPoiCoordinates: action.newPoiCoordinates,
       };
     case 'HIDE_ALERT':
       return {

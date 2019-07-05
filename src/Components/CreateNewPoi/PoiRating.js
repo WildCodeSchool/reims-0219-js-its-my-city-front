@@ -9,27 +9,32 @@ const PoiRating = ({
   title,
   type,
   rating,
-}) => (
-  <div>
-    <span>{title}</span>
-    <div className="accessibilityRating">
-      {scoreRating.map(rate => (
-        <div
-          key={rate}
-          className={`star${rate}`}
-          onClick={() => dispatch({
-            type,
-            rating: rate,
-          })}
-          onKeyPress
-          role="button"
-          tabIndex="0"
-        >
-          {rate <= rating ? <Starcolor /> : <StarUncolor />}
-        </div>
-      ))}
+}) => {
+  const dispatchRating = rate => dispatch({
+    type,
+    rating: rate,
+  });
+
+  return (
+    <div>
+      <span>{title}</span>
+      <div className="accessibilityRating">
+        {scoreRating.map(rate => (
+          <div
+            key={rate}
+            className={`star${rate}`}
+            onClick={() => dispatchRating(rate)}
+            onKeyPress={() => dispatchRating(rate)}
+            role="button"
+            tabIndex="0"
+          >
+            {rate <= rating ? <Starcolor /> : <StarUncolor />}
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
+
+  );
+};
 
 export default PoiRating;

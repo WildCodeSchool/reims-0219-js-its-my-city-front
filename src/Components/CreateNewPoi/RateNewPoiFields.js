@@ -21,6 +21,7 @@ const RateNewPoiFields = ({
     <div className="poi-create">
       {PoiEvaluations.map(PoiEvaluation => (
         <PoiRating
+          key={PoiEvaluation.title}
           title={PoiEvaluation.title}
           type={PoiEvaluation.type}
           rating={PoiEvaluation.rating}
