@@ -133,7 +133,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         isKeywordOneChoosen: true,
         specificSecondKeywords: action.specificSecondKeywords,
-        firstIndicationIsDisplayed: false,
+        firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
         secondIndicationIsDisplayed: true,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
@@ -157,6 +157,7 @@ const poisReducer = (state = initialState, action) => {
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+        firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
       };
     case 'APPLY_BUTTON':
       return {
