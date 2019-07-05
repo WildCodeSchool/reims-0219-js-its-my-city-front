@@ -9,7 +9,11 @@ const mapStateToProps = state => ({
   filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
 });
 
-const selectRightKeywordChildren = (specificKeyword, poiKeywordsDisplay) => poiKeywordsDisplay.filter(keyword => keyword.parent_id === specificKeyword.id);
+const selectRightKeywordChildren = (
+  specificKeyword, poiKeywordsDisplay,
+) => poiKeywordsDisplay.filter(
+  keyword => keyword.parent_id === specificKeyword.id,
+);
 
 const onlyKeywordsFirstImportance = keywords => keywords.filter(
   keyword => keyword.importance === 1,
