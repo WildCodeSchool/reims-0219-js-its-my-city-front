@@ -15,6 +15,8 @@ const mapStateToProps = state => ({
 const PoiInformation = ({
   dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees, handleKeyPress,
 }) => (
+
+
   <div>
     <div
       className={InformationPoiInfos ? 'informationPageTop' : 'informationPageBottom'}
