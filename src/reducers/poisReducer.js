@@ -81,7 +81,7 @@ const poisReducer = (state = initialState, action) => {
     case 'TRANSITION_POI_INFOS':
       return {
         ...state,
-        InformationPoiInfos: action.InformationPoiInfos,
+        InformationPoiInfos: false,
       };
     case 'HANDLE_KEYWORD_FILTERING':
       return {
