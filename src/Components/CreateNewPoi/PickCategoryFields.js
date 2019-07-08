@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/createPoiForm.scss';
@@ -9,14 +7,14 @@ const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
 });
 
-const poiFirstPageFields = ({
+const PickCategoryFiedls = ({
   input,
   label,
   meta: { touched, error },
   poiKeywordsDisplay,
 }) => (
   <div>
-    <label>{label}</label>
+    <span>{label}</span>
 
     <select
       {...input}
@@ -26,7 +24,7 @@ const poiFirstPageFields = ({
       </option>
       {poiKeywordsDisplay.filter(keyword => keyword.importance === 2)
         .map(keyword => (
-          <option key={keyword.name} id={keyword.name} value={keyword.name} required>
+          <option key={keyword.name} id={keyword.name} value={keyword.id} required>
             {(keyword.name)}
           </option>
         ))}
@@ -35,4 +33,4 @@ const poiFirstPageFields = ({
   </div>
 );
 
-export default connect(mapStateToProps)(poiFirstPageFields);
+export default connect(mapStateToProps)(PickCategoryFiedls);

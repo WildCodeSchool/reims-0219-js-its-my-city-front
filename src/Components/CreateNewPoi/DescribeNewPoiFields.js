@@ -1,10 +1,8 @@
-/* eslint-disable jsx-a11y/label-has-for */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import '../ComponentsCSS/createPoiForm.scss';
 
 
-const poiSecondPageFields = ({
+const DescribeNewPoiFields = ({
   input,
   label,
   type,
@@ -12,7 +10,7 @@ const poiSecondPageFields = ({
 }) => (
   <div>
     <div className="poi-name">
-      <label>{label}</label>
+      <span>{label}</span>
       <input
         {...input}
         placeholder={label}
@@ -23,4 +21,4 @@ const poiSecondPageFields = ({
   </div>
 );
 
-export default poiSecondPageFields;
+export default DescribeNewPoiFields;
