@@ -12,6 +12,7 @@ const mapStateToProps = state => ({
 
 let DescribeNewPoi = () => (
   <form className="formContainer">
+    <p className="step">Etape 4/5</p>
     <Field
       name="poiDesc"
       component={DescribeNewPoiFields}

@@ -31,7 +31,8 @@ let TakeAPicture = ({
   file, dispatch,
 }) => (
   <div className="formContainer">
-    <article style={{ display: 'grid', gap: '27vh' }}>
+    <article style={{ display: 'grid', gap: '10vh' }}>
+      <p className="step">Etape 2/5</p>
       <div style={{ textAlign: 'center' }}>
       Afin d'embellir votre expérience, veuillez fournir une photo.
       </div>

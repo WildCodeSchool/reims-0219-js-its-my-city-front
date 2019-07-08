@@ -25,6 +25,7 @@ let RateNewPoi = ({
   dispatch,
 }) => (
   <form className="formContainer">
+    <p className="step">Etape 5/5</p>
     <div>
       <Field
         name="ratingPoi"
