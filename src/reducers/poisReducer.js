@@ -29,6 +29,7 @@ const initialState = {
   operationRating: 1,
   accessibilityRating: 1,
   newPoiCoordinates: [],
+  selectedCategoryKeywordTwoName: '',
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -211,6 +212,11 @@ const poisReducer = (state = initialState, action) => {
         operationRating: 1,
         accessibilityRating: 1,
         newPoiCoordinates: action.newPoiCoordinates,
+      };
+    case 'SAVE_KEYWORD_NAME':
+      return {
+        ...state,
+        selectedCategoryKeywordTwoName: action.selectedCategoryKeywordTwoName,
       };
     case 'HIDE_ALERT':
       return {
