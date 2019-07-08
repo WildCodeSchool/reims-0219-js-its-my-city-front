@@ -29,7 +29,17 @@ const PoiInformation = ({
         onClick={() => dispatch({ type: 'CLOSE_POI_INFOS', specificPoiInfos: [] })}
       />
 
-      <p className="poiName">{specificPoiInfos.name}</p>
+
+      <div
+        className="poiName"
+        onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
+        onKeyPress={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
+        role="button"
+        tabIndex="0"
+      >
+        {specificPoiInfos.name}
+
+      </div>
       <hr />
       <div className="generalInfosContainer">
         <p className="adress">Adresse</p>
