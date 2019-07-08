@@ -20,10 +20,6 @@ const PoiInformation = ({
   <div>
     <div
       className={InformationPoiInfos ? 'informationPageTop' : 'informationPageBottom'}
-      onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
-      role="button"
-      tabIndex="0"
-      onKeyPress={handleKeyPress}
     >
       <Close
         className="closePoiInformation"
