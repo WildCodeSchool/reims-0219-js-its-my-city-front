@@ -1,0 +1,16 @@
+@import '../../App.scss';
+
+.alert {
+  position: absolute;
+    z-index: 7;
+    top: 20%;
+    padding: 0 20px 0 20px;
+    background-color: white,
+
+}
+
+.alert > p {
+  font-size: 31px;
+  text-align: center;
+  color: $mainColor,
+}

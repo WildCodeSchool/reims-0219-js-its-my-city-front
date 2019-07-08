@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
@@ -12,15 +13,15 @@ const mapStateToProps = state => ({
 });
 
 const PoiInformation = ({
-  dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees,
+  dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees, handleKeyPress,
 }) => (
   <div>
     <div
       className={InformationPoiInfos ? 'informationPageTop' : 'informationPageBottom'}
       onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
-      onKeyPress
       role="button"
       tabIndex="0"
+      onKeyPress={handleKeyPress}
     >
       <Close
         className="closePoiInformation"
