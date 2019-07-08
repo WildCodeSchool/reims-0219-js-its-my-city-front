@@ -7,21 +7,19 @@ const mapStateToProps = state => ({
 });
 
 const DescribeNewPoiFields = ({
-  selectedCategoryKeywordTwoName,
   input,
   label,
   type,
   meta: { touched, error },
 }) => (
   <div>
-    <div className="poi-name">
-      <span>{label}</span>
+    <div className="categoryContainer">
+      <span style={{ textAlign: 'center' }}>{label}</span>
       <input
         {...input}
         type={type}
-        value={`${selectedCategoryKeywordTwoName}`}
       />
-      {touched && error && <span>{error}</span>}
+      {touched && error && <span style={{ textAlign: 'center' }}>{error}</span>}
     </div>
   </div>
 );

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './ComponentsCSS/PoiInformation.scss';
 import { connect } from 'react-redux';
@@ -12,15 +13,15 @@ const mapStateToProps = state => ({
 });
 
 const PoiInformation = ({
-  dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees,
+  dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees, handleKeyPress,
 }) => (
   <div>
     <div
       className={InformationPoiInfos ? 'informationPageTop' : 'informationPageBottom'}
       onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
-      onKeyPress
       role="button"
       tabIndex="0"
+      onKeyPress={handleKeyPress}
     >
       <Close
         className="closePoiInformation"
@@ -42,7 +43,11 @@ const PoiInformation = ({
           {' '}
         km
         </p>
-        <img src={specificPoiInfos.picture_url} className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'} alt={specificPoiInfos.name} />
+        <img
+          src={`${process.env.REACT_APP_API_URL}/pois/images/${specificPoiInfos.picture_url}`}
+          className={InformationPoiInfos ? 'informationPicture' : 'informationPicture-Bottom'}
+          alt={specificPoiInfos.name}
+        />
         <div className={InformationPoiInfos ? 'informationUser' : 'informationUser-Bottom'}>
           <p>
 Découvert par

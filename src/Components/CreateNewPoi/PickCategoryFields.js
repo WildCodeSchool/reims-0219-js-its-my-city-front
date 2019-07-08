@@ -14,10 +14,15 @@ const PickCategoryFiedls = ({
   poiKeywordsDisplay,
   dispatch,
 }) => (
-  <div>
+  <div className="categoryContainer">
     <span>{label}</span>
 
     <select
+      style={{
+        width: '66vw',
+        height: '13vh',
+        fontSize: '1.15rem',
+      }}
       {...input}
     >
       <option value="">
