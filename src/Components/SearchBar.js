@@ -25,6 +25,24 @@ const dropdownMenuStyle = {
   marginLeft: '-1rem',
 };
 
+const boldString = (item, userInput) => {
+  /* const parts = item.split(new RegExp(userInput, 'g'));
+  console.log(parts);
+  console.log(parts[0] + <b>userInput</b> + parts[1]);
+  return parts[0] + <b>{userInput}</b> + parts[1]; */
+
+
+  /* const regex = new RegExp(userInput, 'g');
+  const span = <b>{userInput}</b>;
+  return item.replace(regex, span); */
+
+  const parts = item.split(new RegExp(userInput, 'g'));
+  console.log('Splitted parts', parts);
+  const hold = parts.map(part => (
+    part[0] + <b>userInput</b>
+  ));
+  return console.log('Map result', hold);
+};
 
 const SearchBar = ({
   dispatch, poiKeywordsDisplay, userInputSearchBar,
@@ -34,6 +52,7 @@ const SearchBar = ({
     <div>
       <Autocomplete
         items={poiKeywordsDisplay}
+        sortItems={(a, b) => a.name.localeCompare(b.name)}
         shouldItemRender={
           (item, value2) => item.name.toLowerCase().indexOf(value2.toLowerCase()) > -1
         }
@@ -44,7 +63,7 @@ const SearchBar = ({
             key={item.id}
             style={{ backgroundColor: highlighted ? '#eee' : 'transparent', height: '60px', textAlign: 'center' }}
           >
-            {item.name}
+            {boldString(item.name, userInputSearchBar)}
           </div>
         )}
         value={userInputSearchBar}
