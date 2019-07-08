@@ -30,6 +30,7 @@ const initialState = {
   accessibilityRating: 1,
   newPoiCoordinates: [],
   selectedCategoryKeywordTwoName: '',
+  filterPage: 1,
 };
 
 const poisReducer = (state = initialState, action) => {
