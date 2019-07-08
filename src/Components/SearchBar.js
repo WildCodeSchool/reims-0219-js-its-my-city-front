@@ -32,16 +32,14 @@ const boldString = (item, userInput) => {
   return parts[0] + <b>{userInput}</b> + parts[1]; */
 
 
-  /* const regex = new RegExp(userInput, 'g');
-  const span = <b>{userInput}</b>;
-  return item.replace(regex, span); */
+  const regex = new RegExp(userInput, 'g');
+  const span = `<b>${userInput}</b>`;
+  return item.replace(regex, span);
 
-  const parts = item.split(new RegExp(userInput, 'g'));
+  /* const parts = item.split(new RegExp(userInput, 'g'));
   console.log('Splitted parts', parts);
-  const hold = parts.map(part => (
-    part[0] + <b>userInput</b>
-  ));
-  return console.log('Map result', hold);
+  const hold = parts.map(part => <b>{part}</b>);
+  return console.log('Map result', hold); */
 };
 
 const SearchBar = ({
