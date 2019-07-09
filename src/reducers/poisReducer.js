@@ -135,9 +135,6 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         isKeywordOneChoosen: true,
         specificSecondKeywords: action.specificSecondKeywords,
-        firstIndicationIsDisplayed: false,
-        secondIndicationIsDisplayed: true,
-        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
       };

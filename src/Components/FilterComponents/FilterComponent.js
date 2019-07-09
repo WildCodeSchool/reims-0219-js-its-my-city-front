@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SelectFirstImportancePoi from './SelectFirstImportancePoi';
 import SelectSecondImportancePoi from './SelectSecondImportancePoi';
+import TopPageSvg from '../ComponentPins/TopPageSvg';
+import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
 
 const mapStateToProps = state => ({
   page: state.pois.filterPage,
@@ -10,9 +12,11 @@ const mapStateToProps = state => ({
 });
 
 const FilterComponent = ({ displaySecondImportancePoiPage, filterKeywordPageDisplay }) => (
-  <div>
+  <div className="poi-create">
+    <TopPageSvg />
     {filterKeywordPageDisplay && <SelectFirstImportancePoi />}
     {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
+    <BottomPageCheckSvg />
   </div>
 );
 
