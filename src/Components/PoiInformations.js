@@ -30,8 +30,8 @@ const PoiInformation = ({
 
       <div
         className="poiName"
-        onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
-        onKeyPress={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
+        onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS' })}
+        onKeyPress={() => dispatch({ type: 'TRANSITION_POI_INFOS' })}
         role="button"
         tabIndex="0"
       >
