@@ -10,6 +10,7 @@ const DescribeNewPoiFields = ({
   input,
   label,
   type,
+  value,
   meta: { touched, error },
 }) => (
   <div>
