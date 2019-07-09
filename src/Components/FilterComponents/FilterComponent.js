@@ -1,16 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SelectCategorie from './SelectCategorie';
+import SelectFirstImportancePoi from './SelectFirstImportancePoi';
 import SelectSecondImportancePoi from './SelectSecondImportancePoi';
 
 const mapStateToProps = state => ({
   page: state.pois.filterPage,
+  displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
 });
 
-const FilterComponent = ({ page }) => (
+const FilterComponent = ({ displaySecondImportancePoiPage, filterKeywordPageDisplay }) => (
   <div>
-    {page === 1 && <SelectCategorie />}
-    {page === 2 && <SelectSecondImportancePoi />}
+    {filterKeywordPageDisplay && <SelectFirstImportancePoi />}
+    {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
   </div>
 );
 
