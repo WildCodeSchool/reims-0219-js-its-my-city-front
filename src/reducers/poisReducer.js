@@ -30,6 +30,7 @@ const initialState = {
   accessibilityRating: 1,
   newPoiCoordinates: [],
   canClickOnStars: true,
+  selectedCategoryKeywordTwoName: '',
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -81,7 +82,7 @@ const poisReducer = (state = initialState, action) => {
     case 'TRANSITION_POI_INFOS':
       return {
         ...state,
-        InformationPoiInfos: action.InformationPoiInfos,
+        InformationPoiInfos: !state.InformationPoiInfos,
       };
     case 'HANDLE_KEYWORD_FILTERING':
       return {
@@ -134,7 +135,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         isKeywordOneChoosen: true,
         specificSecondKeywords: action.specificSecondKeywords,
-        firstIndicationIsDisplayed: false,
+        firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
         secondIndicationIsDisplayed: true,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
@@ -158,12 +159,18 @@ const poisReducer = (state = initialState, action) => {
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+        firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
       };
     case 'APPLY_BUTTON':
       return {
         ...state,
         isKeywordTwoChoosen: true,
         secondKeyword: action.secondKeyword,
+      };
+    case 'CLOSE_FILTER_COMPONENT':
+      return {
+        ...state,
+        filterKeywordPageDisplay: false,
       };
     case 'RATING_CONDITION_CHANGE':
       return {
@@ -188,12 +195,12 @@ const poisReducer = (state = initialState, action) => {
     case 'NEXT_PAGE':
       return {
         ...state,
-        formPage: action.page,
+        formPage: state.formPage + 1,
       };
     case 'PREVIOUS_PAGE':
       return {
         ...state,
-        formPage: action.page,
+        formPage: state.formPage - 1,
       };
     case 'ADD_CUSTOM_MARKER':
       return {
@@ -212,6 +219,11 @@ const poisReducer = (state = initialState, action) => {
         operationRating: 1,
         accessibilityRating: 1,
         newPoiCoordinates: action.newPoiCoordinates,
+      };
+    case 'SAVE_KEYWORD_NAME':
+      return {
+        ...state,
+        selectedCategoryKeywordTwoName: action.selectedCategoryKeywordTwoName,
       };
     case 'HIDE_ALERT':
       return {

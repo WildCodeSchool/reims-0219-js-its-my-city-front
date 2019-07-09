@@ -17,7 +17,7 @@ const PoiRating = ({
   });
 
   return (
-    <div>
+    <div style={{ display: !canClick ? 'inline' : 'block' }}>
       <span>{title}</span>
       <div className="accessibilityRating">
         {scoreRating.map(rate => (

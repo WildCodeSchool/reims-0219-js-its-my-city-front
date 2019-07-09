@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 });
 
 const PoiInformation = ({
-  dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees, handleKeyPress,
+  dispatch, specificPoiInfos, InformationPoiInfos, geolocCoordonnees,
 }) => {
   const poiEvaluations = [
     { title: 'Accessibilité :', rating: specificPoiInfos.grades.accessibility },
@@ -25,18 +25,21 @@ const PoiInformation = ({
     <div>
       <div
         className={InformationPoiInfos ? 'informationPageTop' : 'informationPageBottom'}
-        onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS', InformationPoiInfos: !InformationPoiInfos })}
-        role="button"
-        tabIndex="0"
-        onKeyPress={handleKeyPress}
       >
         <Close
           className="closePoiInformation"
           type="button"
           onClick={() => dispatch({ type: 'CLOSE_POI_INFOS', specificPoiInfos: [] })}
         />
-
-        <p className="poiName">{specificPoiInfos.name}</p>
+        <div
+          className="poiName"
+          onClick={() => dispatch({ type: 'TRANSITION_POI_INFOS' })}
+          onKeyPress={() => dispatch({ type: 'TRANSITION_POI_INFOS' })}
+          role="button"
+          tabIndex="0"
+        >
+          {specificPoiInfos.name}
+        </div>
         <hr />
         <div className="generalInfosContainer">
           <p className="adress">Adresse</p>

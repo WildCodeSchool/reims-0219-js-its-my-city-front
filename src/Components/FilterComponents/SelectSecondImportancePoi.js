@@ -28,6 +28,14 @@ const SelectSecondImportancePoi = ({
         X
     </button>
 
+    <button
+      className="previousButton"
+      type="button"
+      onClick={() => dispatch({ type: 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS' })}
+    >
+      Précédent
+    </button>
+
     <div className="selectSecondTheme">
       {secondIndicationIsDisplayed && <p>Affinez votre recherche</p>}
     </div>
@@ -48,13 +56,6 @@ const SelectSecondImportancePoi = ({
     </div>
 
     <div>
-      <button
-        className="previousButton"
-        type="button"
-        onClick={() => dispatch({ type: 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS' })}
-      >
-      Précédent
-      </button>
       <div className="applyButton">
         {isKeywordTwoChoosen === true && (
         <button

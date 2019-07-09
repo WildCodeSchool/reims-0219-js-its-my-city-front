@@ -34,6 +34,7 @@ const SearchBar = ({
     <div>
       <Autocomplete
         items={poiKeywordsDisplay}
+        sortItems={(a, b) => a.name.localeCompare(b.name)}
         shouldItemRender={
           (item, value2) => item.name.toLowerCase().indexOf(value2.toLowerCase()) > -1
         }
