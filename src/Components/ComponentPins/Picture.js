@@ -1,10 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const mapStateToProps = state => ({
-  selectedCategoryKeywordTwoName: state.pois.selectedCategoryKeywordTwoName,
-});
-
 const Picture = () => (
   <svg
     x="0px"
@@ -44,4 +40,4 @@ c-0.8,0-1.4-0.3-2-0.8c-0.5-0.5-0.8-1.2-0.8-2c0-0.8,0.3-1.4,0.8-2C27.1,26.6,27.8,
 );
 
 
-export default connect(mapStateToProps)(Picture);
+export default connect()(Picture);

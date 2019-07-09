@@ -65,7 +65,13 @@ select{
     background-color: white;
     outline: none;
 }
-
+.picturePage{
+    display: grid;
+    gap: 7vh;
+}
+.UploadPictureButton{
+    place-self: center;
+}
 legend{
     text-align: center;
     padding-top: 20px;
@@ -77,6 +83,11 @@ legend{
 .poi-address span{
     color: black;
 }
+
+.textPage{
+    text-align: center;
+}
+
 .categoryContainer > input {
     margin-left: 3px;
     margin-bottom: 2.5vh;

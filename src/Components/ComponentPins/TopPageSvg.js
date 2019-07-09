@@ -2,10 +2,6 @@ import React from 'react';
 import '../ComponentsCSS/ColorSvg.scss';
 import { connect } from 'react-redux';
 
-const mapStateToProps = state => ({
-  page: state.pois.formPage,
-});
-
 const TopPageSvg = ({ dispatch }) => (
 
   <svg
@@ -207,4 +203,4 @@ const TopPageSvg = ({ dispatch }) => (
 );
 
 
-export default connect(mapStateToProps)(TopPageSvg);
+export default connect()(TopPageSvg);

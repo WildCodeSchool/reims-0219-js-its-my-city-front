@@ -12,7 +12,6 @@ const mapStateToProps = state => ({
   conditionRating: state.pois.conditionRating,
   accessibilityRating: state.pois.accessibilityRating,
   operationRating: state.pois.operationRating,
-  page: state.pois.formPage,
   customCoordonnes: state.pois.customCoordonnes,
 });
 

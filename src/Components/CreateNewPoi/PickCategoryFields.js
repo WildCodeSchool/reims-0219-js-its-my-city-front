@@ -30,7 +30,16 @@ const PickCategoryFiedls = ({
       </option>
       {poiKeywordsDisplay.filter(keyword => keyword.importance === 2)
         .map(keyword => (
-          <option key={keyword.name} id={keyword.name} value={keyword.id} onClick={() => dispatch({ type: 'SAVE_KEYWORD_NAME', selectedCategoryKeywordTwoName: keyword.name })} required>
+          <option
+            key={keyword.name}
+            id={keyword.name}
+            value={keyword.id}
+            onClick={() => dispatch({
+              type: 'SAVE_KEYWORD_NAME',
+              selectedCategoryKeywordTwoName: keyword.name,
+            })}
+            required
+          >
             {(keyword.name)}
           </option>
         ))}

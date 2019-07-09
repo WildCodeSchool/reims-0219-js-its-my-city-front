@@ -8,7 +8,6 @@ import NextPageButton from './NextPageButton';
 import Picture from '../ComponentPins/Picture';
 
 const mapStateToProps = state => ({
-  page: state.pois.formPage,
   file: state.pois.file,
 });
 
@@ -32,21 +31,18 @@ let TakeAPicture = ({
   file, dispatch,
 }) => (
   <div className="formContainer">
-    <article style={{ display: 'grid', gap: '7vh' }}>
-      <div style={{ textAlign: 'center' }}>
+    <article className="picturePage">
+      <div className="textPage">
       Afin d'embellir votre expérience, veuillez fournir une photo.
       </div>
       <div>
         <form
+          className="picturePage"
           encType="multipart/form-data"
           method="post"
           onSubmit={e => uploadFileHandler(e, file)}
-          style={{
-            display: 'grid',
-            gap: '10vh',
-          }}
         >
-          <div style={{ display: 'grid' }} className="pictureUploadWrapper">
+          <div className="pictureUploadWrapper">
             <input
               type="file"
               name="upload"
@@ -55,7 +51,7 @@ let TakeAPicture = ({
             />
             <Picture />
           </div>
-          <button type="submit" value="upload" style={{ placeSelf: 'center' }}>Envoyer</button>
+          <button type="submit" value="upload" className="UploadPictureButton">Envoyer</button>
         </form>
         <div>
           <NextPageButton />

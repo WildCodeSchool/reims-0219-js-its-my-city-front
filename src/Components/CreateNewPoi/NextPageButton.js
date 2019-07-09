@@ -1,16 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const mapStateToProps = state => ({
-  page: state.pois.formPage,
-});
-
-const NextPageButton = ({ dispatch, page }) => (
+const NextPageButton = ({ dispatch }) => (
   <div>
     <button
       onClick={() => dispatch({
         type: 'NEXT_PAGE',
-        page: page + 1,
       })}
       type="submit"
       className="buttonFormNext"
@@ -20,4 +15,4 @@ const NextPageButton = ({ dispatch, page }) => (
   </div>
 );
 
-export default connect(mapStateToProps)(NextPageButton);
+export default connect()(NextPageButton);

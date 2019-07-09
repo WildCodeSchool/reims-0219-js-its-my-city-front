@@ -81,7 +81,7 @@ const poisReducer = (state = initialState, action) => {
     case 'TRANSITION_POI_INFOS':
       return {
         ...state,
-        InformationPoiInfos: action.InformationPoiInfos,
+        InformationPoiInfos: !state.InformationPoiInfos,
       };
     case 'HANDLE_KEYWORD_FILTERING':
       return {
@@ -194,12 +194,12 @@ const poisReducer = (state = initialState, action) => {
     case 'NEXT_PAGE':
       return {
         ...state,
-        formPage: action.page,
+        formPage: state.formPage + 1,
       };
     case 'PREVIOUS_PAGE':
       return {
         ...state,
-        formPage: action.page,
+        formPage: state.formPage - 1,
       };
     case 'ADD_CUSTOM_MARKER':
       return {
