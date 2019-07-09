@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 });
 
 let PickCategory = () => (
-  <form>
+  <form className="formContainer">
     <Field
       name="categoryKeyword"
       component={PickCategoryFields}

@@ -86,15 +86,16 @@ Attention mesdames et messieurs,
 
               <AppMap />
               {Object.keys(specificPoiInfos).length && <PoiInformation />}
-              {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
+              {!Object.keys(specificPoiInfos).length && barsAreDisplayed && <FilterBar />}
               {isCreateFormDisplayed && <CreatePoiForm />}
               {filterKeywordPageDisplay && <SelectCategorie />}
               {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
             </div>
-          )}
+          )
+  }
+;
       </div>
     );
   }
 }
-
 export default connect(mapStateToProps)(App);

@@ -29,6 +29,7 @@ const initialState = {
   operationRating: 1,
   accessibilityRating: 1,
   newPoiCoordinates: [],
+  selectedCategoryKeywordTwoName: '',
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -133,7 +134,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         isKeywordOneChoosen: true,
         specificSecondKeywords: action.specificSecondKeywords,
-        firstIndicationIsDisplayed: false,
+        firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
         secondIndicationIsDisplayed: true,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
@@ -157,12 +158,18 @@ const poisReducer = (state = initialState, action) => {
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+        firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
       };
     case 'APPLY_BUTTON':
       return {
         ...state,
         isKeywordTwoChoosen: true,
         secondKeyword: action.secondKeyword,
+      };
+    case 'CLOSE_FILTER_COMPONENT':
+      return {
+        ...state,
+        filterKeywordPageDisplay: false,
       };
     case 'RATING_CONDITION_CHANGE':
       return {
@@ -211,6 +218,11 @@ const poisReducer = (state = initialState, action) => {
         operationRating: 1,
         accessibilityRating: 1,
         newPoiCoordinates: action.newPoiCoordinates,
+      };
+    case 'SAVE_KEYWORD_NAME':
+      return {
+        ...state,
+        selectedCategoryKeywordTwoName: action.selectedCategoryKeywordTwoName,
       };
     case 'HIDE_ALERT':
       return {

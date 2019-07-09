@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 });
 
 let DescribeNewPoi = () => (
-  <form>
+  <form className="formContainer">
     <Field
       name="poiDesc"
       component={DescribeNewPoiFields}

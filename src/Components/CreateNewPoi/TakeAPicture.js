@@ -5,6 +5,7 @@ import axios from 'axios';
 import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
+import Picture from '../ComponentPins/Picture';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
@@ -30,22 +31,38 @@ const uploadFileHandler = (e, formData) => {
 let TakeAPicture = ({
   file, dispatch,
 }) => (
-  <div className="poi-create">
-    <div className="poi-name">
-      <form encType="multipart/form-data" method="post" onSubmit={e => uploadFileHandler(e, file)}>
-        <input
-          type="file"
-          name="upload"
-          onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
-          required
-        />
-        <button type="submit" value="upload">Envoyer</button>
-      </form>
-    </div>
-    <div>
-      <PreviousPageButton />
-      <NextPageButton />
-    </div>
+  <div className="formContainer">
+    <article style={{ display: 'grid', gap: '7vh' }}>
+      <div style={{ textAlign: 'center' }}>
+      Afin d'embellir votre expérience, veuillez fournir une photo.
+      </div>
+      <div>
+        <form
+          encType="multipart/form-data"
+          method="post"
+          onSubmit={e => uploadFileHandler(e, file)}
+          style={{
+            display: 'grid',
+            gap: '10vh',
+          }}
+        >
+          <div style={{ display: 'grid' }} className="pictureUploadWrapper">
+            <input
+              type="file"
+              name="upload"
+              onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
+              required
+            />
+            <Picture />
+          </div>
+          <button type="submit" value="upload" style={{ placeSelf: 'center' }}>Envoyer</button>
+        </form>
+        <div>
+          <NextPageButton />
+          <PreviousPageButton />
+        </div>
+      </div>
+    </article>
   </div>
 );
 
