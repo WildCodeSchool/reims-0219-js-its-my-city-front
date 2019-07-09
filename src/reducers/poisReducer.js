@@ -91,6 +91,8 @@ const poisReducer = (state = initialState, action) => {
         isCreateFormDisplayed: false,
         barsAreDisplayed: !state.barsAreDisplayed,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+        userInputSearchBar: action.userInputSearchBar,
+        isFirstResearchDone: true,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       if (action.filteredPoiByKeyword) {
@@ -228,6 +230,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isFirstResearchDone: false,
+        userInputSearchBar: '',
       };
     default:
       return state;
