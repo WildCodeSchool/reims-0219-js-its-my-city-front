@@ -18,20 +18,23 @@
 }
 
 .closeButton{
-    float: right;
-    margin-right: 15px;
+    position: absolute;
+    right: 0px;
+    z-index: 5;
 }
 
 .buttonStyle{
     width: 100%;
     border-radius: 12px;
     height: 60px;
+    font-size: 22px;
     outline: none;
 }
 .secondFilterButton{
     width: 100%;
     border-radius: 12px;
     height: 60px;
+    font-size: 22px;
     outline: none;
 }
 
@@ -108,12 +111,15 @@
 .selectTheme{
     color:$mainColor;
     margin-left: 5px;
+    text-align: center;
     position: relative;
+
     z-index: 4;
 }
 .selectSecondTheme{
     color:$mainColor;
     margin-left: 5px;
+    text-align: center;
 }
 
 .categories{

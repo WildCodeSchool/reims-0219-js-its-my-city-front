@@ -1,5 +1,5 @@
 import React from 'react';
-import '../ComponentsCSS/Pins.scss';
+import '../ComponentsCSS/ColorSvg.scss';
 import pickColor from '../../Functions/FunctionColor';
 
 const Pins = ({ currentKeyword }) => (
