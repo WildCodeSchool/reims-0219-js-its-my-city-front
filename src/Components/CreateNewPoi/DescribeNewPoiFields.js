@@ -10,6 +10,7 @@ const DescribeNewPoiFields = ({
   input,
   label,
   type,
+  value,
   meta: { touched, error },
 }) => (
   <div>
@@ -18,6 +19,7 @@ const DescribeNewPoiFields = ({
       <input
         {...input}
         type={type}
+        value={value}
       />
       {touched && error && <span style={{ textAlign: 'center' }}>{error}</span>}
     </div>
