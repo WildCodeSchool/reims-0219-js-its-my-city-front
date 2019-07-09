@@ -2,15 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/createPoiForm.scss';
 
-const mapStateToProps = state => ({
-  selectedCategoryKeywordTwoName: state.pois.selectedCategoryKeywordTwoName,
-});
 
 const DescribeNewPoiFields = ({
   input,
   label,
   type,
-  value,
   meta: { touched, error },
 }) => (
   <div>
@@ -25,4 +21,4 @@ const DescribeNewPoiFields = ({
   </div>
 );
 
-export default connect(mapStateToProps)(DescribeNewPoiFields);
+export default connect()(DescribeNewPoiFields);
