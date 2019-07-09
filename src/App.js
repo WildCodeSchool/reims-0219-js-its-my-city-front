@@ -48,8 +48,7 @@ class App extends Component {
       axios.get(`${process.env.REACT_APP_API_URL}/pois/sample/${geolocCoordonnees[0]}/${geolocCoordonnees[1]}`)
         .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
         .catch(err => console.log(err));
-    }
-    else {
+    } else {
       axios.get(`${process.env.REACT_APP_API_URL}/pois/sample/${defaultCoordonnees[0]}/${defaultCoordonnees[1]}`)
         .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
         .catch(err => console.log(err));
@@ -71,13 +70,9 @@ class App extends Component {
       <div>
         {!poiSampleDisplay.length ? (
           <div className="loadingPage">
-            <p>
-Attention mesdames et messieurs,
-              <br />
-          dans un instant,
-              <br />
-          ça va s'afficher...
-            </p>
+            <p>Attention mesdames et messieurs,</p>
+            <p>dans un instant,</p>
+            <p>ça va s'afficher...</p>
             <div className="loader" />
           </div>
         )
