@@ -17,13 +17,13 @@ const PoiRating = ({
   });
 
   return (
-    <div style={{ display: !canClick ? 'inline' : 'block' }}>
+    <div>
       <span>{title}</span>
       <div className="accessibilityRating">
         {scoreRating.map(rate => (
           <div
             key={rate}
-            className={`star${rate}`}
+            className={canClick ? `star${rate}` : 'star5'}
             onClick={canClick ? () => dispatchRating(rate) : null}
             onKeyPress={() => dispatchRating(rate)}
             role="button"

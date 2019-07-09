@@ -31,6 +31,7 @@ const initialState = {
   newPoiCoordinates: [],
   canClickOnStars: true,
   selectedCategoryKeywordTwoName: '',
+  areOthersRatingDisplayed: false,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -229,6 +230,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isFirstResearchDone: false,
+      };
+    case 'SHOW_ALL_RATINGS':
+      return {
+        ...state,
+        areOthersRatingDisplayed: !state.areOthersRatingDisplayed,
       };
     default:
       return state;
