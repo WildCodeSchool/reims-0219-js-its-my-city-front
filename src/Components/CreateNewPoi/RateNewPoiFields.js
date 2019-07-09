@@ -7,10 +7,11 @@ const mapStateToProps = state => ({
   conditionRating: state.pois.conditionRating,
   operationRating: state.pois.operationRating,
   accessibilityRating: state.pois.accessibilityRating,
+  canClickOnStars: state.pois.canClickOnStars,
 });
 
 const RateNewPoiFields = ({
-  conditionRating, operationRating, accessibilityRating, dispatch,
+  conditionRating, operationRating, accessibilityRating, dispatch, canClickOnStars,
 }) => {
   const PoiEvaluations = [
     { title: 'Note d\'état:', type: 'RATING_CONDITION_CHANGE', rating: conditionRating },
@@ -26,6 +27,7 @@ const RateNewPoiFields = ({
           type={PoiEvaluation.type}
           rating={PoiEvaluation.rating}
           dispatch={dispatch}
+          canClick={canClickOnStars}
         />
       )) }
     </div>

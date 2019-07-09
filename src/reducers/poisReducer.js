@@ -29,6 +29,7 @@ const initialState = {
   operationRating: 1,
   accessibilityRating: 1,
   newPoiCoordinates: [],
+  canClickOnStars: true,
 };
 
 const poisReducer = (state = initialState, action) => {

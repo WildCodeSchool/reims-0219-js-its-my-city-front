@@ -13,8 +13,7 @@
 }
 
 @mixin stars-position{
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
     justify-content: space-around;
     align-items: center;
 }
@@ -27,6 +26,7 @@
 }
 .accessibilityRating{
     @include stars-position;
+    width: 64vw;
 }
 .star1{
     width: 7%;

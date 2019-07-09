@@ -8,6 +8,7 @@ const PoiRating = ({
   dispatch,
   title,
   type,
+  canClick,
   rating,
 }) => {
   const dispatchRating = rate => dispatch({
@@ -23,7 +24,7 @@ const PoiRating = ({
           <div
             key={rate}
             className={`star${rate}`}
-            onClick={() => dispatchRating(rate)}
+            onClick={canClick ? () => dispatchRating(rate) : null}
             onKeyPress={() => dispatchRating(rate)}
             role="button"
             tabIndex="0"
