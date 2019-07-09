@@ -8,16 +8,14 @@ import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
   page: state.pois.formPage,
-  selectedCategoryKeywordTwoName: state.pois.selectedCategoryKeywordTwoName,
 });
 
-let DescribeNewPoi = selectedCategoryKeywordTwoName => (
+let DescribeNewPoi = () => (
   <form className="formContainer">
     <Field
       name="poiDesc"
       component={DescribeNewPoiFields}
       label="Indiquez un nom ou une courte description..."
-      value={selectedCategoryKeywordTwoName}
     />
     <div>
       <PreviousPageButton />
