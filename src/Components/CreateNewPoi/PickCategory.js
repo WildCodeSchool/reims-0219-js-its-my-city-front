@@ -6,23 +6,27 @@ import validate from './validate';
 import '../ComponentsCSS/createPoiForm.scss';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
+
 const mapStateToProps = state => ({
   labelKey: state.pois.poiKeywordsDisplay.find(keyword => keyword.id === 7),
 });
 
-let PickCategory = ({ labelKey }) => (
-  <form className="formContainer">
-    <Field
-      name="categoryKeyword"
-      component={PickCategoryFields}
-      label="Sélectionnez une catégorie..."
-    />
-    <div>
-      <PreviousPageButton />
-      <NextPageButton labelKey={ `${labelKey.name} - `} />
-    </div>
-  </form>
-);
+let PickCategory = ({ labelKey }) => {
+  console.log(labelKey);
+  return (
+    <form className="formContainer">
+      <Field
+        name="categoryKeyword"
+        component={PickCategoryFields}
+        label="Sélectionnez une catégorie..."
+      />
+      <div>
+        <PreviousPageButton />
+        <NextPageButton labelKey={`${labelKey.name} - `} />
+      </div>
+    </form>
+  );
+};
 
 PickCategory = connect(mapStateToProps)(PickCategory);
 

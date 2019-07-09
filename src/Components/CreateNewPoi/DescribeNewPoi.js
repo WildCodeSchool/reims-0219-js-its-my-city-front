@@ -6,21 +6,27 @@ import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
 
-let DescribeNewPoi = () => (
-  <form className="formContainer">
-    <Field
-      name="poiDesc"
-      component={DescribeNewPoiFields}
-      label="Indiquez un nom ou une courte description..."
-    />
-    <div>
-      <PreviousPageButton />
-      <NextPageButton />
-    </div>
-  </form>
-);
+const mapStateToProps = state => ({
+  test: state.form.poiCreation.values.categoryKeyword,
+});
+let DescribeNewPoi = ({ test }) => {
+  console.log(test);
+  return (
+    <form className="formContainer">
+      <Field
+        name="poiDesc"
+        component={DescribeNewPoiFields}
+        label="Indiquez un nom ou une courte description..."
+      />
+      <div>
+        <PreviousPageButton />
+        <NextPageButton />
+      </div>
+    </form>
+  );
+};
 
-DescribeNewPoi = connect()(DescribeNewPoi);
+DescribeNewPoi = connect(mapStateToProps)(DescribeNewPoi);
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
