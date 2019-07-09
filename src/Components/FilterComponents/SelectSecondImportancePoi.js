@@ -57,7 +57,7 @@ const SelectSecondImportancePoi = ({
 
     <div>
       <div className="applyButton">
-        {isKeywordTwoChoosen === true && (
+        {isKeywordTwoChoosen && (
         <button
           type="button"
           className="applyButtonStyle"
