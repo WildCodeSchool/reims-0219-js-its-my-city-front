@@ -93,6 +93,7 @@ const poisReducer = (state = initialState, action) => {
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
         userInputSearchBar: action.userInputSearchBar,
         isFirstResearchDone: true,
+        isKeywordTwoChoosen: false,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       if (action.filteredPoiByKeyword) {
@@ -230,7 +231,6 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isFirstResearchDone: false,
-        userInputSearchBar: '',
       };
     default:
       return state;
