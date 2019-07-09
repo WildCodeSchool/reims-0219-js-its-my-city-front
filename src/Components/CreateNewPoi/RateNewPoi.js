@@ -12,7 +12,6 @@ const mapStateToProps = state => ({
   conditionRating: state.pois.conditionRating,
   accessibilityRating: state.pois.accessibilityRating,
   operationRating: state.pois.operationRating,
-  page: state.pois.formPage,
   customCoordonnes: state.pois.customCoordonnes,
 });
 
@@ -24,7 +23,7 @@ let RateNewPoi = ({
   operationRating,
   dispatch,
 }) => (
-  <form>
+  <form className="formContainer">
     <div>
       <Field
         name="ratingPoi"

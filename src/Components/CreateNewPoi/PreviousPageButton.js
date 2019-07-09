@@ -1,23 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const mapStateToProps = state => ({
-  page: state.pois.formPage,
-});
-
-const PreviousPageButton = ({ dispatch, page }) => (
+const PreviousPageButton = ({ dispatch }) => (
   <div>
     <button
       onClick={() => dispatch({
         type: 'PREVIOUS_PAGE',
-        page: page - 1,
       })}
       type="submit"
-      className="previous"
+      className="buttonForm"
     >
     Précédent
     </button>
   </div>
 );
 
-export default connect(mapStateToProps)(PreviousPageButton);
+export default connect()(PreviousPageButton);
