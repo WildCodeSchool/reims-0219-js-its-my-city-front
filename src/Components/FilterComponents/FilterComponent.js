@@ -7,15 +7,13 @@ import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
 
 const mapStateToProps = state => ({
   page: state.pois.filterPage,
-  displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
-  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
 });
 
-const FilterComponent = ({ displaySecondImportancePoiPage, filterKeywordPageDisplay }) => (
+const FilterComponent = ({ page }) => (
   <div className="poi-create">
     <TopPageSvg />
-    {filterKeywordPageDisplay && <SelectFirstImportancePoi />}
-    {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
+    {page === 1 && <SelectFirstImportancePoi />}
+    {page === 2 && <SelectSecondImportancePoi />}
     <BottomPageCheckSvg />
   </div>
 );
