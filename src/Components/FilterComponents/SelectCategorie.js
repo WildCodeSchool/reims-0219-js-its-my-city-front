@@ -28,13 +28,13 @@ const SelectCategorie = ({ dispatch }) => (
     <div className="buttonContainer">
 
       <button
-        className="filterButton1 buttonStyle"
+        className="filterButtonPoi"
         type="button"
       >
       Points d'intérêts
       </button>
 
-      <button className="filterButton2 buttonStyle" type="button">Événements</button>
+      <button className="filterButtonPoi filterButtonEvent" type="button">Événements</button>
     </div>
 
     <div><p className="eventTeasing">Bientôt Disponible</p></div>

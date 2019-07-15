@@ -31,7 +31,7 @@ const SelectFirstImportancePoi = ({
       {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (
         <button
           type="button"
-          className="buttonStyle"
+          className={`buttonStyle buttonStyle${keyword.id}`}
           key={keyword.name}
           onClick={() => dispatch({
             type: 'SHOW_SECOND_IMPORTANCE_KEYWORDS',
