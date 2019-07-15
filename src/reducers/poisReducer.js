@@ -56,9 +56,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isCreateFormDisplayed: !state.isCreateFormDisplayed,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
+
     case 'CLOSE_POI_INFOS':
-      if (state.InformationPoiInfos === true) {
+      if (state.InformationPoiInfos) {
         return {
           ...state,
           specificPoiInfos: action.specificPoiInfos,
@@ -188,6 +190,7 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'SHOW_SECOND_IMPORTANCE_KEYWORDS':
       return {
@@ -202,6 +205,22 @@ const poisReducer = (state = initialState, action) => {
         isKeywordTwoChoosen: !action.isKeywordTwoChoosen,
         secondKeyword: action.secondKeyword,
       };
+    case 'CLOSE_PAGE':
+      if (state.filterKeywordPageDisplay) {
+        return {
+          ...state,
+          filterKeywordPageDisplay: state.filterKeywordPageDisplay === false,
+          barsAreDisplayed: !state.barsAreDisplayed,
+        };
+      }
+      if (state.isCreateFormDisplayed) {
+        return {
+          ...state,
+          isCreateFormDisplayed: state.isCreateFormDisplayed === false,
+          barsAreDisplayed: !state.barsAreDisplayed,
+        };
+      }
+      break;
     default:
       return state;
   }

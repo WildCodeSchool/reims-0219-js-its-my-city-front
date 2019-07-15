@@ -17,11 +17,7 @@ const TopPageSvg = ({ dispatch }) => (
     }}
   >
     <g>
-      <g onClick={() => {
-        dispatch({ type: 'TOGGLE_POI_CREATION_FORM' });
-        dispatch({ type: 'DISPLAY_FILTER_PAGE' });
-      }}
-      >
+      <g onClick={() => dispatch({ type: 'CLOSE_PAGE' })}>
         <defs>
           <rect id="SVGID_1_" x="298" width="58" height="58" />
         </defs>
