@@ -3,12 +3,15 @@ import ReactDOMServer from 'react-dom/server';
 import './ComponentsCSS/AppMap.scss';
 import { connect } from 'react-redux';
 import {
-  Map, TileLayer, Marker,
+  Map, TileLayer, Marker, LeafletConsumer,
 } from 'react-leaflet';
 import L from 'leaflet';
 import userLocationUrl from './pictos/PinUser.svg';
 import Pins from './ComponentPins/Pins';
 import MapZoom from '../Functions/MapZoom';
+
+require('leaflet-easybutton');
+require('leaflet-easybutton/src/easy-button.css');
 
 const myIcon = L.icon({
   iconUrl: userLocationUrl,
@@ -58,12 +61,22 @@ const AppMap = ({
       }
     }}
   >
+    {geolocCoordonnees.length !== 0 && (
+      <LeafletConsumer>
+        {(context) => {
+          L.easyButton('<img src="https://image.flaticon.com/icons/png/512/104/104419.png">', (btn, map) => {
+            const antarctica = geolocCoordonnees;
+            map.setView(antarctica);
+          }).addTo(context.map);
+        }}
+      </LeafletConsumer>
+    )}
     <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
     {isCreateFormDisplayed && (
-    <Marker
-      position={customCoordonnes.length ? customCoordonnes : defaultCoordonnees}
-      draggable={page === 1}
-    />
+      <Marker
+        position={customCoordonnes.length ? customCoordonnes : defaultCoordonnees}
+        draggable={page === 1}
+      />
     )}
 
     <Marker
