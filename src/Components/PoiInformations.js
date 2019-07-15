@@ -84,6 +84,7 @@ Découvert par
           <div
             style={{
               display: 'inline',
+              outline: 'none',
             }}
             onClick={() => dispatch({ type: 'SHOW_ALL_RATINGS' })}
             onKeyPress={() => dispatch({ type: 'SHOW_ALL_RATINGS' })}
