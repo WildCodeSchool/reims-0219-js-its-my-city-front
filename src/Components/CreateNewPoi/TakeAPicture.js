@@ -48,6 +48,7 @@ let TakeAPicture = ({
             <input
               type="file"
               name="upload"
+              accept="image/*"
               onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e), previewPic: URL.createObjectURL(e.target.files[0]) })}
               required
             />
