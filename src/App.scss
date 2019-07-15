@@ -38,7 +38,7 @@ $secondColor: white;
 .leaflet-bottom {
   bottom: 0;
   display: none;
-
+}
 @keyframes rotate { to {  transform: rotate(1turn) }};
 
 .loadingPage {
@@ -57,3 +57,4 @@ font-size : 3vh;
     animation: rotate 800ms infinite linear;
   }
 }
+
