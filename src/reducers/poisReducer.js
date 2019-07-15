@@ -93,6 +93,9 @@ const poisReducer = (state = initialState, action) => {
         isCreateFormDisplayed: false,
         barsAreDisplayed: !state.barsAreDisplayed,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+        userInputSearchBar: action.userInputSearchBar,
+        isFirstResearchDone: true,
+        isKeywordTwoChoosen: false,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       if (action.filteredPoiByKeyword) {
