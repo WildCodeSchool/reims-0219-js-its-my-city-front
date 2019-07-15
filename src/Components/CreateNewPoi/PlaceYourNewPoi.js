@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NextPageButton from './NextPageButton';
+import '../ComponentsCSS/createPoiForm.scss';
 
 const mapStateToProps = state => ({
   customCoordonnes: state.pois.customCoordonnes,
-  page: state.pois.formPage,
 });
 
 const PlaceYourNewPoi = ({ customCoordonnes }) => (
-  <div>
+  <div className="placePoiContainer">
+    <p className="step">Etape 1/5</p>
     <span>Veuillez placer votre nouveau point d'intéret.</span>
     {customCoordonnes[0] !== 0 && customCoordonnes[1] !== 0
     && <NextPageButton />}

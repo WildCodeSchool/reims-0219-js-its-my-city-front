@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/FilterComponent.scss';
 import axios from 'axios';
+import PreviousPageFilterButton from './PreviousPageFilterButton';
 
 
 const mapStateToProps = state => ({
@@ -20,29 +21,14 @@ const SelectSecondImportancePoi = ({
   isKeywordTwoChoosen, secondKeyword, keywordOneChoosen,
 }) => (
   <div className="secondFilterPage">
-
-    <button
-      type="button"
-      className="closeButton"
-      onClick={() => dispatch({ type: 'CLOSE_SECOND_IMPORTANCE_KEYWORDS' })}
-    >
-        X
-    </button>
-
-    <button
-      className="previousButton"
-      type="button"
-      onClick={() => dispatch({ type: 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS' })}
-    >
-      Précédent
-    </button>
+    <PreviousPageFilterButton />
 
     <div className="selectedKeywordOne">
       {keywordOneChoosen}
     </div>
 
     <div className="selectSecondTheme">
-      {secondIndicationIsDisplayed && <p>Affinez votre recherche</p>}
+      <p>Affinez votre recherche</p>
     </div>
 
     <div className="keywordsOfSecondImportance">
@@ -67,7 +53,13 @@ const SelectSecondImportancePoi = ({
           type="button"
           className="applyButtonStyle"
           onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
-            .then(res => dispatch({ type: 'HANDLE_KEYWORD_FILTERING', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }))
+            .then(res => dispatch({
+              type: 'HANDLE_KEYWORD_FILTERING',
+              filteredPoiByKeyword: res.data,
+              userInputSearchBar: secondKeyword,
+            })).then(setTimeout(() => {
+              dispatch({ type: 'HIDE_ALERT' });
+            }, 3000))
       }
         >
         Appliquer

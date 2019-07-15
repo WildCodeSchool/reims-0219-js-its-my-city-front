@@ -6,16 +6,14 @@ import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
 import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
-import SelectCategorie from './Components/FilterComponents/SelectCategorie';
+import FilterComponent from './Components/FilterComponents/FilterComponent';
 import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
-import SelectSecondImportancePoi from './Components/FilterComponents/SelectSecondImportancePoi';
 import Alert from './Components/Alert';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
   poiSampleDisplay: state.pois.poiSampleDisplay,
   specificPoiInfos: state.pois.specificPoiInfos,
-  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
   isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
   defaultCoordonnees: state.pois.defaultCoordonnees,
@@ -27,7 +25,7 @@ const mapStateToProps = state => ({
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
   barsAreDisplayed: state.pois.barsAreDisplayed,
   displayFirstImportancePoiPage: state.pois.displayFirstImportancePoiPage,
-  displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
 });
 
 
@@ -44,7 +42,7 @@ class App extends Component {
 
   componentDidUpdate(prevProps) {
     const { dispatch, geolocCoordonnees } = this.props;
-    if (geolocCoordonnees !== prevProps.geolocCoordonnees) {
+    if (geolocCoordonnees.length && geolocCoordonnees !== prevProps.geolocCoordonnees) {
       axios.get(`${process.env.REACT_APP_API_URL}/pois/sample/${geolocCoordonnees[0]}/${geolocCoordonnees[1]}`)
         .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
         .catch(err => console.log(err));
@@ -54,29 +52,40 @@ class App extends Component {
   render() {
     const {
       specificPoiInfos,
-      filterKeywordPageDisplay,
       isCreateFormDisplayed,
       isFirstResearchDone,
       filteredPoiByKeyword,
       barsAreDisplayed,
-      displaySecondImportancePoiPage,
+      filterKeywordPageDisplay,
+      poiSampleDisplay,
     } = this.props;
     return (
       <div>
-        {barsAreDisplayed && <SearchBar />}
-        { isFirstResearchDone
+        {!poiSampleDisplay.length ? (
+          <div className="loadingPage">
+            <p>Attention mesdames et messieurs,</p>
+            <p>dans un instant,</p>
+            <p>ça va s'afficher...</p>
+            <div className="loader" />
+          </div>
+        )
+          : (
+
+            <div>
+              {barsAreDisplayed && <SearchBar />}
+              { isFirstResearchDone
         && !filteredPoiByKeyword.length
         && <Alert /> }
 
-        <AppMap />
-        {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
-        {isCreateFormDisplayed && <CreatePoiForm />}
-        {filterKeywordPageDisplay && <SelectCategorie />}
-        {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
+              <AppMap />
+              {Object.keys(specificPoiInfos).length && <PoiInformation />}
+              {!Object.keys(specificPoiInfos).length && barsAreDisplayed && <FilterBar />}
+              {isCreateFormDisplayed && <CreatePoiForm />}
+              {filterKeywordPageDisplay && <FilterComponent />}
+            </div>
+          )}
       </div>
     );
   }
 }
-
 export default connect(mapStateToProps)(App);

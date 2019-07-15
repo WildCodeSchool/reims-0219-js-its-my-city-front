@@ -3,7 +3,6 @@
     max-height: 90vh;
     position: relative;
     z-index: 4;
-    background-color: white;
     margin-top: 10vh;
     margin-left: 10px;
     margin-right: 10px;
@@ -13,8 +12,7 @@
 }
 
 @mixin stars-position{
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
     justify-content: space-around;
     align-items: center;
 }
@@ -27,6 +25,7 @@
 }
 .accessibilityRating{
     @include stars-position;
+    width: 54vw;
 }
 .star1{
     width: 7%;
@@ -66,7 +65,13 @@ select{
     background-color: white;
     outline: none;
 }
-
+.picturePage{
+    display: grid;
+    gap: 7vh;
+}
+.UploadPictureButton{
+    place-self: center;
+}
 legend{
     text-align: center;
     padding-top: 20px;
@@ -78,12 +83,19 @@ legend{
 .poi-address span{
     color: black;
 }
-.poi-name > input {
+
+.textPage{
+    text-align: center;
+}
+
+.categoryContainer > input {
     margin-left: 3px;
     margin-bottom: 2.5vh;
     width: 89%;
-    border-radius: 2.5vh;
+    height: 6vh;
     outline: none;
+    border: none;
+    border-bottom: 2px solid #DD476D;
 }
 .submit-button{
     display: flex;
@@ -108,3 +120,80 @@ legend{
     outline: none;
   }
   
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 89.5vw;
+    margin: 0px 0px 0 9px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .buttonForm{
+    border: 1px solid #D12F5B;
+    color: #D12F5B;
+    background: white;
+    border-radius: 8px;
+    width: 56vw;
+    bottom: 4vh;
+    left: 15vw;
+    font-size: 1.35rem;
+  }
+
+  .buttonFormNext{
+    border: 1px solid #D12F5B;
+    color: white;
+    background: #D12F5B;
+    border-radius: 8px;
+    width: 56vw;
+    position: absolute;
+    top: 61vh;
+    left: 15vw;
+    font-size: 1.35rem;
+  }
+.step{
+    color: #D12F5B;
+    text-align: center;
+}
+  .placePoiContainer{
+    background-color: white;
+    margin: 0vh 2.6vw;
+    height: 12vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+  .pictureUploadWrapper{
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    display: grid;
+    width: 50vw;
+    justify-self: center;
+  }
+
+  .pictureUploadWrapper img{
+      width: 30vh;
+      height: 30vh;
+      object-fit: scale-down;
+  }
+
+  .pictureUploadWrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .categoryContainer{
+    display: grid;
+    justify-items: center;
+    height: 49vh;
+    align-items: center;
+}

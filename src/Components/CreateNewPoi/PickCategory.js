@@ -7,12 +7,9 @@ import '../ComponentsCSS/createPoiForm.scss';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
 
-const mapStateToProps = state => ({
-  page: state.pois.formPage,
-});
-
 let PickCategory = () => (
-  <form>
+  <form className="formContainer">
+    <p className="step">Etape 3/5</p>
     <Field
       name="categoryKeyword"
       component={PickCategoryFields}
@@ -25,9 +22,7 @@ let PickCategory = () => (
   </form>
 );
 
-PickCategory = connect(
-  mapStateToProps,
-)(PickCategory);
+PickCategory = connect()(PickCategory);
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name

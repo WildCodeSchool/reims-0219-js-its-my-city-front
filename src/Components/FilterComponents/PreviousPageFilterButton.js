@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+const mapStateToProps = state => ({
+  page: state.pois.filterPage,
+});
+
 const PreviousPageButton = ({ dispatch }) => (
   <div>
     <button
@@ -15,4 +19,4 @@ const PreviousPageButton = ({ dispatch }) => (
   </div>
 );
 
-export default connect()(PreviousPageButton);
+export default connect(mapStateToProps)(PreviousPageButton);
