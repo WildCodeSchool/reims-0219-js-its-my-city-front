@@ -7,12 +7,9 @@ import '../ComponentsCSS/createPoiForm.scss';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
 
-const mapStateToProps = state => ({
-  labelKey: state.pois.poiKeywordsDisplay.find(keyword => keyword.id === state.form.poiCreation.values.categoryKeyword),
-});
 
-let PickCategory = ({ labelKey }) => {
-  console.log(labelKey);
+let PickCategory = () => {
+
   return (
     <form className="formContainer">
       <Field
@@ -22,17 +19,17 @@ let PickCategory = ({ labelKey }) => {
       />
       <div>
         <PreviousPageButton />
-        <NextPageButton labelKey={`${labelKey.name} - `} />
+        <NextPageButton />
       </div>
     </form>
   );
 };
 
-PickCategory = connect(mapStateToProps)(PickCategory);
+PickCategory = connect()(PickCategory);
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
-  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  forceUnregisterOnUnmount: false, // <------ unregister fields on unmount
   validate,
 })(PickCategory);

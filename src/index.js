@@ -25,6 +25,17 @@ const rootReducer = combineReducers({
             };
           }
           return state;
+        case 'GET_INPUT':
+          if (action.labelKey) {
+            return {
+              ...state,
+              values: {
+                ...state.values,
+                poiDesc: action.labelKey,
+              },
+            };
+          }
+          return state;
         default:
           return state;
       }

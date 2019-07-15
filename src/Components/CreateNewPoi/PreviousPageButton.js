@@ -7,10 +7,10 @@ const PreviousPageButton = ({ dispatch }) => (
       onClick={() => dispatch({
         type: 'PREVIOUS_PAGE',
       })}
-      type="submit"
+      type="button"
       className="buttonForm"
     >
-    Précédent
+      Précédent
     </button>
   </div>
 );

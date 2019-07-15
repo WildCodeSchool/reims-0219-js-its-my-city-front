@@ -1,17 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const NextPageButton = ({ dispatch, labelKey }) => (
+const NextPageButton = ({ dispatch }) => (
   <div>
     <button
       onClick={() => dispatch({
         type: 'NEXT_PAGE',
-        labelKey,
       })}
-      type="submit"
+      type="button"
       className="buttonFormNext"
     >
-    Suivant
+      Suivant
     </button>
   </div>
 );
