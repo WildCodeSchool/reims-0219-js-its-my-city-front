@@ -90,10 +90,7 @@ Découvert par
             role="button"
             tabIndex="0"
           >
-            <Triangle style={{
-              transform: areOthersRatingDisplayed ? 'rotate(0deg)' : 'rotate(30deg)',
-            }}
-            />
+            <div className="triangle" style={{ transform: areOthersRatingDisplayed ? 'rotate(180deg)' : 'rotate(90deg)' }} />
             <div className="gradesText">
               {areOthersRatingDisplayed ? 'Toutes les notes' : 'Voir toutes les notes'}
             </div>

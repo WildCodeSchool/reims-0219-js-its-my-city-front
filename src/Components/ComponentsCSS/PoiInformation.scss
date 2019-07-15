@@ -121,5 +121,14 @@
     color: $mainColor;
     display: inline;
     font-size: 0.75rem;
-    margin-left: 1vh;
+    margin-left: 4vh;
+}
+
+.triangle{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 18px 10px;
+    border-color: transparent transparent #000000 transparent;
+    position: absolute;
 }
