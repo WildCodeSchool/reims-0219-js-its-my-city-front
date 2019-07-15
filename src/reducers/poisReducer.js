@@ -29,6 +29,9 @@ const initialState = {
   operationRating: 1,
   accessibilityRating: 1,
   newPoiCoordinates: [],
+  canClickOnStars: true,
+  selectedCategoryKeywordTwoName: '',
+  areOthersRatingDisplayed: false,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -80,7 +83,7 @@ const poisReducer = (state = initialState, action) => {
     case 'TRANSITION_POI_INFOS':
       return {
         ...state,
-        InformationPoiInfos: action.InformationPoiInfos,
+        InformationPoiInfos: !state.InformationPoiInfos,
       };
     case 'HANDLE_KEYWORD_FILTERING':
       return {
@@ -90,6 +93,9 @@ const poisReducer = (state = initialState, action) => {
         isCreateFormDisplayed: false,
         barsAreDisplayed: !state.barsAreDisplayed,
         displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
+        userInputSearchBar: action.userInputSearchBar,
+        isFirstResearchDone: true,
+        isKeywordTwoChoosen: false,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       if (action.filteredPoiByKeyword) {
@@ -165,6 +171,11 @@ const poisReducer = (state = initialState, action) => {
         isKeywordTwoChoosen: true,
         secondKeyword: action.secondKeyword,
       };
+    case 'CLOSE_FILTER_COMPONENT':
+      return {
+        ...state,
+        filterKeywordPageDisplay: false,
+      };
     case 'RATING_CONDITION_CHANGE':
       return {
         ...state,
@@ -188,12 +199,12 @@ const poisReducer = (state = initialState, action) => {
     case 'NEXT_PAGE':
       return {
         ...state,
-        formPage: action.page,
+        formPage: state.formPage + 1,
       };
     case 'PREVIOUS_PAGE':
       return {
         ...state,
-        formPage: action.page,
+        formPage: state.formPage - 1,
       };
     case 'ADD_CUSTOM_MARKER':
       return {
@@ -213,10 +224,20 @@ const poisReducer = (state = initialState, action) => {
         accessibilityRating: 1,
         newPoiCoordinates: action.newPoiCoordinates,
       };
+    case 'SAVE_KEYWORD_NAME':
+      return {
+        ...state,
+        selectedCategoryKeywordTwoName: action.selectedCategoryKeywordTwoName,
+      };
     case 'HIDE_ALERT':
       return {
         ...state,
         isFirstResearchDone: false,
+      };
+    case 'SHOW_ALL_RATINGS':
+      return {
+        ...state,
+        areOthersRatingDisplayed: !state.areOthersRatingDisplayed,
       };
     default:
       return state;

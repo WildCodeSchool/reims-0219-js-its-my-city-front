@@ -43,9 +43,13 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { dispatch, geolocCoordonnees } = this.props;
-    if (geolocCoordonnees !== prevProps.geolocCoordonnees) {
+    const { dispatch, geolocCoordonnees, defaultCoordonnees } = this.props;
+    if (geolocCoordonnees.length && geolocCoordonnees !== prevProps.geolocCoordonnees) {
       axios.get(`${process.env.REACT_APP_API_URL}/pois/sample/${geolocCoordonnees[0]}/${geolocCoordonnees[1]}`)
+        .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
+        .catch(err => console.log(err));
+    } else {
+      axios.get(`${process.env.REACT_APP_API_URL}/pois/sample/${defaultCoordonnees[0]}/${defaultCoordonnees[1]}`)
         .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
         .catch(err => console.log(err));
     }
@@ -60,23 +64,38 @@ class App extends Component {
       filteredPoiByKeyword,
       barsAreDisplayed,
       displaySecondImportancePoiPage,
+      poiSampleDisplay,
     } = this.props;
     return (
       <div>
-        {barsAreDisplayed && <SearchBar />}
-        { isFirstResearchDone
+        {!poiSampleDisplay.length ? (
+          <div className="loadingPage">
+            <p>Attention mesdames et messieurs,</p>
+            <p>dans un instant,</p>
+            <p>ça va s'afficher...</p>
+            <div className="loader" />
+          </div>
+        )
+          : (
+
+            <div>
+              {barsAreDisplayed && <SearchBar />}
+              { isFirstResearchDone
         && !filteredPoiByKeyword.length
         && <Alert /> }
 
-        <AppMap />
-        {Object.keys(specificPoiInfos).length && <PoiInformation />}
-        {!Object.keys(specificPoiInfos).length && barsAreDisplayed === true && <FilterBar />}
-        {isCreateFormDisplayed && <CreatePoiForm />}
-        {filterKeywordPageDisplay && <SelectCategorie />}
-        {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
+              <AppMap />
+              {Object.keys(specificPoiInfos).length && <PoiInformation />}
+              {!Object.keys(specificPoiInfos).length && barsAreDisplayed && <FilterBar />}
+              {isCreateFormDisplayed && <CreatePoiForm />}
+              {filterKeywordPageDisplay && <SelectCategorie />}
+              {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
+            </div>
+          )
+  }
+;
       </div>
     );
   }
 }
-
 export default connect(mapStateToProps)(App);

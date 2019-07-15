@@ -6,12 +6,8 @@ import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
 
-const mapStateToProps = state => ({
-  page: state.pois.formPage,
-});
-
 let DescribeNewPoi = () => (
-  <form>
+  <form className="formContainer">
     <Field
       name="poiDesc"
       component={DescribeNewPoiFields}
@@ -24,9 +20,7 @@ let DescribeNewPoi = () => (
   </form>
 );
 
-DescribeNewPoi = connect(
-  mapStateToProps,
-)(DescribeNewPoi);
+DescribeNewPoi = connect()(DescribeNewPoi);
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
