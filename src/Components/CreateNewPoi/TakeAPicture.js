@@ -4,7 +4,6 @@ import { reduxForm } from 'redux-form';
 import axios from 'axios';
 import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
-import NextPageButton from './NextPageButton';
 import Picture from '../ComponentPins/Picture';
 
 const mapStateToProps = state => ({
@@ -18,13 +17,16 @@ const storeNewPictureData = (e) => {
   return formData;
 };
 
-const uploadFileHandler = (e, formData) => {
+const uploadFileHandler = (e, formData, dispatch) => {
   e.preventDefault();
   e.stopPropagation();
   axios.post(`${process.env.REACT_APP_API_URL}/pois/picture`, formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
+  });
+  dispatch({
+    type: 'NEXT_PAGE',
   });
 };
 
@@ -42,7 +44,7 @@ let TakeAPicture = ({
           className="picturePage"
           encType="multipart/form-data"
           method="post"
-          onSubmit={e => uploadFileHandler(e, file)}
+          onSubmit={e => uploadFileHandler(e, file, dispatch)}
         >
           <div className="pictureUploadWrapper">
             <input
@@ -55,10 +57,15 @@ let TakeAPicture = ({
             {previewPic !== '' && <img src={previewPic} alt="preview" />}
             {previewPic === '' && <Picture />}
           </div>
-          <button type="submit" value="upload" className="UploadPictureButton">Envoyer</button>
+          <button
+            type="submit"
+            value="upload"
+            className="buttonFormNext"
+          >
+          Suivant
+          </button>
         </form>
         <div>
-          <NextPageButton />
           <PreviousPageButton />
         </div>
       </div>
