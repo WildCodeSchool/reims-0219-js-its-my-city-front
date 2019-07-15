@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import DescribeNewPoiFields from './DescribeNewPoiFields';
-import validate from './validate';
+import InputFieldChecked from './validate';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
+
 
 const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
@@ -40,5 +41,5 @@ export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: false, // <------ unregister fields on unmount
-  validate,
+  InputFieldChecked,
 })(DescribeNewPoi);

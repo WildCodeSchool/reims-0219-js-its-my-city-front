@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const NextPageButton = ({ dispatch }) => (
+const NextPageButton = ({ dispatch, disabled }) => (
   <div>
     <button
       onClick={() => dispatch({
@@ -9,6 +9,7 @@ const NextPageButton = ({ dispatch }) => (
       })}
       type="button"
       className="buttonFormNext"
+      disabled={disabled}
     >
       Suivant
     </button>

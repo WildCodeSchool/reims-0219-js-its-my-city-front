@@ -2,34 +2,34 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import PickCategoryFields from './PickCategoryFields';
-import validate from './validate';
+import InputFieldChecked from './validate';
 import '../ComponentsCSS/createPoiForm.scss';
 import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
 
+const mapStateToProps = state => ({
+  categoryKeyword: state.form.poiCreation.values && state.form.poiCreation.values.categoryKeyword,
+});
 
-let PickCategory = () => {
+let PickCategory = ({ categoryKeyword }) => (
+  <form className="formContainer">
+    <Field
+      name="categoryKeyword"
+      component={PickCategoryFields}
+      label="Sélectionnez une catégorie..."
+    />
+    <div>
+      <PreviousPageButton />
+      <NextPageButton disabled={!categoryKeyword} />
+    </div>
+  </form>
+);
 
-  return (
-    <form className="formContainer">
-      <Field
-        name="categoryKeyword"
-        component={PickCategoryFields}
-        label="Sélectionnez une catégorie..."
-      />
-      <div>
-        <PreviousPageButton />
-        <NextPageButton />
-      </div>
-    </form>
-  );
-};
-
-PickCategory = connect()(PickCategory);
+PickCategory = connect(mapStateToProps)(PickCategory);
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: false, // <------ unregister fields on unmount
-  validate,
+  InputFieldChecked,
 })(PickCategory);
