@@ -5,7 +5,6 @@ import '../ComponentsCSS/createPoiForm.scss';
 
 const mapStateToProps = state => ({
   customCoordonnes: state.pois.customCoordonnes,
-  page: state.pois.formPage,
 });
 
 const PlaceYourNewPoi = ({ customCoordonnes }) => (

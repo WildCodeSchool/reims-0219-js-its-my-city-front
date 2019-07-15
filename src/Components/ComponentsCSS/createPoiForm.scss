@@ -12,8 +12,7 @@
 }
 
 @mixin stars-position{
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
     justify-content: space-around;
     align-items: center;
 }
@@ -26,6 +25,7 @@
 }
 .accessibilityRating{
     @include stars-position;
+    width: 54vw;
 }
 .star1{
     width: 7%;
@@ -65,7 +65,13 @@ select{
     background-color: white;
     outline: none;
 }
-
+.picturePage{
+    display: grid;
+    gap: 7vh;
+}
+.UploadPictureButton{
+    place-self: center;
+}
 legend{
     text-align: center;
     padding-top: 20px;
@@ -77,6 +83,11 @@ legend{
 .poi-address span{
     color: black;
 }
+
+.textPage{
+    text-align: center;
+}
+
 .categoryContainer > input {
     margin-left: 3px;
     margin-bottom: 2.5vh;
@@ -165,6 +176,12 @@ legend{
     display: grid;
     width: 50vw;
     justify-self: center;
+  }
+
+  .pictureUploadWrapper img{
+      width: 30vh;
+      height: 30vh;
+      object-fit: scale-down;
   }
 
   .pictureUploadWrapper input[type=file] {

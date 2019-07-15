@@ -2,11 +2,7 @@ import React from 'react';
 import '../ComponentsCSS/ColorSvg.scss';
 import { connect } from 'react-redux';
 
-const mapStateToProps = state => ({
-  page: state.pois.formPage,
-});
-
-const PageBottomCheckSvg = ({ page, dispatch }) => (
+const PageBottomCheckSvg = ({ dispatch }) => (
   <svg
     x="0px"
     y="0px"
@@ -155,7 +151,6 @@ const PageBottomCheckSvg = ({ page, dispatch }) => (
     <g
       onClick={() => dispatch({
         type: 'NEXT_PAGE',
-        page: page + 1,
       })}
       className="next"
     >
@@ -166,4 +161,4 @@ const PageBottomCheckSvg = ({ page, dispatch }) => (
 
 );
 
-export default connect(mapStateToProps)(PageBottomCheckSvg);
+export default connect()(PageBottomCheckSvg);

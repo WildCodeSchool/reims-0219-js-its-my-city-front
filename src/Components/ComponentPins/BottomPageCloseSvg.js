@@ -2,11 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/ColorSvg.scss';
 
-const mapStateToProps = state => ({
-  page: state.pois.formPage,
-});
-
-const BottomPageCloseSvg = ({ page, dispatch }) => (
+const BottomPageCloseSvg = ({ dispatch }) => (
 
   <svg
     x="0px"
@@ -164,4 +160,4 @@ c18.8,0,34.1,15.3,34.1,34.1c0,4-1.3,10.9,8.4,12.2h125.1c6.2,0,11.3-5.1,11.3-11.3
   </svg>
 
 );
-export default connect(mapStateToProps)(BottomPageCloseSvg);
+export default connect()(BottomPageCloseSvg);

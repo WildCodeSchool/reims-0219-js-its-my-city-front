@@ -25,6 +25,29 @@ const dropdownMenuStyle = {
   marginLeft: '-1rem',
 };
 
+const boldString = (item, userInput) => {
+  const parts = item.split(new RegExp(userInput.toLowerCase(), 'g'));
+  const partsLe = parts.length;
+  return (
+    <p>
+      {parts.map((part, index) => {
+        if (partsLe === index + 1) {
+          return (
+            <span key={index}>
+              {part}
+            </span>
+          );
+        }
+        return (
+          <span key={index}>
+            {part}
+            <b className="boldStyle">{userInput.toLowerCase()}</b>
+          </span>
+        );
+      })}
+    </p>
+  );
+};
 
 const SearchBar = ({
   dispatch, poiKeywordsDisplay, userInputSearchBar,
@@ -34,9 +57,14 @@ const SearchBar = ({
     <div>
       <Autocomplete
         items={poiKeywordsDisplay}
+        sortItems={(a, b) => a.name.localeCompare(b.name)}
         shouldItemRender={
-          (item, value2) => item.name.toLowerCase().indexOf(value2.toLowerCase()) > -1
+          (item, value2) => {
+            const result = item.name.toLowerCase().indexOf(value2.toLowerCase()) > -1;
+            return result;
+          }
         }
+        inputProps={{ placeholder: 'Que cherchez-vous ?' }}
         getItemValue={item => item.name}
         menuStyle={dropdownMenuStyle}
         renderItem={(item, highlighted) => (
@@ -44,10 +72,12 @@ const SearchBar = ({
             key={item.id}
             style={{ backgroundColor: highlighted ? '#eee' : 'transparent', height: '60px', textAlign: 'center' }}
           >
-            {item.name}
+            {userInputSearchBar.length !== 0
+              ? boldString(item.name.toLowerCase(), userInputSearchBar)
+              : item.name.toLowerCase()}
           </div>
         )}
-        value={userInputSearchBar}
+        value={userInputSearchBar.toLowerCase()}
         onChange={e => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: e.target.value })}
         onSelect={value3 => getPoisAccordingToKeyword(value3, dispatch, poiKeywordsDisplay)}
       />

@@ -10,16 +10,17 @@ const DescribeNewPoiFields = ({
   input,
   label,
   type,
+  value,
   meta: { touched, error },
 }) => (
   <div>
     <div className="categoryContainer">
-      <span style={{ textAlign: 'center' }}>{label}</span>
+      <span className="textPage">{label}</span>
       <input
         {...input}
         type={type}
       />
-      {touched && error && <span style={{ textAlign: 'center' }}>{error}</span>}
+      {touched && error && <span className="textPage">{error}</span>}
     </div>
   </div>
 );
