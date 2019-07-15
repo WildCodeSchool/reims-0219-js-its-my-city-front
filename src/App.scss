@@ -21,3 +21,21 @@ $secondColor: white;
   width: 15vh;
   font-weight: bold;
 }
+.leaflet-top, .leaflet-bottom {
+  right: 24%; 
+  position: absolute;
+  left: 84vw;
+  top: 72vh;
+  height: 7vh;
+  width: 14vw;
+  overflow: hidden;
+}
+.easy-button-button > span > img {
+  width: 21px;
+    height: 21px;
+    margin: 3px 0px 0px -1px;
+}
+.leaflet-bottom {
+  bottom: 0;
+  display: none;
+}
