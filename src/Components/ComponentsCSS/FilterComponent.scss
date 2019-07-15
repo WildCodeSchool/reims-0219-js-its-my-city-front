@@ -4,17 +4,19 @@
     position: absolute;
     z-index: 5;
     background-color: white;
-    width: 96%;
-    height: 97vh;
-    margin-left: 7px;
+    width: 95%;
+    height: 81vh;
+    margin-left: 9px;
     border-radius: 10px;
+    overflow: hidden;
+    margin-top: -6vh;
 }
 
 .buttonContainer{
     display: grid;
     grid-template-columns: 0px 160px 160px 0px;
     grid-template-rows: 60px;
-    grid-column-gap: 0px;
+    grid-column-gap: 10px;
 }
 
 .closeButton{
@@ -130,10 +132,11 @@
     z-index: 5;
     background-color: white;
     width: 96%;
-    height: 94vh;
+    height: 81vh;
     margin-left: 7px;
     border-radius: 10px;
     overflow: scroll;
+    margin-top: -6vh;
 }
 .allKeywords{
     overflow: scroll;
@@ -143,6 +146,7 @@
     color:$mainColor;
     text-align: right;
     position: relative;
+    font-size: 14px;
     z-index: 4;
     margin-right: 16px;
     margin-top: 5px;

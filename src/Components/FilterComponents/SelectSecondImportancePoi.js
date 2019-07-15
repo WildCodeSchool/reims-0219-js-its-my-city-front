@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/FilterComponent.scss';
 import axios from 'axios';
+import PreviousPageFilterButton from './PreviousPageFilterButton';
 
 
 const mapStateToProps = state => ({
@@ -15,29 +16,13 @@ const mapStateToProps = state => ({
 });
 
 const SelectSecondImportancePoi = ({
-  dispatch, isKeywordOneChoosen, secondIndicationIsDisplayed, specificSecondKeywords,
+  dispatch, isKeywordOneChoosen, specificSecondKeywords,
   isKeywordTwoChoosen, secondKeyword,
 }) => (
   <div className="secondFilterPage">
-
-    <button
-      type="button"
-      className="closeButton"
-      onClick={() => dispatch({ type: 'CLOSE_SECOND_IMPORTANCE_KEYWORDS' })}
-    >
-        X
-    </button>
-
-    <button
-      className="previousButton"
-      type="button"
-      onClick={() => dispatch({ type: 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS' })}
-    >
-      Précédent
-    </button>
-
+    <PreviousPageFilterButton />
     <div className="selectSecondTheme">
-      {secondIndicationIsDisplayed && <p>Affinez votre recherche</p>}
+      <p>Affinez votre recherche</p>
     </div>
 
     <div className="keywordsOfSecondImportance">

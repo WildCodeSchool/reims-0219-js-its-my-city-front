@@ -21,11 +21,23 @@ const onlyKeywordsFirstImportance = keywords => keywords.filter(
 
 
 const SelectFirstImportancePoi = ({
-  dispatch, poiKeywordsDisplay, firstIndicationIsDisplayed,
+  dispatch, poiKeywordsDisplay,
 }) => (
-
   <div className="filterComponent">
-    { firstIndicationIsDisplayed && <p className="selectTheme">Veuillez selectionner un thème</p> }
+    <h1 className="categories">Catégories</h1>
+    <div className="buttonContainer">
+      <button
+        className="filterButton1 buttonStyle"
+        type="button"
+      >
+    Points d'intérêts
+      </button>
+      <button className="filterButton2 buttonStyle" type="button">Événements</button>
+    </div>
+    <div><p className="eventTeasing">Bientôt Disponible</p></div>
+
+
+    <p className="selectTheme">Veuillez selectionner un thème</p>
 
     <div className="keywordsOfFirstImportance">
       {onlyKeywordsFirstImportance(poiKeywordsDisplay).map(keyword => (

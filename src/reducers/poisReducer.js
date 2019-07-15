@@ -5,26 +5,19 @@ const initialState = {
   customCoordonnes: [0, 0],
   poiSampleDisplay: [],
   specificPoiInfos: [],
-  filterKeywordPageDisplay: false, // displays the page that allows to filter the keywords
   isCreateFormDisplayed: false,
+  filterKeywordPageDisplay: false,
   InformationPoiInfos: false,
   filteredPoiByKeyword: [],
   poiKeywordsDisplay: [],
   userInputSearchBar: '',
   isFirstResearchDone: false,
+  secondKeyword: '',
   name: '',
   keywordTwo: '',
   specificSecondKeywords: [],
-  firstIndicationIsDisplayed: true,
-  secondIndicationIsdisplayed: false,
-  secondKeyword: '',
   formPage: 1,
-  barsAreDisplayed: true,
   file: [],
-  displayFirstImportancePoiPage: false,
-  displaySecondImportancePoiPage: false,
-  isKeywordOneChoosen: false,
-  isKeywordTwoChoosen: false,
   conditionRating: 1,
   operationRating: 1,
   accessibilityRating: 1,
@@ -32,6 +25,9 @@ const initialState = {
   canClickOnStars: true,
   selectedCategoryKeywordTwoName: '',
   areOthersRatingDisplayed: false,
+  barsAreDisplayed: true,
+  filterPage: 1,
+  isKeywordTwoChoosen: false,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -60,7 +56,6 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isCreateFormDisplayed: !state.isCreateFormDisplayed,
-        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'CLOSE_POI_INFOS':
       if (state.InformationPoiInfos === true) {
@@ -74,28 +69,10 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         specificPoiInfos: action.specificPoiInfos,
       };
-    case 'DISPLAY_FILTER_PAGE':
-      return {
-        ...state,
-        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
-        barsAreDisplayed: !state.barsAreDisplayed,
-      };
     case 'TRANSITION_POI_INFOS':
       return {
         ...state,
         InformationPoiInfos: !state.InformationPoiInfos,
-      };
-    case 'HANDLE_KEYWORD_FILTERING':
-      return {
-        ...state,
-        filteredPoiByKeyword: action.filteredPoiByKeyword,
-        filterKeywordPageDisplay: false,
-        isCreateFormDisplayed: false,
-        barsAreDisplayed: !state.barsAreDisplayed,
-        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
-        userInputSearchBar: action.userInputSearchBar,
-        isFirstResearchDone: true,
-        isKeywordTwoChoosen: false,
       };
     case 'HANDLE_SEARCHBAR_INPUT':
       if (action.filteredPoiByKeyword) {
@@ -128,54 +105,6 @@ const poisReducer = (state = initialState, action) => {
         keywordTwo: action.keywordTwo,
         keywordOneId: action.keywordOneId,
       };
-    case 'SHOW_FIRST_IMPORTANCE_KEYWORDS':
-      return {
-        ...state,
-        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
-        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
-      };
-    case 'SHOW_SECOND_IMPORTANCE_KEYWORDS':
-      return {
-        ...state,
-        isKeywordOneChoosen: true,
-        specificSecondKeywords: action.specificSecondKeywords,
-        firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
-        secondIndicationIsDisplayed: true,
-        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
-        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
-        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
-      };
-    case 'CLOSE_FIRST_IMPORTANCE_KEYWORDS':
-      return {
-        ...state,
-        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
-        barsAreDisplayed: !state.barsAreDisplayed,
-      };
-    case 'CLOSE_SECOND_IMPORTANCE_KEYWORDS':
-      return {
-        ...state,
-        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
-        barsAreDisplayed: !state.barsAreDisplayed,
-      };
-    case 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS':
-      return {
-        ...state,
-        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
-        displayFirstImportancePoiPage: !state.displayFirstImportancePoiPage,
-        displaySecondImportancePoiPage: !state.displaySecondImportancePoiPage,
-        firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
-      };
-    case 'APPLY_BUTTON':
-      return {
-        ...state,
-        isKeywordTwoChoosen: true,
-        secondKeyword: action.secondKeyword,
-      };
-    case 'CLOSE_FILTER_COMPONENT':
-      return {
-        ...state,
-        filterKeywordPageDisplay: false,
-      };
     case 'RATING_CONDITION_CHANGE':
       return {
         ...state,
@@ -199,13 +128,21 @@ const poisReducer = (state = initialState, action) => {
     case 'NEXT_PAGE':
       return {
         ...state,
-        formPage: state.formPage + 1,
+        formPage: action.formPage + 1,
       };
     case 'PREVIOUS_PAGE':
-      return {
-        ...state,
-        formPage: state.formPage - 1,
-      };
+      if (state.isCreateFormDisplayed) {
+        return {
+          ...state,
+          formPage: state.formPage - 1,
+        };
+      } if (state.filterKeywordPageDisplay) {
+        return {
+          ...state,
+          filterPage: state.filterPage - 1,
+        };
+      }
+      break;
     case 'ADD_CUSTOM_MARKER':
       return {
         ...state,
@@ -238,6 +175,32 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         areOthersRatingDisplayed: !state.areOthersRatingDisplayed,
+      };
+
+    case 'DISPLAY_FILTER_PAGE':
+      return {
+        ...state,
+        filterKeywordPageDisplay: !action.filterKeywordPageDisplay,
+        barsAreDisplayed: !state.barsAreDisplayed,
+      };
+    case 'HANDLE_KEYWORD_FILTERING':
+      return {
+        ...state,
+        filteredPoiByKeyword: action.filteredPoiByKeyword,
+        filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
+      };
+    case 'SHOW_SECOND_IMPORTANCE_KEYWORDS':
+      return {
+        ...state,
+        filterPage: state.filterPage + 1,
+        iskeywordOneChoosen: !action.iskeywordOneChoosen,
+        specificSecondKeywords: action.specificSecondKeywords,
+      };
+    case 'APPLY_BUTTON':
+      return {
+        ...state,
+        isKeywordTwoChoosen: !action.isKeywordTwoChoosen,
+        secondKeyword: action.secondKeyword,
       };
     default:
       return state;
