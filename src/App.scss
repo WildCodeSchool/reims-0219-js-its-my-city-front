@@ -21,7 +21,6 @@ $secondColor: white;
   width: 15vh;
   font-weight: bold;
 }
-<<<<<<< HEAD
 .leaflet-top, .leaflet-bottom {
   right: 24%; 
   position: absolute;
@@ -39,7 +38,6 @@ $secondColor: white;
 .leaflet-bottom {
   bottom: 0;
   display: none;
-=======
 
 @keyframes rotate { to {  transform: rotate(1turn) }};
 
@@ -58,5 +56,4 @@ font-size : 3vh;
     border-radius: 50%;
     animation: rotate 800ms infinite linear;
   }
->>>>>>> dev
 }
