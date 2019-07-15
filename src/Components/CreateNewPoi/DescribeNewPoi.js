@@ -12,7 +12,6 @@ const mapStateToProps = state => ({
   labelKey: `${state.pois.poiKeywordsDisplay.find(keyword => keyword.id == state.form.poiCreation.values.categoryKeyword).name} - `,
 });
 class DescribeNewPoi extends Component {
-
   componentDidMount() {
     const { dispatch, labelKey } = this.props;
     dispatch({ type: 'GET_INPUT', labelKey });
@@ -21,6 +20,7 @@ class DescribeNewPoi extends Component {
   render() {
     return (
       <form className="formContainer">
+        <p className="step">Etape 4/5</p>
         <Field
           name="poiDesc"
           component={DescribeNewPoiFields}
@@ -35,11 +35,10 @@ class DescribeNewPoi extends Component {
   }
 }
 
-DescribeNewPoi = connect(mapStateToProps)(DescribeNewPoi);
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
   destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: false, // <------ unregister fields on unmount
   InputFieldChecked,
-})(DescribeNewPoi);
+})(connect(mapStateToProps)(DescribeNewPoi));

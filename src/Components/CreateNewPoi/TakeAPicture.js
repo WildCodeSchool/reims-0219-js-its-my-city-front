@@ -4,11 +4,11 @@ import { reduxForm } from 'redux-form';
 import axios from 'axios';
 import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
-import NextPageButton from './NextPageButton';
 import Picture from '../ComponentPins/Picture';
 
 const mapStateToProps = state => ({
   file: state.pois.file,
+  previewPic: state.pois.previewPic,
 });
 
 const storeNewPictureData = (e) => {
@@ -17,7 +17,7 @@ const storeNewPictureData = (e) => {
   return formData;
 };
 
-const uploadFileHandler = (e, formData) => {
+const uploadFileHandler = (e, formData, dispatch) => {
   e.preventDefault();
   e.stopPropagation();
   axios.post(`${process.env.REACT_APP_API_URL}/pois/picture`, formData, {
@@ -25,13 +25,17 @@ const uploadFileHandler = (e, formData) => {
       'Content-Type': 'multipart/form-data',
     },
   });
+  dispatch({
+    type: 'NEXT_PAGE',
+  });
 };
 
 let TakeAPicture = ({
-  file, dispatch,
+  file, dispatch, previewPic,
 }) => (
   <div className="formContainer">
     <article className="picturePage">
+      <p className="step">Etape 2/5</p>
       <div className="textPage">
       Afin d'embellir votre expérience, veuillez fournir une photo.
       </div>
@@ -40,21 +44,28 @@ let TakeAPicture = ({
           className="picturePage"
           encType="multipart/form-data"
           method="post"
-          onSubmit={e => uploadFileHandler(e, file)}
+          onSubmit={e => uploadFileHandler(e, file, dispatch)}
         >
           <div className="pictureUploadWrapper">
             <input
               type="file"
               name="upload"
-              onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
+              accept="image/*"
+              onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e), previewPic: URL.createObjectURL(e.target.files[0]) })}
               required
             />
-            <Picture />
+            {previewPic !== '' && <img src={previewPic} alt="preview" />}
+            {previewPic === '' && <Picture />}
           </div>
-          <button type="submit" value="upload" className="UploadPictureButton">Envoyer</button>
+          <button
+            type="submit"
+            value="upload"
+            className="buttonFormNext"
+          >
+          Suivant
+          </button>
         </form>
         <div>
-          <NextPageButton />
           <PreviousPageButton />
         </div>
       </div>

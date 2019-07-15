@@ -11,13 +11,13 @@ const TopPageSvg = ({ dispatch }) => (
     xmlSpace="preserve"
     style={{
       position: 'absolute',
-      top: '-7vh',
+      top: '-12vh',
       marginLeft: '1.4px',
       marginRight: '-1px',
     }}
   >
     <g>
-      <g onClick={() => dispatch({ type: 'TOGGLE_POI_CREATION_FORM' })}>
+      <g onClick={() => dispatch({ type: 'CLOSE_PAGE' })}>
         <defs>
           <rect id="SVGID_1_" x="298" width="58" height="58" />
         </defs>

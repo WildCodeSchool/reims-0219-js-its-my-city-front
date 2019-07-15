@@ -6,16 +6,14 @@ import AppMap from './Components/AppMap';
 import SearchBar from './Components/SearchBar';
 import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
-import SelectCategorie from './Components/FilterComponents/SelectCategorie';
+import FilterComponent from './Components/FilterComponents/FilterComponent';
 import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
-import SelectSecondImportancePoi from './Components/FilterComponents/SelectSecondImportancePoi';
 import Alert from './Components/Alert';
 
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
   poiSampleDisplay: state.pois.poiSampleDisplay,
   specificPoiInfos: state.pois.specificPoiInfos,
-  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
   isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
   defaultCoordonnees: state.pois.defaultCoordonnees,
@@ -27,7 +25,7 @@ const mapStateToProps = state => ({
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
   barsAreDisplayed: state.pois.barsAreDisplayed,
   displayFirstImportancePoiPage: state.pois.displayFirstImportancePoiPage,
-  displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
+  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
 });
 
 
@@ -54,12 +52,11 @@ class App extends Component {
   render() {
     const {
       specificPoiInfos,
-      filterKeywordPageDisplay,
       isCreateFormDisplayed,
       isFirstResearchDone,
       filteredPoiByKeyword,
       barsAreDisplayed,
-      displaySecondImportancePoiPage,
+      filterKeywordPageDisplay,
       poiSampleDisplay,
     } = this.props;
     return (
@@ -84,12 +81,10 @@ class App extends Component {
               {Object.keys(specificPoiInfos).length && <PoiInformation />}
               {!Object.keys(specificPoiInfos).length && barsAreDisplayed && <FilterBar />}
               {isCreateFormDisplayed && <CreatePoiForm />}
-              {filterKeywordPageDisplay && <SelectCategorie />}
-              {displaySecondImportancePoiPage && <SelectSecondImportancePoi />}
+              {filterKeywordPageDisplay && <FilterComponent />}
             </div>
           )
         }
-        ;
       </div>
     );
   }

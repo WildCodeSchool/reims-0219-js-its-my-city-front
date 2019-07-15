@@ -71,6 +71,10 @@ select{
 }
 .UploadPictureButton{
     place-self: center;
+    margin-top: -3vh;
+    border-radius: 1vh;
+    background-color: #D12F5B;
+    color: white;
 }
 legend{
     text-align: center;
@@ -85,6 +89,7 @@ legend{
 }
 
 .textPage{
+    margin-top: -5vh;
     text-align: center;
 }
 
@@ -137,7 +142,6 @@ legend{
     background: white;
     border-radius: 8px;
     width: 56vw;
-    position: absolute;
     bottom: 4vh;
     left: 15vw;
     font-size: 1.35rem;
@@ -154,7 +158,10 @@ legend{
     left: 15vw;
     font-size: 1.35rem;
   }
-
+.step{
+    color: #D12F5B;
+    text-align: center;
+}
   .placePoiContainer{
     background-color: white;
     margin: 0vh 2.6vw;
@@ -173,6 +180,12 @@ legend{
     display: grid;
     width: 50vw;
     justify-self: center;
+  }
+
+  .pictureUploadWrapper img{
+      width: 30vh;
+      height: 30vh;
+      object-fit: scale-down;
   }
 
   .pictureUploadWrapper input[type=file] {

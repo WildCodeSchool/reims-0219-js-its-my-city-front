@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/FilterComponent.scss';
 import axios from 'axios';
+import PreviousPageFilterButton from './PreviousPageFilterButton';
 
 
 const mapStateToProps = state => ({
@@ -11,33 +12,23 @@ const mapStateToProps = state => ({
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
   secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
   secondKeyword: state.pois.secondKeyword,
+  keywordOneChoosen: state.pois.keywordOneChoosen,
 
 });
 
 const SelectSecondImportancePoi = ({
   dispatch, isKeywordOneChoosen, secondIndicationIsDisplayed, specificSecondKeywords,
-  isKeywordTwoChoosen, secondKeyword,
+  isKeywordTwoChoosen, secondKeyword, keywordOneChoosen,
 }) => (
   <div className="secondFilterPage">
+    <PreviousPageFilterButton />
 
-    <button
-      type="button"
-      className="closeButton"
-      onClick={() => dispatch({ type: 'CLOSE_SECOND_IMPORTANCE_KEYWORDS' })}
-    >
-        X
-    </button>
-
-    <button
-      className="previousButton"
-      type="button"
-      onClick={() => dispatch({ type: 'GO_BACK_TO_FIRST_IMPORTANCE_KEYWORDS' })}
-    >
-      Précédent
-    </button>
+    <div className="selectedKeywordOne">
+      {keywordOneChoosen}
+    </div>
 
     <div className="selectSecondTheme">
-      {secondIndicationIsDisplayed && <p>Affinez votre recherche</p>}
+      <p>Affinez votre recherche</p>
     </div>
 
     <div className="keywordsOfSecondImportance">
@@ -57,7 +48,7 @@ const SelectSecondImportancePoi = ({
 
     <div>
       <div className="applyButton">
-        {isKeywordTwoChoosen === true && (
+        {isKeywordTwoChoosen && (
         <button
           type="button"
           className="applyButtonStyle"
