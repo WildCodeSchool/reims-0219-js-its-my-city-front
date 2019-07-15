@@ -2,7 +2,7 @@ const pickColor = (keyword) => {
   switch (keyword) {
     case 'Sport & Loisirs':
       return 'st0_1';
-    case 'Nature & Développement Durable':
+    case 'Nature & Ecologie':
       return 'st0_2';
     case 'Services Publics':
       return 'st0_3';

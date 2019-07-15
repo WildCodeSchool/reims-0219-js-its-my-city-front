@@ -3,6 +3,59 @@
   text-align: center;
 }
 
-
 $mainColor : #DD476D;
 $secondColor: white;
+
+.filePreview {
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+  width : 30vh;
+  height: 30vh;
+}
+
+.validButton {
+  background-color: $secondColor;
+  border: 2px solid $mainColor;
+  border-radius: 10px;
+  height: 5vh;
+  width: 15vh;
+  font-weight: bold;
+}
+.leaflet-top, .leaflet-bottom {
+  right: 24%; 
+  position: absolute;
+  left: 84vw;
+  top: 72vh;
+  height: 7vh;
+  width: 14vw;
+  overflow: hidden;
+}
+.easy-button-button > span > img {
+  width: 21px;
+    height: 21px;
+    margin: 3px 0px 0px -1px;
+}
+.leaflet-bottom {
+  bottom: 0;
+  display: none;
+}
+
+@keyframes rotate { to {  transform: rotate(1turn) }};
+
+.loadingPage {
+margin-top: 45vh;
+text-align: center;
+font-weight: bold;
+font-size : 3vh;
+  .loader {
+    margin: 20px auto;
+    width: 15px;
+    height: 15px;
+    border: 5px solid rgba(189,189,189 ,0.25);
+    border-left-color: $mainColor;
+    border-top-color: $mainColor;
+    border-radius: 50%;
+    animation: rotate 800ms infinite linear;
+  }
+}
+

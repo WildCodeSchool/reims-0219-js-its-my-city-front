@@ -1,47 +1,24 @@
 @import '../../App.scss';
 
 .search-box{
-    width: 90%;
+    width: 100%;
     position: absolute;
     z-index: 2;
-    height: 8vh;    
-    border-radius: 3vh 3vh 1vh 1vh;
-    border: solid 0.4px;
-    box-shadow: 2px 5px 8px #2F2F2F;
-    background-color: white;
-    margin-left: 2.5vh; 
-    margin-top: 1.5vh;  
+    height: 8vh; 
 }
-
-.search-text{
-    color: $mainColor;
-    position: relative;
-    z-index: 3;
-    outline: none;
-    background: none;
-    border: none;
-    width: 70%;
-    font-size: 20px;
-    line-height: 40px;
-    margin-top: 0.7vh;
-    margin-left: 2vh;
-}
-
-.search-logo {
-    position: relative;
-    z-index: 4;
-    float:right;
-    width: 13%;
-    background: white;
-    margin-right: 2vh;
-    margin-top: -7.6vh;
-}
-input{
+.search-box input{
     box-shadow: none;
     border: none;
-    width: 246px;
-    height: 29px;
+    width: 66vw;
+    height: 4vh;
     margin: 0.75rem;
     font-size: 1.5rem;
+    position: absolute;
+    top: 1vh;
+    margin-left: 20px;
+    outline: none;
+}
 
+.boldStyle{
+    color: $mainColor;
 }
