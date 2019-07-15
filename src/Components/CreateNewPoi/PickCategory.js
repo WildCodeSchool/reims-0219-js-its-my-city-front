@@ -8,7 +8,7 @@ import PreviousPageButton from './PreviousPageButton';
 import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
-  labelKey: state.pois.poiKeywordsDisplay.find(keyword => keyword.id === 7),
+  labelKey: state.pois.poiKeywordsDisplay.find(keyword => keyword.id === state.form.poiCreation.values.categoryKeyword),
 });
 
 let PickCategory = ({ labelKey }) => {
