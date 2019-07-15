@@ -177,6 +177,12 @@ legend{
     justify-self: center;
   }
 
+  .pictureUploadWrapper img{
+      width: 30vh;
+      height: 30vh;
+      object-fit: scale-down;
+  }
+
   .pictureUploadWrapper input[type=file] {
     font-size: 100px;
     position: absolute;

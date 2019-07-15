@@ -18,6 +18,7 @@ const initialState = {
   specificSecondKeywords: [],
   formPage: 1,
   file: [],
+  previewPic: '',
   conditionRating: 1,
   operationRating: 1,
   accessibilityRating: 1,
@@ -126,6 +127,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         file: action.file,
+        previewPic: action.previewPic,
       };
     case 'NEXT_PAGE':
       return {
