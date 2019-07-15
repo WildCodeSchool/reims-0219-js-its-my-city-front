@@ -14,13 +14,14 @@ $secondColor: white;
 }
 
 .validButton {
-  background-color: white;
-  border: 2px solid #DD476D;
+  background-color: $secondColor;
+  border: 2px solid $mainColor;
   border-radius: 10px;
   height: 5vh;
   width: 15vh;
   font-weight: bold;
 }
+<<<<<<< HEAD
 .leaflet-top, .leaflet-bottom {
   right: 24%; 
   position: absolute;
@@ -38,4 +39,24 @@ $secondColor: white;
 .leaflet-bottom {
   bottom: 0;
   display: none;
+=======
+
+@keyframes rotate { to {  transform: rotate(1turn) }};
+
+.loadingPage {
+margin-top: 45vh;
+text-align: center;
+font-weight: bold;
+font-size : 3vh;
+  .loader {
+    margin: 20px auto;
+    width: 15px;
+    height: 15px;
+    border: 5px solid rgba(189,189,189 ,0.25);
+    border-left-color: $mainColor;
+    border-top-color: $mainColor;
+    border-radius: 50%;
+    animation: rotate 800ms infinite linear;
+  }
+>>>>>>> dev
 }

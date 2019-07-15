@@ -12,8 +12,7 @@
 }
 
 @mixin stars-position{
-    display: flex;
-    flex-direction: row;
+    display: inline-flex;
     justify-content: space-around;
     align-items: center;
 }
@@ -26,6 +25,7 @@
 }
 .accessibilityRating{
     @include stars-position;
+    width: 54vw;
 }
 .star1{
     width: 7%;
@@ -137,7 +137,6 @@ legend{
     background: white;
     border-radius: 8px;
     width: 56vw;
-    position: absolute;
     bottom: 4vh;
     left: 15vw;
     font-size: 1.35rem;
@@ -154,7 +153,10 @@ legend{
     left: 15vw;
     font-size: 1.35rem;
   }
-
+.step{
+    color: #D12F5B;
+    text-align: center;
+}
   .placePoiContainer{
     background-color: white;
     margin: 0vh 2.6vw;
@@ -173,6 +175,12 @@ legend{
     display: grid;
     width: 50vw;
     justify-self: center;
+  }
+
+  .pictureUploadWrapper img{
+      width: 30vh;
+      height: 30vh;
+      object-fit: scale-down;
   }
 
   .pictureUploadWrapper input[type=file] {
