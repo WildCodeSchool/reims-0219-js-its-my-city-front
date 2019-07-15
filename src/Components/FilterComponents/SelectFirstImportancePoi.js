@@ -36,6 +36,7 @@ const SelectFirstImportancePoi = ({
           onClick={() => dispatch({
             type: 'SHOW_SECOND_IMPORTANCE_KEYWORDS',
             specificSecondKeywords: selectRightKeywordChildren(keyword, poiKeywordsDisplay),
+            keywordOneChoosen: keyword.name,
           })}
         >
           {keyword.name}

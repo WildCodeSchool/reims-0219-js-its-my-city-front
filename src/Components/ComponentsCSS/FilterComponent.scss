@@ -158,8 +158,8 @@
     z-index: 4;
 }
 .selectSecondTheme{
-    font-size: 18px;
-    color:$mainColor;
+    font-size: 15px;
+    color: black;
     margin-left: 5px;
     text-align: center;
 }
@@ -243,4 +243,12 @@
     border-radius: 7px;
     width: 110px;
     height: 30px;
+}
+
+.selectedKeywordOne{
+    font-size: 22px;
+    color: $mainColor;
+    margin-left: 5px;
+    text-align: center;
+    margin-top: 10px;
 }

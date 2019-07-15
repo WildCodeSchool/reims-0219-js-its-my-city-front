@@ -11,12 +11,13 @@ const mapStateToProps = state => ({
   filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
   secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
   secondKeyword: state.pois.secondKeyword,
+  keywordOneChoosen: state.pois.keywordOneChoosen,
 
 });
 
 const SelectSecondImportancePoi = ({
   dispatch, isKeywordOneChoosen, secondIndicationIsDisplayed, specificSecondKeywords,
-  isKeywordTwoChoosen, secondKeyword,
+  isKeywordTwoChoosen, secondKeyword, keywordOneChoosen,
 }) => (
   <div className="secondFilterPage">
 
@@ -35,6 +36,10 @@ const SelectSecondImportancePoi = ({
     >
       Précédent
     </button>
+
+    <div className="selectedKeywordOne">
+      {keywordOneChoosen}
+    </div>
 
     <div className="selectSecondTheme">
       {secondIndicationIsDisplayed && <p>Affinez votre recherche</p>}

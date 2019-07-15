@@ -29,6 +29,7 @@ const initialState = {
   operationRating: 1,
   accessibilityRating: 1,
   newPoiCoordinates: [],
+  keywordOneChoosen: '',
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -132,6 +133,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         isKeywordOneChoosen: true,
+        keywordOneChoosen: action.keywordOneChoosen,
         specificSecondKeywords: action.specificSecondKeywords,
         firstIndicationIsDisplayed: !state.firstIndicationIsDisplayed,
         secondIndicationIsDisplayed: true,
