@@ -176,6 +176,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filterKeywordPageDisplay: !action.filterKeywordPageDisplay,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'HANDLE_KEYWORD_FILTERING':
       return {
