@@ -130,7 +130,7 @@ const poisReducer = (state = initialState, action) => {
     case 'NEXT_PAGE':
       return {
         ...state,
-        formPage: action.formPage + 1,
+        formPage: state.formPage + 1,
       };
     case 'PREVIOUS_PAGE':
       if (state.isCreateFormDisplayed) {
