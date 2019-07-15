@@ -23,6 +23,7 @@ const initialState = {
   operationRating: 1,
   accessibilityRating: 1,
   newPoiCoordinates: [],
+  keywordOneChoosen: '',
   canClickOnStars: true,
   selectedCategoryKeywordTwoName: '',
   areOthersRatingDisplayed: false,
@@ -200,6 +201,7 @@ const poisReducer = (state = initialState, action) => {
         filterPage: state.filterPage + 1,
         iskeywordOneChoosen: !action.iskeywordOneChoosen,
         specificSecondKeywords: action.specificSecondKeywords,
+        keywordOneChoosen: action.keywordOneChoosen,
       };
     case 'APPLY_BUTTON':
       return {
