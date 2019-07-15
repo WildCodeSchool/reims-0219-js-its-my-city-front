@@ -9,6 +9,7 @@ import Picture from '../ComponentPins/Picture';
 
 const mapStateToProps = state => ({
   file: state.pois.file,
+  previewPic: state.pois.previewPic,
 });
 
 const storeNewPictureData = (e) => {
@@ -28,7 +29,7 @@ const uploadFileHandler = (e, formData) => {
 };
 
 let TakeAPicture = ({
-  file, dispatch,
+  file, dispatch, previewPic,
 }) => (
   <div className="formContainer">
     <article className="picturePage">
@@ -46,10 +47,11 @@ let TakeAPicture = ({
             <input
               type="file"
               name="upload"
-              onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e) })}
+              onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e), previewPic: URL.createObjectURL(e.target.files[0]) })}
               required
             />
-            <Picture />
+            {previewPic !== '' && <img src={previewPic} alt="preview" />}
+            {previewPic === '' && <Picture />}
           </div>
           <button type="submit" value="upload" className="UploadPictureButton">Envoyer</button>
         </form>

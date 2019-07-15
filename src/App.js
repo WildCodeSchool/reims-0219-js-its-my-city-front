@@ -48,10 +48,6 @@ class App extends Component {
       axios.get(`${process.env.REACT_APP_API_URL}/pois/sample/${geolocCoordonnees[0]}/${geolocCoordonnees[1]}`)
         .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
         .catch(err => console.log(err));
-    } else {
-      axios.get(`${process.env.REACT_APP_API_URL}/pois/sample/${defaultCoordonnees[0]}/${defaultCoordonnees[1]}`)
-        .then(response => dispatch({ type: 'GET_POIS_SAMPLE', poiSampleDisplay: response.data }))
-        .catch(err => console.log(err));
     }
   }
 
