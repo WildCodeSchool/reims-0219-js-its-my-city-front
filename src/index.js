@@ -11,7 +11,7 @@ import * as serviceWorker from './serviceWorker';
 const rootReducer = combineReducers({
   pois: poisReducer,
   form: formReducer.plugin({
-    poiCreation: (state, action) => {  
+    poiCreation: (state, action) => {
       switch
       (action.type) {
         case 'NEXT_PAGE':
