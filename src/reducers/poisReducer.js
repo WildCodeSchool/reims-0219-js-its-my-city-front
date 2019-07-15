@@ -21,6 +21,7 @@ const initialState = {
   formPage: 1,
   barsAreDisplayed: true,
   file: [],
+  previewPic: '',
   displayFirstImportancePoiPage: false,
   displaySecondImportancePoiPage: false,
   isKeywordOneChoosen: false,
@@ -195,6 +196,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         file: action.file,
+        previewPic: action.previewPic,
       };
     case 'NEXT_PAGE':
       return {

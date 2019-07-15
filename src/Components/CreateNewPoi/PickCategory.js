@@ -9,6 +9,7 @@ import NextPageButton from './NextPageButton';
 
 let PickCategory = () => (
   <form className="formContainer">
+    <p className="step">Etape 3/5</p>
     <Field
       name="categoryKeyword"
       component={PickCategoryFields}

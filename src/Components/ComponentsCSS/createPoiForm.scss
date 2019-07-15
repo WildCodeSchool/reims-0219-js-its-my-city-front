@@ -154,7 +154,10 @@ legend{
     left: 15vw;
     font-size: 1.35rem;
   }
-
+.step{
+    color: #D12F5B;
+    text-align: center;
+}
   .placePoiContainer{
     background-color: white;
     margin: 0vh 2.6vw;
@@ -173,6 +176,12 @@ legend{
     display: grid;
     width: 50vw;
     justify-self: center;
+  }
+
+  .pictureUploadWrapper img{
+      width: 30vh;
+      height: 30vh;
+      object-fit: scale-down;
   }
 
   .pictureUploadWrapper input[type=file] {

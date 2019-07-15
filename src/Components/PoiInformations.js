@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import sliceDate from '../Functions/FunctionSliceDate';
 import calculateDistance from '../Functions/CalculateDistance';
 import { ReactComponent as Close } from './pictos/CancelButton.svg';
-import { ReactComponent as Triangle } from './pictos/Black_triangle.svg';
 import PoiRating from './CreateNewPoi/PoiRating';
 
 const mapStateToProps = state => ({
