@@ -56,8 +56,7 @@ let TakeAPicture = ({
               onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e), previewPic: URL.createObjectURL(e.target.files[0]) })}
               required
             />
-            {previewPic !== '' && <img src={previewPic} alt="preview" />}
-            {previewPic === '' && <Picture />}
+            {previewPic === '' ? <Picture /> : <img src={previewPic} alt="preview" />}
           </div>
           <button
             type="submit"
