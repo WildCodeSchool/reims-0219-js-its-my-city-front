@@ -35,9 +35,9 @@ let TakeAPicture = ({
 }) => (
   <div className="formContainer">
     <article className="picturePage">
-      <p className="step">Etape 2/5</p>
+      <p className="pictureStep">Etape 2/5</p>
       <div className="textPage">
-      Afin d'embellir votre expérience, veuillez fournir une photo.
+      Veuillez fournir une photo en cliquant sur le logo ci-dessous.
       </div>
       <div>
         <form

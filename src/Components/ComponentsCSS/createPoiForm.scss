@@ -67,7 +67,7 @@ select{
 }
 .picturePage{
     display: grid;
-    gap: 7vh;
+    gap: 4vh;
 }
 .UploadPictureButton{
     place-self: center;
@@ -91,6 +91,7 @@ legend{
 .textPage{
     margin-top: -5vh;
     text-align: center;
+    color: grey;
 }
 
 .categoryContainer > input {
@@ -161,7 +162,11 @@ legend{
 .step{
     color: #D12F5B;
     text-align: center;
-    margin-top: 0vh;
+    margin-top: -1vh;
+}
+.pictureStep{
+    color: #D12F5B;
+    text-align: center; 
 }
   .placePoiContainer{
     background-color: white;
@@ -174,7 +179,6 @@ legend{
     justify-content: center;
     border-radius: 0rem 0rem 1rem 1rem;
   }
-
 
   .pictureUploadWrapper{
     position: relative;
@@ -200,6 +204,7 @@ legend{
   }
 
   .categoryContainer{
+    color: grey;
     display: grid;
     justify-items: center;
     height: 49vh;
