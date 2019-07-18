@@ -9,9 +9,9 @@ import PreviousPageButton from './PreviousPageButton';
 const mapStateToProps = state => ({
   geolocCoordonnees: state.pois.geolocCoordonnees,
   createPoiFormInfos: state.form,
-  conditionRating: state.pois.conditionRating,
-  accessibilityRating: state.pois.accessibilityRating,
-  operationRating: state.pois.operationRating,
+  conditionRating: state.dataForm.conditionRating,
+  accessibilityRating: state.dataForm.accessibilityRating,
+  operationRating: state.dataForm.operationRating,
   customCoordonnes: state.pois.customCoordonnes,
 });
 

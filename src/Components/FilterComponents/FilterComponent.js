@@ -6,7 +6,7 @@ import TopPageSvg from '../ComponentPins/TopPageSvg';
 import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
 
 const mapStateToProps = state => ({
-  page: state.pois.filterPage,
+  page: state.display.filterPage,
 });
 
 const FilterComponent = ({ page }) => (

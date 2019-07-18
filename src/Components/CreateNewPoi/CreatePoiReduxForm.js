@@ -10,7 +10,7 @@ import TopPageSvg from '../ComponentPins/TopPageSvg';
 import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
 
 const mapStateToProps = state => ({
-  page: state.pois.formPage,
+  page: state.display.formPage,
 });
 
 const CreatePoiForm = ({ page }) => (

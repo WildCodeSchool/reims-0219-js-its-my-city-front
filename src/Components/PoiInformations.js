@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
   specificPoiInfos: state.pois.specificPoiInfos,
   InformationPoiInfos: state.pois.InformationPoiInfos,
   geolocCoordonnees: state.pois.geolocCoordonnees,
-  areOthersRatingDisplayed: state.pois.areOthersRatingDisplayed,
+  areOthersRatingDisplayed: state.display.areOthersRatingDisplayed,
 });
 
 const PoiInformation = ({

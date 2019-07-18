@@ -7,17 +7,16 @@ import PreviousPageFilterButton from './PreviousPageFilterButton';
 
 const mapStateToProps = state => ({
   isKeywordOneChoosen: state.pois.poiKeywordsDisplay,
-  specificSecondKeywords: state.pois.specificSecondKeywords,
-  isKeywordTwoChoosen: state.pois.isKeywordTwoChoosen,
-  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
-  secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
-  secondKeyword: state.pois.secondKeyword,
-  keywordOneChoosen: state.pois.keywordOneChoosen,
+  specificSecondKeywords: state.keywords.specificSecondKeywords,
+  isKeywordTwoChoosen: state.display.isKeywordTwoChoosen,
+  filteredPoiByKeyword: state.keywords.filteredPoiByKeyword,
+  secondKeyword: state.keywords.secondKeyword,
+  keywordOneChoosen: state.keywords.keywordOneChoosen,
 
 });
 
 const SelectSecondImportancePoi = ({
-  dispatch, isKeywordOneChoosen, secondIndicationIsDisplayed, specificSecondKeywords,
+  dispatch, isKeywordOneChoosen, specificSecondKeywords,
   isKeywordTwoChoosen, secondKeyword, keywordOneChoosen,
 }) => (
   <div className="secondFilterPage">

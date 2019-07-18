@@ -5,11 +5,19 @@ import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { Provider } from 'react-redux';
 import poisReducer from './reducers/poisReducer';
+import displayReducer from './reducers/displayReducer';
+import dataFormReducer from './reducers/formReducer';
+import mapReducer from './reducers/mapReducer';
+import keywordsReducer from './reducers/keywordsReducer';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 const rootReducer = combineReducers({
   pois: poisReducer,
+  dataForm: dataFormReducer,
+  display: displayReducer,
+  map: mapReducer,
+  keywords: keywordsReducer,
   form: formReducer.plugin({
     poiCreation: (state, action) => {
       switch
