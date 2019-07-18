@@ -35,13 +35,15 @@ let TakeAPicture = ({
 }) => (
   <div className="formContainer">
     <article className="picturePage">
+      <div>
+        <PreviousPageButton />
+      </div>
       <p className="pictureStep">Etape 2/5</p>
       <div className="textPage">
       Veuillez fournir une photo en cliquant sur le logo ci-dessous.
       </div>
-      <div>
+      <div style={{ gridColumn: '2/4' }}>
         <form
-          className="picturePage"
           encType="multipart/form-data"
           method="post"
           onSubmit={e => uploadFileHandler(e, file, dispatch)}
@@ -65,9 +67,6 @@ let TakeAPicture = ({
           Suivant
           </button>
         </form>
-        <div>
-          <PreviousPageButton />
-        </div>
       </div>
     </article>
   </div>
