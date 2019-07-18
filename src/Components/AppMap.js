@@ -71,7 +71,7 @@ const AppMap = ({
         }}
       </LeafletConsumer>
     )}
-    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+    <TileLayer url="https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png" />
     {isCreateFormDisplayed && (
       <Marker
         position={customCoordonnes.length ? customCoordonnes : defaultCoordonnees}
