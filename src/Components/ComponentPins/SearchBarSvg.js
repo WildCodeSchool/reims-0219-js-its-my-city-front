@@ -1,5 +1,5 @@
 import React from 'react';
-import '../ComponentsCSS/SearchBarSvg.scss';
+import '../ComponentsCSS/ColorSvg.scss';
 
 const SearchBarSvg = () => (
 
@@ -8,6 +8,10 @@ const SearchBarSvg = () => (
     y="0px"
     viewBox="0 0 370.8 78.3"
     xmlSpace="preserve"
+    style={{
+      position: 'absolute',
+      top: '2vh',
+    }}
   >
     <g>
       <defs>

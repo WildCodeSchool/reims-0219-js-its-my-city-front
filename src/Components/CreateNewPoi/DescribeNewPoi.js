@@ -4,7 +4,6 @@ import { Field, reduxForm } from 'redux-form';
 import DescribeNewPoiFields from './DescribeNewPoiFields';
 import validate from './validate';
 import PreviousPageButton from './PreviousPageButton';
-import NextPageButton from './NextPageButton';
 
 let DescribeNewPoi = () => (
   <form className="formContainer">
@@ -16,7 +15,6 @@ let DescribeNewPoi = () => (
     />
     <div>
       <PreviousPageButton />
-      <NextPageButton />
     </div>
   </form>
 );

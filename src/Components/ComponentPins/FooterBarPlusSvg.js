@@ -8,6 +8,10 @@ const FooterBarPlusSvg = ({ dispatch }) => (
     y="0px"
     viewBox="0 0 370.8 78.3"
     xmlSpace="preserve"
+    style={{
+      position: 'absolute',
+      bottom: '-5vh',
+    }}
   >
     <g>
       <g>

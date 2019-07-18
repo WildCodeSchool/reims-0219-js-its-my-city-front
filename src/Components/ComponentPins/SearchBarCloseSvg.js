@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../ComponentsCSS/SearchBarCloseSvg.scss';
+import '../ComponentsCSS/ColorSvg.scss';
 
 
 const SearchBarCloseSvg = ({ dispatch }) => (
@@ -10,6 +10,10 @@ const SearchBarCloseSvg = ({ dispatch }) => (
     y="0px"
     viewBox="0 0 370.8 78.3"
     xmlSpace="preserve"
+    style={{
+      position: 'absolute',
+      top: '2vh',
+    }}
   >
 
     <g>
@@ -579,7 +583,7 @@ const SearchBarCloseSvg = ({ dispatch }) => (
       c-1.3-1.3-2.7-2.7-4-4C311.2,48.1,311,47.9,310.7,47.7z"
       />
     </g>
-    <rect x="280" y="20" style={{ fill: 'transparent' }} width="60" height="55" onClick={() => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: '', filteredPoiByKeyword: []  })} />
+    <rect x="280" y="20" style={{ fill: 'transparent' }} width="60" height="55" onClick={() => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: '', filteredPoiByKeyword: [] })} />
   </svg>
 
 );

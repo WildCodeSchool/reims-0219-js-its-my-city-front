@@ -9,6 +9,10 @@ const PageBottomNextSvg = ({ dispatch }) => (
     y="0px"
     viewBox="0 0 370.8 73.5"
     xmlSpace="preserve"
+    style={{
+      position: 'absolute',
+      top: '74vh',
+    }}
   >
     <path
       className="st1"
@@ -103,8 +107,7 @@ const PageBottomNextSvg = ({ dispatch }) => (
 
       </g>
     </g>
-    <rect x="155" y="15" style={{ fill: 'transparent' }} width="60" height="55" onClick={() => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: '', filteredPoiByKeyword: [] })} />
+    <rect x="155" y="15" style={{ fill: 'transparent' }} width="60" height="55" onClick={() => dispatch({ type: 'NEXT_PAGE' })} />
   </svg>
 );
-
 export default connect()(PageBottomNextSvg);

@@ -9,6 +9,12 @@ const TopPageSvg = ({ dispatch }) => (
     y="0px"
     viewBox="0 0 370.8 55.5"
     xmlSpace="preserve"
+    style={{
+      position: 'absolute',
+      top: '-12vh',
+      marginLeft: '1.4px',
+      marginRight: '-1px',
+    }}
   >
 
     <g>

@@ -5,7 +5,6 @@ import PickCategoryFields from './PickCategoryFields';
 import validate from './validate';
 import '../ComponentsCSS/createPoiForm.scss';
 import PreviousPageButton from './PreviousPageButton';
-import NextPageButton from './NextPageButton';
 
 let PickCategory = () => (
   <form className="formContainer">
@@ -17,7 +16,6 @@ let PickCategory = () => (
     />
     <div>
       <PreviousPageButton />
-      <NextPageButton />
     </div>
   </form>
 );
