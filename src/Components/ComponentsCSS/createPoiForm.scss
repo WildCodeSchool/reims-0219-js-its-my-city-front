@@ -95,9 +95,12 @@ legend{
     text-align: center;
     color: grey;
     grid-column: 1/4;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .categoryContainer > input {
+    grid-column: 1/4;
     margin-left: 3px;
     margin-bottom: 2.5vh;
     width: 89%;
@@ -240,6 +243,7 @@ legend{
   }
 
   .categoryContainer{
+    text-align: center;
     color: grey;
     display: grid;
     justify-items: center;
