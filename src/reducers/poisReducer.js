@@ -1,35 +1,33 @@
 const initialState = {
-  zoom: 16,
-  geolocCoordonnees: [],
-  defaultCoordonnees: [49.260096, 4.030293],
-  customCoordonnes: [0, 0],
-  poiSampleDisplay: [],
-  specificPoiInfos: [],
-  isCreateFormDisplayed: false,
-  filterKeywordPageDisplay: false,
-  InformationPoiInfos: false,
-  filteredPoiByKeyword: [],
-  poiKeywordsDisplay: [],
-  userInputSearchBar: '',
-  isFirstResearchDone: false,
-  secondKeyword: '',
-  name: '',
-  keywordTwo: '',
+  zoom: 16, // Map
+  geolocCoordonnees: [], // Map
+  defaultCoordonnees: [49.260096, 4.030293], // Map
+  customCoordonnes: [0, 0], // Map
+  poiSampleDisplay: [], // Map
+  specificPoiInfos: [], // Map
+  isCreateFormDisplayed: false, // Affichage
+  filterKeywordPageDisplay: false, // Affichage
+  InformationPoiInfos: false, // Affichage
+  filteredPoiByKeyword: [], // Searchbar
+  poiKeywordsDisplay: [], // Searchbar
+  userInputSearchBar: '', // Searchbar
+  isFirstResearchDone: false, // Affichage
+  secondKeyword: '', // Filter
   specificSecondKeywords: [],
-  formPage: 1,
-  file: [],
-  previewPic: '',
-  conditionRating: 1,
-  operationRating: 1,
-  accessibilityRating: 1,
-  newPoiCoordinates: [],
-  keywordOneChoosen: '',
-  canClickOnStars: true,
-  selectedCategoryKeywordTwoName: '',
-  areOthersRatingDisplayed: false,
-  barsAreDisplayed: true,
-  filterPage: 1,
-  isKeywordTwoChoosen: false,
+  formPage: 1, // Affichage
+  file: [], // Form
+  previewPic: '', // Form
+  conditionRating: 1, // Form
+  operationRating: 1, // Form
+  accessibilityRating: 1, // Form
+  newPoiCoordinates: [], // Form
+  keywordOneChoosen: '', // Filter
+  canClickOnStars: true, // Affichage
+  selectedCategoryKeywordTwoName: '', // Form
+  areOthersRatingDisplayed: false, // Affichage
+  barsAreDisplayed: true, // Affichage
+  filterPage: 1, // Filter
+  isKeywordTwoChoosen: false, // Affichage
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -98,17 +96,6 @@ const poisReducer = (state = initialState, action) => {
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         isFirstResearchDone: true,
       };
-    case 'HANDLE_FORM_NAME_CHANGE':
-      return {
-        ...state,
-        name: action.name,
-      };
-    case 'HANDLE_FORM_K2_CHANGE':
-      return {
-        ...state,
-        keywordTwo: action.keywordTwo,
-        keywordOneId: action.keywordOneId,
-      };
     case 'RATING_CONDITION_CHANGE':
       return {
         ...state,
@@ -123,12 +110,6 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         accessibilityRating: action.rating,
-      };
-    case 'INSERT_PICTURE':
-      return {
-        ...state,
-        file: action.file,
-        previewPic: action.previewPic,
       };
     case 'NEXT_PAGE':
       return {
