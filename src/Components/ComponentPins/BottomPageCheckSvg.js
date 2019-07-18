@@ -23,7 +23,7 @@ c18.8,0,34.1,15.3,34.1,34.1c0,4-1.3,10.9,8.4,12.2h125.1c6.2,0,11.3-5.1,11.3-11.3
       <clipPath id="SVGID_2_">
         <use xlinkHref="#SVGID_1_" style={{ overflow: 'visible' }} />
       </clipPath>
-      <g style={{ clipPath: 'url(#SVGID_2_)' }}>
+      <g style={{ clipPath: 'url(#DD476D)' }}>
 
         <image
           style={{ overflow: 'visible' }}
@@ -97,6 +97,7 @@ c0-14.7-11.9-26.5-26.7-26.5h-0.4C170,14.9,158,26.7,158,41.4z"
       <polyline className="st13" points="178.6,41.9 184,47.1 192.8,33.8" />
       <polyline className="st13" points="178.6,41.5 184,46.7 192.8,33.4" />
     </g>
+    <rect x="155" y="15" style={{ fill: 'transparent' }} width="60" height="55" />
   </svg>
 
 );

@@ -19,7 +19,7 @@ const TopPageSvg = ({ dispatch }) => (
         <clipPath id="SVGID_2_">
           <use xlinkHref="#SVGID_1_" style={{ overflow: 'visible' }} />
         </clipPath>
-        <g style={{ clipPath: 'url(#SVGID_2_)' }}>
+        <g style={{ clipPath: 'url(#FFFFFF)' }}>
 
           <image
             style={{ overflow: 'visible' }}
@@ -93,6 +93,7 @@ c1.2-1.3,2.5-2.6,3.7-3.9L319.2,21.4z"
         />
       </g>
     </g>
+    <rect x="300" y="0" style={{ fill: 'transparent' }} width="40" height="40" onClick={() => dispatch({ type: 'CLOSE_PAGE' })} />
   </svg>
 
 

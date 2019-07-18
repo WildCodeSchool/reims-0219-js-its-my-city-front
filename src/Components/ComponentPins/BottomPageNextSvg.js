@@ -103,10 +103,8 @@ const PageBottomNextSvg = ({ dispatch }) => (
 
       </g>
     </g>
-    <rect x="155" y="15" style={{ fill: 'transparent' }} width="60" height="55" onClick={() => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: '', filteredPoiByKeyword: []  })} />
+    <rect x="155" y="15" style={{ fill: 'transparent' }} width="60" height="55" onClick={() => dispatch({ type: 'HANDLE_SEARCHBAR_INPUT', userInputSearchBar: '', filteredPoiByKeyword: [] })} />
   </svg>
-
-
 );
 
 export default connect()(PageBottomNextSvg);

@@ -23,7 +23,7 @@ const PageBottomCloseSvg = ({ dispatch }) => (
       <clipPath id="SVGID_2_">
         <use xlinkHref="#SVGID_1_" style={{ overflow: 'visible' }} />
       </clipPath>
-      <g style={{ clipPath: 'url(#SVGID_2_)' }}>
+      <g style={{ clipPath: 'url(#DD476D)' }}>
 
         <image
           style={{ overflow: 'visible' }}
@@ -106,6 +106,7 @@ c0.8-0.8,1.3-0.9,1.9-0.4s0.5,1.2-0.3,2c-1.5,1.5-3,3-4.6,4.6c0.2,0.2,0.4,0.4,0.6,
 c0.6,0.6,0.7,1.3,0.2,1.8c-0.5,0.5-1.2,0.5-1.8-0.1c-1.3-1.3-2.7-2.7-4-4C185.9,43.7,185.7,43.5,185.4,43.2z"
       />
     </g>
+    <rect x="155" y="15" style={{ fill: 'transparent' }} width="60" height="55" onClick={() => dispatch({ type: 'CLOSE_PAGE' })} />
   </svg>
 
 
