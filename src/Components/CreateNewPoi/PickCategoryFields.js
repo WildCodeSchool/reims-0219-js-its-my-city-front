@@ -12,7 +12,6 @@ const PickCategoryFiedls = ({
   label,
   meta: { touched, error },
   poiKeywordsDisplay,
-  dispatch,
 }) => (
   <div className="categoryContainer">
     <span>{label}</span>
@@ -21,7 +20,7 @@ const PickCategoryFiedls = ({
       style={{
         width: '66vw',
         height: '13vh',
-        fontSize: '1.15rem',
+        fontSize: '1rem',
       }}
       {...input}
     >
@@ -34,11 +33,6 @@ const PickCategoryFiedls = ({
             key={keyword.name}
             id={keyword.name}
             value={keyword.id}
-            onClick={() => dispatch({
-              type: 'SAVE_KEYWORD_NAME',
-              selectedCategoryKeywordTwoName: keyword.name,
-            })}
-            required
           >
             {(keyword.name)}
           </option>
