@@ -194,6 +194,8 @@ const poisReducer = (state = initialState, action) => {
         filteredPoiByKeyword: action.filteredPoiByKeyword,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         barsAreDisplayed: !state.barsAreDisplayed,
+        userInputSearchBar: action.userInputSearchBar,
+        isFirstResearchDone: true,
       };
     case 'SHOW_SECOND_IMPORTANCE_KEYWORDS':
       return {

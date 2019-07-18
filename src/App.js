@@ -74,8 +74,9 @@ class App extends Component {
             <div>
               {barsAreDisplayed && <SearchBar />}
               { isFirstResearchDone
-        && !filteredPoiByKeyword.length
-        && <Alert /> }
+              && !filteredPoiByKeyword.length
+              && <Alert />
+              }
 
               <AppMap />
               {Object.keys(specificPoiInfos).length && <PoiInformation />}
