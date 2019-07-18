@@ -25,6 +25,7 @@ let RateNewPoi = ({
 }) => (
   <form className="formContainer">
     <p className="step">Etape 5/5</p>
+
     <div>
       <Field
         name="ratingPoi"
@@ -50,7 +51,7 @@ let RateNewPoi = ({
           }}
           type="submit"
         >
-        Soumettre la création de votre point d'intérets.
+            Soumettre la création de votre point d'intérets.
         </button>
         <PreviousPageButton />
       </div>
@@ -66,7 +67,7 @@ RateNewPoi = connect(
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
-  destroyOnUnmount: true, //        <------ preserve form data
+  destroyOnUnmount: false, //        <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate,
 })(RateNewPoi);
