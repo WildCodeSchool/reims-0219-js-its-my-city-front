@@ -161,15 +161,18 @@ legend{
 .step{
     color: #D12F5B;
     text-align: center;
+    margin-top: 0vh;
 }
   .placePoiContainer{
     background-color: white;
-    margin: 0vh 2.6vw;
-    height: 12vh;
+    color: grey;
+    margin: -0vh 2.6vw;
+    height: 18vh;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
   }
 
 
