@@ -67,7 +67,9 @@ select{
 }
 .picturePage{
     display: grid;
-    gap: 7vh;
+    grid-template-columns: 34px 1fr;
+    grid-template-rows: 100px 36px 100px;
+    grid-gap: 5vh;
 }
 .UploadPictureButton{
     place-self: center;
@@ -91,6 +93,7 @@ legend{
 .textPage{
     margin-top: -5vh;
     text-align: center;
+    grid-column: 1/4;
 }
 
 .categoryContainer > input {
@@ -136,15 +139,10 @@ legend{
     flex-direction: column;
   }
 
-  .buttonForm{
-    border: 1px solid #D12F5B;
+  .buttonForm{border: 1px solid #D12F5B;
     color: #D12F5B;
     background: white;
     border-radius: 8px;
-    width: 56vw;
-    bottom: 4vh;
-    left: 15vw;
-    font-size: 1.35rem;
   }
 
   .buttonFormNext{
@@ -161,7 +159,7 @@ legend{
 .step{
     color: #D12F5B;
     text-align: center;
-    margin-top: 0vh;
+    margin-right: 42px;
 }
   .placePoiContainer{
     background-color: white;
