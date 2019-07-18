@@ -10,7 +10,10 @@
     font-weight: bold;
     font-size: 3vh;
 }
-
+.gradeContainer{
+  margin-left: 1vw;
+  margin-top: 0vh;
+}
 @mixin stars-position{
     display: inline-flex;
     justify-content: space-around;
@@ -54,7 +57,9 @@ label{
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
 }
-
+.gradeContainer {
+  margin-left: 1rem;
+}
 select{
     margin-left: 3px;
     margin-top: 2.5vh;
@@ -99,6 +104,15 @@ legend{
     padding-right: 1rem;
 }
 
+.textPageGrade{
+  margin-top: 3vh;
+  text-align: center;
+  color: grey;
+  grid-column: 1/4;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .categoryContainer > input {
     grid-column: 1/4;
     margin-left: 3px;
@@ -130,6 +144,15 @@ legend{
     margin-top: 2.5vh;
     background-color: none;
     outline: none;
+  }
+  .submitButton{
+    border: 1px solid #D12F5B;
+    color: white;
+    background: #D12F5B;
+    border-radius: 4px;
+    margin-top: 7vh;
+    margin-left: 5rem;
+    height: 4vh;
   }
 
   @media screen and (min-width: 300px) and (max-width:329px){  
@@ -180,7 +203,8 @@ legend{
       flex-direction: column;
     }
   }
-  .buttonForm{border: 1px solid #D12F5B;
+  .buttonForm{
+    border: 1px solid #D12F5B;
     color: #D12F5B;
     background: white;
     border-radius: 8px;

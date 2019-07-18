@@ -24,39 +24,39 @@ let RateNewPoi = ({
   dispatch,
 }) => (
   <form className="formContainer">
+    <PreviousPageButton />
     <p className="step">Etape 5/5</p>
-    <div>
-      <Field
-        name="ratingPoi"
-        component={RateNewPoiFields}
-      />
-      <div>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
-              name: createPoiFormInfos.poiCreation.values.poiDesc,
-              latitude: customCoordonnes[0],
-              longitude: customCoordonnes[1],
-              keyword: createPoiFormInfos.poiCreation.values.categoryKeyword,
-              author_id: 1,
-              global_grade: 4,
-              accessibility: accessibilityRating,
-              condition: conditionRating,
-              functional: operationRating,
-            })
-              .then(res => dispatch({ type: 'SAVE_NEW_POI_COORDINATES', filteredPoiByKeyword: res.data, newPoiCoordinates: res.data[0].localisation }));
-          }}
-          type="submit"
-        >
-        Soumettre la création de votre point d'intérets.
-        </button>
-        <PreviousPageButton />
-      </div>
+    <div className="textPageGrade">
+      Veuillez noter le point d'interet et soumettre votre création.
     </div>
-
-
+    <Field
+      name="ratingPoi"
+      component={RateNewPoiFields}
+    />
+    <div>
+      <button
+        className="submitButton"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
+            name: createPoiFormInfos.poiCreation.values.poiDesc,
+            latitude: customCoordonnes[0],
+            longitude: customCoordonnes[1],
+            keyword: createPoiFormInfos.poiCreation.values.categoryKeyword,
+            author_id: 1,
+            global_grade: 4,
+            accessibility: accessibilityRating,
+            condition: conditionRating,
+            functional: operationRating,
+          })
+            .then(res => dispatch({ type: 'SAVE_NEW_POI_COORDINATES', filteredPoiByKeyword: res.data, newPoiCoordinates: res.data[0].localisation }));
+        }}
+        type="submit"
+      >
+        Créer votre point d'intérets.
+      </button>
+    </div>
   </form>
 );
 
