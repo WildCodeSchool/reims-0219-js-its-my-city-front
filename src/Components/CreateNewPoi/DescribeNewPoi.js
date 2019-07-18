@@ -8,6 +8,7 @@ import NextPageButton from './NextPageButton';
 
 let DescribeNewPoi = () => (
   <form className="formContainer">
+    <PreviousPageButton />
     <p className="step">Etape 4/5</p>
     <Field
       name="poiDesc"
@@ -15,7 +16,6 @@ let DescribeNewPoi = () => (
       label="Indiquez un nom ou une courte description..."
     />
     <div>
-      <PreviousPageButton />
       <NextPageButton />
     </div>
   </form>
