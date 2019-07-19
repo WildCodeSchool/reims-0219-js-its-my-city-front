@@ -65,8 +65,8 @@ const AppMap = ({
       <LeafletConsumer>
         {(context) => {
           L.easyButton('<img src="https://image.flaticon.com/icons/png/512/104/104419.png">', (btn, map) => {
-            const antarctica = geolocCoordonnees;
-            map.setView(antarctica);
+            const currentPosition = geolocCoordonnees;
+            map.setView(currentPosition);
           }).addTo(context.map);
         }}
       </LeafletConsumer>
