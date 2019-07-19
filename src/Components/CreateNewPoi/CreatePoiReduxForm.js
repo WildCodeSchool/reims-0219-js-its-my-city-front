@@ -12,8 +12,8 @@ import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
 import BottomPageCloseSvg from '../ComponentPins/BottomPageCloseSvg';
 
 const mapStateToProps = state => ({
-  customCoordonnes: state.pois.customCoordonnes,
-  page: state.pois.formPage,
+  page: state.display.formPage,
+  customCoordonnes: state.map.customCoordonnes,
 });
 
 const CreatePoiForm = ({ page, customCoordonnes }) => (

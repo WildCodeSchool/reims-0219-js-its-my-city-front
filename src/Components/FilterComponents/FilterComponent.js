@@ -7,8 +7,8 @@ import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
 import BottomPageCloseSvg from '../ComponentPins/BottomPageCloseSvg';
 
 const mapStateToProps = state => ({
-  page: state.pois.filterPage,
-  isKeywordTwoChoosen: state.pois.isKeywordTwoChoosen,
+  page: state.display.filterPage,
+  isKeywordTwoChoosen: state.display.isKeywordTwoChoosen,
 });
 
 const FilterComponent = ({ page, isKeywordTwoChoosen }) => (

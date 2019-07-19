@@ -7,14 +7,13 @@ import selectedKeyword from '../../Functions/selectedKeyword';
 import newPoiSubmit from '../../Functions/newPoiSubmit';
 
 const mapStateToProps = state => ({
-  geolocCoordonnees: state.pois.geolocCoordonnees,
   createPoiFormInfos: state.form,
-  conditionRating: state.pois.conditionRating,
-  accessibilityRating: state.pois.accessibilityRating,
-  operationRating: state.pois.operationRating,
-  customCoordonnes: state.pois.customCoordonnes,
-  secondKeyword: state.pois.secondKeyword,
-  isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
+  geolocCoordonnees: state.map.geolocCoordonnees,
+  customCoordonnes: state.map.customCoordonnes,
+  conditionRating: state.dataForm.conditionRating,
+  accessibilityRating: state.dataForm.accessibilityRating,
+  operationRating: state.dataForm.operationRating,
+  isCreateFormDisplayed: state.display.isCreateFormDisplayed,
 });
 
 const PageBottomCheckSvg = ({
