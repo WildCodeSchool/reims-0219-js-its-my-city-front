@@ -30,6 +30,7 @@ const initialState = {
   barsAreDisplayed: true,
   filterPage: 1,
   isKeywordTwoChoosen: false,
+  isUserPageDisplayed: false,
 };
 
 const poisReducer = (state = initialState, action) => {
@@ -186,6 +187,12 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filterKeywordPageDisplay: !action.filterKeywordPageDisplay,
+        barsAreDisplayed: !state.barsAreDisplayed,
+      };
+    case 'DISPLAY_USER_PAGE':
+      return {
+        ...state,
+        isUserPageDisplayed: !action.isUserPageDisplayed,
         barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'HANDLE_KEYWORD_FILTERING':
