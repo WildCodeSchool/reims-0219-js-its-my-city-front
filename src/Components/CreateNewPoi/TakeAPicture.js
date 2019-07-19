@@ -38,9 +38,9 @@ let TakeAPicture = ({
       <div>
         <PreviousPageButton />
       </div>
-      <p className="step">Etape 2/5</p>
+      <p className="pictureStep">Etape 2/5</p>
       <div className="textPage">
-      Afin d'embellir votre expérience, veuillez fournir une photo.
+      Veuillez fournir une photo en cliquant sur le logo ci-dessous.
       </div>
       <div style={{ gridColumn: '2/4' }}>
         <form
@@ -56,8 +56,7 @@ let TakeAPicture = ({
               onChange={e => dispatch({ type: 'INSERT_PICTURE', file: storeNewPictureData(e), previewPic: URL.createObjectURL(e.target.files[0]) })}
               required
             />
-            {previewPic !== '' && <img src={previewPic} alt="preview" />}
-            {previewPic === '' && <Picture />}
+            {previewPic === '' ? <Picture /> : <img src={previewPic} alt="preview" />}
           </div>
           <button
             type="submit"

@@ -10,7 +10,10 @@
     font-weight: bold;
     font-size: 3vh;
 }
-
+.gradeContainer{
+  margin-left: 1vw;
+  margin-top: 0vh;
+}
 @mixin stars-position{
     display: inline-flex;
     justify-content: space-around;
@@ -54,7 +57,9 @@ label{
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
 }
-
+.gradeContainer {
+  margin-left: 1rem;
+}
 select{
     margin-left: 3px;
     margin-top: 2.5vh;
@@ -93,10 +98,23 @@ legend{
 .textPage{
     margin-top: -5vh;
     text-align: center;
+    color: grey;
     grid-column: 1/4;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.textPageGrade{
+  margin-top: 3vh;
+  text-align: center;
+  color: grey;
+  grid-column: 1/4;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .categoryContainer > input {
+    grid-column: 1/4;
     margin-left: 3px;
     margin-bottom: 2.5vh;
     width: 89%;
@@ -127,19 +145,17 @@ legend{
     background-color: none;
     outline: none;
   }
-  
-  .formContainer{
-    background-color: white;
-    position: absolute;
-    z-index: 10;
-    height: 75vh;
-    width: 89.5vw;
-    margin: 0px 0px 0 9px;
-    display: flex;
-    flex-direction: column;
+  .submitButton{
+    border: 1px solid #D12F5B;
+    color: white;
+    background: #D12F5B;
+    border-radius: 4px;
+    margin-top: 7vh;
+    margin-left: 5rem;
+    height: 4vh;
   }
-
-  .buttonForm{border: 1px solid #D12F5B;
+  .buttonForm{
+    border: 1px solid #D12F5B;
     color: #D12F5B;
     background: white;
     border-radius: 8px;
@@ -159,6 +175,11 @@ legend{
 .step{
     color: #D12F5B;
     text-align: center;
+    margin-top: -1vh;
+}
+.pictureStep{
+    color: #D12F5B;
+    text-align: center; 
     margin-right: 42px;
 }
   .placePoiContainer{
@@ -172,7 +193,6 @@ legend{
     justify-content: center;
     border-radius: 0rem 0rem 1rem 1rem;
   }
-
 
   .pictureUploadWrapper{
     position: relative;
@@ -198,8 +218,59 @@ legend{
   }
 
   .categoryContainer{
+    text-align: center;
+    color: grey;
     display: grid;
     justify-items: center;
     height: 49vh;
     align-items: center;
+}
+// Media-queries for each devices
+@media screen and (min-width: 300px) and (max-width:329px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 88.9vw;
+    margin: 0px 0px 0 8px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 330px) and (max-width:366px){  
+.formContainer{
+  background-color: white;
+  position: absolute;
+  z-index: 10;
+  height: 75vh;
+  width: 89.5vw;
+  margin: 0px 0px 0 9px;
+  display: flex;
+  flex-direction: column;
+}
+}
+@media screen and (min-width: 366px) and (max-width:375px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 89.8vw;
+    margin: 0px 0px 0 9px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 375px) and (max-width:414px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 90.2vw;
+    margin: 0px 0px 0 10px;
+    display: flex;
+    flex-direction: column;
+  }
 }

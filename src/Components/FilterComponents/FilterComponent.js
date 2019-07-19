@@ -4,6 +4,7 @@ import SelectFirstImportancePoi from './SelectFirstImportancePoi';
 import SelectSecondImportancePoi from './SelectSecondImportancePoi';
 import TopPageSvg from '../ComponentPins/TopPageSvg';
 import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
+import BottomPageCloseSvg from '../ComponentPins/BottomPageCloseSvg';
 
 const mapStateToProps = state => ({
   page: state.pois.filterPage,
@@ -14,7 +15,7 @@ const FilterComponent = ({ page }) => (
     <TopPageSvg />
     {page === 1 && <SelectFirstImportancePoi />}
     {page === 2 && <SelectSecondImportancePoi />}
-    <BottomPageCheckSvg />
+    {page === 1 ? <BottomPageCloseSvg /> : <BottomPageCheckSvg />}
   </div>
 );
 
