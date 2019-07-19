@@ -16,14 +16,6 @@ let RateNewPoi = () => (
       name="ratingPoi"
       component={RateNewPoiFields}
     />
-    <div>
-      <button
-        className="submitButton"
-        type="submit"
-      >
-        Créer votre point d'intérets.
-      </button>
-    </div>
   </form>
 );
 
