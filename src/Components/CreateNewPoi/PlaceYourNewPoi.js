@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/createPoiForm.scss';
 import BottomPageNextSvg from '../ComponentPins/BottomPageNextSvg';
-import BottomPageCloseSvg from '../ComponentPins/BottomPageCloseSvg';
 
 
 const mapStateToProps = state => ({
@@ -14,7 +13,7 @@ const PlaceYourNewPoi = ({ customCoordonnes }) => (
     <p className="step">Etape 1/5</p>
     <span>Veuillez placer votre nouveau point d'intéret.</span>
     {customCoordonnes[0] !== 0 && customCoordonnes[1] !== 0
-      ? <BottomPageNextSvg /> : <BottomPageCloseSvg /> }
+      && <BottomPageNextSvg />}
   </div>
 );
 

@@ -7,11 +7,12 @@ import PreviousPageButton from './PreviousPageButton';
 
 let DescribeNewPoi = () => (
   <form className="formContainer">
+    <PreviousPageButton />
     <p className="step">Etape 4/5</p>
     <Field
       name="poiDesc"
       component={DescribeNewPoiFields}
-      label="Indiquez un nom ou une courte description..."
+      label="Pour plus de précision, indiquez un nom ou une courte description..."
     />
     <div>
       <PreviousPageButton />

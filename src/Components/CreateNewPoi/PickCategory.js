@@ -8,11 +8,12 @@ import PreviousPageButton from './PreviousPageButton';
 
 let PickCategory = () => (
   <form className="formContainer">
+    <PreviousPageButton />
     <p className="step">Etape 3/5</p>
     <Field
       name="categoryKeyword"
       component={PickCategoryFields}
-      label="Sélectionnez une catégorie..."
+      label="Sélectionnez une catégorie pour pouvoir retrouver votre point d'intéret..."
     />
     <div>
       <PreviousPageButton />

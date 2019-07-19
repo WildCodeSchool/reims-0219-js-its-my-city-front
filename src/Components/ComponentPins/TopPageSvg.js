@@ -11,7 +11,7 @@ const TopPageSvg = ({ dispatch }) => (
     xmlSpace="preserve"
     style={{
       position: 'absolute',
-      top: '-12vh',
+      top: '-9vh',
       marginLeft: '1.4px',
       marginRight: '-1px',
     }}

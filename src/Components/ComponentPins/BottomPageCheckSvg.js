@@ -1,8 +1,25 @@
 import React from 'react';
 import '../ComponentsCSS/ColorSvg.scss';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
-const PageBottomCheckSvg = ({ dispatch }) => (
+const mapStateToProps = state => ({
+  geolocCoordonnees: state.pois.geolocCoordonnees,
+  createPoiFormInfos: state.form,
+  conditionRating: state.pois.conditionRating,
+  accessibilityRating: state.pois.accessibilityRating,
+  operationRating: state.pois.operationRating,
+  customCoordonnes: state.pois.customCoordonnes,
+});
+
+const PageBottomCheckSvg = ({
+  createPoiFormInfos,
+  customCoordonnes,
+  accessibilityRating,
+  conditionRating,
+  operationRating,
+  dispatch,
+}) => (
 
   <svg
     x="0px"
@@ -87,10 +104,7 @@ bAnsfwIMAPe5M/smlTfPAAAAAElFTkSuQmCC"
         />
       </g>
     </g>
-    <g onClick={() => dispatch({
-      type: 'NEXT_PAGE',
-    })}
-    >
+    <g>
       <path
         className="st9"
         d="M158,41.4L158,41.4c0,14.7,11.9,26.5,26.7,26.5h0.4c14.8,0,26.7-11.8,26.7-26.5l0,0
@@ -101,9 +115,31 @@ c0-14.7-11.9-26.5-26.7-26.5h-0.4C170,14.9,158,26.7,158,41.4z"
       <polyline className="st13" points="178.6,41.9 184,47.1 192.8,33.8" />
       <polyline className="st13" points="178.6,41.5 184,46.7 192.8,33.4" />
     </g>
-    <rect x="155" y="15" style={{ fill: 'transparent' }} width="60" height="55" />
+    <rect
+      x="155"
+      y="15"
+      style={{ fill: 'transparent' }}
+      width="60"
+      height="55"
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
+          name: createPoiFormInfos.poiCreation.values.poiDesc,
+          latitude: customCoordonnes[0],
+          longitude: customCoordonnes[1],
+          keyword: createPoiFormInfos.poiCreation.values.categoryKeyword,
+          author_id: 1,
+          global_grade: 4,
+          accessibility: accessibilityRating,
+          condition: conditionRating,
+          functional: operationRating,
+        })
+          .then(res => dispatch({ type: 'SAVE_NEW_POI_COORDINATES', filteredPoiByKeyword: res.data, newPoiCoordinates: res.data[0].localisation }));
+      }}
+    />
   </svg>
 
 );
 
-export default connect()(PageBottomCheckSvg);
+export default connect(mapStateToProps)(PageBottomCheckSvg);
