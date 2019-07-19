@@ -8,14 +8,15 @@ import BottomPageCloseSvg from '../ComponentPins/BottomPageCloseSvg';
 
 const mapStateToProps = state => ({
   page: state.pois.filterPage,
+  isKeywordTwoChoosen: state.pois.isKeywordTwoChoosen,
 });
 
-const FilterComponent = ({ page }) => (
+const FilterComponent = ({ page, isKeywordTwoChoosen }) => (
   <div className="poi-create">
     <TopPageSvg />
     {page === 1 && <SelectFirstImportancePoi />}
     {page === 2 && <SelectSecondImportancePoi />}
-    {page === 1 ? <BottomPageCloseSvg /> : <BottomPageCheckSvg />}
+    {page === 1 || isKeywordTwoChoosen === false ? <BottomPageCloseSvg /> : <BottomPageCheckSvg />}
   </div>
 );
 

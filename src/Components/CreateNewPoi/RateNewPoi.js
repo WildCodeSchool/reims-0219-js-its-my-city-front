@@ -19,7 +19,6 @@ let RateNewPoi = () => (
     <div>
       <button
         className="submitButton"
-        
         type="submit"
       >
         Créer votre point d'intérets.
