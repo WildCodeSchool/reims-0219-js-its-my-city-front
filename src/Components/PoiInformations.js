@@ -9,8 +9,8 @@ import PoiRating from './CreateNewPoi/PoiRating';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.pois.specificPoiInfos,
-  InformationPoiInfos: state.pois.InformationPoiInfos,
-  geolocCoordonnees: state.pois.geolocCoordonnees,
+  InformationPoiInfos: state.display.InformationPoiInfos,
+  geolocCoordonnees: state.map.geolocCoordonnees,
   areOthersRatingDisplayed: state.display.areOthersRatingDisplayed,
 });
 

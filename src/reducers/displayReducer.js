@@ -120,6 +120,11 @@ const dataFormReducer = (state = initialState, action) => {
         ...state,
         isKeywordTwoChoosen: !action.isKeywordTwoChoosen,
       };
+    case 'TRANSITION_POI_INFOS':
+      return {
+        ...state,
+        InformationPoiInfos: !state.InformationPoiInfos,
+      };
     default:
       return state;
   }

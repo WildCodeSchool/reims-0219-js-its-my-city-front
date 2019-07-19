@@ -4,7 +4,7 @@ import NextPageButton from './NextPageButton';
 import '../ComponentsCSS/createPoiForm.scss';
 
 const mapStateToProps = state => ({
-  customCoordonnes: state.pois.customCoordonnes,
+  customCoordonnes: state.map.customCoordonnes,
 });
 
 const PlaceYourNewPoi = ({ customCoordonnes }) => (

@@ -9,11 +9,6 @@ const initialState = {
 
 const keywordsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'TRANSITION_POI_INFOS':
-      return {
-        ...state,
-        InformationPoiInfos: !state.InformationPoiInfos,
-      };
     case 'HANDLE_SEARCHBAR_INPUT':
       if (action.filteredPoiByKeyword) {
         return {

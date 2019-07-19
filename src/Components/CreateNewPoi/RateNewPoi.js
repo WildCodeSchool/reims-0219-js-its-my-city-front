@@ -7,12 +7,12 @@ import RateNewPoiFields from './RateNewPoiFields';
 import PreviousPageButton from './PreviousPageButton';
 
 const mapStateToProps = state => ({
-  geolocCoordonnees: state.pois.geolocCoordonnees,
   createPoiFormInfos: state.form,
+  geolocCoordonnees: state.map.geolocCoordonnees,
+  customCoordonnes: state.map.customCoordonnes,
   conditionRating: state.dataForm.conditionRating,
   accessibilityRating: state.dataForm.accessibilityRating,
   operationRating: state.dataForm.operationRating,
-  customCoordonnes: state.pois.customCoordonnes,
 });
 
 let RateNewPoi = ({
