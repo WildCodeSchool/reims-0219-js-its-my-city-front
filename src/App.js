@@ -61,7 +61,7 @@ class App extends Component {
     } = this.props;
     return (
       <div>
-        {/* {!poiSampleDisplay.length ? (
+        {!poiSampleDisplay.length ? (
           <div className="loadingPage">
             <p>Attention mesdames et messieurs,</p>
             <p>dans un instant,</p>
@@ -69,7 +69,7 @@ class App extends Component {
             <div className="loader" />
           </div>
         )
-          : ( */}
+          : (
 
             <div>
               {barsAreDisplayed && <SearchBar />}
@@ -83,7 +83,7 @@ class App extends Component {
               {isCreateFormDisplayed && <CreatePoiForm />}
               {filterKeywordPageDisplay && <FilterComponent />}
             </div>
-          {/* )} */}
+          )}
       </div>
     );
   }

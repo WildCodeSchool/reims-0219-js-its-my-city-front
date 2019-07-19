@@ -9,12 +9,14 @@ import '../ComponentsCSS/createPoiForm.scss';
 import TopPageSvg from '../ComponentPins/TopPageSvg';
 import BottomPageNextSvg from '../ComponentPins/BottomPageNextSvg';
 import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
+import BottomPageCloseSvg from '../ComponentPins/BottomPageCloseSvg';
 
 const mapStateToProps = state => ({
+  customCoordonnes: state.pois.customCoordonnes,
   page: state.pois.formPage,
 });
 
-const CreatePoiForm = ({ page }) => (
+const CreatePoiForm = ({ page, customCoordonnes }) => (
   <div className="poi-create">
     <TopPageSvg />
     {page === 1 && <PlaceYourNewPoi />}
@@ -22,7 +24,8 @@ const CreatePoiForm = ({ page }) => (
     {page === 3 && <PickCategory />}
     {page === 4 && <DescribeNewPoi />}
     {page === 5 && <RateNewPoi />}
-    {page === 5 ? <BottomPageCheckSvg /> : <BottomPageNextSvg />}
+    {page === 5 ? <BottomPageCheckSvg /> : (customCoordonnes[0] !== 0 && customCoordonnes[1] !== 0
+      && <BottomPageNextSvg />) || (customCoordonnes[0] === 0 && customCoordonnes[1] === 0 && <BottomPageCloseSvg />) }
   </div>
 );
 
