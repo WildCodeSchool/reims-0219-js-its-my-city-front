@@ -677,6 +677,7 @@ const FooterBarPlusSvg = ({ dispatch }) => (
       <rect x="59.8" y="32.2" style={{ fill: 'transparent' }} width="32.9" height="29.2" onClick={() => dispatch({ type: 'DISPLAY_FILTER_PAGE' })} />
     </g>
     <rect x="155" y="20" style={{ fill: 'transparent' }} width="60" height="50" onClick={() => dispatch({ type: 'TOGGLE_POI_CREATION_FORM' })} />
+    <rect x="277" y="28" style={{ fill: 'transparent' }} width="40" height="40" onClick={() => dispatch({ type: 'DISPLAY_USER_PAGE' })} />
   </svg>
 
 

@@ -1,0 +1,36 @@
+.UserPage {
+  max-height: 90vh;
+    position: relative;
+    z-index: 4;
+    margin-top: 10vh;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 3vh;
+}
+
+.buttonContainer{
+  display: grid;
+  grid-template-columns: 0px 160px 160px 0px;
+  grid-template-rows: 60px;
+  grid-column-gap: 0px;
+}
+
+.closeButton{
+  position: absolute;
+  right: 0px;
+  z-index: 5;
+}
+
+.buttonStyle{
+  width: 100%;
+  border-radius: 47px;
+  height: 60px;
+  background-color: white;
+  color: grey;
+  font-size: 18px;
+  font-weight: bold;
+  outline: none;
+  margin-bottom: 5px;
+}
