@@ -154,55 +154,6 @@ legend{
     margin-left: 5rem;
     height: 4vh;
   }
-
-  @media screen and (min-width: 300px) and (max-width:329px){  
-    .formContainer{
-      background-color: white;
-      position: absolute;
-      z-index: 10;
-      height: 75vh;
-      width: 88.9vw;
-      margin: 0px 0px 0 8px;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-@media screen and (min-width: 330px) and (max-width:366px){  
-  .formContainer{
-    background-color: white;
-    position: absolute;
-    z-index: 10;
-    height: 75vh;
-    width: 89.5vw;
-    margin: 0px 0px 0 9px;
-    display: flex;
-    flex-direction: column;
-  }
-}
-@media screen and (min-width: 366px) and (max-width:375px){  
-    .formContainer{
-      background-color: white;
-      position: absolute;
-      z-index: 10;
-      height: 75vh;
-      width: 89.8vw;
-      margin: 0px 0px 0 9px;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-@media screen and (min-width: 375px) and (max-width:414px){  
-    .formContainer{
-      background-color: white;
-      position: absolute;
-      z-index: 10;
-      height: 75vh;
-      width: 90.2vw;
-      margin: 0px 0px 0 10px;
-      display: flex;
-      flex-direction: column;
-    }
-  }
   .buttonForm{
     border: 1px solid #D12F5B;
     color: #D12F5B;
@@ -273,4 +224,53 @@ legend{
     justify-items: center;
     height: 49vh;
     align-items: center;
+}
+// Media-queries for each devices
+@media screen and (min-width: 300px) and (max-width:329px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 88.9vw;
+    margin: 0px 0px 0 8px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 330px) and (max-width:366px){  
+.formContainer{
+  background-color: white;
+  position: absolute;
+  z-index: 10;
+  height: 75vh;
+  width: 89.5vw;
+  margin: 0px 0px 0 9px;
+  display: flex;
+  flex-direction: column;
+}
+}
+@media screen and (min-width: 366px) and (max-width:375px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 89.8vw;
+    margin: 0px 0px 0 9px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 375px) and (max-width:414px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 90.2vw;
+    margin: 0px 0px 0 10px;
+    display: flex;
+    flex-direction: column;
+  }
 }

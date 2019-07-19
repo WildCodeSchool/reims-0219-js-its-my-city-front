@@ -4,7 +4,6 @@ import { Field, reduxForm } from 'redux-form';
 import DescribeNewPoiFields from './DescribeNewPoiFields';
 import InputFieldChecked from './validate';
 import PreviousPageButton from './PreviousPageButton';
-import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
@@ -26,9 +25,6 @@ class DescribeNewPoi extends Component {
           component={DescribeNewPoiFields}
           label="Pour plus de précision, indiquez un nom ou une courte description..."
         />
-        <div>
-          <NextPageButton />
-        </div>
       </form>
     );
   }
