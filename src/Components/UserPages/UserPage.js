@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TopPageSvg from '../ComponentPins/TopPageSvg'
+import TopPageSvg from '../ComponentPins/TopPageSvg';
+import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
+import Math from './math.png';
 import '../ComponentsCSS/UserPage.scss';
 
 const mapStateToProps = state => ({
@@ -19,6 +21,10 @@ const UserPage = ({ dispatch }) => (
     Précédent
     </button>
     <h3>My Profile</h3>
+    <div>
+      <img src={Math} alt="Userimage" />
+    </div>
+    <BottomPageCheckSvg />
   </div>
 )
 
