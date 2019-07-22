@@ -10,9 +10,12 @@ Facing this, Alexis asked us to develop a prototype for It's my city, an app tha
 Main principles of the app :
 - A map where the user is geolocated
 [](https://i.imgur.com/6PKHj31.jpg)
+
 - Facilities/resources grouped by main themes (Nature, Daily Life, Sport...) and keywords (square, monument, ping-pong table...) 
 
 - Facilities/resources appear on the map symbolized by coloured pins/markers, each colour linked to one of the 5 main themes. Related information must be available on click.
+[](https://i.imgur.com/Ao9uDyZ.jpg) 
+[](https://i.imgur.com/t2r7jMO.png)
 
 - User can find facilities/resources through a search bar and through a filter page
 
