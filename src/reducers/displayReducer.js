@@ -8,6 +8,7 @@ const initialState = {
   areOthersRatingDisplayed: false,
   barsAreDisplayed: true,
   isKeywordTwoChoosen: false,
+  isUserPageDisplayed: false,
   formPage: 1,
   filterPage: 1,
 };
@@ -81,6 +82,13 @@ const dataFormReducer = (state = initialState, action) => {
           barsAreDisplayed: !state.barsAreDisplayed,
         };
       }
+      if (state.isUserPageDisplayed) {
+        return {
+          ...state,
+          isUserPageDisplayed: state.isUserPageDisplayed === false,
+          barsAreDisplayed: !state.barsAreDisplayed,
+        };
+      }
       break;
     case 'SHOW_ALL_RATINGS':
       return {
@@ -134,6 +142,12 @@ const dataFormReducer = (state = initialState, action) => {
       return {
         ...state,
         isPageCompleted: true,
+      };
+    case 'DISPLAY_USER_PAGE':
+      return {
+        ...state,
+        isUserPageDisplayed: true,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     default:
       return state;
