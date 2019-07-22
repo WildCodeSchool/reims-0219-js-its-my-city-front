@@ -65,8 +65,8 @@ const AppMap = ({
       <LeafletConsumer>
         {(context) => {
           L.easyButton('<img src="https://www.zupimages.net/up/19/30/16fb.png">', (btn, map) => {
-            const antarctica = geolocCoordonnees;
-            map.setView(antarctica);
+            const coordinates = geolocCoordonnees;
+            map.setView(coordinates);
           }).addTo(context.map);
         }}
       </LeafletConsumer>
