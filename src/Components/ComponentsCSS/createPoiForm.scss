@@ -227,8 +227,6 @@ legend{
     margin: -8px 0px 0 7px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border-radius: 0rem 0rem 1rem 1rem;
 }
   .placePoiContainer{
     position: absolute;
@@ -320,16 +318,15 @@ legend{
 }
 //iphone 5/SE
 @media screen and (width: 320px) and (height: 568px){
-  .placePoiContainer{
+  .formContainer{
+    background-color: white;
     position: absolute;
     z-index: 10;
-    height: 75vh;
-    width: 94.2vw;
-    margin: 0px 0px 0 14px;
+    height: 76vh;
+    width: 91.2vw;
+    margin: -8px 0px 0 7px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    border-radius: 0rem 0rem 1rem 1rem;
   }
   .placePoiContainer{
     position: absolute;
