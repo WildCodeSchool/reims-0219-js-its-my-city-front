@@ -93,6 +93,7 @@ const dataFormReducer = (state = initialState, action) => {
         isFirstResearchDone: true,
         filterKeywordPageDisplay: !state.filterKeywordPageDisplay,
         barsAreDisplayed: !state.barsAreDisplayed,
+        filterPage: 1,
       };
     case 'CLOSE_POI_INFOS':
       if (state.InformationPoiInfos) {
