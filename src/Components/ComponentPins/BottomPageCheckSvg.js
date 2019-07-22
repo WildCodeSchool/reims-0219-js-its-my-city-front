@@ -14,6 +14,7 @@ const mapStateToProps = state => ({
   accessibilityRating: state.dataForm.accessibilityRating,
   operationRating: state.dataForm.operationRating,
   isCreateFormDisplayed: state.display.isCreateFormDisplayed,
+  secondKeyword: state.keywords.secondKeyword,
 });
 
 const PageBottomCheckSvg = ({

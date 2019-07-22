@@ -182,18 +182,6 @@ legend{
     text-align: center; 
     margin-right: 42px;
 }
-  .placePoiContainer{
-    background-color: white;
-    color: grey;
-    margin: -0vh 2.6vw;
-    height: 18vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 0rem 0rem 1rem 1rem;
-  }
-
   .pictureUploadWrapper{
     position: relative;
     overflow: hidden;
@@ -225,52 +213,95 @@ legend{
     height: 49vh;
     align-items: center;
 }
+
 // Media-queries for each devices
-@media screen and (min-width: 300px) and (max-width:329px){  
-  .formContainer{
-    background-color: white;
+//Galaxy S5
+@media screen and (width: 360px) and (height:640px){
+  .placePoiContainer{
     position: absolute;
-    z-index: 10;
-    height: 75vh;
-    width: 88.9vw;
-    margin: 0px 0px 0 8px;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.8vw 0vh 2vw;
+    height: 18vh;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+}
+}
+//Pixel 2
+@media screen and (width: 411px) and (height: 731px){
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.8vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+}
+}
+//Pixel 2 XL
+@media screen and (width: 411px) and (height: 823px){
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.8vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
   }
 }
-@media screen and (min-width: 330px) and (max-width:366px){  
-.formContainer{
-  background-color: white;
-  position: absolute;
-  z-index: 10;
-  height: 75vh;
-  width: 89.5vw;
-  margin: 0px 0px 0 9px;
-  display: flex;
-  flex-direction: column;
-}
-}
-@media screen and (min-width: 366px) and (max-width:375px){  
-  .formContainer{
-    background-color: white;
+//iphone 5/SE
+@media screen and (width: 320px) and (height: 568px){
+  .placePoiContainer{
     position: absolute;
-    z-index: 10;
-    height: 75vh;
-    width: 89.8vw;
-    margin: 0px 0px 0 9px;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
   }
 }
-@media screen and (min-width: 375px) and (max-width:414px){  
-  .formContainer{
-    background-color: white;
+//iphone 6/7/8
+@media screen and (width: 375px) and (height: 667px){
+  .placePoiContainer{
     position: absolute;
-    z-index: 10;
-    height: 75vh;
-    width: 90.2vw;
-    margin: 0px 0px 0 10px;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
+}
+//iphone 6/7/8 Plus
+@media screen and (width: 414px) and (height: 736px){
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
   }
 }

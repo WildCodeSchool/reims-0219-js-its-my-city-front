@@ -68,6 +68,8 @@ const dataFormReducer = (state = initialState, action) => {
           ...state,
           filterKeywordPageDisplay: state.filterKeywordPageDisplay === false,
           barsAreDisplayed: !state.barsAreDisplayed,
+          isKeywordTwoChoosen: '',
+          filterPage: 1,
         };
       }
       if (state.isCreateFormDisplayed) {
