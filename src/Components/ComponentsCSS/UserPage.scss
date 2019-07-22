@@ -27,6 +27,34 @@
 }
 }
 
+@media screen and (width: 375px) and (height: 812px){
+  .UserPage {
+    height: 75vh;
+    width: 43.2vh;
+    z-index: 4;
+    position: relative;
+    margin-top: 10vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    margin-bottom: 2vh;
+    font-weight: bold;
+    font-size: 3vh;
+  }
+  
+  .pageContent{
+    height: 78vh;
+    width: 85.5vw;
+    background: white;
+    margin-top: -3vh;
+    margin-left: 1vh;
+    margin-right: 2vh;
+    position: absolute;
+    z-index: 10;
+    padding-left: 1vh;
+    padding-right: 1vh;
+  }
+  }
+
 h3{
   color: $mainColor;
 }

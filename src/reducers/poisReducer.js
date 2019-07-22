@@ -192,7 +192,7 @@ const poisReducer = (state = initialState, action) => {
     case 'DISPLAY_USER_PAGE':
       return {
         ...state,
-        isUserPageDisplayed: !action.isUserPageDisplayed,
+        isUserPageDisplayed: true,
         barsAreDisplayed: !state.barsAreDisplayed,
       };
     case 'HANDLE_KEYWORD_FILTERING':
