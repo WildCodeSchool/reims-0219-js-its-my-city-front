@@ -11,21 +11,45 @@ const mapStateToProps = state => ({
 const UserPage = ({ dispatch }) => (
   <div className="UserPage">
     <TopPageSvg />
-    <button
-      onClick={() => dispatch({
-        type: 'PREVIOUS_PAGE',
-      })}
-      type="submit"
-      className="buttonForm"
-    >
-    Précédent
-    </button>
-    <h3>My Profile</h3>
-    <div>
-      <img src={Math} alt="Userimage" />
+    <div className="pageContent">
+      <h2 className="pageTitle">D4rkN!nj@ 51100</h2>
+
+      <div className="userPicture">
+        <img src={Math} alt="UserPicture" />
+      </div>
+
+      <div className="userInformations">
+        <div>
+          <h3>
+            Niveau:
+          </h3>
+          <p>
+            Maître de l'exploration
+          </p>
+          <h3>
+            Bio :
+          </h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+            Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
+            Cras elementum ultrices diam. Maecenas ligula massa, varius a, 
+            semper congue, euismod non, mi.
+          </p>
+        </div>
+
+        <div>
+          <h3>
+            Dernière contribution:
+          </h3>
+          <p>
+            Quartier Libre Reims - La Petite Halle
+          </p>
+        </div>
+      </div>
     </div>
+
     <BottomPageCheckSvg />
   </div>
-)
+);
 
 export default connect(mapStateToProps)(UserPage);

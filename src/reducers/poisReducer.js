@@ -224,6 +224,13 @@ const poisReducer = (state = initialState, action) => {
           barsAreDisplayed: !state.barsAreDisplayed,
         };
       }
+      if (state.isUserPageDisplayed) {
+        return {
+          ...state,
+          isUserPageDisplayed: state.isUserPageDisplayed === false,
+          barsAreDisplayed: !state.barsAreDisplayed,
+        };
+      }
       if (state.isCreateFormDisplayed) {
         return {
           ...state,
