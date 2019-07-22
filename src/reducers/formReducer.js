@@ -45,6 +45,11 @@ const dataFormReducer = (state = initialState, action) => {
         newPoiCoordinates: action.newPoiCoordinates,
         previewPic: '',
       };
+    case 'CLOSE_PAGE':
+      return {
+        ...state,
+        previewPic: '',
+      };
     default:
       return state;
   }

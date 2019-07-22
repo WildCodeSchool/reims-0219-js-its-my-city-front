@@ -80,6 +80,7 @@ const dataFormReducer = (state = initialState, action) => {
           ...state,
           isCreateFormDisplayed: state.isCreateFormDisplayed === false,
           barsAreDisplayed: !state.barsAreDisplayed,
+          formPage: 1,
         };
       }
       if (state.isUserPageDisplayed) {
