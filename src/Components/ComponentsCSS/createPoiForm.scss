@@ -122,6 +122,7 @@ legend{
     outline: none;
     border: none;
     border-bottom: 2px solid #DD476D;
+    grid-column: 1/4;
 }
 .submit-button{
     display: flex;
@@ -216,7 +217,19 @@ legend{
 
 // Media-queries for each devices
 //Galaxy S5
-@media screen and (width: 360px) and (height:640px){
+@media screen and (width: 360px) and (height:640px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 90.5vw;
+    margin: -8px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+}
   .placePoiContainer{
     position: absolute;
     background-color: white;
@@ -228,25 +241,45 @@ legend{
     flex-direction: column;
     justify-content: center;
     border-radius: 0rem 0rem 1rem 1rem;
-}
+  }
 }
 //Pixel 2
-@media screen and (width: 411px) and (height: 731px){
-  .placePoiContainer{
-    position: absolute;
-    background-color: white;
-    color: grey;
-    margin: -2vh 1.8vw 0vh 2.2vw;
-    height: 18vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 0rem 0rem 1rem 1rem;
+@media screen and (width: 411px) and (height: 731px){  
+.formContainer{
+  background-color: white;
+  position: absolute;
+  z-index: 10;
+  height: 76vh;
+  width: 91.5vw;
+  margin: -8px 0px 0 8px;
+  display: flex;
+  flex-direction: column;
+}
+.placePoiContainer{
+  position: absolute;
+  background-color: white;
+  color: grey;
+  margin: -2vh 1.8vw 0vh 2.2vw;
+  height: 18vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0rem 0rem 1rem 1rem;
 }
 }
 //Pixel 2 XL
-@media screen and (width: 411px) and (height: 823px){
+@media screen and (width: 411px) and (height: 823px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76.5vh;
+    width: 91.8vw;
+    margin: -16px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+  }
   .placePoiContainer{
     position: absolute;
     background-color: white;
@@ -260,8 +293,18 @@ legend{
     border-radius: 0rem 0rem 1rem 1rem;
   }
 }
-//iphone 5/SE
-@media screen and (width: 320px) and (height: 568px){
+//iphone 6/7/8 
+@media screen and (width: 375px) and (height: 667px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 91.2vw;
+    margin: -8px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+  }
   .placePoiContainer{
     position: absolute;
     background-color: white;
@@ -275,8 +318,19 @@ legend{
     border-radius: 0rem 0rem 1rem 1rem;
   }
 }
-//iphone 6/7/8
-@media screen and (width: 375px) and (height: 667px){
+//iphone 5/SE
+@media screen and (width: 320px) and (height: 568px){
+  .placePoiContainer{
+    position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 94.2vw;
+    margin: 0px 0px 0 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
   .placePoiContainer{
     position: absolute;
     background-color: white;
@@ -294,9 +348,69 @@ legend{
 @media screen and (width: 414px) and (height: 736px){
   .placePoiContainer{
     position: absolute;
+    z-index: 10;
+    height: 75vh;
+    width: 94.2vw;
+    margin: 0px 0px 0 19px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 91.6vw;
+    margin: -9px 0px 0 8px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+//iphone 5/SE 
+@media screen and (width: 320px) and (height: 568px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 90.2vw;
+    margin: -7px 0px 0 6px;
+    display: flex;
+    flex-direction: column;
+  }
+  .placePoiContainer{
+    position: absolute;
     background-color: white;
     color: grey;
     margin: -2vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+    width: 90vw;
+  }
+}
+//iphone X 
+@media screen and (width: 375px) and (height: 812px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 77vh;
+    width: 91.2vw;
+    margin: -21px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+  }
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -3vh 1.5vw 0vh 2.2vw;
     height: 18vh;
     text-align: center;
     display: flex;

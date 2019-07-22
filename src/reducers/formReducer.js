@@ -43,6 +43,7 @@ const dataFormReducer = (state = initialState, action) => {
         operationRating: 1,
         accessibilityRating: 1,
         newPoiCoordinates: action.newPoiCoordinates,
+        previewPic: '',
       };
     default:
       return state;

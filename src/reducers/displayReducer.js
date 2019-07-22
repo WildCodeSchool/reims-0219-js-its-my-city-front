@@ -1,5 +1,6 @@
 const initialState = {
   isCreateFormDisplayed: false,
+  isPageCompleted: false,
   filterKeywordPageDisplay: false,
   InformationPoiInfos: false,
   isFirstResearchDone: false,
@@ -23,6 +24,7 @@ const dataFormReducer = (state = initialState, action) => {
       return {
         ...state,
         formPage: state.formPage + 1,
+        isPageCompleted: false,
       };
     case 'PREVIOUS_PAGE':
       if (state.isCreateFormDisplayed) {
@@ -126,6 +128,11 @@ const dataFormReducer = (state = initialState, action) => {
       return {
         ...state,
         InformationPoiInfos: !state.InformationPoiInfos,
+      };
+    case 'ADD_CUSTOM_MARKER':
+      return {
+        ...state,
+        isPageCompleted: true,
       };
     default:
       return state;
