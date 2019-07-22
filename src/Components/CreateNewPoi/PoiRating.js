@@ -17,7 +17,7 @@ const PoiRating = ({
   });
 
   return (
-    <div>
+    <div className="gradeContainer">
       <span>{title}</span>
       <div className="accessibilityRating">
         {scoreRating.map(rate => (

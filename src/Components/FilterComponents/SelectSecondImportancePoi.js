@@ -1,24 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../ComponentsCSS/FilterComponent.scss';
-import axios from 'axios';
 import PreviousPageFilterButton from './PreviousPageFilterButton';
-
 
 const mapStateToProps = state => ({
   isKeywordOneChoosen: state.pois.poiKeywordsDisplay,
-  specificSecondKeywords: state.pois.specificSecondKeywords,
-  isKeywordTwoChoosen: state.pois.isKeywordTwoChoosen,
-  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
-  secondIndicationIsDisplayed: state.pois.secondIndicationIsDisplayed,
-  secondKeyword: state.pois.secondKeyword,
-  keywordOneChoosen: state.pois.keywordOneChoosen,
+  specificSecondKeywords: state.keywords.specificSecondKeywords,
+  isKeywordTwoChoosen: state.display.isKeywordTwoChoosen,
+  filteredPoiByKeyword: state.keywords.filteredPoiByKeyword,
+  secondKeyword: state.keywords.secondKeyword,
+  keywordOneChoosen: state.keywords.keywordOneChoosen,
 
 });
 
 const SelectSecondImportancePoi = ({
-  dispatch, isKeywordOneChoosen, secondIndicationIsDisplayed, specificSecondKeywords,
-  isKeywordTwoChoosen, secondKeyword, keywordOneChoosen,
+  dispatch, isKeywordOneChoosen, specificSecondKeywords, keywordOneChoosen,
 }) => (
   <div className="secondFilterPage">
     <PreviousPageFilterButton />
@@ -44,29 +40,6 @@ const SelectSecondImportancePoi = ({
 
         </button>
       ))}
-    </div>
-
-    <div>
-      <div className="applyButton">
-        {isKeywordTwoChoosen && (
-        <button
-          type="button"
-          className="applyButtonStyle"
-          onClick={() => axios.get(`${process.env.REACT_APP_API_URL}/pois/filter/${secondKeyword}`)
-            .then(res => dispatch({
-              type: 'HANDLE_KEYWORD_FILTERING',
-              filteredPoiByKeyword: res.data,
-              userInputSearchBar: secondKeyword,
-            })).then(setTimeout(() => {
-              dispatch({ type: 'HIDE_ALERT' });
-            }, 3000))
-      }
-        >
-        Appliquer
-        </button>
-        )
-        }
-      </div>
     </div>
   </div>
 );

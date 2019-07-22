@@ -4,9 +4,7 @@ import '../ComponentsCSS/FilterComponent.scss';
 
 const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
-  displaySecondImportancePoiPage: state.pois.displaySecondImportancePoiPage,
-  firstIndicationIsDisplayed: state.pois.firstIndicationIsDisplayed,
-  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
+  filterKeywordPageDisplay: state.display.filterKeywordPageDisplay,
 });
 
 const selectRightKeywordChildren = (
