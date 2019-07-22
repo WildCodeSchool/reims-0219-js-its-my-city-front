@@ -1,12 +1,5 @@
 @import '../../App.scss';
 
-.buttonContainer{
-    display: grid;
-    grid-template-columns: 0px 160px 160px 0px;
-    grid-template-rows: 60px;
-    grid-column-gap: 0px;
-}
-
 .closeButton{
     position: absolute;
     right: 0px;
@@ -274,6 +267,23 @@
         margin-right: 15px;
         margin-left: 15px;
     }
+    .buttonContainer{
+        display: grid;
+        grid-template-columns: 0px 160px 160px 0px;
+        grid-template-rows: 60px;
+        grid-column-gap: 0px;
+    }
+    .eventTeasing{
+        color:$mainColor;
+        text-align: right;
+        position: relative;
+        font-size: 14px;
+        z-index: 4;
+        margin-right: 5vh;
+        margin-top: -1vh;
+        font-size: 1.8vh;
+        color: grey;
+    }
   }
   //Pixel 2
   @media screen and (width: 411px) and (height: 731px){  
@@ -305,6 +315,24 @@
         grid-row-gap: 20px;
         margin-right: 15px;
         margin-left: 15px;
+    }
+    .buttonContainer{
+        display: grid;
+        grid-template-columns: 0px 160px 160px 0px;
+        grid-template-rows: 60px;
+        grid-column-gap: 0px;
+        margin-left: 6vw;
+    }
+    .eventTeasing{
+        color:$mainColor;
+        text-align: right;
+        position: relative;
+        font-size: 14px;
+        z-index: 4;
+        margin-right: 7vh;
+        margin-top: 0vh;
+        font-size: 1.8vh;
+        color: grey;
     }
   }
   //Pixel 2 XL
@@ -338,6 +366,24 @@
         margin-right: 15px;
         margin-left: 15px;
     }
+    .buttonContainer{
+        display: grid;
+        grid-template-columns: 0px 160px 160px 0px;
+        grid-template-rows: 60px;
+        grid-column-gap: 0px;
+        margin-left: 7vw;
+    }
+    .eventTeasing{
+        color:$mainColor;
+        text-align: right;
+        position: relative;
+        font-size: 14px;
+        z-index: 4;
+        margin-right: 5vh;
+        margin-top: 1vh;
+        font-size: 1.8vh;
+        color: grey;
+    }
   }
   //iphone 5/SE 
   @media screen and (width: 320px) and (height: 568px){  
@@ -368,6 +414,24 @@
         column-gap: 10px;
         margin-right: 15px;
         margin-left: 15px;
+    }
+    .buttonContainer{
+        display: grid;
+        grid-template-columns: 0px 160px 160px 0px;
+        grid-template-rows: 60px;
+        grid-column-gap: 0px;
+        margin-left: -5vw;
+    }
+    .eventTeasing{
+        color:$mainColor;
+        text-align: right;
+        position: relative;
+        font-size: 14px;
+        z-index: 4;
+        margin-right: 3vh;
+        margin-top: -2vh;
+        font-size: 1.8vh;
+        color: grey;
     }
   }
   //iphone 6/7/8 
@@ -401,6 +465,24 @@
         margin-right: 15px;
         margin-left: 15px;
     }
+    .buttonContainer{
+        display: grid;
+        grid-template-columns: 0px 160px 160px 0px;
+        grid-template-rows: 60px;
+        grid-column-gap: 0px;
+        margin-left: 3vw;
+    }
+    .eventTeasing{
+        color:$mainColor;
+        text-align: right;
+        position: relative;
+        font-size: 14px;
+        z-index: 4;
+        margin-right: 5vh;
+        margin-top: -1vh;
+        font-size: 1.8vh;
+        color: grey;
+    }
   }
   //iphone 6/7/8 Plus
   @media screen and (width: 414px) and (height: 736px){  
@@ -432,6 +514,24 @@
         grid-row-gap: 23px;
         margin-right: 15px;
         margin-left: 15px;
+    }
+    .buttonContainer{
+        display: grid;
+        grid-template-columns: 0px 160px 160px 0px;
+        grid-template-rows: 60px;
+        grid-column-gap: 0px;
+        margin-left: 7vw;
+    }
+    .eventTeasing{
+        color:$mainColor;
+        text-align: right;
+        position: relative;
+        font-size: 14px;
+        z-index: 4;
+        margin-right: 7vh;
+        margin-top: 0vh;
+        font-size: 1.8vh;
+        color: grey;
     }
   }
   //iphone X 
@@ -465,59 +565,43 @@
         margin-right: 15px;
         margin-left: 15px;
     }
-  }
-  //iPad 
-  @media screen and (width: 768px) and (height: 1024px){  
-    .filterComponent {
-        position: absolute;
-        z-index: 5;
-        background-color: white;
-        width: 96.5%;
-        height: 78vh;
-        margin-left: 2vw;
-        overflow: hidden;
-        margin-top: -3vh;
-    }
-    .buttonStyle{
-        width: 100%;
-        border-radius: 2rem;
-        height: 8vh;
-        background-color: white;
-        color: grey;
-        font-size: 2.5vh;
-        font-weight: bold;
-        outline: none;
-    }
-  }
-  //iPad Pro
-  @media screen and (width: 1024px) and (height: 1366px){  
-    .filterComponent {
-        position: absolute;
-        z-index: 5;
-        background-color: white;
-        width: 96.5%;
-        height: 78vh;
-        margin-left: 2vw;
-        overflow: hidden;
-        margin-top: -3vh;
-    }
-    .buttonStyle{
-        width: 100%;
-        border-radius: 2rem;
-        height: 8vh;
-        background-color: white;
-        color: grey;
-        font-size: 2.5vh;
-        font-weight: bold;
-        outline: none;
-    }
-    .keywordsOfFirstImportance{
+    .buttonContainer{
         display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 60px 60px 60px 60px 60px;
-        column-gap: 10px;
-        grid-row-gap: 23px;
-        margin-right: 15px;
-        margin-left: 15px;
+        grid-template-columns: 0px 160px 160px 0px;
+        grid-template-rows: 60px;
+        grid-column-gap: 0px;
+        margin-left: 2vw;
     }
-  }
+    .eventTeasing{
+        color:$mainColor;
+        text-align: right;
+        position: relative;
+        font-size: 14px;
+        z-index: 4;
+        margin-right: 4vh;
+        margin-top: 1vh;
+        font-size: 1.8vh;
+        color: grey;
+    }
+  }  
+    .filterComponent {
+        position: absolute;
+        z-index: 5;
+        background-color: white;
+        width: 96.5%;
+        height: 78vh;
+        margin-left: 2vw;
+        overflow: hidden;
+        margin-top: -3vh;
+    }
+    .buttonStyle{
+        width: 100%;
+        border-radius: 2rem;
+        height: 8vh;
+        background-color: white;
+        color: grey;
+        font-size: 2.5vh;
+        font-weight: bold;
+        outline: none;
+    }
+ 
