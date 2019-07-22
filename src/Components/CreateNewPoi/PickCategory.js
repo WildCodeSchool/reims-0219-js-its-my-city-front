@@ -5,24 +5,20 @@ import PickCategoryFields from './PickCategoryFields';
 import InputFieldChecked from './validate';
 import '../ComponentsCSS/createPoiForm.scss';
 import PreviousPageButton from './PreviousPageButton';
-import NextPageButton from './NextPageButton';
 
 const mapStateToProps = state => ({
   categoryKeyword: state.form.poiCreation.values && state.form.poiCreation.values.categoryKeyword,
 });
 
-let PickCategory = ({ categoryKeyword }) => (
+let PickCategory = () => (
   <form className="formContainer">
+    <PreviousPageButton />
     <p className="step">Etape 3/5</p>
     <Field
       name="categoryKeyword"
       component={PickCategoryFields}
-      label="Sélectionnez une catégorie..."
+      label="Sélectionnez une catégorie pour pouvoir retrouver votre point d'intéret..."
     />
-    <div>
-      <PreviousPageButton />
-      <NextPageButton disabled={!categoryKeyword} />
-    </div>
   </form>
 );
 

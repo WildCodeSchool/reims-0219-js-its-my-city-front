@@ -19,15 +19,15 @@ const myIcon = L.icon({
 });
 
 const mapStateToProps = state => ({
-  zoom: state.pois.zoom,
-  geolocCoordonnees: state.pois.geolocCoordonnees,
-  defaultCoordonnees: state.pois.defaultCoordonnees,
+  zoom: state.map.zoom,
+  geolocCoordonnees: state.map.geolocCoordonnees,
+  defaultCoordonnees: state.map.defaultCoordonnees,
+  customCoordonnes: state.map.customCoordonnes,
   poiSampleDisplay: state.pois.poiSampleDisplay,
-  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
-  customCoordonnes: state.pois.customCoordonnes,
-  isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
-  page: state.pois.formPage,
-  newPoiCoordinates: state.pois.newPoiCoordinates,
+  filteredPoiByKeyword: state.keywords.filteredPoiByKeyword,
+  isCreateFormDisplayed: state.display.isCreateFormDisplayed,
+  page: state.display.formPage,
+  newPoiCoordinates: state.dataForm.newPoiCoordinates,
 });
 
 const customPins = keyword => L.divIcon({

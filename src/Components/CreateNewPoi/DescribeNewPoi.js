@@ -1,11 +1,10 @@
+/* eslint-disable eqeqeq */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import DescribeNewPoiFields from './DescribeNewPoiFields';
 import InputFieldChecked from './validate';
 import PreviousPageButton from './PreviousPageButton';
-import NextPageButton from './NextPageButton';
-
 
 const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
@@ -20,16 +19,13 @@ class DescribeNewPoi extends Component {
   render() {
     return (
       <form className="formContainer">
+        <PreviousPageButton />
         <p className="step">Etape 4/5</p>
         <Field
           name="poiDesc"
           component={DescribeNewPoiFields}
-          label="Indiquez un nom ou une courte description..."
+          label="Pour plus de précision, indiquez un nom ou une courte description..."
         />
-        <div>
-          <PreviousPageButton />
-          <NextPageButton />
-        </div>
       </form>
     );
   }

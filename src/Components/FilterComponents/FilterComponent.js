@@ -4,17 +4,19 @@ import SelectFirstImportancePoi from './SelectFirstImportancePoi';
 import SelectSecondImportancePoi from './SelectSecondImportancePoi';
 import TopPageSvg from '../ComponentPins/TopPageSvg';
 import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
+import BottomPageCloseSvg from '../ComponentPins/BottomPageCloseSvg';
 
 const mapStateToProps = state => ({
-  page: state.pois.filterPage,
+  page: state.display.filterPage,
+  isKeywordTwoChoosen: state.display.isKeywordTwoChoosen,
 });
 
-const FilterComponent = ({ page }) => (
+const FilterComponent = ({ page, isKeywordTwoChoosen }) => (
   <div className="poi-create">
     <TopPageSvg />
     {page === 1 && <SelectFirstImportancePoi />}
     {page === 2 && <SelectSecondImportancePoi />}
-    <BottomPageCheckSvg />
+    {page === 1 || isKeywordTwoChoosen === false ? <BottomPageCloseSvg /> : <BottomPageCheckSvg />}
   </div>
 );
 
