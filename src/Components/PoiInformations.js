@@ -43,7 +43,6 @@ const PoiInformation = ({
         </div>
         <hr />
         <div className="generalInfosContainer">
-          <p className="adress">Adresse</p>
           <p className="distance">
             {calculateDistance(
               geolocCoordonnees[0],

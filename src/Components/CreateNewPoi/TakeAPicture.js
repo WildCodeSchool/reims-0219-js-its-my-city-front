@@ -63,7 +63,7 @@ let TakeAPicture = ({
             value="upload"
             className="buttonFormNext"
           >
-          Suivant
+          Sauvegarder
           </button>
         </form>
       </div>
