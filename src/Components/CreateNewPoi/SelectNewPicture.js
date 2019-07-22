@@ -7,7 +7,7 @@ import '../ComponentsCSS/createPoiForm.scss';
 import axios from 'axios';
 
 const mapStateToProps = state => ({
-  file: state.pois.file,
+  file: state.dataForm.file,
 });
 
 const storeNewPictureData = (e) => {

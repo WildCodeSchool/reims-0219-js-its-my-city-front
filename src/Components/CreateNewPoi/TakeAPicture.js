@@ -7,8 +7,8 @@ import PreviousPageButton from './PreviousPageButton';
 import Picture from '../ComponentPins/Picture';
 
 const mapStateToProps = state => ({
-  file: state.pois.file,
-  previewPic: state.pois.previewPic,
+  file: state.dataForm.file,
+  previewPic: state.dataForm.previewPic,
 });
 
 const storeNewPictureData = (e) => {
@@ -63,7 +63,7 @@ let TakeAPicture = ({
             value="upload"
             className="buttonFormNext"
           >
-          Suivant
+          Sauvegarder
           </button>
         </form>
       </div>

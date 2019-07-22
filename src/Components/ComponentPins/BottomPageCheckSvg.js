@@ -1,24 +1,31 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-lone-blocks */
 import React from 'react';
 import '../ComponentsCSS/ColorSvg.scss';
 import { connect } from 'react-redux';
-import axios from 'axios';
+import selectedKeyword from '../../Functions/selectedKeyword';
+import newPoiSubmit from '../../Functions/newPoiSubmit';
 
 const mapStateToProps = state => ({
-  geolocCoordonnees: state.pois.geolocCoordonnees,
   createPoiFormInfos: state.form,
-  conditionRating: state.pois.conditionRating,
-  accessibilityRating: state.pois.accessibilityRating,
-  operationRating: state.pois.operationRating,
-  customCoordonnes: state.pois.customCoordonnes,
+  geolocCoordonnees: state.map.geolocCoordonnees,
+  customCoordonnes: state.map.customCoordonnes,
+  conditionRating: state.dataForm.conditionRating,
+  accessibilityRating: state.dataForm.accessibilityRating,
+  operationRating: state.dataForm.operationRating,
+  isCreateFormDisplayed: state.display.isCreateFormDisplayed,
+  secondKeyword: state.keywords.secondKeyword,
 });
 
 const PageBottomCheckSvg = ({
+  isCreateFormDisplayed,
+  secondKeyword,
+  dispatch,
   createPoiFormInfos,
   customCoordonnes,
   accessibilityRating,
   conditionRating,
   operationRating,
-  dispatch,
 }) => (
 
   <svg
@@ -124,19 +131,17 @@ c0-14.7-11.9-26.5-26.7-26.5h-0.4C170,14.9,158,26.7,158,41.4z"
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        axios.post(`${process.env.REACT_APP_API_URL}/pois`, {
-          name: createPoiFormInfos.poiCreation.values.poiDesc,
-          latitude: customCoordonnes[0],
-          longitude: customCoordonnes[1],
-          keyword: createPoiFormInfos.poiCreation.values.categoryKeyword,
-          author_id: 1,
-          global_grade: 4,
-          accessibility: accessibilityRating,
-          condition: conditionRating,
-          functional: operationRating,
-        })
-          .then(res => dispatch({ type: 'SAVE_NEW_POI_COORDINATES', filteredPoiByKeyword: res.data, newPoiCoordinates: res.data[0].localisation }));
-      }}
+        { isCreateFormDisplayed ? newPoiSubmit(
+          dispatch,
+          createPoiFormInfos,
+          customCoordonnes,
+          accessibilityRating,
+          conditionRating,
+          operationRating,
+        ) : selectedKeyword(secondKeyword, dispatch);
+        }
+      }
+    }
     />
   </svg>
 

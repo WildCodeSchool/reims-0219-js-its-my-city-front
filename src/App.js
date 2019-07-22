@@ -12,22 +12,21 @@ import UserPage from './Components/UserPages/UserPage';
 import Alert from './Components/Alert';
 
 const mapStateToProps = state => ({
-  geolocCoordonnees: state.pois.geolocCoordonnees,
+  geolocCoordonnees: state.map.geolocCoordonnees,
+  defaultCoordonnees: state.map.defaultCoordonnees,
   poiSampleDisplay: state.pois.poiSampleDisplay,
   specificPoiInfos: state.pois.specificPoiInfos,
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
-  isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
-  defaultCoordonnees: state.pois.defaultCoordonnees,
+  isCreateFormDisplayed: state.display.isCreateFormDisplayed,
   createPoiFormInfos: state.form,
-  conditionRating: state.pois.conditionRating,
-  accessibilityRating: state.pois.accessibilityRating,
-  operationRating: state.pois.operationRating,
-  isFirstResearchDone: state.pois.isFirstResearchDone,
-  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
-  barsAreDisplayed: state.pois.barsAreDisplayed,
-  displayFirstImportancePoiPage: state.pois.displayFirstImportancePoiPage,
-  filterKeywordPageDisplay: state.pois.filterKeywordPageDisplay,
-  isUserPageDisplayed: state.pois.isUserPageDisplayed,
+  conditionRating: state.dataForm.conditionRating,
+  accessibilityRating: state.dataForm.accessibilityRating,
+  operationRating: state.dataForm.operationRating,
+  isFirstResearchDone: state.display.isFirstResearchDone,
+  filteredPoiByKeyword: state.keywords.filteredPoiByKeyword,
+  barsAreDisplayed: state.display.barsAreDisplayed,
+  filterKeywordPageDisplay: state.display.filterKeywordPageDisplay,
+  isUserPageDisplayed: state.display.isUserPageDisplayed,
 });
 
 

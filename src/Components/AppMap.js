@@ -19,15 +19,15 @@ const myIcon = L.icon({
 });
 
 const mapStateToProps = state => ({
-  zoom: state.pois.zoom,
-  geolocCoordonnees: state.pois.geolocCoordonnees,
-  defaultCoordonnees: state.pois.defaultCoordonnees,
+  zoom: state.map.zoom,
+  geolocCoordonnees: state.map.geolocCoordonnees,
+  defaultCoordonnees: state.map.defaultCoordonnees,
+  customCoordonnes: state.map.customCoordonnes,
   poiSampleDisplay: state.pois.poiSampleDisplay,
-  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
-  customCoordonnes: state.pois.customCoordonnes,
-  isCreateFormDisplayed: state.pois.isCreateFormDisplayed,
-  page: state.pois.formPage,
-  newPoiCoordinates: state.pois.newPoiCoordinates,
+  filteredPoiByKeyword: state.keywords.filteredPoiByKeyword,
+  isCreateFormDisplayed: state.display.isCreateFormDisplayed,
+  page: state.display.formPage,
+  newPoiCoordinates: state.dataForm.newPoiCoordinates,
 });
 
 const customPins = keyword => L.divIcon({
@@ -64,9 +64,9 @@ const AppMap = ({
     {geolocCoordonnees.length !== 0 && (
       <LeafletConsumer>
         {(context) => {
-          L.easyButton('<img src="https://image.flaticon.com/icons/png/512/104/104419.png">', (btn, map) => {
-            const currentPosition = geolocCoordonnees;
-            map.setView(currentPosition);
+          L.easyButton('<img src="https://www.zupimages.net/up/19/30/16fb.png">', (btn, map) => {
+            const coordinates = geolocCoordonnees;
+            map.setView(coordinates);
           }).addTo(context.map);
         }}
       </LeafletConsumer>
