@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TopPageSvg from '../ComponentPins/TopPageSvg';
-import BottomPageCheckSvg from '../ComponentPins/BottomPageCheckSvg';
+import BottomPageCloseSvg from '../ComponentPins/BottomPageCloseSvg';
 import Math from './math.png';
 import '../ComponentsCSS/UserPage.scss';
 
@@ -48,7 +48,7 @@ const UserPage = ({ dispatch }) => (
         </div>
       </div>
     </div>
-    <BottomPageCheckSvg />
+    <BottomPageCloseSvg />
   </div>
 
 );
