@@ -8,19 +8,24 @@ Nonetheless, they are hardly used by the people they are intended to. This is ma
 Facing this, Alexis asked us to develop a prototype for It's my city, an app that will gather all those facilities and resources in a same place, to make them really available to everybody. On top of that, to make the app more enjoyable and add a community aspect to it, the initial specs added the ability for an user to add his/her own facilities not referenced in the app yet, to rate it on different criteria and make them available to all other users.
 
 Main principles of the app :
-- A map where the user is geolocated
-[](https://i.imgur.com/6PKHj31.jpg)
+- A map where the user is geolocated<br>
+![](https://i.imgur.com/6PKHj31.jpg)
 
 - Facilities/resources grouped by main themes (Nature, Daily Life, Sport...) and keywords (square, monument, ping-pong table...) 
 
-- Facilities/resources appear on the map symbolized by coloured pins/markers, each colour linked to one of the 5 main themes. Related information must be available on click.
-[](https://i.imgur.com/Ao9uDyZ.jpg) 
-[](https://i.imgur.com/t2r7jMO.png)
+- Facilities/resources appear on the map symbolized by coloured pins/markers, each colour linked to one of the 5 main themes. Related information must be available on click.<br>
+![](https://i.imgur.com/Ao9uDyZ.jpg) <br>
+![](https://i.imgur.com/t2r7jMO.png)<br>
 
-- User can find facilities/resources through a search bar and through a filter page
-
-- User can submit the creation of a new facility/resource and rate it through a dedicated form
-
+- User can find facilities/resources through a search bar and through a filter page<br>
+![](https://i.imgur.com/rBNKLzL.png)<br>
+![](https://i.imgur.com/zA23r2B.jpg)<br>
+![](https://i.imgur.com/xmMoSbp.png)<br>
+- User can submit the creation of a new facility/resource and rate it through a dedicated form<br>
+![](https://i.imgur.com/SRoCYxO.jpg)<br>
+![](https://i.imgur.com/Op7yvF2.png)<br>
+... <br>
+![](https://i.imgur.com/fwhoSu7.jpg)<br>
 - User can access his/her profile in the app through the dedicated button. 
 
 
@@ -61,6 +66,7 @@ An open-source JavaScript library
 for mobile-friendly interactive [maps](https://leafletjs.com/)
 <br>
 ### **3- Lots of love and code skills**
+---
 from <br>
 [Axel CHANDELIER](https://github.com/spartakyste)<br>
 [Jérémy FIGUEIREDO](https://github.com/0figueiredo)<br>
