@@ -23,7 +23,7 @@ RateNewPoi = connect()(RateNewPoi);
 
 export default reduxForm({
   form: 'poiCreation', //                 <------ same form name
-  destroyOnUnmount: true, //        <------ preserve form data
-  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+  destroyOnUnmount: false, //        <------ preserve form data
+  forceUnregisterOnUnmount: false, // <------ unregister fields on unmount
   validate,
 })(RateNewPoi);
