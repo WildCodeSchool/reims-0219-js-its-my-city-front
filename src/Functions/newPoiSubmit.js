@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { reset } from 'redux-form';
 
 const newPoiSubmit = (
   dispatch,
@@ -19,7 +20,8 @@ const newPoiSubmit = (
     condition: conditionRating,
     functional: operationRating,
   })
-    .then(res => dispatch({ type: 'SAVE_NEW_POI_COORDINATES', filteredPoiByKeyword: res.data, newPoiCoordinates: res.data[0].localisation }));
+    .then(res => dispatch({ type: 'SAVE_NEW_POI_COORDINATES', filteredPoiByKeyword: res.data, newPoiCoordinates: res.data[0].localisation }))
+    .then(() => dispatch(reset('poiCreation')));
 };
 
 export default newPoiSubmit;
