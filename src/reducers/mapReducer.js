@@ -17,6 +17,11 @@ const mapReducer = (state = initialState, action) => {
         ...state,
         customCoordonnes: action.customCoordonnes,
       };
+    case 'CLOSE_PAGE':
+      return {
+        ...state,
+        customCoordonnes: [0, 0],
+      };
     default:
       return state;
   }
