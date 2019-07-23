@@ -27,7 +27,8 @@ Main principles of the app :
 ... <br>
 ![](https://i.imgur.com/fwhoSu7.jpg)<br>
 - User can access his/her profile in the app through the dedicated button. 
-
+![](https://i.imgur.com/DtAhtLU.jpg)
+![](https://i.imgur.com/gY7kYcW.png)
 
 
 
