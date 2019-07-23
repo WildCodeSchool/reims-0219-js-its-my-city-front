@@ -8,7 +8,7 @@ import PreviousPageButton from './PreviousPageButton';
 
 const mapStateToProps = state => ({
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
-  labelKey: `${state.pois.poiKeywordsDisplay.find(keyword => keyword.id === state.form.poiCreation.values.categoryKeyword).name} - `,
+  labelKey: `${state.pois.poiKeywordsDisplay.find(keyword => keyword.id == state.form.poiCreation.values.categoryKeyword).name} - `,
 });
 class DescribeNewPoi extends Component {
   componentDidMount() {

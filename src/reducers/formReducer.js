@@ -49,6 +49,9 @@ const dataFormReducer = (state = initialState, action) => {
       return {
         ...state,
         previewPic: '',
+        conditionRating: 1,
+        operationRating: 1,
+        accessibilityRating: 1,
       };
     default:
       return state;
