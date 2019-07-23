@@ -31,20 +31,19 @@ const UserPage = ({ dispatch }) => (
                 Bio :
           </h3>
           <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
-                Cras elementum ultrices diam. Maecenas ligula massa, varius a,
-                semper congue, euismod non, mi.
+                Je m'appelle Matthieu, je suis un jeune emo de 42 ans et j'accorde beaucoup d'importance au partage.
           </p>
         </div>
 
         <div>
           <h3>
-                Dernière contribution:
+                Dernières contributions:
           </h3>
-          <p>
-                Quartier Libre Reims - La Petite Halle
-          </p>
+          <ul>
+            <li>Table de ping pong - Parc Léo Lagrange</li>
+            <li>Composteur - Rue de Saint-Brice</li>
+            <li>Container à verre - Rue Buirette </li>
+          </ul>
         </div>
       </div>
     </div>
