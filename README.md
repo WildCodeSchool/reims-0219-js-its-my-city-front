@@ -5,7 +5,7 @@ This app has been developped as the final project for the Feb' 19 promo of javas
 Our client, Alexis Michel, noticed that in a lot of French cities, public organisms and structures are offering free facilities and resources to their citizens.
 Nonetheless, they are hardly used by the people they are intended to. This is mainly due to a lack of information on how to find these facilities, in which state they are and how and when they are accessible.
 
-Facing this, Alexis asked us to develop a prototype for It's my city, an app that will gather all those facilities and resources in a same place, to make them really available to everybody. On top of that, to make the app more enjoyable and add a community aspect to it, the initial specs added the ability for an user to add his/her own facilities not referenced in the app yet, to rate it on different criteria and make them available to all other users.
+Facing this, Alexis asked us to develop a prototype for **"It's my city"**, an app that will gather all those facilities and resources in a same place, to make them really available to everybody. On top of that, to make the app more enjoyable and add a community aspect to it, the initial specs added the ability for an user to add his/her own facilities not referenced in the app yet, to rate it on different criteria and make them available to all other users.
 
 Main principles of the app :
 - A map where the user is geolocated<br>
@@ -15,7 +15,7 @@ Main principles of the app :
 
 - Facilities/resources appear on the map symbolized by coloured pins/markers, each colour linked to one of the 5 main themes. Related information must be available on click.<br>
 ![](https://i.imgur.com/Ao9uDyZ.jpg) <br>
-![](https://i.imgur.com/t2r7jMO.png)<br>
+![](https://i.imgur.com/ap26Tlm.png)<br>
 
 - User can find facilities/resources through a search bar and through a filter page<br>
 ![](https://i.imgur.com/rBNKLzL.png)<br>
@@ -27,8 +27,8 @@ Main principles of the app :
 ... <br>
 ![](https://i.imgur.com/fwhoSu7.jpg)<br>
 - User can access his/her profile in the app through the dedicated button. 
-![](https://i.imgur.com/DtAhtLU.jpg)
-![](https://i.imgur.com/gY7kYcW.png)
+![](https://i.imgur.com/DtAhtLU.jpg)<br>
+![](https://i.imgur.com/gY7kYcW.png)<br>
 
 
 
