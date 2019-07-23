@@ -41,8 +41,8 @@ const UserPage = ({ dispatch }) => (
           </h3>
           <ul>
             <li>Table de ping pong - Parc Léo Lagrange</li>
-            <li>Composteur - Saint-Brice</li>
-            <li>Container à verre </li>
+            <li>Composteur - Rue de Saint-Brice</li>
+            <li>Container à verre - Rue Buirette </li>
           </ul>
         </div>
       </div>
