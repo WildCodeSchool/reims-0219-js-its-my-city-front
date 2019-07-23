@@ -12,8 +12,6 @@ const TopPageSvg = ({ dispatch }) => (
     style={{
       position: 'absolute',
       top: '-9vh',
-      marginLeft: '1.4px',
-      marginRight: '-1px',
     }}
   >
 
