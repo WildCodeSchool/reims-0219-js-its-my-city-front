@@ -12,12 +12,12 @@
 }
 .gradeContainer{
   margin-left: 1vw;
-  margin-top: 0vh;
+  display: flex;
+  justify-content: flex-end;
 }
 @mixin stars-position{
     display: inline-flex;
     justify-content: space-around;
-    align-items: center;
 }
 
 .conditionRating{
