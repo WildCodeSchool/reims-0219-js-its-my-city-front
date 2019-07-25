@@ -1,5 +1,5 @@
 const initialState = {
-  zoom: 16,
+  zoom: 14,
   geolocCoordonnees: [],
   defaultCoordonnees: [49.260096, 4.030293],
   customCoordonnes: [0, 0],
