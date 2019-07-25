@@ -10,6 +10,7 @@ const PoiRating = ({
   type,
   canClick,
   rating,
+  form,
 }) => {
   const dispatchRating = rate => dispatch({
     type,
@@ -17,7 +18,7 @@ const PoiRating = ({
   });
 
   return (
-    <div className="gradeContainer">
+    <div className={form ? 'gradeContainerForm' : 'gradeContainer'}>
       <span>{title}</span>
       <div className="accessibilityRating">
         {scoreRating.map(rate => (

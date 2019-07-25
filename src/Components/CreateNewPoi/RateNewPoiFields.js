@@ -28,6 +28,7 @@ const RateNewPoiFields = ({
           rating={PoiEvaluation.rating}
           dispatch={dispatch}
           canClick={canClickOnStars}
+          form
         />
       )) }
     </div>

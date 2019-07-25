@@ -42,7 +42,7 @@ const UserPage = ({ dispatch }) => (
           <ul>
             <li>Table de ping pong - Parc Léo Lagrange</li>
             <li>Composteur - Rue de Saint-Brice</li>
-            <li>Container à verre - Rue Buirette </li>
+            <li>Container à verre - Saint-Brice</li>
           </ul>
         </div>
       </div>
