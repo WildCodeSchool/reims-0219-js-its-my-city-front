@@ -8,6 +8,7 @@ import FilterBar from './Components/filterBar';
 import PoiInformation from './Components/PoiInformations';
 import FilterComponent from './Components/FilterComponents/FilterComponent';
 import CreatePoiForm from './Components/CreateNewPoi/CreatePoiReduxForm';
+import UserPage from './Components/UserPages/UserPage';
 import Alert from './Components/Alert';
 
 const mapStateToProps = state => ({
@@ -25,6 +26,7 @@ const mapStateToProps = state => ({
   filteredPoiByKeyword: state.keywords.filteredPoiByKeyword,
   barsAreDisplayed: state.display.barsAreDisplayed,
   filterKeywordPageDisplay: state.display.filterKeywordPageDisplay,
+  isUserPageDisplayed: state.display.isUserPageDisplayed,
 });
 
 
@@ -57,6 +59,7 @@ class App extends Component {
       barsAreDisplayed,
       filterKeywordPageDisplay,
       poiSampleDisplay,
+      isUserPageDisplayed,
     } = this.props;
     return (
       <div>
@@ -81,6 +84,7 @@ class App extends Component {
               {!Object.keys(specificPoiInfos).length && barsAreDisplayed && <FilterBar />}
               {isCreateFormDisplayed && <CreatePoiForm />}
               {filterKeywordPageDisplay && <FilterComponent />}
+              {isUserPageDisplayed && <UserPage />}
             </div>
           )
         }

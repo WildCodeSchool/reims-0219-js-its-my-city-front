@@ -8,6 +8,7 @@ const initialState = {
   areOthersRatingDisplayed: false,
   barsAreDisplayed: true,
   isKeywordTwoChoosen: false,
+  isUserPageDisplayed: false,
   formPage: 1,
   filterPage: 1,
 };
@@ -79,6 +80,14 @@ const dataFormReducer = (state = initialState, action) => {
           ...state,
           isCreateFormDisplayed: state.isCreateFormDisplayed === false,
           barsAreDisplayed: !state.barsAreDisplayed,
+          formPage: 1,
+        };
+      }
+      if (state.isUserPageDisplayed) {
+        return {
+          ...state,
+          isUserPageDisplayed: state.isUserPageDisplayed === false,
+          barsAreDisplayed: !state.barsAreDisplayed,
         };
       }
       break;
@@ -134,6 +143,12 @@ const dataFormReducer = (state = initialState, action) => {
       return {
         ...state,
         isPageCompleted: true,
+      };
+    case 'DISPLAY_USER_PAGE':
+      return {
+        ...state,
+        isUserPageDisplayed: true,
+        barsAreDisplayed: !state.barsAreDisplayed,
       };
     default:
       return state;
