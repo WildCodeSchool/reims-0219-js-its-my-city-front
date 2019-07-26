@@ -12,12 +12,16 @@
 }
 .gradeContainer{
   margin-left: 1vw;
-  margin-top: 0vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gradeContainerForm{
+  margin-left: 1vw;
 }
 @mixin stars-position{
     display: inline-flex;
     justify-content: space-around;
-    align-items: center;
 }
 
 .conditionRating{
@@ -33,22 +37,27 @@
 .star1{
     width: 7%;
     height: 7%;
+    outline: none;
 }
 .star2{
     width: 8%;
     height: 8%;
+    outline: none;
 }
 .star3{
     width: 9%;
     height: 9%;
+    outline: none;
 }
 .star4{
     width: 10%;
     height: 10%;
+    outline: none;
 }
 .star5{
     width: 11%;
     height: 11%;
+    outline: none;
 }
 
 label{
