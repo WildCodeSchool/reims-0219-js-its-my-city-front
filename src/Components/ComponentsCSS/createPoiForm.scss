@@ -10,11 +10,18 @@
     font-weight: bold;
     font-size: 3vh;
 }
+.gradeContainer{
+  margin-left: 1vw;
+  display: flex;
+  justify-content: flex-end;
+}
 
+.gradeContainerForm{
+  margin-left: 1vw;
+}
 @mixin stars-position{
     display: inline-flex;
     justify-content: space-around;
-    align-items: center;
 }
 
 .conditionRating{
@@ -30,22 +37,27 @@
 .star1{
     width: 7%;
     height: 7%;
+    outline: none;
 }
 .star2{
     width: 8%;
     height: 8%;
+    outline: none;
 }
 .star3{
     width: 9%;
     height: 9%;
+    outline: none;
 }
 .star4{
     width: 10%;
     height: 10%;
+    outline: none;
 }
 .star5{
     width: 11%;
     height: 11%;
+    outline: none;
 }
 
 label{
@@ -54,7 +66,9 @@ label{
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
 }
-
+.gradeContainer {
+  margin-left: 1rem;
+}
 select{
     margin-left: 3px;
     margin-top: 2.5vh;
@@ -67,7 +81,9 @@ select{
 }
 .picturePage{
     display: grid;
-    gap: 7vh;
+    grid-template-columns: 34px 1fr;
+    grid-template-rows: 100px 36px 100px;
+    grid-gap: 5vh;
 }
 .UploadPictureButton{
     place-self: center;
@@ -91,9 +107,23 @@ legend{
 .textPage{
     margin-top: -5vh;
     text-align: center;
+    color: grey;
+    grid-column: 1/4;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.textPageGrade{
+  margin-top: 3vh;
+  text-align: center;
+  color: grey;
+  grid-column: 1/4;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .categoryContainer > input {
+    grid-column: 1/4;
     margin-left: 3px;
     margin-bottom: 2.5vh;
     width: 89%;
@@ -101,6 +131,7 @@ legend{
     outline: none;
     border: none;
     border-bottom: 2px solid #DD476D;
+    grid-column: 1/4;
 }
 .submit-button{
     display: flex;
@@ -124,27 +155,23 @@ legend{
     background-color: none;
     outline: none;
   }
-  
-  .formContainer{
-    background-color: white;
-    position: absolute;
-    z-index: 10;
-    height: 75vh;
-    width: 89.5vw;
-    margin: 0px 0px 0 9px;
-    display: flex;
-    flex-direction: column;
+  .submitButton{
+    border: 1px solid #D12F5B;
+    color: white;
+    background: #D12F5B;
+    border-radius: 4px;
+    margin-top: 7vh;
+    margin-left: 5rem;
+    height: 4vh;
   }
-
   .buttonForm{
     border: 1px solid #D12F5B;
     color: #D12F5B;
     background: white;
     border-radius: 8px;
-    width: 56vw;
-    bottom: 4vh;
-    left: 15vw;
-    font-size: 1.35rem;
+    height: 4.5vh;
+    margin: -1vh 3vw;
+    font-size: 17px;
   }
 
   .buttonFormNext{
@@ -161,18 +188,13 @@ legend{
 .step{
     color: #D12F5B;
     text-align: center;
+    margin-top: -1vh;
 }
-  .placePoiContainer{
-    background-color: white;
-    margin: 0vh 2.6vw;
-    height: 12vh;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-
+.pictureStep{
+    color: #D12F5B;
+    text-align: center; 
+    margin-right: 42px;
+}
   .pictureUploadWrapper{
     position: relative;
     overflow: hidden;
@@ -197,8 +219,214 @@ legend{
   }
 
   .categoryContainer{
+    text-align: center;
+    color: grey;
     display: grid;
     justify-items: center;
     height: 49vh;
     align-items: center;
+}
+
+// Media-queries for each devices
+//Galaxy S5
+@media screen and (width: 360px) and (height:640px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 90.5vw;
+    margin: -8px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+}
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.8vw 0vh 2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
+}
+//Pixel 2
+@media screen and (width: 411px) and (height: 731px){  
+.formContainer{
+  background-color: white;
+  position: absolute;
+  z-index: 10;
+  height: 76vh;
+  width: 91.5vw;
+  margin: -8px 0px 0 8px;
+  display: flex;
+  flex-direction: column;
+}
+.placePoiContainer{
+  position: absolute;
+  background-color: white;
+  color: grey;
+  margin: -2vh 1.8vw 0vh 2.2vw;
+  height: 18vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0rem 0rem 1rem 1rem;
+}
+}
+//Pixel 2 XL
+@media screen and (width: 411px) and (height: 823px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76.5vh;
+    width: 91.8vw;
+    margin: -16px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+  }
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.8vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
+}
+//iphone 6/7/8 
+@media screen and (width: 375px) and (height: 667px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 91.2vw;
+    margin: -8px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+  }
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
+}
+//iphone 5/SE
+@media screen and (width: 320px) and (height: 568px){
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 91.2vw;
+    margin: -8px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+  }
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
+}
+//iphone 6/7/8 Plus
+@media screen and (width: 414px) and (height: 736px){
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+    width: 91.4vw;
+  }
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 91.6vw;
+    margin: -9px 0px 0 8px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+//iphone 5/SE 
+@media screen and (width: 320px) and (height: 568px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 76vh;
+    width: 90.2vw;
+    margin: -7px 0px 0 6px;
+    display: flex;
+    flex-direction: column;
+  }
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -2vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+    width: 90vw;
+  }
+}
+//iphone X 
+@media screen and (width: 375px) and (height: 812px){  
+  .formContainer{
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    height: 77vh;
+    width: 91.2vw;
+    margin: -21px 0px 0 7px;
+    display: flex;
+    flex-direction: column;
+  }
+  .placePoiContainer{
+    position: absolute;
+    background-color: white;
+    color: grey;
+    margin: -3vh 1.5vw 0vh 2.2vw;
+    height: 18vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0rem 0rem 1rem 1rem;
+  }
 }

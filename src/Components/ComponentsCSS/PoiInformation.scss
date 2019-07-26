@@ -74,6 +74,7 @@
     margin-left: 1.75rem;
     margin-top: 1.75rem;
     margin-right: 4.75rem;
+    outline: none;
 }
 
 .adress{
@@ -108,13 +109,13 @@
 }
 .infos::before{
     right: 75%;
-    top: 67%;
+    top: 71%;
     margin-right: 56px;
 }
 
 .infos::after{
     left: 75%;
-    top: 67.2%;
+    top: 71.2%;
     margin-left: 71px;
 }
 .gradesText{

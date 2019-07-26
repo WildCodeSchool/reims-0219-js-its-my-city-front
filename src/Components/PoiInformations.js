@@ -9,9 +9,9 @@ import PoiRating from './CreateNewPoi/PoiRating';
 
 const mapStateToProps = state => ({
   specificPoiInfos: state.pois.specificPoiInfos,
-  InformationPoiInfos: state.pois.InformationPoiInfos,
-  geolocCoordonnees: state.pois.geolocCoordonnees,
-  areOthersRatingDisplayed: state.pois.areOthersRatingDisplayed,
+  InformationPoiInfos: state.display.InformationPoiInfos,
+  geolocCoordonnees: state.map.geolocCoordonnees,
+  areOthersRatingDisplayed: state.display.areOthersRatingDisplayed,
 });
 
 const PoiInformation = ({
@@ -43,7 +43,6 @@ const PoiInformation = ({
         </div>
         <hr />
         <div className="generalInfosContainer">
-          <p className="adress">Adresse</p>
           <p className="distance">
             {calculateDistance(
               geolocCoordonnees[0],

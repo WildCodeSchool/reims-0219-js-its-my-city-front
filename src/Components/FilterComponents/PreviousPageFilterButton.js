@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  page: state.pois.filterPage,
+  page: state.display.filterPage,
 });
 
 const PreviousPageButton = ({ dispatch }) => (

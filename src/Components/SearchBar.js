@@ -7,9 +7,9 @@ import getPoisAccordingToKeyword from '../Functions/getPoisAccordingToKeyword';
 import SearchBarCloseSvg from './ComponentPins/SearchBarCloseSvg';
 
 const mapStateToProps = state => ({
-  filteredPoiByKeyword: state.pois.filteredPoiByKeyword,
+  filteredPoiByKeyword: state.keywords.filteredPoiByKeyword,
   poiKeywordsDisplay: state.pois.poiKeywordsDisplay,
-  userInputSearchBar: state.pois.userInputSearchBar,
+  userInputSearchBar: state.keywords.userInputSearchBar,
 });
 
 const dropdownMenuStyle = {

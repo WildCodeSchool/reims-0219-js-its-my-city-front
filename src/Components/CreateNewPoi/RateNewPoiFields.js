@@ -4,10 +4,10 @@ import '../ComponentsCSS/createPoiForm.scss';
 import PoiRating from './PoiRating';
 
 const mapStateToProps = state => ({
-  conditionRating: state.pois.conditionRating,
-  operationRating: state.pois.operationRating,
-  accessibilityRating: state.pois.accessibilityRating,
-  canClickOnStars: state.pois.canClickOnStars,
+  conditionRating: state.dataForm.conditionRating,
+  operationRating: state.dataForm.operationRating,
+  accessibilityRating: state.dataForm.accessibilityRating,
+  canClickOnStars: state.display.canClickOnStars,
 });
 
 const RateNewPoiFields = ({
@@ -28,6 +28,7 @@ const RateNewPoiFields = ({
           rating={PoiEvaluation.rating}
           dispatch={dispatch}
           canClick={canClickOnStars}
+          form
         />
       )) }
     </div>
